@@ -1,0 +1,32 @@
+{
+	"name": "zebratravelwebui",
+	"version": "1.0.0",
+	"description": "website da zebraTravel",
+	"main": "index.js",
+	"scripts": {
+		"dev": "next",
+		"build": "next build",
+		"start": "next start"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Coyas/zebraTravelWebUI.git"
+	},
+	"keywords": [
+		"nextjs",
+		"reactjs",
+		"imedia",
+		"terrasystem"
+	],
+	"author": "Ailton M. Duarte",
+	"license": "",
+	"bugs": {
+		"url": "https://github.com/Coyas/zebraTravelWebUI/issues"
+	},
+	"homepage": "https://github.com/Coyas/zebraTravelWebUI#readme",
+	"dependencies": {
+		"next": "^9.3.2",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1"
+	}
+}
