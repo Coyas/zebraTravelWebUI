@@ -1,5 +1,15 @@
+import Layout from '../components/layout'
+
 const Home = () => {
-	return <p>ZebraTravel</p>;
+	return (
+		<>
+		<Layout>
+			<div className="container">
+				content
+			</div>
+		</Layout>
+		</>
+	);
 };
 
 export default Home;
