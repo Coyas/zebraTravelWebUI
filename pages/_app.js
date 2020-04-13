@@ -1,8 +1,8 @@
 // import App from 'next/app'
-import '../node_modules/bulma/css/bulma.min.css'
+import "../node_modules/bulma/css/bulma.min.css";
 
 function MyApp({ Component, pageProps }) {
-	return <Component {...pageProps} />;
+    return <Component {...pageProps} />;
 }
 
 // Only uncomment this method if you have blocking data requirements for
