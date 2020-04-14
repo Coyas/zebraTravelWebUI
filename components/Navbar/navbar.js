@@ -1,37 +1,46 @@
 import scss from "./navbar.module.scss";
+import Link from "next/link";
 
 const NavBar = () => {
+    /*
+     * Estou tendo problemas em definir classes
+     * entao por agora irei concatenar classis aqui antes de aplicar
+     * */
+    // const classi = "navbar-end " + scss.navv;
+
     return (
         <>
-            <nav
-                className="navbar"
-                role="navigation"
-                aria-label="main navigation"
-            >
-                <div className="navbar-brand">ola mundo</div>
-                <div className="navbar-menu">
-                    <div className="navbar-start">
-                        <div className="navbar-item has-dropdown">
-                            <a className="navbar-link">Experiencias</a>
-
-                            <div className="navbar-dropdown">
-                                <a className="navbar-item">Experiencis</a>
-                                <a className="navbar-item">Home</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="navbar-end">
-                        <a className="navbar-item"></a>
-                    </div>
-                </div>
+            <nav className={scss.nav}>
+                <ul>
+                    <li>
+                        <Link href="#home">
+                            <a>Experiencias</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="#news">
+                            <a>Servicos</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="#contact">
+                            <a>Blog</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="#contact">
+                            <a>Contatos</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="#about">
+                            <a className={scss.active}>
+                                <i class="fas fa-bars"></i>
+                            </a>
+                        </Link>
+                    </li>
+                </ul>
             </nav>
-
-            <style jsx>{`
-                nav {
-                    border: 2px solid blue;
-                }
-            `}</style>
         </>
     );
 };

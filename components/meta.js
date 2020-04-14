@@ -8,7 +8,7 @@ const Meta = () => {
             />
             <script
                 defer
-                src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+                src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
             ></script>
         </>
     );

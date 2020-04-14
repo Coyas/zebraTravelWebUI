@@ -1,2 +1,43 @@
-@import '../color';
+@import "../color";
 
+.nav {
+    background-color: $branco;
+    width: 35%;
+    position: fixed;
+    top: 4%;
+    right: 4%;
+    // padding: 0 0 0 40px;
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: $branco;
+    }
+
+    li {
+        float: left;
+        padding: 0;
+    }
+
+    li:last-child {
+        width: 15%;
+        float: right;
+    }
+
+    li a {
+        display: block;
+        color: $cinza;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+        color: $preto;
+    }
+
+    .active {
+        background-color: $amarelo;
+    }
+}
