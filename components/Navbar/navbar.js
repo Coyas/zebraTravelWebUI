@@ -11,35 +11,37 @@ const NavBar = () => {
     return (
         <>
             <nav className={scss.nav}>
-                <ul>
-                    <li>
-                        <Link href="#home">
-                            <a>Experiencias</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="#news">
-                            <a>Servicos</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="#contact">
-                            <a>Blog</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="#contact">
-                            <a>Contatos</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="#about">
-                            <a className={scss.active}>
-                                <i class="fas fa-bars"></i>
-                            </a>
-                        </Link>
-                    </li>
-                </ul>
+                <div className={scss.item}></div>
+                <div className={scss.item}>
+                    <Link href="/experiencia">
+                        <a>
+                            Experiencias <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </Link>
+                </div>
+                <div className={scss.item}>
+                    <Link href="/servico">
+                        <a>Servicos</a>
+                    </Link>
+                </div>
+                <div className={scss.item}>
+                    <Link href="/blog">
+                        <a>Blog</a>
+                    </Link>
+                </div>
+                <div className={scss.item}>
+                    <Link href="/contato">
+                        <a>Contatos</a>
+                    </Link>
+                </div>
+                <div className={scss.item}></div>
+                <div className={scss.item + " " + scss.active}>
+                    <Link href="/">
+                        <a>
+                            <i class="fas fa-bars"></i>
+                        </a>
+                    </Link>
+                </div>
             </nav>
         </>
     );

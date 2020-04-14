@@ -2,42 +2,33 @@
 
 .nav {
     background-color: $branco;
-    width: 35%;
+
+    // width: 35%;
     position: fixed;
     top: 4%;
     right: 4%;
-    // padding: 0 0 0 40px;
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: $branco;
-    }
-
-    li {
-        float: left;
-        padding: 0;
-    }
-
-    li:last-child {
-        width: 15%;
-        float: right;
-    }
-
-    li a {
-        display: block;
-        color: $cinza;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-
-    li a:hover:not(.active) {
-        color: $preto;
-    }
-
+    // padding: 1%;
+    display: grid;
+    grid-template-columns: 40px 150px 80px 50px 80px 40px 100px;
+    justify-content: center;
+    align-content: center;
+    gap: 2px;
+    // /* Add the blur effect */
+    opacity: 0.8;
     .active {
         background-color: $amarelo;
+    }
+    a {
+        color: $preto;
+    }
+    .item {
+        // background-color: green;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        padding: 15px;
+    }
+    .item:last-child {
+        font-size: 1.4rem;
     }
 }
