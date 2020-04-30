@@ -18,6 +18,12 @@
     .active {
         background-color: $amarelo;
     }
+    .noactive {
+        background-color: $preto;
+        a {
+            color: $branco;
+        }
+    }
     a {
         color: $preto;
     }

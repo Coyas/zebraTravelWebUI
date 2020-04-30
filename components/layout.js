@@ -1,9 +1,9 @@
 import Head from "next/head";
-import NavBar from "../components/Navbar/navBar";
-import Footer from "../components/Footer/footer";
+import NavBar from "../components/Navbar";
+import Footer from "../components/Footer";
 import Meta from "../components/Meta";
 
-export default ({ children, title = "terrasystem ltd" }) => (
+export default ({ children, title = "Zebra Travel" }) => (
     <>
         <Head>
             <title>{title}</title>
