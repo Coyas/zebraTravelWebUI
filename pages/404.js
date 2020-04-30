@@ -5,6 +5,7 @@ const NotFound404 = () => {
     return (
         <>
             <Layout>
+                <p>404</p>
                 <p>pagina nao encontrada</p>
             </Layout>
         </>
