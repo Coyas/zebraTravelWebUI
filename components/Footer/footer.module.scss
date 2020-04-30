@@ -1,0 +1,51 @@
+@import "../color";
+
+.footer {
+    bottom: 0 !important;
+}
+.footer2 {
+    font-size: 0.8rem;
+    color: $cinza;
+}
+.image {
+    img {
+        width: 31% !important;
+    }
+}
+
+.txt {
+    font-size: 13px;
+    color: $preto;
+    margin: 2% 0 6% 0;
+}
+.foot {
+    margin-bottom: 6% !important;
+}
+.mrg:not(:last-child) {
+    margin-right: 1.5rem !important;
+}
+.mrg {
+    a {
+        color: $preto;
+    }
+}
+.book {
+    color: $preto;
+}
+.com {
+    color: blue;
+}
+.h1 {
+    margin-top: 8%;
+    margin-bottom: 5%;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.amarelo {
+    background-color: $amarelo;
+    color: $preto;
+    border: unset !important;
+}
+.subscreve {
+    font-size: 0.7rem;
+}
