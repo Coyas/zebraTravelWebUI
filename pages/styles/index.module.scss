@@ -1,0 +1,143 @@
+@import "../../components/color";
+
+// primero section
+.boxAdd {
+    width: 15%;
+    float: right;
+    margin: 5% -3% auto;
+    font-size: 0.6rem;
+    color: $cinza;
+}
+.it {
+    height: 100px;
+}
+.txt {
+    font-size: 3rem;
+    color: $preto;
+    line-height: 1.2;
+    margin: 11% 0 7% 0;
+}
+.coluna {
+    border-right: 1px solid red;
+    height: 685px;
+    margin-top: 8%;
+    border-color: $preto;
+}
+.fig {
+    position: absolute;
+    top: 35%;
+    left: 27%;
+    img {
+        width: 69%;
+    }
+}
+.fig2 {
+    position: absolute;
+    top: -1.5%;
+    left: -18%;
+    img {
+        width: 55%;
+    }
+}
+.sobre {
+    span {
+        padding: 1%;
+        border: 1px solid $cinza;
+        margin-right: 2%;
+        border-radius: 40px;
+    }
+}
+
+// segundo secson
+.container2 {
+    position: relative;
+    // max-width: 800px;
+    // margin: 0 auto;
+    width: 90%;
+}
+.baipadir {
+    float: right;
+}
+
+.container2 img {
+    vertical-align: middle;
+    width: 100%;
+    height: 42rem;
+}
+
+.container2 .content2 {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.94); /* Black background with 0.5 opacity */
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+}
+
+.topRight {
+    position: absolute;
+    top: 8px;
+    right: 21px;
+    font-size: 1.8rem;
+    svg {
+        color: white;
+    }
+}
+.topLeft {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    width: 80%;
+}
+.coluna2 {
+    border-right: 1px solid black;
+    height: 400px;
+    margin-top: 25%;
+    border-color: $preto;
+}
+.coluna3 {
+    border-bottom: 1px solid black;
+    width: 20%;
+    margin: -0.9% 0 0 40%;
+}
+.expTxt {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $branco;
+    margin-bottom: 7%;
+    span {
+        text-transform: uppercase;
+    }
+}
+.padd {
+    padding: 2% 6% 6% 6%;
+    margin: 10%;
+    border-left: 1px solid $branco;
+    height: 17rem;
+}
+.fixbutton {
+    font-size: 0.9rem;
+    height: 43px;
+}
+.a1 {
+    position: absolute;
+    top: 21px;
+    left: 42px;
+    font-size: 0.8rem;
+    color: $branco;
+}
+.traco {
+    position: absolute;
+    top: 48px;
+    left: 46px;
+    border-right: 3px solid $branco;
+    height: 103px;
+}
+.a2 {
+    position: absolute;
+    bottom: 21px;
+    left: 42px;
+    font-size: 0.8rem;
+    color: $branco;
+}

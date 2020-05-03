@@ -15,6 +15,7 @@
     gap: 2px;
     // /* Add the blur effect */
     opacity: 0.8;
+    z-index: 100;
     .active {
         background-color: $amarelo;
     }

@@ -1,0 +1,19 @@
+@import "../../components/color";
+
+.boxi {
+    margin-top: 5% !important;
+    margin-bottom: 2% !important;
+    h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 3%;
+    }
+}
+.sobre {
+    span {
+        padding: 1%;
+        border: 1px solid $cinza;
+        margin-right: 2%;
+        border-radius: 40px;
+    }
+}
