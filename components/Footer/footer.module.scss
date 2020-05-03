@@ -42,9 +42,10 @@
     font-weight: bold;
 }
 .amarelo {
-    background-color: $amarelo;
-    color: $preto;
+    background-color: $amarelo !important;
+    color: $preto !important;
     border: unset !important;
+    border-radius: 290486px !important;
 }
 .subscreve {
     font-size: 0.7rem;
