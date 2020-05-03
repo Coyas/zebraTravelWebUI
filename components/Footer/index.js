@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <>
             <section className={"footer"}>
-                <Hr height="1" />
+                <Hr height="2" opacidade="0.7" cor="#979ca8" />
                 <div className={"container " + scss.foot}>
                     <div className="columns is-centered">
                         <div className="column">
@@ -108,7 +108,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <Hr height="2" opacidade="0.2" />
+                <Hr height="1" opacidade="0.7" cor="#979ca8" />
                 <p className={"has-text-centered " + scss.footer2}>
                     ZEBRA GROUP - &copy; 2020. TODOS OS DIREITOS RESERVADOS.
                 </p>
