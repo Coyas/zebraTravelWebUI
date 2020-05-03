@@ -7,6 +7,10 @@
         font-size: 2rem;
         font-weight: bold;
         margin-bottom: 3%;
+        span {
+            color: $amarelo;
+            text-decoration: underline;
+        }
     }
 }
 .sobre {

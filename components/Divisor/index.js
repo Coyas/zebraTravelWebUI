@@ -7,7 +7,9 @@ const Divisor = (props) => {
             <div className={"container " + divi.boxi}>
                 <div class="columns">
                     <div class="column">
-                        <h1>{props.title}</h1>
+                        <h1>
+                            {props.title} <span>{props.sutitle}</span>
+                        </h1>
                         <p className={divi.sobre}>
                             <a>
                                 <span>
@@ -18,7 +20,7 @@ const Divisor = (props) => {
                         </p>
                     </div>
                     <div class="column">
-                        <Hr height="2" opacidade="1" />
+                        <Hr height="2" opacidade="1" cor={props.cores} />
                     </div>
                 </div>
             </div>
