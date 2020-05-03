@@ -54,7 +54,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                <Divisor title="Experiências Turísticas" />
+                <Divisor title="Experiências Turísticas" cores="#000000" />
                 <div className="container">
                     <div className="columns">
                         <div className="column">
@@ -283,6 +283,12 @@ const Home = () => {
                         <Testemunhas />
                     </div>
                 </div>
+
+                <Divisor
+                    title="Alojamento"
+                    sutitle="Zebra Hotels"
+                    cores="#000000"
+                />
             </Layout>
         </>
     );
