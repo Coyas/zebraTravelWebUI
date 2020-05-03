@@ -93,16 +93,72 @@ const Home = () => {
                                     </div>
                                 </div>
                                 <div className={indexcss.content2}>
-                                    <h1>Heading</h1>
-
-                                    <p>
-                                        Lorem ipsum dolor sit amet, an his etiam
-                                        torquatos. Tollit soleat phaedrum te
-                                        duo, eum cu recteque expetendis
-                                        neglegentur. Cu mentitum maiestatis
-                                        persequeris pro, pri ponderum tractatos
-                                        ei.
-                                    </p>
+                                    <div className="sectags">
+                                        <div className="level-right">
+                                            <div class="field is-grouped is-grouped-multiline">
+                                                <div class="control">
+                                                    <div class="tags has-addons">
+                                                        <Link href="ss">
+                                                            <a
+                                                                className={
+                                                                    indexcss.expa
+                                                                }
+                                                            >
+                                                                <span class="margi">
+                                                                    89
+                                                                </span>
+                                                                <span class="icon">
+                                                                    <i class="far fa-comment"></i>
+                                                                </span>
+                                                            </a>
+                                                        </Link>
+                                                    </div>
+                                                </div>
+                                                <div class="control">
+                                                    <div class="tags has-addons">
+                                                        <Link href="sss">
+                                                            <a
+                                                                className={
+                                                                    indexcss.expa
+                                                                }
+                                                            >
+                                                                <span class="margi">
+                                                                    124k
+                                                                </span>
+                                                                <span class="icon">
+                                                                    <i class="far fa-heart"></i>
+                                                                </span>
+                                                            </a>
+                                                        </Link>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>from</p>
+                                    <div className="content">
+                                        <div className="columns">
+                                            <div
+                                                className={
+                                                    "column " + indexcss.preco
+                                                }
+                                            >
+                                                CVE 11,027
+                                            </div>
+                                            <div
+                                                className={
+                                                    "column control " +
+                                                    indexcss.precolocal
+                                                }
+                                            >
+                                                <span class="icon">
+                                                    <i class="fas fa-map-marker-alt"></i>
+                                                </span>
+                                                Fogo Island, Chã das Caldeiras
+                                            </div>
+                                        </div>
+                                        <div className={indexcss.liinha}></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -148,15 +204,72 @@ const Home = () => {
                                     </div>
                                 </div>
                                 <div className={indexcss.content2}>
-                                    <h1>Heading</h1>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, an his etiam
-                                        torquatos. Tollit soleat phaedrum te
-                                        duo, eum cu recteque expetendis
-                                        neglegentur. Cu mentitum maiestatis
-                                        persequeris pro, pri ponderum tractatos
-                                        ei.
-                                    </p>
+                                    <div className="sectags">
+                                        <div className="level-right">
+                                            <div class="field is-grouped is-grouped-multiline">
+                                                <div class="control">
+                                                    <div class="tags has-addons">
+                                                        <Link href="ss">
+                                                            <a
+                                                                className={
+                                                                    indexcss.expa
+                                                                }
+                                                            >
+                                                                <span class="margi">
+                                                                    256
+                                                                </span>
+                                                                <span class="icon">
+                                                                    <i class="far fa-comment"></i>
+                                                                </span>
+                                                            </a>
+                                                        </Link>
+                                                    </div>
+                                                </div>
+                                                <div class="control">
+                                                    <div class="tags has-addons">
+                                                        <Link href="sss">
+                                                            <a
+                                                                className={
+                                                                    indexcss.expa
+                                                                }
+                                                            >
+                                                                <span class="margi">
+                                                                    500k
+                                                                </span>
+                                                                <span class="icon">
+                                                                    <i class="far fa-heart"></i>
+                                                                </span>
+                                                            </a>
+                                                        </Link>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>from</p>
+                                    <div className="content">
+                                        <div className="columns">
+                                            <div
+                                                className={
+                                                    "column " + indexcss.preco
+                                                }
+                                            >
+                                                CVE 10,027
+                                            </div>
+                                            <div
+                                                className={
+                                                    "column control " +
+                                                    indexcss.precolocal
+                                                }
+                                            >
+                                                <span class="icon">
+                                                    <i class="fas fa-map-marker-alt"></i>
+                                                </span>
+                                                São Vicente Island, Mindelo
+                                            </div>
+                                        </div>
+                                        <div className={indexcss.liinha}></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -22,3 +22,6 @@ a:hover {
 .bold {
     font-weight: bold;
 }
+.margi {
+    letter-spacing: 2px;
+}
