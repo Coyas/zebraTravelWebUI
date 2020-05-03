@@ -3,7 +3,7 @@
 
 body {
     background-color: #ffffff;
-    height: 1000px;
+    /* height: 1000px; */
     font-family: "Poppins", sans-serif;
 }
 .footer {
@@ -24,4 +24,7 @@ a:hover {
 }
 .margi {
     letter-spacing: 2px;
+}
+.margintop {
+    margin-top: 3%;
 }

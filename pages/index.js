@@ -2,6 +2,7 @@ import Layout from "../components/layout";
 import indexcss from "./styles/index.module.scss";
 import Divisor from "../components/Divisor";
 import Link from "next/link";
+import Testemunhas from "../components/Testemunho";
 
 const Home = () => {
     return (
@@ -62,7 +63,7 @@ const Home = () => {
                                 <div class={indexcss.topRight}>
                                     <Link href="">
                                         <a>
-                                            <i class="fas fa-share-alt"></i>
+                                            <i className="fas fa-share-alt"></i>
                                         </a>
                                     </Link>
                                 </div>
@@ -95,20 +96,20 @@ const Home = () => {
                                 <div className={indexcss.content2}>
                                     <div className="sectags">
                                         <div className="level-right">
-                                            <div class="field is-grouped is-grouped-multiline">
-                                                <div class="control">
-                                                    <div class="tags has-addons">
+                                            <div className="field is-grouped is-grouped-multiline">
+                                                <div className="control">
+                                                    <div className="tags has-addons">
                                                         <Link href="ss">
                                                             <a
                                                                 className={
                                                                     indexcss.expa
                                                                 }
                                                             >
-                                                                <span class="margi">
+                                                                <span className="margi">
                                                                     89
                                                                 </span>
-                                                                <span class="icon">
-                                                                    <i class="far fa-comment"></i>
+                                                                <span className="icon">
+                                                                    <i className="far fa-comment"></i>
                                                                 </span>
                                                             </a>
                                                         </Link>
@@ -122,11 +123,11 @@ const Home = () => {
                                                                     indexcss.expa
                                                                 }
                                                             >
-                                                                <span class="margi">
+                                                                <span className="margi">
                                                                     124k
                                                                 </span>
-                                                                <span class="icon">
-                                                                    <i class="far fa-heart"></i>
+                                                                <span className="icon">
+                                                                    <i className="far fa-heart"></i>
                                                                 </span>
                                                             </a>
                                                         </Link>
@@ -151,8 +152,8 @@ const Home = () => {
                                                     indexcss.precolocal
                                                 }
                                             >
-                                                <span class="icon">
-                                                    <i class="fas fa-map-marker-alt"></i>
+                                                <span className="icon">
+                                                    <i className="fas fa-map-marker-alt"></i>
                                                 </span>
                                                 Fogo Island, Chã das Caldeiras
                                             </div>
@@ -175,7 +176,7 @@ const Home = () => {
                                 <div class={indexcss.topRight}>
                                     <Link href="">
                                         <a>
-                                            <i class="fas fa-share-alt"></i>
+                                            <i className="fas fa-share-alt"></i>
                                         </a>
                                     </Link>
                                 </div>
@@ -206,38 +207,38 @@ const Home = () => {
                                 <div className={indexcss.content2}>
                                     <div className="sectags">
                                         <div className="level-right">
-                                            <div class="field is-grouped is-grouped-multiline">
-                                                <div class="control">
-                                                    <div class="tags has-addons">
+                                            <div className="field is-grouped is-grouped-multiline">
+                                                <div className="control">
+                                                    <div className="tags has-addons">
                                                         <Link href="ss">
                                                             <a
                                                                 className={
                                                                     indexcss.expa
                                                                 }
                                                             >
-                                                                <span class="margi">
+                                                                <span className="margi">
                                                                     256
                                                                 </span>
-                                                                <span class="icon">
-                                                                    <i class="far fa-comment"></i>
+                                                                <span className="icon">
+                                                                    <i className="far fa-comment"></i>
                                                                 </span>
                                                             </a>
                                                         </Link>
                                                     </div>
                                                 </div>
-                                                <div class="control">
-                                                    <div class="tags has-addons">
+                                                <div className="control">
+                                                    <div className="tags has-addons">
                                                         <Link href="sss">
                                                             <a
                                                                 className={
                                                                     indexcss.expa
                                                                 }
                                                             >
-                                                                <span class="margi">
+                                                                <span className="margi">
                                                                     500k
                                                                 </span>
-                                                                <span class="icon">
-                                                                    <i class="far fa-heart"></i>
+                                                                <span className="icon">
+                                                                    <i className="far fa-heart"></i>
                                                                 </span>
                                                             </a>
                                                         </Link>
@@ -262,8 +263,8 @@ const Home = () => {
                                                     indexcss.precolocal
                                                 }
                                             >
-                                                <span class="icon">
-                                                    <i class="fas fa-map-marker-alt"></i>
+                                                <span className="icon">
+                                                    <i className="fas fa-map-marker-alt"></i>
                                                 </span>
                                                 São Vicente Island, Mindelo
                                             </div>
@@ -275,6 +276,12 @@ const Home = () => {
                         </div>
                     </div>
                     <div className={indexcss.coluna3}></div>
+                </div>
+
+                <div className="container margintop">
+                    <div className="box">
+                        <Testemunhas />
+                    </div>
                 </div>
             </Layout>
         </>
