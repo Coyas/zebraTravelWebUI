@@ -3,6 +3,7 @@ import indexcss from "./styles/index.module.scss";
 import Divisor from "../components/Divisor";
 import Link from "next/link";
 import Testemunhas from "../components/Testemunho";
+import Banner from "../components/Banner";
 
 const Home = () => {
     return (
@@ -115,8 +116,8 @@ const Home = () => {
                                                         </Link>
                                                     </div>
                                                 </div>
-                                                <div class="control">
-                                                    <div class="tags has-addons">
+                                                <div className="control">
+                                                    <div className="tags has-addons">
                                                         <Link href="sss">
                                                             <a
                                                                 className={
@@ -289,6 +290,18 @@ const Home = () => {
                     sutitle="Zebra Hotels"
                     cores="#000000"
                 />
+
+                <section className={"content marginbot " + indexcss.verde}>
+                    <div className="container">
+                        <Banner bb="B1" />
+                    </div>
+                </section>
+
+                <section className={"content " + indexcss.castanho2}>
+                    <div className="container">
+                        <Banner bb="B2" />
+                    </div>
+                </section>
             </Layout>
         </>
     );

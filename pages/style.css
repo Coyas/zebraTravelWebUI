@@ -28,3 +28,6 @@ a:hover {
 .margintop {
     margin-top: 3%;
 }
+.marginbot {
+    margin-bottom: 0rem !important;
+}

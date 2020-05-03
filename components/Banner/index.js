@@ -1,0 +1,75 @@
+import css from "./index.module.scss";
+import Link from "next/link";
+
+const Banner = (props) => {
+    const pp = props.bb;
+    let vars;
+    if (pp === "B1") {
+        // console.log("é bb");
+        vars = css.bb;
+    } else {
+        // console.log("nao é bb é bc");
+        vars = css.bc;
+    }
+    console.log(vars);
+
+    return (
+        <>
+            <div className={"columns " + vars}>
+                <div className={"column " + css.b}>
+                    <h1 class="title">Casa Colonial Koening</h1>
+                    <h6 class="subtitle is-6">
+                        You can’t fall if you don’t climb. But
+                    </h6>
+                    <article className={css.artD}>
+                        <div className={css.txt}>
+                            You can’t fall if you don’t climb. But there’s no
+                            joy in living your whole life on the ground. You
+                            can’t fall if you don’t climb. But there’s no joy in
+                            living your whole life on the ground. You can’t fall
+                            if you don’t climb. But there’s no joy in living
+                            your whole life on the ground. You can’t fall if you
+                            don’t climb. But there’s no joy in living your whole
+                            life on the ground. You can’t fall if you don’t
+                            climb. But there’s no joy in living your whole life
+                            on the ground. You can’t fall if you don’t climb.
+                            But there’s no joy in living your whole life on the
+                            ground.
+                        </div>
+                        <button className={"button " + css.amarelo}>
+                            BOOK NOW
+                        </button>
+                        <nav class="level is-mobile">
+                            <div className="level-left">
+                                <Link href="qss">
+                                    <a className="level-item">
+                                        <span className="icon is-small">
+                                            <i className="fas fa-share-alt"></i>
+                                        </span>
+                                    </a>
+                                </Link>
+                            </div>
+                            <div className="level-right">
+                                <Link href="ss">
+                                    <a className={"level-item"}>
+                                        <span className="margi">89k</span>
+                                        <span className="icon">
+                                            <i className="far fa-comment"></i>
+                                        </span>
+                                    </a>
+                                </Link>
+                            </div>
+                        </nav>
+                    </article>
+                </div>
+                <div className={"column " + css.b}>
+                    <figure class="image">
+                        <img src="img/b.png" />
+                    </figure>
+                </div>
+            </div>
+        </>
+    );
+};
+
+export default Banner;

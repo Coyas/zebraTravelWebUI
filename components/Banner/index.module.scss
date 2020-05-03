@@ -1,0 +1,73 @@
+@import "../color";
+
+.bb {
+    h1 {
+        color: $branco;
+    }
+    h6 {
+        color: $branco;
+    }
+    .artD {
+        display: inline-block;
+        float: right;
+        width: 60%;
+        .txt {
+            text-align: justify;
+            font-size: 0.8rem;
+        }
+        .amarelo {
+            background-color: $amarelo;
+            border: unset;
+            margin-top: 11%;
+            margin-bottom: 11%;
+        }
+        span {
+            color: $branco;
+        }
+        nav {
+            width: 65%;
+            margin-bottom: 20%;
+            padding-top: 4%;
+            border-top: 1px solid rgba(151, 156, 168, 0.3);
+        }
+    }
+    .b {
+        margin-top: 5%;
+    }
+}
+.bc {
+    h1 {
+        color: $preto;
+    }
+    h6 {
+        color: $preto;
+    }
+    .artD {
+        display: inline-block;
+        float: right;
+        width: 60%;
+        .txt {
+            text-align: justify;
+            font-size: 0.8rem;
+        }
+        .amarelo {
+            background-color: $preto;
+            border: unset;
+            margin-top: 11%;
+            margin-bottom: 11%;
+            color: $branco;
+        }
+        span {
+            color: $preto;
+        }
+        nav {
+            width: 65%;
+            margin-bottom: 20%;
+            padding-top: 4%;
+            border-top: 1px solid rgba(151, 156, 168, 0.3);
+        }
+    }
+    .b {
+        margin-top: 5%;
+    }
+}
