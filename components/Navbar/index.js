@@ -32,7 +32,7 @@ const NavBar = () => {
                     </Link>
                 </div>
                 <div className={scss.item}>
-                    <Link href="/contato">
+                    <Link href="/contacto">
                         <a>Contatos</a>
                     </Link>
                 </div>
