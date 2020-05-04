@@ -30,10 +30,12 @@
     }
 }
 .book {
-    color: $preto;
-}
-.com {
-    color: blue;
+    color: $azul !important;
+    font-weight: bold;
+    font-size: 0.9rem;
+    span {
+        color: $azulCiano;
+    }
 }
 .h1 {
     margin-top: 8%;
@@ -49,4 +51,20 @@
 }
 .subscreve {
     font-size: 0.7rem;
+}
+.fodi {
+    display: inline-block;
+    width: 72%;
+    float: right;
+    h1 {
+        margin-top: 11%;
+    }
+    ul {
+        li {
+            margin-bottom: 2%;
+            &:last-child {
+                margin-bottom: 0%;
+            }
+        }
+    }
 }

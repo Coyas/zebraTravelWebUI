@@ -32,23 +32,31 @@ const Footer = () => {
                                     <div className="level-right">
                                         <p className={"level-item " + scss.mrg}>
                                             <a href="dqdq">
-                                                <img src="/img/Medialogo/facebook.png" />
+                                                <span className="icon">
+                                                    <i className="fab fa-facebook-f"></i>
+                                                </span>
                                             </a>
                                         </p>
                                         <p className={"level-item " + scss.mrg}>
                                             <a href="dqdq">
-                                                <img src="/img/Medialogo/instagram.png" />
+                                                <span className="icon">
+                                                    <i className="fab fa-instagram"></i>
+                                                </span>
                                             </a>
                                         </p>
                                         <p className={"level-item " + scss.mrg}>
                                             <a href="dqdq">
-                                                <img src="/img/Medialogo/youtube.png" />
+                                                <span className="icon">
+                                                    <i class="fab fa-youtube"></i>
+                                                </span>
                                             </a>
                                         </p>
                                         <p className={"level-item " + scss.mrg}>
                                             <a href="dqdq">
-                                                <img src="/img/Medialogo/youtube.png" />
-                                                Tripadviser
+                                                <span className="icon">
+                                                    <i class="fab fa-tripadvisor"></i>
+                                                </span>
+                                                Tripadvisor
                                             </a>
                                         </p>
                                         <p className={"level-item " + scss.mrg}>
@@ -57,9 +65,7 @@ const Footer = () => {
                                                 href="dqdq"
                                             >
                                                 Booking
-                                                <span className={scss.com}>
-                                                    .com
-                                                </span>
+                                                <span>.com</span>
                                             </a>
                                         </p>
                                     </div>
@@ -67,24 +73,28 @@ const Footer = () => {
                             </p>
                         </div>
                         <div className="column">
-                            <h1 className={scss.h1}>RESPONSABILIDADE SOCIAL</h1>
-                            <ul>
-                                <li>
-                                    <Link href="/legal">
-                                        <a>Legal</a>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/termos">
-                                        <a>Termos</a>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/privacidade">
-                                        <a>Privacidade</a>
-                                    </Link>
-                                </li>
-                            </ul>
+                            <div className={scss.fodi}>
+                                <h1 className={scss.h1}>
+                                    RESPONSABILIDADE SOCIAL
+                                </h1>
+                                <ul>
+                                    <li>
+                                        <Link href="/legal">
+                                            <a>Legal</a>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/termos">
+                                            <a>Termos</a>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/privacidade">
+                                            <a>Privacidade</a>
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div className="column">
                             <h1 className={scss.h1}>NEWSLETTER</h1>
