@@ -1,0 +1,28 @@
+@import "../color";
+
+.form {
+    color: $preto !important;
+    width: 80%;
+    display: inline-block;
+    float: right;
+    label {
+        color: $preto;
+    }
+    textarea {
+        resize: none;
+    }
+}
+.amarelo {
+    background-color: $amarelo !important;
+    border: unset !important;
+    width: 20%;
+    color: $preto;
+}
+.bordas {
+    box-shadow: unset !important;
+    border-top: unset;
+    border-left: unset;
+    border-right: unset;
+    border-radius: unset;
+    border-bottom: 1px solid $preto;
+}
