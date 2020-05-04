@@ -1,8 +1,16 @@
 import scss from "./footer.module.scss";
 import Hr from "../Hr";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
 
 const Footer = () => {
+    const { register, handleSubmit } = useForm();
+
+    const subscreve = (data, e) => {
+        // e.preventDefault();
+        e.target.reset();
+        alert(`Email: ${data.emailSub}`);
+    };
     return (
         <>
             <section className={"footer"}>
@@ -80,14 +88,15 @@ const Footer = () => {
                         </div>
                         <div className="column">
                             <h1 className={scss.h1}>NEWSLETTER</h1>
-                            <form>
+                            <form onSubmit={handleSubmit(subscreve)}>
                                 <div className="field is-grouped">
                                     <p className="control is-expanded">
                                         <input
                                             className="input is-rounded"
                                             type="email"
                                             placeholder="E-mail"
-                                            required
+                                            ref={register({ required: true })}
+                                            name="emailSub"
                                         />
                                     </p>
                                     <p className="control">
