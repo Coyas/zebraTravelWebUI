@@ -6,12 +6,12 @@ const Testemunho = () => {
             <div className="columns">
                 <div className={"column " + css.center}>
                     <article className={css.article}>
-                        <figure class={"image is-128x128 " + css.display}>
-                            <img class="is-rounded" src="/img/t2.png" />
+                        <figure className={"image is-128x128 " + css.display}>
+                            <img className="is-rounded" src="/img/t2.png" />
                         </figure>
                         <p>
                             <span className="icon">
-                                <i class="fas fa-quote-left"></i>
+                                <i className="fas fa-quote-left"></i>
                             </span>
                         </p>
                         <p className={css.txt}>
@@ -24,12 +24,12 @@ const Testemunho = () => {
                 </div>
                 <div className={"column " + css.center}>
                     <article className={css.article}>
-                        <figure class={"image is-128x128 " + css.display}>
-                            <img class="is-rounded" src="/img/t1.png" />
+                        <figure className={"image is-128x128 " + css.display}>
+                            <img className="is-rounded" src="/img/t1.png" />
                         </figure>
                         <p>
                             <span className="icon">
-                                <i class="fas fa-quote-left"></i>
+                                <i className="fas fa-quote-left"></i>
                             </span>
                         </p>
                         <p className={css.txt}>

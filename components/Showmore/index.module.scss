@@ -1,0 +1,14 @@
+@import "../color";
+
+.showmore {
+    color: $cinza;
+    font-size: 0.7rem;
+    height: 2.3rem;
+    border-radius: 5px !important;
+    border-color: $cinza;
+}
+.btnShowmore {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}

@@ -7,6 +7,7 @@ import Zebralistras from "../components/Zebralistras";
 import Divisor from "../components/Divisor";
 import Explorebox from "../components/Explorebox";
 import Experencia from "../components/Experencia";
+import Showmore from "../components/Showmore";
 
 const Experiencia = () => {
     return (
@@ -33,6 +34,9 @@ const Experiencia = () => {
                         </div>
                         <div className="column">
                             <Experencia />
+                            <Experencia />
+                            <Experencia />
+                            <Showmore />
                         </div>
                     </div>
                 </section>

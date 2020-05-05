@@ -6,13 +6,11 @@ const Bacontact = () => {
         <>
             <div className={bcss.it}>
                 <div className={bcss.boxAdd}>
-                    <Link href="tel:002382813373">
-                        <a>+|238| 281 33 73</a>
-                    </Link>
+                    <a href="tel:002382813373">+|238| 281 33 73</a>
                     <br />
-                    <Link href="mailto:info@zebratravel.net">
-                        <a>info@zebratravel.net</a>
-                    </Link>
+                    <a href="mailto:info@zebratravel.net">
+                        info@zebratravel.net
+                    </a>
                 </div>
             </div>
         </>

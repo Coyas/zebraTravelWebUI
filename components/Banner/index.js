@@ -17,8 +17,8 @@ const Banner = (props) => {
         <>
             <div className={"columns " + vars}>
                 <div className={"column " + css.b}>
-                    <h1 class="title">Casa Colonial Koening</h1>
-                    <h6 class="subtitle is-6">
+                    <h1 className="title">Casa Colonial Koening</h1>
+                    <h6 className="subtitle is-6">
                         You can’t fall if you don’t climb. But
                     </h6>
                     <article className={css.artD}>
@@ -39,7 +39,7 @@ const Banner = (props) => {
                         <button className={"button " + css.amarelo}>
                             BOOK NOW
                         </button>
-                        <nav class="level is-mobile">
+                        <nav className="level is-mobile">
                             <div className="level-left">
                                 <Link href="qss">
                                     <a className="level-item">
@@ -63,7 +63,7 @@ const Banner = (props) => {
                     </article>
                 </div>
                 <div className={"column " + css.b}>
-                    <figure class="image">
+                    <figure className="image">
                         <img src="img/b.png" />
                     </figure>
                 </div>

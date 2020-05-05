@@ -47,14 +47,14 @@ const Footer = () => {
                                         <p className={"level-item " + scss.mrg}>
                                             <a href="dqdq">
                                                 <span className="icon">
-                                                    <i class="fab fa-youtube"></i>
+                                                    <i className="fab fa-youtube"></i>
                                                 </span>
                                             </a>
                                         </p>
                                         <p className={"level-item " + scss.mrg}>
                                             <a href="dqdq">
                                                 <span className="icon">
-                                                    <i class="fab fa-tripadvisor"></i>
+                                                    <i className="fab fa-tripadvisor"></i>
                                                 </span>
                                                 Tripadvisor
                                             </a>
