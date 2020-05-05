@@ -1,0 +1,49 @@
+@import "../color";
+// .img {
+//     width: 63% !important;
+// }
+.expiri {
+    h1 {
+        font-size: 1.1rem !important;
+        width: 62%;
+        // border: 1px solid green;
+        word-break: break-word;
+    }
+    p {
+        width: 78%;
+        word-break: break-word;
+        font-size: 0.8rem;
+        // border: 1px solid red;
+    }
+}
+.book {
+    // border: 1px solid green;
+    p {
+        width: 100%;
+        text-align: end;
+    }
+}
+.book {
+    display: flex;
+    justify-content: flex-end;
+}
+.Mbook {
+    button {
+        background-color: $amarelo;
+        border: unset;
+        width: 82%;
+    }
+}
+.preco {
+    font-size: 2rem;
+    font-weight: bold;
+    font-size: 1.7rem !important;
+}
+
+.local {
+    margin-top: -1.988%;
+    color: $azulCiano;
+}
+.sola {
+    width: 28.333% !important;
+}
