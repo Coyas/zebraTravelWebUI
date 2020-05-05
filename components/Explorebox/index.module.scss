@@ -17,4 +17,14 @@
         color: $azulCiano;
         margin-bottom: 3%;
     }
+    p {
+        font-size: 1.4rem;
+        text-transform: unset;
+        font-weight: bold;
+    }
+}
+.bord {
+    border-bottom: 1px solid $preto;
+    margin-bottom: 7%;
+    width: 66%;
 }

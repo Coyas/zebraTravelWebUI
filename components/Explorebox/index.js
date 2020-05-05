@@ -6,6 +6,7 @@ const Explorebox = () => {
         <>
             <aside className={"menu " + excss.box}>
                 <p className="menu-label">Experiências</p>
+                <p className={excss.bord}></p>
                 <ul className="menu-list">
                     <li>
                         <Link href="">
@@ -44,6 +45,7 @@ const Explorebox = () => {
                     </li>
                 </ul>
                 <p className="menu-label">Duration</p>
+                <p className={excss.bord}></p>
                 <ul className="menu-list">
                     <li>
                         <Link href="">
