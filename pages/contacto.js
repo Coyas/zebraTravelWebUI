@@ -2,6 +2,7 @@ import css from "./styles/contacto.module.scss";
 import Layout from "../components/layout";
 import ContactForm from "../components/Contact";
 import Link from "next/link";
+import Zebralistras from "../components/Zebralistras";
 
 const Contacto = () => {
     return (
@@ -18,9 +19,8 @@ const Contacto = () => {
                         </Link>
                     </div>
                 </section>
-                <figure className={"image " + css.listras}>
-                    <img src="/img/ZebraListra.svg" />
-                </figure>
+
+                <Zebralistras />
 
                 <section className={"container " + css.contTitle}>
                     <h1 className="title">Contatos</h1>
