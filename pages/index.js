@@ -4,24 +4,19 @@ import Divisor from "../components/Divisor";
 import Link from "next/link";
 import Testemunhas from "../components/Testemunho";
 import Banner from "../components/Banner";
+import Bacontact from "../components/Bacontact";
 
 const Home = () => {
     return (
         <>
             <Layout>
                 <div className="container">
-                    <div class="columns">
-                        <div class="column">
+                    <div className="columns">
+                        <div className="column">
                             <figure className={indexcss.fig2}>
                                 <img src="/img/ZebraListra.svg" />
                             </figure>
-                            <div className={indexcss.it}>
-                                <div className={indexcss.boxAdd}>
-                                    +|238| 281 33 73
-                                    <br />
-                                    info@zebratravel.net
-                                </div>
-                            </div>
+                            <Bacontact />
                             <div>
                                 <figure>
                                     <img src="/img/Zebralogo.svg" />
@@ -55,13 +50,18 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                <Divisor title="Experiências Turísticas" cores="#000000" />
+                <Divisor
+                    title="Experiências Turísticas"
+                    cores="#000000"
+                    voltar="false"
+                    sobre="SOBRE NÓS"
+                />
                 <div className="container">
                     <div className="columns">
                         <div className="column">
                             <div className={indexcss.container2}>
                                 <img src="/img/esplanada.png" />
-                                <div class={indexcss.topRight}>
+                                <div className={indexcss.topRight}>
                                     <Link href="">
                                         <a>
                                             <i className="fas fa-share-alt"></i>
@@ -174,7 +174,7 @@ const Home = () => {
                                 }
                             >
                                 <img src="/img/praia.png" />
-                                <div class={indexcss.topRight}>
+                                <div className={indexcss.topRight}>
                                     <Link href="">
                                         <a>
                                             <i className="fas fa-share-alt"></i>
@@ -289,6 +289,8 @@ const Home = () => {
                     title="Alojamento"
                     sutitle="Zebra Hotels"
                     cores="#000000"
+                    voltar="false"
+                    sobre="SOBRE NÓS"
                 />
 
                 <section className={"content marginbot " + indexcss.verde}>
