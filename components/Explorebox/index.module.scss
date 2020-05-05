@@ -1,0 +1,20 @@
+@import "../color";
+
+.box {
+    border: 1px solid $preto;
+    border-radius: 5px;
+    padding: 7% 5% 5% 11%;
+    // width: 84%;
+    // display: inline-block;
+    // float: right;
+    * {
+        color: $preto;
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+    li {
+        list-style: disc;
+        color: $azulCiano;
+        margin-bottom: 3%;
+    }
+}
