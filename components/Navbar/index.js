@@ -15,7 +15,7 @@ const NavBar = () => {
             <nav className={scss.nav}>
                 <div className={scss.item}></div>
                 <div className={scss.item}>
-                    <Link href="">
+                    <Link href="/experiencias">
                         <a>
                             Experiencias <i className="fas fa-chevron-down"></i>
                         </a>
