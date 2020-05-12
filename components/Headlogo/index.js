@@ -10,7 +10,7 @@ const Headlogo = () => {
                         <Link href="/">
                             <a>
                                 <figure className="image">
-                                    <img src="img/zebralogo3.svg" />
+                                    <img src="/img/zebralogo3.svg" />
                                 </figure>
                             </a>
                         </Link>

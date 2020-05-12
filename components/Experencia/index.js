@@ -24,7 +24,10 @@ const Experencia = () => {
                                 places with extreme hot spots from the Sulfur. A
                                 multi-colored...{" "}
                                 <span>
-                                    <Link href="">
+                                    <Link
+                                        href="/experiencia/[pid]"
+                                        as={`/experiencia/test-de-title`}
+                                    >
                                         <a>read more</a>
                                     </Link>
                                 </span>
@@ -34,7 +37,12 @@ const Experencia = () => {
                             <div className={expicss.Mbook}>
                                 <p>from</p>{" "}
                                 <p className={expicss.preco}>CVE 11,027</p>{" "}
-                                <button className="button">BOOK NOW</button>
+                                <Link
+                                    href="/experiencia/[pid]"
+                                    as={`/experiencia/test-de-title`}
+                                >
+                                    <a className="button">BOOK NOW</a>
+                                </Link>
                             </div>
                         </div>
                         <p className={expicss.local}>

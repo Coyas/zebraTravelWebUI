@@ -5,9 +5,11 @@ const Showmore = () => {
     return (
         <>
             <p className={shcss.btnShowmore}>
-                <button className={"button " + shcss.showmore}>
-                    SHOW MORE RESULT
-                </button>
+                <Link href="">
+                    <a className={"button " + shcss.showmore}>
+                        SHOW MORE RESULT
+                    </a>
+                </Link>
             </p>
         </>
     );

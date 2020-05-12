@@ -5,6 +5,7 @@ import Link from "next/link";
 import Testemunhas from "../components/Testemunho";
 import Banner from "../components/Banner";
 import Bacontact from "../components/Bacontact";
+import Like from "../components/Like";
 
 const Home = () => {
     return (
@@ -115,20 +116,7 @@ const Home = () => {
                                             </div>
                                             <div className="control">
                                                 <div className="tags has-addons">
-                                                    <Link href="sss">
-                                                        <a
-                                                            className={
-                                                                indexcss.expa
-                                                            }
-                                                        >
-                                                            <span className="margi">
-                                                                124k
-                                                            </span>
-                                                            <span className="icon">
-                                                                <i className="far fa-heart"></i>
-                                                            </span>
-                                                        </a>
-                                                    </Link>
+                                                    <Like />
                                                 </div>
                                             </div>
                                         </div>
@@ -222,20 +210,7 @@ const Home = () => {
                                             </div>
                                             <div className="control">
                                                 <div className="tags has-addons">
-                                                    <Link href="sss">
-                                                        <a
-                                                            className={
-                                                                indexcss.expa
-                                                            }
-                                                        >
-                                                            <span className="margi">
-                                                                500k
-                                                            </span>
-                                                            <span className="icon">
-                                                                <i className="far fa-heart"></i>
-                                                            </span>
-                                                        </a>
-                                                    </Link>
+                                                    <Like />
                                                 </div>
                                             </div>
                                         </div>
