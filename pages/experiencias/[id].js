@@ -7,6 +7,7 @@ import Divisor from "../../components/Divisor";
 import Link from "next/link";
 import Like from "../../components/Like";
 import Hr from "../../components/Hr";
+import Comments from "../../components/Comments";
 
 const Expid = () => {
     return (
@@ -182,7 +183,9 @@ const Expid = () => {
                     </div>
                 </div>
                 <div className={"columns " + expid.sec2}>
-                    <dic className="column">Comments</dic>
+                    <dic className="column">
+                        <Comments />
+                    </dic>
                     <dic className="column">
                         <div className={expid.Descri}>
                             <h1 className="">What to Expect</h1>
