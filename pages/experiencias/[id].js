@@ -122,37 +122,61 @@ const Expid = () => {
                             </div>
                             <div className={"columns " + expid.icons}>
                                 <div className="column">
-                                    <div className="control">
-                                        <span className="icon">
-                                            <i className="fas fa-map-marker-alt"></i>
-                                        </span>
-                                        <pan>Distance 32 km</pan>
-                                    </div>
-                                </div>
-                                {/* <div className="column">
-                                    <div className="control">
-                                        <span className="icon">
-                                            <i className="far fa-image"></i>
-                                        </span>
-                                        <pan>Elevation 2371 m</pan>
+                                    <div className={expid.grid}>
+                                        <div className={expid.itema}>
+                                            <span className="icon">
+                                                <i className="fas fa-map-marker-alt"></i>
+                                            </span>
+                                        </div>
+                                        <div className={expid.itemb}>
+                                            Distance
+                                        </div>
+                                        <div className={expid.itemc}>32 km</div>
                                     </div>
                                 </div>
                                 <div className="column">
-                                    <div className="control">
-                                        <span className="icon">
-                                            <i className="far fa-hourglass"></i>
-                                        </span>
-                                        <pan>Duration 24 h</pan>
+                                    <div className={expid.grid}>
+                                        <div className={expid.itema}>
+                                            <span className="icon">
+                                                <i className="far fa-image"></i>
+                                            </span>
+                                        </div>
+                                        <div className={expid.itemb}>
+                                            Elevation
+                                        </div>
+                                        <div className={expid.itemc}>
+                                            2371 m
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="column">
-                                    <div className="control">
-                                        <span className="icon">
-                                            <i className="far fa-user"></i>
-                                        </span>
-                                        <pan>Languages Offered PT EN FR IT</pan>
+                                    <div className={expid.grid}>
+                                        <div className={expid.itema}>
+                                            <span className="icon">
+                                                <i className="far fa-hourglass"></i>
+                                            </span>
+                                        </div>
+                                        <div className={expid.itemb}>
+                                            Duration
+                                        </div>
+                                        <div className={expid.itemc}>24 h</div>
                                     </div>
-                                </div> */}
+                                </div>
+                                <div className="column">
+                                    <div className={expid.grid}>
+                                        <div className={expid.itema}>
+                                            <span className="icon">
+                                                <i className="far fa-user"></i>
+                                            </span>
+                                        </div>
+                                        <div className={expid.itemb}>
+                                            Languages
+                                        </div>
+                                        <div className={expid.itemc}>
+                                            PT EN FR IT
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
