@@ -34,7 +34,7 @@ const Expid = () => {
                     Santo Antão, Porto Novo
                 </p>
                 <div className="columns">
-                    <div className="column">
+                    <div className={"column " + expid.imgbox}>
                         <div className={expid.container2}>
                             <figure className="image">
                                 <img
@@ -180,6 +180,56 @@ const Expid = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className={"columns " + expid.sec2}>
+                    <dic className="column">Comments</dic>
+                    <dic className="column">
+                        <div className={expid.Descri}>
+                            <h1 className="">What to Expect</h1>
+                            <Hr height="1" opacidade="1" cor="#000000" />
+                            <article>
+                                Itinerary
+                                <br />
+                                This is a typical itinerary for this product
+                                <br />
+                                <br />
+                                Stop At: Parque Natural do Fogo, Fogo Island,
+                                Fogo Cape Verde
+                                <br />
+                                <br />
+                                Departure from São Filipe then stopping at
+                                Forno, where we visit one of the areas where the
+                                drop-by-drop
+                                <br />
+                                irrigation method is used (a technique adopted
+                                by farms on the island in order to minimize the
+                                effect of
+                                <br />
+                                drought). We then continue to Achada Furna, a
+                                chance to see the communities where new houses
+                                were
+                                <br />
+                                built after the eruption of 1995 and 2014 for
+                                the population of Chã das Caldeiras. Many of the
+                                locals have
+                                <br />
+                                now returned to the Caldeira. Continuing on, we
+                                stop in Cabeça Fundão where we can see the old
+                                craters
+                                <br />
+                                and the wonderful mixed colors in the landscape.
+                                Finally, we arrive at the entrance of the
+                                National Park of
+                                <br />
+                                Chã das Caldeiras.
+                                <br />
+                                <br />
+                                Here you get a stupendous view from the highest
+                                point from Cape Verde and get the opportunity to
+                                trek
+                            </article>
+                        </div>
+                    </dic>
                 </div>
             </section>
         </Layout>
