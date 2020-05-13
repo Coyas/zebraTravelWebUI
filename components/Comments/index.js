@@ -45,6 +45,87 @@ const Comments = () => {
                             tortor vestibulum ut. Maecenas non massa sem. Etiam
                             finibus odio quis feugiat facilisis."
                 />
+                <ComentItem
+                    image="https://bulma.io/images/placeholders/128x128.png"
+                    username="Ailton Duarte"
+                    hora="22 days ago"
+                    comment="Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Proin ornare magna eros, eu pellentesque
+                            tortor vestibulum ut. Maecenas non massa sem. Etiam
+                            finibus odio quis feugiat facilisis."
+                />
+                <ComentItem
+                    image="https://bulma.io/images/placeholders/128x128.png"
+                    username="Ailton Duarte"
+                    hora="22 days ago"
+                    comment="Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Proin ornare magna eros, eu pellentesque
+                            tortor vestibulum ut. Maecenas non massa sem. Etiam
+                            finibus odio quis feugiat facilisis."
+                />
+                <ComentItem
+                    image="https://bulma.io/images/placeholders/128x128.png"
+                    username="Ailton Duarte"
+                    hora="22 days ago"
+                    comment="Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Proin ornare magna eros, eu pellentesque
+                            tortor vestibulum ut. Maecenas non massa sem. Etiam
+                            finibus odio quis feugiat facilisis."
+                />
+                <ComentItem
+                    image="https://bulma.io/images/placeholders/128x128.png"
+                    username="Ailton Duarte"
+                    hora="22 days ago"
+                    comment="Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Proin ornare magna eros, eu pellentesque
+                            tortor vestibulum ut. Maecenas non massa sem. Etiam
+                            finibus odio quis feugiat facilisis."
+                />
+                <ComentItem
+                    image="https://bulma.io/images/placeholders/128x128.png"
+                    username="Ailton Duarte"
+                    hora="22 days ago"
+                    comment="Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Proin ornare magna eros, eu pellentesque
+                            tortor vestibulum ut. Maecenas non massa sem. Etiam
+                            finibus odio quis feugiat facilisis."
+                />
+                <ComentItem
+                    image="https://bulma.io/images/placeholders/128x128.png"
+                    username="Ailton Duarte"
+                    hora="22 days ago"
+                    comment="Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Proin ornare magna eros, eu pellentesque
+                            tortor vestibulum ut. Maecenas non massa sem. Etiam
+                            finibus odio quis feugiat facilisis."
+                />
+                <ComentItem
+                    image="https://bulma.io/images/placeholders/128x128.png"
+                    username="Ailton Duarte"
+                    hora="22 days ago"
+                    comment="Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Proin ornare magna eros, eu pellentesque
+                            tortor vestibulum ut. Maecenas non massa sem. Etiam
+                            finibus odio quis feugiat facilisis."
+                />
+                <ComentItem
+                    image="https://bulma.io/images/placeholders/128x128.png"
+                    username="Ailton Duarte"
+                    hora="22 days ago"
+                    comment="Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Proin ornare magna eros, eu pellentesque
+                            tortor vestibulum ut. Maecenas non massa sem. Etiam
+                            finibus odio quis feugiat facilisis."
+                />
+                <ComentItem
+                    image="https://bulma.io/images/placeholders/128x128.png"
+                    username="Ailton Duarte"
+                    hora="22 days ago"
+                    comment="Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Proin ornare magna eros, eu pellentesque
+                            tortor vestibulum ut. Maecenas non massa sem. Etiam
+                            finibus odio quis feugiat facilisis."
+                />
             </div>
         </>
     );

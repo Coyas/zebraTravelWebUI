@@ -8,6 +8,7 @@ import Link from "next/link";
 import Like from "../../components/Like";
 import Hr from "../../components/Hr";
 import Comments from "../../components/Comments";
+import BooknowList from "../../components/BooknowList";
 
 const Expid = () => {
     return (
@@ -231,6 +232,11 @@ const Expid = () => {
                                 point from Cape Verde and get the opportunity to
                                 trek
                             </article>
+                        </div>
+
+                        <div className={expid.exlist}>
+                            <Hr height="1" opacidade="1" cor="#000000" />
+                            <BooknowList />
                         </div>
                     </dic>
                 </div>

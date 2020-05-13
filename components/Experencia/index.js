@@ -25,8 +25,8 @@ const Experencia = () => {
                                 multi-colored...{" "}
                                 <span>
                                     <Link
-                                        href="/experiencia/[pid]"
-                                        as={`/experiencia/test-de-title`}
+                                        href="/experiencias/[pid]"
+                                        as={`/experiencias/test-de-title`}
                                     >
                                         <a>read more</a>
                                     </Link>
@@ -38,8 +38,8 @@ const Experencia = () => {
                                 <p>from</p>{" "}
                                 <p className={expicss.preco}>CVE 11,027</p>{" "}
                                 <Link
-                                    href="/experiencia/[pid]"
-                                    as={`/experiencia/test-de-title`}
+                                    href="/experiencias/[pid]"
+                                    as={`/experiencias/test-de-title`}
                                 >
                                     <a className="button">BOOK NOW</a>
                                 </Link>
