@@ -140,3 +140,17 @@
     width: 50%;
     float: right;
 }
+.slider {
+    div {
+        background-color: red;
+        h3 {
+            color: black;
+        }
+    }
+}
+.branco {
+    color: $branco !important;
+}
+.center {
+    text-align: center;
+}

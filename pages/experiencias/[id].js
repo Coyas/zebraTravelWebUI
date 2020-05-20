@@ -9,8 +9,42 @@ import Like from "../../components/Like";
 import Hr from "../../components/Hr";
 import Comments from "../../components/Comments";
 import BooknowList from "../../components/BooknowList";
+import Modal from "react-modal";
+import { useState } from "react";
+import Galeria from "../../components/Galeria";
+
+const customStyles = {
+    content: {
+        top: "0%",
+        left: "0%",
+        width: "100%",
+        backgroundColor: "#a59f92",
+        border: "unset",
+        height: "100vh",
+        zIndex: "10"
+    }
+};
+// Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
+Modal.setAppElement("#__next");
 
 const Expid = () => {
+    const [ModalIsOpen, setIsOpen] = useState(false);
+
+    function openModal() {
+        // let navbar = document.getElementsByClassName(".navbar_nav__dIn_x");
+        let navbar = document.querySelector(".navbar_nav__dIn_x");
+        navbar.classList.add("hide");
+
+        setIsOpen(true);
+    }
+    function closeModal() {
+        let navbar = document.querySelector(".navbar_nav__dIn_x");
+        if (navbar.classList.contains("hide")) {
+            navbar.classList.remove("hide");
+        }
+        setIsOpen(false);
+    }
+
     return (
         <Layout>
             <Zebralistras />
@@ -57,11 +91,50 @@ const Expid = () => {
                                 </Link>
                             </div>
                         </div>
-                        <button className={"button " + expid.plus}>
+
+                        <button
+                            onClick={openModal}
+                            className={"button " + expid.plus}
+                        >
                             <span className="icon">
                                 <i className="fas fa-plus"></i>
                             </span>
                         </button>
+                        <Modal
+                            isOpen={ModalIsOpen}
+                            style={customStyles}
+                            contentLabel="Example Modal"
+                            onRequestClose={closeModal}
+                            shouldCloseOnOverlayClick={false}
+                        >
+                            <div className="section">
+                                <div className="container">
+                                    <div className="columns is-mobile ">
+                                        <div
+                                            className={
+                                                "column is-half is-offset-one-quarter is-centered " +
+                                                expid.center
+                                            }
+                                        >
+                                            <a
+                                                onClick={closeModal}
+                                                className={expid.branco}
+                                            >
+                                                <span className="icon">
+                                                    <img src="/img/voltar.png" />
+                                                </span>
+                                                Voltar
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div className="columns">
+                                        <div className="column is-mobile">
+                                            <Galeria />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Modal>
                     </div>
                     <div className="column">
                         <div className={"box " + expid.boxcheck}>

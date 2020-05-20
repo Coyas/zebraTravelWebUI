@@ -34,3 +34,6 @@ a:hover {
 .is-rounded {
     border-radius: 290486px !important;
 }
+.hide {
+    display: none !important;
+}
