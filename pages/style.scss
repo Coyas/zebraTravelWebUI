@@ -5,6 +5,7 @@ body {
     background-color: #ffffff;
     /* height: 1000px; */
     font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
 }
 .footer {
     padding: 1rem 1.5rem 1rem;
@@ -36,4 +37,15 @@ a:hover {
 }
 .hide {
     display: none !important;
+}
+.Dzindex {
+    z-index: 0 !important;
+}
+
+$i: 0;
+@for $i from 0 through 100 {
+    .activeSlide_#{$i} #card_#{$i} {
+        opacity: 1;
+        transform: scale(1);
+    }
 }

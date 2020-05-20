@@ -1,6 +1,6 @@
 // import App from 'next/app'
 import "../node_modules/bulma/css/bulma.min.css";
-import "../pages/style.css";
+import "../pages/style.scss";
 
 function MyApp({ Component, pageProps }) {
     return <Component {...pageProps} />;

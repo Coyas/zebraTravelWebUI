@@ -21,7 +21,8 @@ const customStyles = {
         backgroundColor: "#a59f92",
         border: "unset",
         height: "100vh",
-        zIndex: "10"
+        zIndex: "10",
+        overflowX: "hidden"
     }
 };
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
@@ -170,7 +171,7 @@ const Expid = () => {
                                                 type="date"
                                                 placeholder="Choose a date"
                                             />
-                                            <span className="icon is-small is-left">
+                                            <span className="icon is-small is-left Dzindex">
                                                 <i class="far fa-calendar-alt"></i>
                                             </span>
                                         </div>
@@ -184,7 +185,7 @@ const Expid = () => {
                                             min="0"
                                             placeholder="How many travelers"
                                         />
-                                        <span className="icon is-small is-left">
+                                        <span className="icon is-small is-left Dzindex">
                                             <i className="fas fa-user"></i>
                                         </span>
                                     </div>
