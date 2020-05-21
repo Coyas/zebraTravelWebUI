@@ -27,7 +27,7 @@ const NavBar = () => {
                     </Link>
                 </div>
                 <div className={scss.item}>
-                    <Link href="/blog">
+                    <Link href="/post">
                         <a>Blog</a>
                     </Link>
                 </div>

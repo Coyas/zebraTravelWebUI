@@ -14,11 +14,7 @@ const Experiencia = () => {
         <>
             <Layout>
                 <Zebralistras />
-                <div className="container">
-                    <div className="column is-half">
-                        <Bacontact />
-                    </div>
-                </div>
+
                 <Headlogo />
 
                 <Divisor
