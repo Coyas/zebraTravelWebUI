@@ -22,7 +22,7 @@ const NavBar = () => {
                     </Link>
                 </div>
                 <div className={scss.item}>
-                    <Link href="/servico">
+                    <Link href="/servicos">
                         <a>Servicos</a>
                     </Link>
                 </div>

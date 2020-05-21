@@ -1,12 +1,17 @@
 @import "../color";
 
-.boxAdd {
-    width: 15%;
-    float: right;
-    margin: 5% -3% auto;
-    font-size: 0.6rem;
-    color: $cinza;
-}
 .it {
     height: 100px;
+    position: absolute;
+    width: 73%;
+    top: -5%;
+    left: 42%;
+    padding: 2%;
+    .boxAdd {
+        width: 15%;
+        // float: right;
+        margin: 5% -3% auto;
+        font-size: 0.6rem;
+        color: $cinza;
+    }
 }

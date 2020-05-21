@@ -1,0 +1,50 @@
+@import "../../components/color";
+
+.servico {
+    background-color: $amarelo !important;
+    // padding: 2% 0 0 10% !important;
+    height: 84vh;
+    img {
+        width: 86.6%;
+    }
+    .col {
+        // padding-left: 5%;
+        padding: 0 0 0 3.7%;
+        .boxPreto {
+            border-right: 1px solid $preto;
+            width: 96.3%;
+            height: 38.99rem;
+            margin-top: 0;
+            padding: 5% 0 0 8%;
+            color: $preto;
+            h1 {
+                font-weight: bold;
+                color: $preto;
+                font-size: 3rem !important;
+                margin-bottom: 7%;
+            }
+            ul {
+                list-style-type: disc;
+                li {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    &:not(:last-child) {
+                        margin-bottom: 8%;
+                    }
+                    &::marker {
+                        color: $branco;
+                    }
+                }
+            }
+        }
+    }
+    .col2 {
+        padding: 0;
+        img {
+            height: 42vh !important;
+        }
+        figure {
+            margin-left: -2%;
+        }
+    }
+}
