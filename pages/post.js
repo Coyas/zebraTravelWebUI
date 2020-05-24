@@ -31,7 +31,10 @@ const Post = () => {
                         >
                             <article>
                                 <p>June 2, 2017</p>
-                                <Link href="">
+                                <Link
+                                    href="/post/[id]"
+                                    as={`/post/test-de-title`}
+                                >
                                     <a>
                                         <h1 className="subtitle">
                                             Excepteur sint occaecat cupidatat

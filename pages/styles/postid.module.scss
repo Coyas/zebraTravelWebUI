@@ -1,0 +1,16 @@
+@import ".././../components/color";
+
+.postdetail {
+    margin-top: 10%;
+    article {
+        h1 {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        p {
+            color: $preto;
+            font-size: 0.9rem;
+            text-align: justify;
+        }
+    }
+}

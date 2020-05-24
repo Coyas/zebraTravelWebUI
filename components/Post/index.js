@@ -6,14 +6,14 @@ const Postlist = () => {
         <>
             <div className={polcss.boxfoto}>
                 <div className={polcss.item + " " + polcss.item1}>
-                    <Link href="">
+                    <Link href="/post/[id]" as={`/post/test-de-title`}>
                         <a>
                             <img src="/img/a.png" />
                         </a>
                     </Link>
                 </div>
                 <div className={polcss.item + " " + polcss.item2}>
-                    <Link href="">
+                    <Link href="/post/[id]" as={`/post/test-de-title`}>
                         <a>
                             <img src="/img/a.png" />
                         </a>
@@ -23,42 +23,42 @@ const Postlist = () => {
                     <div className={polcss.exbox}>
                         <div className={polcss.inbox}>
                             <p>LOREM IPSUM DOLOR AMET CONSECTETUER</p>
-                            <Link href="">
+                            <Link href="/post/[id]" as={`/post/test-de-title`}>
                                 <a>Learn More</a>
                             </Link>
                         </div>
                     </div>
                 </div>
                 <div className={polcss.item + " " + polcss.item3}>
-                    <Link href="">
+                    <Link href="/post/[id]" as={`/post/test-de-title`}>
                         <a>
                             <img src="/img/a.png" />
                         </a>
                     </Link>
                 </div>
                 <div className={polcss.item + " " + polcss.item4}>
-                    <Link href="">
+                    <Link href="/post/[id]" as={`/post/test-de-title`}>
                         <a>
                             <img src="/img/a.png" />
                         </a>
                     </Link>
                 </div>
                 <div className={polcss.item + " " + polcss.item5}>
-                    <Link href="">
+                    <Link href="/post/[id]" as={`/post/test-de-title`}>
                         <a>
                             <img src="/img/a.png" />
                         </a>
                     </Link>
                 </div>
                 <div className={polcss.item + " " + polcss.item7}>
-                    <Link href="">
+                    <Link href="/post/[id]" as={`/post/test-de-title`}>
                         <a>
                             <img src="/img/a.png" />
                         </a>
                     </Link>
                 </div>
                 <div className={polcss.item + " " + polcss.item8}>
-                    <Link href="">
+                    <Link href="/post/[id]" as={`/post/test-de-title`}>
                         <a>
                             <img src="/img/a.png" />
                         </a>
