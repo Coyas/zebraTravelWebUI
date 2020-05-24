@@ -4,6 +4,7 @@ import Headlogo from "../components/Headlogo";
 import Link from "next/link";
 import Zebralistras from "../components/Zebralistras";
 import Divisor from "../components/Divisor";
+import Postlist from "../components/Post";
 
 const Post = () => {
     return (
@@ -62,13 +63,13 @@ const Post = () => {
                     </div>
                 </section>
 
-                <section className={"container" + poscss.blogs}>
+                <section className={"container " + poscss.blogs}>
                     <div className="columns">
                         <div
-                            className="column is-four-fifths  is-offset-1"
-                            style={{ backgroundColor: "red" }}
+                            className="column is-full"
+                            style={{ padding: "0" }}
                         >
-                            ssss
+                            <Postlist />
                         </div>
                     </div>
                 </section>
