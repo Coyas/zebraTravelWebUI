@@ -12,7 +12,7 @@ const Post = () => {
             <Layout>
                 <Zebralistras />
 
-                <Headlogo />
+                <Headlogo marginHead="2%" />
 
                 <Divisor
                     cores="#ffffff"

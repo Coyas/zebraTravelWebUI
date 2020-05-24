@@ -50,7 +50,7 @@ const Expid = () => {
         <Layout>
             <Zebralistras />
 
-            <Headlogo />
+            <Headlogo marginHead="2%" />
 
             <Divisor
                 title="Experiências Turísticas"

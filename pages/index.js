@@ -17,7 +17,7 @@ const Home = () => {
                             <img src="/img/ZebraListra.svg" />
                         </figure>
                         <Bacontact />
-                        <div>
+                        <div style={{ marginTop: "12%" }}>
                             <figure>
                                 <img src="/img/Zebralogo.svg" />
                             </figure>

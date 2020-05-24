@@ -5,7 +5,10 @@ import Bacontact from "../Bacontact";
 const Headlogo = (props) => {
     return (
         <>
-            <div className={"container " + hcss.headlogo}>
+            <div
+                className={"container " + hcss.headlogo}
+                style={{ marginTop: props.marginHead }}
+            >
                 <div className="column is-half">
                     <Bacontact />
                 </div>

@@ -15,7 +15,7 @@ const Experiencia = () => {
             <Layout>
                 <Zebralistras />
 
-                <Headlogo />
+                <Headlogo marginHead="2%" />
 
                 <Divisor
                     title="Experiências Turísticas"

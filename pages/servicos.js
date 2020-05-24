@@ -13,6 +13,7 @@ const Servicos = () => {
                     top="34%"
                     left="4%"
                     marginTop="7%"
+                    marginHead="-2%"
                 >
                     <figure className="image" style={{ width: "100%" }}>
                         <img src="/img/a.png" style={{ height: "39vh" }} />
