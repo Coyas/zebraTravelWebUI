@@ -11,7 +11,7 @@ const Forgotpw = () => {
                         <img src="/img/logoCinza.svg" />
                     </a>
                 </Link>
-                <div className={forgcss.box2}>
+                <div className={forgcss.box2} style={{ width: "23%" }}>
                     <div className="level">
                         <div className="level-left">
                             <div className="level-item">
@@ -20,9 +20,13 @@ const Forgotpw = () => {
                         </div>
                         <div className="level-right">
                             <div className="level-item">
-                                <span className="icon">
-                                    <i className="fas fa-times"></i>
-                                </span>
+                                <Link href="/">
+                                    <a>
+                                        <span className="icon">
+                                            <i className="fas fa-times"></i>
+                                        </span>
+                                    </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -72,7 +76,10 @@ const Forgotpw = () => {
 
                             <div className="field">
                                 <div className="control">
-                                    <button className="input button is-rounded ">
+                                    <button
+                                        style={{ marginBottom: "8%" }}
+                                        className="input button is-rounded "
+                                    >
                                         Reset password
                                     </button>
                                 </div>

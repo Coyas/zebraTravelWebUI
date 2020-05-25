@@ -13,7 +13,6 @@
     }
 }
 .box2 {
-    width: 23%;
     // height: 20%;
     background: $branco;
     border: 1px solid $cinza;
@@ -32,7 +31,6 @@
         background-color: $amarelo;
         border: unset;
         height: 3rem;
-        margin-bottom: 8%;
     }
     input {
         height: 3rem;
@@ -63,6 +61,41 @@
         background: white;
     }
     .ico {
-        top: 4px;
+        top: 4px !important;
+    }
+    .icopass {
+        top: 4px !important;
+        right: 20px !important;
+        color: $preto !important;
+        cursor: pointer !important;
+        pointer-events: unset !important;
+    }
+    form {
+        .keep {
+            margin-left: 5px;
+            font-size: 0.8rem;
+            color: $preto;
+        }
+        .forgot {
+            font-size: 0.8rem;
+            color: $cinza !important;
+        }
+        .social {
+            .face {
+                background-color: blue;
+                color: $branco !important;
+                width: 100%;
+                font-weight: bold;
+                height: 3rem;
+            }
+            .gmail {
+                background-color: $branco;
+                border: 1px solid red;
+                color: $preto !important;
+                width: 100%;
+                font-weight: bold;
+                height: 3rem;
+            }
+        }
     }
 }
