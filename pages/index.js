@@ -64,7 +64,7 @@ const Home = () => {
                             <div className={indexcss.topRight}>
                                 <Link href="https://www.addtoany.com/share">
                                     <a
-                                        class="a2a_dd"
+                                        className="a2a_dd"
                                         href="https://www.addtoany.com/share"
                                     >
                                         <i className="fas fa-share-alt"></i>
@@ -167,7 +167,7 @@ const Home = () => {
                             <div className={indexcss.topRight}>
                                 <Link href="https://www.addtoany.com/share">
                                     <a
-                                        class="a2a_dd"
+                                        className="a2a_dd"
                                         href="https://www.addtoany.com/share"
                                     >
                                         <i className="fas fa-share-alt"></i>
