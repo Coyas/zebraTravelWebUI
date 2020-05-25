@@ -1,0 +1,68 @@
+@import "../../components/color";
+
+.container2 {
+    width: 100vw;
+    height: 100vh;
+    background: $branco;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img {
+        margin-bottom: 25%;
+    }
+}
+.box2 {
+    width: 23%;
+    // height: 20%;
+    background: $branco;
+    border: 1px solid $cinza;
+    padding: 1% 2%;
+    text-align: center;
+    h1 {
+        font-weight: bold;
+        font-size: 1rem;
+        margin-bottom: 4%;
+    }
+    article {
+        font-size: 0.8rem;
+        margin-bottom: 10%;
+    }
+    button {
+        background-color: $amarelo;
+        border: unset;
+        height: 3rem;
+        margin-bottom: 8%;
+    }
+    input {
+        height: 3rem;
+        margin-bottom: 3%;
+    }
+
+    // hr
+    hr {
+        text-align: center;
+        border: 0;
+        height: 2px;
+        background-image: linear-gradient(
+            to right,
+            transparent,
+            #ccc,
+            transparent
+        );
+        margin-bottom: 10%;
+    }
+
+    hr::after {
+        content: "OR";
+        display: inline-block;
+        position: relative;
+        top: -0.7em;
+        font-size: 1em;
+        padding: 0 0.3em;
+        background: white;
+    }
+    .ico {
+        top: 4px;
+    }
+}

@@ -82,7 +82,7 @@ const Expid = () => {
                             <div className={expid.topRight}>
                                 <Link href="https://www.addtoany.com/share">
                                     <a
-                                        class="a2a_dd"
+                                        className="a2a_dd"
                                         href="https://www.addtoany.com/share"
                                     >
                                         <i className="fas fa-share-alt"></i>
@@ -174,7 +174,7 @@ const Expid = () => {
                                                 placeholder="Choose a date"
                                             />
                                             <span className="icon is-small is-left Dzindex">
-                                                <i class="far fa-calendar-alt"></i>
+                                                <i className="far fa-calendar-alt"></i>
                                             </span>
                                         </div>
                                     </div>
@@ -193,7 +193,7 @@ const Expid = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="control">
+                            <div className="control">
                                 <button className={"button " + expid.btn}>
                                     Check Availability
                                 </button>
