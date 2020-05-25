@@ -1,7 +1,6 @@
 import expid from "../styles/expid.module.scss";
 import Layout from "../../components/layout";
 import Zebralistras from "../../components/Zebralistras";
-import Bacontact from "../../components/Bacontact";
 import Headlogo from "../../components/Headlogo";
 import Divisor from "../../components/Divisor";
 import Link from "next/link";
@@ -81,11 +80,18 @@ const Expid = () => {
                                 </p>
                             </div>
                             <div className={expid.topRight}>
-                                <Link href="">
-                                    <a>
+                                <Link href="https://www.addtoany.com/share">
+                                    <a
+                                        class="a2a_dd"
+                                        href="https://www.addtoany.com/share"
+                                    >
                                         <i className="fas fa-share-alt"></i>
                                     </a>
                                 </Link>
+                                <script>
+                                    var a2a_config = a2a_config || {};
+                                    a2a_config.onclick = 1;
+                                </script>
                             </div>
                         </div>
 

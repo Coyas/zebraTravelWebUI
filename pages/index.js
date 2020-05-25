@@ -62,11 +62,18 @@ const Home = () => {
                         <div className={indexcss.container2}>
                             <img src="/img/esplanada.png" />
                             <div className={indexcss.topRight}>
-                                <Link href="">
-                                    <a>
+                                <Link href="https://www.addtoany.com/share">
+                                    <a
+                                        class="a2a_dd"
+                                        href="https://www.addtoany.com/share"
+                                    >
                                         <i className="fas fa-share-alt"></i>
                                     </a>
                                 </Link>
+                                <script>
+                                    var a2a_config = a2a_config || {};
+                                    a2a_config.onclick = 1;
+                                </script>
                             </div>
                             <div className={indexcss.topLeft}>
                                 <div className={indexcss.a1}>01</div>
@@ -158,11 +165,18 @@ const Home = () => {
                         >
                             <img src="/img/praia.png" />
                             <div className={indexcss.topRight}>
-                                <Link href="">
-                                    <a>
+                                <Link href="https://www.addtoany.com/share">
+                                    <a
+                                        class="a2a_dd"
+                                        href="https://www.addtoany.com/share"
+                                    >
                                         <i className="fas fa-share-alt"></i>
                                     </a>
                                 </Link>
+                                <script>
+                                    var a2a_config = a2a_config || {};
+                                    a2a_config.onclick = 1;
+                                </script>
                             </div>
                             <div className={indexcss.topLeft}>
                                 <div className={indexcss.a1}>03</div>
