@@ -1,15 +1,37 @@
 # zebraTravelWebUI
 
+![](http://zebratravel.innovatmedialab.com/img/Zebralogo.svg)
+
+## Feramentas
+
+-   Frameword [Nextjs](https://nextjs.org/)
+-   Livraria [Reactjs](https://reactjs.org/)
+-   Compilador css [sass](https://sass-lang.com/)
+-   Framework css [bulma](https://bulma.io/)
+-   Modulo react-hook para formulario [react-hook-form](https://react-hook-form.com/)
+-   Framework de internacionalizacao [i18next](https://www.i18next.com/)
+
 ## Scripts de inicializacao
 
-npm run dev
+### inicar o app para desenvolvimento
 
-npm run build
+-   npm run dev
 
-npm run start
+### conpilar o codigo ( gerar o estatic site )
 
-## Usar em producao
+-   npm run build
 
--   pm2 start --name "zebraTravel" -- run dev
+### iniciar o app em producao
 
--   pm2 start --name "zebraTravel" -- run start (depois de usar o npm run build)
+-   npm run start
+
+## Inicializar o app com o [PM2](https://pm2.keymetrics.io/)
+
+### Desenvolvimento
+
+-   pm2 start npm --name "zebraTravel" -- run dev (so para testes)
+
+### Producao
+
+-   npm run build
+-   pm2 start npm --name "zebraTravel" -- start (depois de usar o )
