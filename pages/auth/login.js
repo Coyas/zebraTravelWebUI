@@ -1,8 +1,15 @@
 import logincss from "../styles/auth.module.scss";
 import Loginlayout from "../../components/loginlayout";
 import Link from "next/link";
+import { useState } from "react";
 
 const Login = () => {
+    const [odju, Abriodju] = useState(false);
+
+    const Changepw = () => {
+        Abriodju(!odju);
+    };
+
     return (
         <Loginlayout>
             <div className={logincss.container2}>
@@ -38,7 +45,6 @@ const Login = () => {
                         </article>
                     </div>
                     <div className="">
-                        {/* is-rounded */}
                         <form>
                             <div className="field">
                                 <div className="control has-icons-left">
@@ -61,7 +67,7 @@ const Login = () => {
                                 <div className="control has-icons-left has-icons-right">
                                     <input
                                         className="input is-rounded"
-                                        type="password"
+                                        type={odju ? "text" : "password"}
                                         placeholder="Password"
                                     />
                                     <span
@@ -73,16 +79,17 @@ const Login = () => {
                                         {/* <i className="fas fa-user"></i> */}
                                     </span>
                                     <span
-                                        onClick={() =>
-                                            alert("nao ca tem odjada password")
-                                        }
+                                        onClick={Changepw}
                                         className={
                                             "icon is-small is-right " +
                                             logincss.icopass
                                         }
                                     >
-                                        <i className="far fa-eye-slash"></i>
-                                        {/* <i className="far fa-eye"></i> */}
+                                        {odju ? (
+                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAD20lEQVRoge3YS2hdRRgH8F9iXJloa2JtEtuCrfWBLrpSBG1dNyEoqGiNFUWhKirYnbgRFfFJd+rehU+UtlZbom19ICr4WLRWbReKKETBJEKbpMl18c3tuUnPubm5aaKL84fhJvM9Zr4z32uGEiVKlChRokSJEouFljOo61xsxLW4AuvRhY5EH8OfOILD+AwH0vx/jg7chSFMojLPMYl92CozeEmxBi9iZNbGvsdzuBFXYjnOTmM5rsJNeBqf4GSN7Aiex6qlMOAC7MD4LAOeQE8T+rqEUbW6TuClRFsU3Im/0mLTMld6c4F6W7Az6TqZdFdEPA0uUPcMrMEHsi/2KTaLU5lI9DwMYD/+SeNj9BfwrhMfZjLpPlCz3vtYvVAjbsWo7AttFV/wvjT3WoHcM4oD/KkCmdcT/f70/yCG09wobmnGgDYRzNXF9+LCGvruNH9bjuxAHSOqoy9H7o5E21Mzt0LmDdMikbQ1asQy4QZVn30crbN4fk30tTny+xsw5KMcuUsS7ZdZ8614TJbhhtIe66JbpNCKONYbCvhOJJ5zcmhjDRgymiPXnmjHC9bcJHO1b7GyyIjVOJYYj4nKXIRq3OQVsWYN6ahDq2J9zR6Pyqk5K/FjYvhGHWsTjiTePGOrbllvDOXIXZpoh+dYu1ucSCXtY8ZeP0+E79A5hyIiJRYFe38DhmzOkduSaLsaWL8r7bUierZTQVxJv60aywq70+9ADm2nqNZFeLJGvhZVXXm02TjL6QkIM13rkDi+erhIFK9xXFzA0yey01gaQ/JPgiiI40ln7xxr9wj3y3UtItiP1jAUbbCKVxPvW3PwNYJ3kq6X5+BbK/vgP6vTYHbLfG8Y19VR2iPLXo82vOXTsT3p+Fv9JLNRdBeNJiTLhBtUxHE/pPgC1o8pUayaMWZ7kp1S7HYteETWce/DeY0u0CbuBtUss0u08Hl4MG2kgrflV/vZWCdzpyk8UMC3QtYOTeNZEejzRm3T+Lto5fNOp092yRrHG7gdl4mK3Z7+3iLa/gmZO+WdRItoUP+QFcmbmzGgFj14V3Y6X+LqHL4ucelq5Mo7iVfkZ8cN4qpQ5d2j+KrQFAZlwTaF93B9Dl8vtgmXOCRLv4eEi26Tn2I3iRpUddNh0REvCrpEe19tGiv4Cnfj/Cb0deIefF2j7zhe0FiHcQrNPgetwsO4VzwDEe7yBQ6K9PgTfhOn0SLipFf0ZxvEaV4j6yRGRG3akeSWFB0iKPfKAng+YwIfiiTSvpCNnMkHunbZA93lIkt1ynL+iHi8+EH2QHdQ3OdLlChRokSJEiVK/I/xL9v1cIhAZQ2FAAAAAElFTkSuQmCC" />
+                                        ) : (
+                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAACLUlEQVRYhe3WzW+NQRQG8F+rPoJqi6qwING/wIaUSISkDeIfqT0LH/EVTSVWthYilo2FnUQkYiFWqGiRSGiqKCKCovRazHl73/u65Taa3C56ksnceXLe8zxzzsy5w4JVWi/W15O8hKF6iViHwRDxBBsWRNRbxMP5ICLLxBA2ogtncRtj+B7jNe6gD7vQNFci2pUz8SvmWsY7nEHH/5AvqiKihKs4iE6swDKpRN3ox0jOdyKwlbMl78FzHKgi4l99ohG78SEn5CX210K8GBcxFR9+w74ZRJyXaj8q1X5JIVZ/+E7l5gvBUdVW41Y4T+KodAgnpANYFFEcfYV42wIfjFiTsb6J1iL5WtwPh1HsCPxjYC0535lEjFbZUCliwE68CuxBxAFtAWSp3ZQL8jXw5kLwaiLGCj7NgX/JYZuDIxPR1lj4qEH59MvtakvBbxx7pPRmdqXg0xnzSA5rDA4hYtralbPwRrkElwM7prr97XacCPxSrLsidgl3pRJVWKt0QEr4iXPSNSzhLVbNQkSLlKWSlKnD+BHrG/4s6bQ1SdcnuzqDeB+/B6QU1iLiunI27yl30lMqSzyjdUuNqHjSB1TeiJlEFMdT7K2FOG/LpX7+qRBsHMexVWqxLcr/lu14lPP9jCNYOlvyvK3BSbxQfXdZz+8J/w48DnzYHD7vGrAdp6VSDAfxBJ7hmtRTBGl23+v6xszKUddHzYKIeSMifzAP1UNAJqK3XuTz034DxNLfZ6nPz9AAAAAASUVORK5CYII=" />
+                                        )}
                                     </span>
                                 </div>
                             </div>
@@ -126,6 +133,7 @@ const Login = () => {
                             >
                                 <p className="control is-expanded">
                                     <a
+                                        href="https://dsfsfsdf.sqd"
                                         className={
                                             "button is-rounded " + logincss.face
                                         }
@@ -138,6 +146,7 @@ const Login = () => {
                                 </p>
                                 <p className="control is-expanded">
                                     <a
+                                        href="https://dsfsfsdf.sqd"
                                         className={
                                             "button is-rounded " +
                                             logincss.gmail
@@ -159,7 +168,10 @@ const Login = () => {
 
                             <div className="field">
                                 <div className="control">
-                                    <button className="input button is-rounded ">
+                                    <button
+                                        type="submit"
+                                        className="input button is-rounded "
+                                    >
                                         Sign in
                                     </button>
                                 </div>
