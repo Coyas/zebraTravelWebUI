@@ -34,4 +34,4 @@
 ### Producao
 
 -   npm run build
--   pm2 start npm --name "zebraTravel" -- start (depois de usar o )
+-   pm2 start npm --name "zebraTravel" -- start
