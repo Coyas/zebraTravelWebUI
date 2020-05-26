@@ -5,7 +5,7 @@ import Link from "next/link";
 const Signup = () => {
     return (
         <Loginlayout>
-            <div className={signcss.container2}>
+            <div className={signcss.container2} style={{ height: "121vh" }}>
                 <Link href="/">
                     <a>
                         <img src="/img/logoCinza.svg" />
@@ -74,6 +74,36 @@ const Signup = () => {
                                         placeholder="Password"
                                     />
                                 </div>
+                            </div>
+
+                            <div className="field">
+                                <p
+                                    className="control"
+                                    style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        fontSize: "0.7rem"
+                                    }}
+                                >
+                                    <input
+                                        style={{ marginRight: "4%" }}
+                                        type="checkbox"
+                                        required
+                                    />
+                                    I agree with{" "}
+                                    <Link href="">
+                                        <a style={{ color: "blue !important" }}>
+                                            {" "}
+                                            Terms of Service{" "}
+                                        </a>
+                                    </Link>{" "}
+                                    and{" "}
+                                    <Link href="">
+                                        <a style={{ color: "blue !important" }}>
+                                            Privacy Policy
+                                        </a>
+                                    </Link>
+                                </p>
                             </div>
 
                             <div className="field">
