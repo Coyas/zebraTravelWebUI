@@ -2,25 +2,28 @@
 
 .nav {
     background-color: $branco;
-
     // width: 35%;
     position: fixed;
     top: 4%;
     right: 4%;
     // padding: 1%;
     display: grid;
-    grid-template-columns: 40px 150px 80px 50px 80px 40px 100px;
+    grid-template-columns: /*40px*/ 150px 80px 50px 80px /*40px*/ 100px;
     justify-content: center;
     align-content: center;
     gap: 2px;
     // /* Add the blur effect */
     opacity: 0.8;
-    z-index: 100;
+    z-index: 50;
     .active {
         background-color: $amarelo;
+        width: 66%;
+        margin-left: 34%;
     }
     .noactive {
         background-color: $preto;
+        width: 66%;
+        margin-left: 34%;
         a {
             color: $branco;
         }
@@ -34,8 +37,61 @@
         justify-content: center;
         align-content: center;
         padding: 15px;
+        cursor: pointer;
+        color: $preto;
     }
     .item:last-child {
-        font-size: 1.4rem;
+        // font-size: 1.4rem;
+    }
+}
+.dropMenu {
+    padding: 1%;
+    background-color: $branco;
+    position: fixed;
+    top: 4%;
+    right: 7.9%;
+    // z-index: 50;
+    width: 25.29%;
+
+    .boxcontainer {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        margin-bottom: 5%;
+
+        .box1 {
+            span {
+                &:not(:last-child) {
+                    margin-right: 12%;
+                }
+                &:hover {
+                    color: $preto;
+                    font-weight: bold;
+                }
+                cursor: pointer;
+            }
+        }
+        // .box2 {
+        // }
+    }
+    .listMenu {
+        img {
+            width: 44%;
+        }
+    }
+}
+.show {
+    display: none;
+}
+.social {
+    display: flex;
+    justify-content: end;
+    flex-flow: row wrap;
+
+    .caxa {
+        width: 24%;
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row wrap;
     }
 }

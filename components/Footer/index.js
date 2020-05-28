@@ -27,50 +27,47 @@ const Footer = () => {
                                 de passagens aéreas e marítimas bem como
                                 experiências turísticas em Cabo Verde.
                             </p>
-                            <p>
-                                <div className="level">
-                                    <div className="level-right">
-                                        <p className={"level-item " + scss.mrg}>
-                                            <a href="dqdq">
-                                                <span className="icon">
-                                                    <i className="fab fa-facebook-f"></i>
-                                                </span>
-                                            </a>
-                                        </p>
-                                        <p className={"level-item " + scss.mrg}>
-                                            <a href="dqdq">
-                                                <span className="icon">
-                                                    <i className="fab fa-instagram"></i>
-                                                </span>
-                                            </a>
-                                        </p>
-                                        <p className={"level-item " + scss.mrg}>
-                                            <a href="dqdq">
-                                                <span className="icon">
-                                                    <i className="fab fa-youtube"></i>
-                                                </span>
-                                            </a>
-                                        </p>
-                                        <p className={"level-item " + scss.mrg}>
-                                            <a href="dqdq">
-                                                <span className="icon">
-                                                    <i className="fab fa-tripadvisor"></i>
-                                                </span>
-                                                Tripadvisor
-                                            </a>
-                                        </p>
-                                        <p className={"level-item " + scss.mrg}>
-                                            <a
-                                                className={scss.book}
-                                                href="dqdq"
-                                            >
-                                                Booking
-                                                <span>.com</span>
-                                            </a>
-                                        </p>
-                                    </div>
+                            {/* <p> */}
+                            <div className="level">
+                                <div className="level-right">
+                                    <p className={"level-item " + scss.mrg}>
+                                        <a href="dqdq">
+                                            <span className="icon">
+                                                <i className="fab fa-facebook-f"></i>
+                                            </span>
+                                        </a>
+                                    </p>
+                                    <p className={"level-item " + scss.mrg}>
+                                        <a href="dqdq">
+                                            <span className="icon">
+                                                <i className="fab fa-instagram"></i>
+                                            </span>
+                                        </a>
+                                    </p>
+                                    <p className={"level-item " + scss.mrg}>
+                                        <a href="dqdq">
+                                            <span className="icon">
+                                                <i className="fab fa-youtube"></i>
+                                            </span>
+                                        </a>
+                                    </p>
+                                    <p className={"level-item " + scss.mrg}>
+                                        <a href="dqdq">
+                                            <span className="icon">
+                                                <i className="fab fa-tripadvisor"></i>
+                                            </span>
+                                            Tripadvisor
+                                        </a>
+                                    </p>
+                                    <p className={"level-item " + scss.mrg}>
+                                        <a className={scss.book} href="dqdq">
+                                            Booking
+                                            <span>.com</span>
+                                        </a>
+                                    </p>
                                 </div>
-                            </p>
+                            </div>
+                            {/* </p> */}
                         </div>
                         <div className="column">
                             <div className={scss.fodi}>
