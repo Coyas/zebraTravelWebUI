@@ -1,7 +1,8 @@
 import scss from "./navbar.module.scss";
-import Link from "next/link";
+// import Link from "next/link";
 import { useState } from "react";
 import Hr from "../Hr";
+import { i18n, Link, withTranslation } from "../../i18n";
 
 const NavBar = () => {
     const [open, Isopen] = useState(false);
@@ -59,9 +60,15 @@ const NavBar = () => {
                 <div className={scss.dropMenu + " " + show}>
                     <div className={scss.boxcontainer}>
                         <div className={scss.box1}>
-                            <span>PT</span>
-                            <span>EN</span>
-                            <span>FR</span>
+                            <span onClick={() => i18n.changeLanguage("pt")}>
+                                PT
+                            </span>
+                            <span onClick={() => i18n.changeLanguage("en")}>
+                                EN
+                            </span>
+                            <span onClick={() => i18n.changeLanguage("fr")}>
+                                FR
+                            </span>
                         </div>
                         <div className={scss.box2}>
                             <Link href="/auth/login">
@@ -121,4 +128,4 @@ const NavBar = () => {
     );
 };
 
-export default NavBar;
+export default withTranslation("common")(NavBar);

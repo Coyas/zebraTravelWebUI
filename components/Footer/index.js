@@ -1,9 +1,10 @@
 import scss from "./footer.module.scss";
 import Hr from "../Hr";
-import Link from "next/link";
+// import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { i18n, Link, withTranslation } from "../../i18n";
 
-const Footer = () => {
+const Footer = ({ t }) => {
     const { register, handleSubmit } = useForm();
 
     const subscreve = (data, e) => {
@@ -21,12 +22,7 @@ const Footer = () => {
                             <figure className={scss.image}>
                                 <img src="/img/logoCinza.svg" />
                             </figure>
-                            <p className={scss.txt}>
-                                ZebraTravel é uma agência de viagens e turismo
-                                na ilha do Fogo. O principal negócio é a venda
-                                de passagens aéreas e marítimas bem como
-                                experiências turísticas em Cabo Verde.
-                            </p>
+                            <p className={scss.txt}>{t("sobre")}</p>
                             {/* <p> */}
                             <div className="level">
                                 <div className="level-right">
@@ -133,4 +129,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default withTranslation("footer")(Footer);

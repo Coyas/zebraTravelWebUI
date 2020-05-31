@@ -1,13 +1,14 @@
 import Layout from "../components/layout";
 import indexcss from "./styles/index.module.scss";
 import Divisor from "../components/Divisor";
-import Link from "next/link";
+// import Link from "next/link";
 import Testemunhas from "../components/Testemunho";
 import Banner from "../components/Banner";
 import Bacontact from "../components/Bacontact";
 import Like from "../components/Like";
+import { i18n, Link, withTranslation } from "../i18n";
 
-const Home = () => {
+const Home = ({ t }) => {
     return (
         <Layout>
             <div className="container">
@@ -22,14 +23,7 @@ const Home = () => {
                                 <img src="/img/Zebralogo.svg" />
                             </figure>
                         </div>
-                        <p className={indexcss.txt}>
-                            Alojamento e<br />
-                            experiências
-                            <br />
-                            turísticas em
-                            <br />
-                            Cabo Verde
-                        </p>
+                        <p className={indexcss.txt}>{t("title")}</p>
                         <p className={indexcss.sobre}>
                             <a>
                                 <span>
@@ -290,4 +284,10 @@ const Home = () => {
     );
 };
 
-export default Home;
+Home.getInitialProps = async () => {
+    const obj = { namespacesRequired: ["common", "footer"] };
+
+    return obj;
+};
+
+export default withTranslation("common")(Home);
