@@ -15,7 +15,7 @@ const Servicos = () => {
                     marginTop="7%"
                     marginHead="-2%"
                 >
-                    <figure className="image" style={{ width: "100%" }}>
+                    <figure className="image" style={{ width: "105.6%" }}>
                         <img src="/img/a.png" style={{ height: "39vh" }} />
                     </figure>
                 </Headlogo>
@@ -92,7 +92,10 @@ const Servicos = () => {
                             </article>
                         </div>
                         <div className="column">
-                            <figure className="image">
+                            <figure
+                                className="image"
+                                // style={{ width: "105.6%" }}
+                            >
                                 <img src="/img/b.png" />
                             </figure>
                         </div>

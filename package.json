@@ -4,9 +4,11 @@
     "description": "website da zebraTravel",
     "main": "index.js",
     "scripts": {
-        "dev": "next -p 8332",
+        "olddev": "next -p 8332",
+        "dev": "node server.js",
         "build": "next build",
-        "start": "next start -p 8332"
+        "oldstart": "next start -p 8332",
+        "start": "NODE_ENV=production node server.js"
     },
     "repository": {
         "type": "git",
@@ -26,8 +28,9 @@
     "homepage": "https://github.com/Coyas/zebraTravelWebUI#readme",
     "dependencies": {
         "bulma": "^0.8.1",
-        "i18next": "^19.4.4",
+        "express": "^4.17.1",
         "next": "^9.3.2",
+        "next-i18next": "^4.4.2",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-hook-form": "^5.6.1",

@@ -18,6 +18,8 @@ const Headlogo = (props) => {
                         style={{
                             height: props.height,
                             marginTop: props.marginTop
+                            // marginTop: " 9.99%",
+                            // marginLeft: "1px"
                         }}
                     >
                         <Link href="/">

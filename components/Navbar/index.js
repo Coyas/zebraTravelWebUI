@@ -76,7 +76,7 @@ const NavBar = () => {
                     </div>
                     <Hr height="1" opacidade="1" cor="#000000" width="79" />
                     <div className={scss.listMenu}>
-                        <ul class="menu-list">
+                        <ul className="menu-list">
                             <li>
                                 <img src="/img/logoCinza.svg" />
                             </li>

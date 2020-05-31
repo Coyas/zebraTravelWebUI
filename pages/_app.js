@@ -1,4 +1,5 @@
 // import App from 'next/app'
+import { appWithTranslation } from "../i18n";
 import "../node_modules/bulma/css/bulma.min.css";
 import "../pages/style.scss";
 
@@ -18,4 +19,4 @@ function MyApp({ Component, pageProps }) {
 //     return { ...appProps };
 // };
 
-export default MyApp;
+export default appWithTranslation(MyApp);

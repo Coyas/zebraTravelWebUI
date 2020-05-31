@@ -3,7 +3,7 @@ function Error({ statusCode }) {
         <p>
             {statusCode
                 ? `O Erro ${statusCode} foi detatado.`
-                : "Foit detetado um erro no cliente"}
+                : "Foi detetado um erro no cliente"}
         </p>
     );
 }

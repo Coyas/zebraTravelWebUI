@@ -1,10 +1,10 @@
-import poscss from "./styles/post.module.scss";
-import Layout from "../components/layout";
-import Headlogo from "../components/Headlogo";
+import poscss from "../styles/post.module.scss";
+import Layout from "../../components/layout";
+import Headlogo from "../../components/Headlogo";
 import Link from "next/link";
-import Zebralistras from "../components/Zebralistras";
-import Divisor from "../components/Divisor";
-import Postlist from "../components/Post";
+import Zebralistras from "../../components/Zebralistras";
+import Divisor from "../../components/Divisor";
+import Postlist from "../../components/Post";
 
 const Post = () => {
     return (
@@ -32,8 +32,8 @@ const Post = () => {
                             <article>
                                 <p>June 2, 2017</p>
                                 <Link
-                                    href="/Index/[id]"
-                                    as={`/Index/test-de-title`}
+                                    href="/post/[id]"
+                                    as={`/post/test-de-title`}
                                 >
                                     <a>
                                         <h1 className="subtitle">
