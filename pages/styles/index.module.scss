@@ -213,4 +213,12 @@
         top: 0.313rem;
         left: 1.625rem;
     }
+    .space {
+        justify-content: space-between !important;
+    }
+    .content2 {
+        p {
+            margin-top: 4%;
+        }
+    }
 }
