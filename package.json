@@ -4,10 +4,8 @@
     "description": "website da zebraTravel",
     "main": "index.js",
     "scripts": {
-        "olddev": "next -p 8332",
         "dev": "node server.js",
         "build": "next build",
-        "oldstart": "next start -p 8332",
         "start": "NODE_ENV=production node server.js"
     },
     "repository": {

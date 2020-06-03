@@ -3,7 +3,7 @@ import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Meta from "../components/Meta";
 
-export default ({ children, title = "Zebra Travel" }) => (
+export default ({ children, title = "Zebra Travel Agency" }) => (
     <>
         <Head>
             <title>{title}</title>

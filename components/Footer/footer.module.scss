@@ -1,5 +1,14 @@
 @import "../color";
 
+/**
+* Variaveis globais para RWD
+**/
+$movel: 375px;
+$tablet: 375px;
+$pc: 375px;
+$Plasma: 1500px;
+
+// inicio do scss
 .footer {
     bottom: 0 !important;
 }
@@ -53,11 +62,11 @@
     font-size: 0.7rem;
 }
 .fodi {
-    display: inline-block;
-    width: 72%;
-    float: right;
+    // display: inline-block;
+    // width: 72%;
+    // float: right;
     h1 {
-        margin-top: 11%;
+        margin-top: 22%;
     }
     ul {
         li {
@@ -65,6 +74,31 @@
             &:last-child {
                 margin-bottom: 0%;
             }
+        }
+    }
+}
+.lfoot {
+    h1 {
+        text-align: start;
+    }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media screen and (max-width: $movel) {
+    // margin-top: 5%;
+    .lfoot {
+        h1 {
+            text-align: center;
+        }
+    }
+    .image {
+        text-align: center;
+        img {
+            width: 77% !important;
         }
     }
 }

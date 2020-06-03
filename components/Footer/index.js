@@ -65,7 +65,13 @@ const Footer = ({ t }) => {
                             </div>
                             {/* </p> */}
                         </div>
-                        <div className="column">
+                        <div
+                            className="column"
+                            style={{
+                                display: "flex",
+                                justifyContent: "center"
+                            }}
+                        >
                             <div className={scss.fodi}>
                                 <h1 className={scss.h1}>
                                     RESPONSABILIDADE SOCIAL
@@ -89,7 +95,7 @@ const Footer = ({ t }) => {
                                 </ul>
                             </div>
                         </div>
-                        <div className="column">
+                        <div className={"column " + scss.lfoot}>
                             <h1 className={scss.h1}>NEWSLETTER</h1>
                             <form onSubmit={handleSubmit(subscreve)}>
                                 <div className="field is-grouped">
