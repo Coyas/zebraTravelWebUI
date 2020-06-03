@@ -1,12 +1,5 @@
 @import "../color";
-
-/**
-* Variaveis globais para RWD
-**/
-$movel: 375px;
-$tablet: 375px;
-$pc: 375px;
-$Plasma: 1500px;
+@import "../media";
 
 // inicio do scss
 .footer {

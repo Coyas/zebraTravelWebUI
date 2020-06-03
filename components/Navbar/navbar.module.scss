@@ -1,4 +1,5 @@
 @import "../color";
+@import "../media";
 
 .nav {
     background-color: $branco;
@@ -52,6 +53,7 @@
     right: 7.9%;
     // z-index: 50;
     width: 25.29%;
+    transition: width 10s ease-in;
 
     .boxcontainer {
         display: flex;
@@ -93,5 +95,31 @@
         display: flex;
         justify-content: space-between;
         flex-flow: row wrap;
+    }
+}
+
+@media screen and (max-width: $movel) {
+    .nav {
+        font-size: 0.7rem;
+        grid-template-columns: 108px 74px 42px 59px 82px;
+        top: 0.5%;
+        right: 1%;
+        opacity: 1;
+    }
+    .dropMenu {
+        // padding: 1%;
+        // background-color: $branco;
+        // position: fixed;
+        top: 0.5%;
+        right: 15.6%;
+        // z-index: 50;
+        width: 84.2%;
+        .box1 {
+            color: $preto;
+            font-weight: bold;
+            span {
+                margin-right: 57% !important;
+            }
+        }
     }
 }
