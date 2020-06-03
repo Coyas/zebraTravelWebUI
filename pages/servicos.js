@@ -15,12 +15,15 @@ const Servicos = () => {
                     marginTop="7%"
                     marginHead="-2%"
                 >
-                    <figure className="image" style={{ width: "105.6%" }}>
-                        <img src="/img/a.png" style={{ height: "39vh" }} />
+                    <figure
+                        // id={sescss.sebanner}
+                        className={"image " + sescss.figure}
+                    >
+                        <img src="/img/a.png" />
                     </figure>
                 </Headlogo>
                 <section className={"container is-fluid " + sescss.servico}>
-                    <div className="columns is-Desktop">
+                    <div className="columns is-desktop">
                         <div className={"column " + sescss.col}>
                             <div className={sescss.boxPreto}>
                                 <h1 className="title">SERVIÇOS</h1>
@@ -43,7 +46,7 @@ const Servicos = () => {
                     </div>
                 </section>
                 <section className={"container " + sescss.detalhes}>
-                    <div className="columns">
+                    <div className="columns is-desktop">
                         <div className={"column " + sescss.arti}>
                             <article>
                                 Itinerary

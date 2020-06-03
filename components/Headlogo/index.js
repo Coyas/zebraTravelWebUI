@@ -12,7 +12,7 @@ const Headlogo = (props) => {
                 <div className="column is-half">
                     <Bacontact />
                 </div>
-                <div className="columns">
+                <div className="columns is-desktop">
                     <div
                         className={"column " + hcss.borda}
                         style={{
@@ -25,7 +25,7 @@ const Headlogo = (props) => {
                         <Link href="/">
                             <a>
                                 <figure
-                                    className="image"
+                                    className={"image " + hcss.figure}
                                     style={{
                                         position: props.position,
                                         width: props.width,

@@ -1,4 +1,5 @@
 @import "../../components/color";
+@import "../../components/media";
 
 .headlogo {
     figure {
@@ -8,4 +9,13 @@
 .borda {
     border-right: 1px solid $preto;
     height: 8rem;
+}
+
+@media screen and (max-width: $movel) {
+    // .headlogo {
+    //     figure {
+    //         width: 81% !important;
+    //         top: 28% !important;
+    //     }
+    // }
 }
