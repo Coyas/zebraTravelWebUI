@@ -1,4 +1,5 @@
 @import "../../components/color";
+@import "../../components/media";
 
 .boxi {
     margin-top: 5% !important;
@@ -19,5 +20,20 @@
         border: 1px solid $cinza;
         margin-right: 2%;
         border-radius: 40px;
+    }
+}
+
+@media screen and (max-width: $movel) {
+    .col {
+        padding-left: 10%;
+        h1 {
+            font-size: 1.5rem;
+        }
+    }
+    .qual {
+        display: none;
+    }
+    .boxi {
+        margin-bottom: 5% !important;
     }
 }

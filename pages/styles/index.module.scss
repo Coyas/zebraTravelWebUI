@@ -1,13 +1,8 @@
 @import "../../components/color";
+@import "../../components/media";
 
 // primero section
 
-.txt {
-    font-size: 3rem;
-    color: $preto;
-    line-height: 1.2;
-    margin: 11% 0 7% 0;
-}
 .coluna {
     border-right: 1px solid red;
     height: 685px;
@@ -162,4 +157,43 @@
 .expa {
     color: $branco !important;
     font-size: 1.3rem;
+}
+.logo {
+    margin-top: 12%;
+}
+.txt {
+    font-size: 3rem;
+    color: $preto;
+    line-height: 1.2;
+    margin: 11% 0 7% 0;
+}
+
+@media screen and (max-width: $movel) {
+    .fig {
+        display: none;
+    }
+    .fig2 {
+        top: -0.5%;
+        right: -69%;
+        left: unset;
+        img {
+            width: 51%;
+        }
+    }
+    .logo {
+        margin-top: 33%;
+        margin-left: 10%;
+    }
+    .txt {
+        font-size: 2.4rem;
+        margin: 11% 4% 7% 4%;
+        text-align: justify;
+    }
+    .sobre {
+        text-align: center;
+        margin-top: 16%;
+    }
+    .coluna {
+        display: none;
+    }
 }

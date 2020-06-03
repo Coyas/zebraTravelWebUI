@@ -6,10 +6,14 @@ import { i18n, Link, withTranslation } from "../../i18n";
 
 const NavBar = () => {
     const [open, Isopen] = useState(false);
+    // const [scale, setScale] = useState(0.6);
 
     let siclass;
     let show;
     let icon;
+    const styles = {
+        transition: "all 1s ease-out"
+    };
     if (open) {
         siclass = scss.noactive;
         show = "";
@@ -22,7 +26,11 @@ const NavBar = () => {
 
     const handleClick = () => {
         Isopen(!open);
+        // setScale(scale > 0.6 ? 0.6 : 0.999);
     };
+
+    // transition: all 5s ease-in;
+    // transform: scale(1.3);
 
     return (
         <>
@@ -57,7 +65,12 @@ const NavBar = () => {
                 >
                     {icon}
                 </div>
-                <div className={scss.dropMenu + " " + show}>
+                <div
+                    className={scss.dropMenu + " " + show}
+                    style={{
+                        ...styles
+                    }}
+                >
                     <div className={scss.boxcontainer}>
                         <div className={scss.box1}>
                             <span onClick={() => i18n.changeLanguage("pt")}>

@@ -16,6 +16,7 @@
     // /* Add the blur effect */
     opacity: 0.8;
     z-index: 50;
+
     .active {
         background-color: $amarelo;
         width: 66%;
@@ -53,7 +54,6 @@
     right: 7.9%;
     // z-index: 50;
     width: 25.29%;
-    transition: width 10s ease-in;
 
     .boxcontainer {
         display: flex;
