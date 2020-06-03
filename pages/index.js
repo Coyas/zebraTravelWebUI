@@ -202,7 +202,12 @@ const Home = ({ t }) => {
                             <div className={indexcss.content2}>
                                 <div className="sectags">
                                     <div className="level-right">
-                                        <div className="field is-grouped is-grouped-multiline">
+                                        <div
+                                            className={
+                                                "field is-grouped is-grouped-multiline " +
+                                                indexcss.space
+                                            }
+                                        >
                                             <div className="control">
                                                 <div className="tags has-addons">
                                                     <Link href="ss">
@@ -261,8 +266,12 @@ const Home = ({ t }) => {
             </div>
 
             <div className="container margintop">
-                <div className="box">
-                    <Testemunhas />
+                <div className="columns">
+                    <div className="column">
+                        <div className={"box " + indexcss.boxMargin}>
+                            <Testemunhas />
+                        </div>
+                    </div>
                 </div>
             </div>
 
