@@ -72,8 +72,8 @@
 }
 .topLeft {
     position: absolute;
-    top: 8px;
-    left: 16px;
+    top: 0.5rem;
+    left: 1rem;
     width: 80%;
 }
 .coluna2 {
@@ -108,22 +108,22 @@
 }
 .a1 {
     position: absolute;
-    top: 21px;
-    left: 42px;
+    top: 1.3125rem;
+    left: 2.625rem;
     font-size: 0.8rem;
     color: $branco;
 }
 .traco {
     position: absolute;
-    top: 48px;
-    left: 46px;
+    top: 3rem;
+    left: 2.875rem;
     border-right: 3px solid $branco;
-    height: 103px;
+    height: 6.4375rem;
 }
 .a2 {
     position: absolute;
-    bottom: 21px;
-    left: 42px;
+    bottom: 1.3125rem;
+    left: 2.625rem;
     font-size: 0.8rem;
     color: $branco;
 }
@@ -193,7 +193,24 @@
         text-align: center;
         margin-top: 16%;
     }
-    .coluna {
+    .coluna,
+    .coluna2,
+    .coluna3 {
         display: none;
+    }
+    .container2 {
+        width: 100%;
+    }
+
+    .traco {
+        left: 1.8rem;
+    }
+    .a2 {
+        left: 1.45rem;
+        bottom: 0.313rem;
+    }
+    .a1 {
+        top: 0.313rem;
+        left: 1.625rem;
     }
 }
