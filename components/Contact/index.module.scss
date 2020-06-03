@@ -1,4 +1,5 @@
 @import "../color";
+@import "../media";
 
 .form {
     color: $preto !important;
@@ -25,4 +26,17 @@
     border-right: unset;
     border-radius: unset;
     border-bottom: 1px solid $preto;
+}
+
+@media screen and (max-width: $movel) {
+    .form {
+        display: block;
+        float: unset;
+        padding: 5%;
+        width: 100%;
+    }
+    .amarelo {
+        width: 100%;
+        margin-top: 8%;
+    }
 }

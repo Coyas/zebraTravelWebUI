@@ -1,4 +1,5 @@
 @import "../../components/color";
+@import "../../components/media";
 
 .cont {
     .boxi {
@@ -40,5 +41,27 @@
     iframe {
         width: 100%;
         height: 26rem;
+    }
+}
+
+@media screen and (max-width: $movel) {
+    .cont {
+        margin-top: 4rem;
+        margin-bottom: 6rem;
+        .boxi {
+            // padding: 4% 0 0 0;
+            text-align: center;
+            text-align: -moz-center;
+        }
+        figure {
+            width: 84%;
+        }
+    }
+    .contTitle {
+        text-align: center;
+        h1,
+        h6 {
+            margin-bottom: 9% !important;
+        }
     }
 }
