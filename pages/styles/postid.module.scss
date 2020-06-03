@@ -1,4 +1,5 @@
 @import ".././../components/color";
+@import ".././../components/media";
 
 .postdetail {
     margin-top: 10%;
@@ -78,5 +79,32 @@
     .preco {
         font-size: 2rem;
         font-weight: bold;
+    }
+}
+
+@media screen and (max-width: $movel) {
+    .postdetail {
+        margin-top: 2%;
+        article {
+            padding: 5%;
+            h1 {
+                // font-weight: bold;
+                font-size: 1.5rem;
+                text-align: center;
+            }
+            p {
+                // color: $preto;
+                // font-size: 0.9rem;
+                // text-align: justify;
+            }
+        }
+    }
+    .blogImage {
+        .container2 {
+            width: 100%;
+        }
+        .liinha {
+            display: none;
+        }
     }
 }

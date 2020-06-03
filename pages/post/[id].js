@@ -13,7 +13,7 @@ const Postid = () => {
             <Headlogo marginHead="2%" />
 
             <section className={"container " + pidcss.postdetail}>
-                <div className="columns is-variable is-3-desktop">
+                <div className="columns is-variable is-desktop">
                     <div className="column">
                         <article>
                             <h1 className="subtitle">

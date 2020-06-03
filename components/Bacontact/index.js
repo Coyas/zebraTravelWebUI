@@ -8,7 +8,9 @@ const Bacontact = () => {
     let it2 = "";
     if (
         router.pathname == "/experiencias" ||
-        router.pathname == "/experiencias/[id]"
+        router.pathname == "/experiencias/[id]" ||
+        router.pathname == "/post/" ||
+        router.pathname == "/post/[id]"
     ) {
         it2 = bcss.it2;
     }
