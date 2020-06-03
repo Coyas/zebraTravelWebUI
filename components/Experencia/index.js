@@ -5,7 +5,7 @@ const Experencia = () => {
     return (
         <>
             <div className={"box " + expicss.expiri}>
-                <div className="columns">
+                <div className="columns is-desktop">
                     <div className={"column is-one-third " + expicss.sola}>
                         <figure className={"image " + expicss.img}>
                             <img src="/img/esplanada.png" />

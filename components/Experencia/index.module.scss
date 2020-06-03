@@ -1,4 +1,5 @@
 @import "../color";
+@import "../media";
 // .img {
 //     width: 63% !important;
 // }
@@ -46,4 +47,39 @@
 }
 .sola {
     width: 28.333% !important;
+}
+
+@media screen and (max-width: $movel) {
+    .sola {
+        width: 100% !important;
+    }
+    .expiri {
+        article {
+            h1 {
+                width: 100%;
+                text-align: center;
+            }
+            p {
+                margin-top: 5%;
+                width: 100%;
+                text-align: justify;
+                font-size: 1rem;
+            }
+        }
+    }
+    .book {
+        display: block;
+        width: 100%;
+    }
+    .Mbook {
+        a {
+            // background-color: $amarelo;
+            // border: unset;
+            width: 100%;
+            margin-top: 5%;
+        }
+    }
+    .local {
+        margin-top: 5%;
+    }
 }

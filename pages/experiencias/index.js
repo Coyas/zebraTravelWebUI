@@ -13,7 +13,7 @@ const Experiencia = () => {
             <Layout>
                 <Zebralistras />
 
-                <Headlogo marginHead="2%" />
+                <Headlogo marginHead="15%" />
 
                 <Divisor
                     title="Experiências Turísticas"
@@ -22,7 +22,7 @@ const Experiencia = () => {
                 />
 
                 <section className="container">
-                    <div className="columns">
+                    <div className="columns is-desktop">
                         <div className={"column " + excss.col}>
                             <Explorebox />
                         </div>

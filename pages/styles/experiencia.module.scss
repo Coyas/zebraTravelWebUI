@@ -1,4 +1,5 @@
 @import "../../components/color";
+@import "../../components/media";
 .s {
     color: red;
 }
@@ -7,4 +8,10 @@
     // width: 27.3% !important;
     flex: none;
     width: 26.333%;
+}
+
+@media screen and (max-width: $movel) {
+    .col {
+        width: 100%;
+    }
 }
