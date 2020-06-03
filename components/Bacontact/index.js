@@ -4,9 +4,12 @@ import { useRouter } from "next/router";
 
 const Bacontact = () => {
     const router = useRouter();
-    // console.log(router.pathname);
+    console.log(router.pathname);
     let it2 = "";
-    if (router.pathname == "/experiencias") {
+    if (
+        router.pathname == "/experiencias" ||
+        router.pathname == "/experiencias/[id]"
+    ) {
         it2 = bcss.it2;
     }
 

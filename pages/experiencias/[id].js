@@ -65,7 +65,7 @@ const Expid = () => {
                     </span>
                     Santo Antão, Porto Novo
                 </p>
-                <div className="columns">
+                <div className="columns is-desktop">
                     <div className={"column " + expid.imgbox}>
                         <div className={expid.container2}>
                             <figure className="image">
@@ -164,19 +164,18 @@ const Expid = () => {
                                     </div>
                                 </div>
                             </div>
+                            {/* posivel components */}
                             <div className={"columns " + expid.secun}>
                                 <div className="column">
-                                    <div className="field is-grouped">
-                                        <div className="control has-icons-left has-icons-right">
-                                            <input
-                                                className="input is-success"
-                                                type="date"
-                                                placeholder="Choose a date"
-                                            />
-                                            <span className="icon is-small is-left Dzindex">
-                                                <i className="far fa-calendar-alt"></i>
-                                            </span>
-                                        </div>
+                                    <div className="control has-icons-left has-icons-right">
+                                        <input
+                                            className="input is-success"
+                                            type="date"
+                                            placeholder="Choose a date"
+                                        />
+                                        <span className="icon is-small is-left Dzindex">
+                                            <i className="far fa-calendar-alt"></i>
+                                        </span>
                                     </div>
                                 </div>
                                 <div className="column">
@@ -198,6 +197,7 @@ const Expid = () => {
                                     Check Availability
                                 </button>
                             </div>
+                            {/* ************************ */}
                             <div className={"columns " + expid.icons}>
                                 <div className="column">
                                     <div className={expid.grid}>
@@ -259,7 +259,7 @@ const Expid = () => {
                         </div>
                     </div>
                 </div>
-                <div className={"columns " + expid.sec2}>
+                <div className={"columns is-desktop " + expid.sec2}>
                     <dic className="column">
                         <Comments />
                     </dic>

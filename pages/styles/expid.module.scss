@@ -1,4 +1,5 @@
 @import "../../components/color";
+@import "../../components/media";
 
 .expid {
     margin-top: 5%;
@@ -153,4 +154,28 @@
 }
 .center {
     text-align: center;
+}
+
+@media screen and (max-width: $movel) {
+    .expid {
+        p {
+            font-size: 1rem;
+            text-align: center;
+        }
+        h1 {
+            font-size: 1rem;
+            text-align: center;
+        }
+    }
+    .plus {
+        bottom: 5%;
+        left: 5%;
+    }
+    .secun {
+        margin-bottom: 10% !important;
+    }
+    .exlist {
+        width: 100%;
+        float: unset;
+    }
 }
