@@ -1,4 +1,5 @@
 @import "../color";
+@import "../media";
 
 .it {
     height: 100px;
@@ -13,5 +14,14 @@
         margin: 5% -3% auto;
         font-size: 0.6rem;
         color: $cinza;
+    }
+}
+
+@media screen and (max-width: $movel) {
+    .it {
+        width: 169%;
+        top: 4%;
+        left: 41%;
+        padding: 0%;
     }
 }
