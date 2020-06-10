@@ -29,14 +29,14 @@ const Galeria = () => {
                     onClick={() => prevProperty()}
                     disabled={property.index === 0}
                 >
-                    Prev
+                    <span>ES</span>
                 </button>
                 <button
                     className={cssgal.next}
                     onClick={() => nextProperty()}
                     disabled={property.index === data.properties.length - 1}
                 >
-                    Next
+                    <span>DR</span>
                 </button>
                 <div
                     className={

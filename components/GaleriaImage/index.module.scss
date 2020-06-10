@@ -1,3 +1,5 @@
+@import "../media";
+
 .card {
     flex: 1;
     min-width: 1000px;
@@ -5,4 +7,12 @@
     transition: opacity 300ms linear,
         transform 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
     transform: scale(0.9);
+}
+
+@media screen and (max-width: $movel) {
+    .card {
+        img {
+            width: 32%;
+        }
+    }
 }
