@@ -1,4 +1,4 @@
-import Link from "next/link";
+// import Link from "next/link";
 import divi from "./divisor.module.scss";
 import Hr from "../Hr";
 import Voltar from "../Voltar";

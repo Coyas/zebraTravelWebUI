@@ -1,8 +1,9 @@
 import sescss from "./styles/servicos.module.scss";
 import Layout from "../components/layout";
 import Headlogo from "../components/Headlogo";
+import { i18n, Link, withTranslation } from "../i18n";
 
-const Servicos = () => {
+const Servicos = ({ t }) => {
     return (
         <>
             <Layout>
@@ -26,12 +27,12 @@ const Servicos = () => {
                     <div className="columns is-desktop">
                         <div className={"column " + sescss.col}>
                             <div className={sescss.boxPreto}>
-                                <h1 className="title">SERVIÇOS</h1>
+                                <h1 className="title">{t("serv")}</h1>
                                 <ul>
-                                    <li>Bilhetes de Viagens e Barco</li>
-                                    <li>Seguros de Viagens</li>
-                                    <li>Acomodações</li>
-                                    <li>Visto de entrada</li>
+                                    <li>{t("t1")}</li>
+                                    <li>{t("t2")}</li>
+                                    <li>{t("t3")}</li>
+                                    <li>{t("t4")}</li>
                                 </ul>
                             </div>
                         </div>
@@ -109,4 +110,10 @@ const Servicos = () => {
     );
 };
 
-export default Servicos;
+Servicos.getInitialProps = async () => {
+    const obj = { namespacesRequired: ["servico", "footer", "navbar"] };
+
+    return obj;
+};
+
+export default withTranslation("servico")(Servicos);

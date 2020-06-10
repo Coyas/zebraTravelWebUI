@@ -73,23 +73,21 @@ const Footer = ({ t }) => {
                             }}
                         >
                             <div className={scss.fodi}>
-                                <h1 className={scss.h1}>
-                                    RESPONSABILIDADE SOCIAL
-                                </h1>
+                                <h1 className={scss.h1}>{t("RS")}</h1>
                                 <ul>
                                     <li>
                                         <Link href="/legal">
-                                            <a>Legal</a>
+                                            <a>{t("leg")}</a>
                                         </Link>
                                     </li>
                                     <li>
                                         <Link href="/termos">
-                                            <a>Termos</a>
+                                            <a>{t("term")}</a>
                                         </Link>
                                     </li>
                                     <li>
                                         <Link href="/privacidade">
-                                            <a>Privacidade</a>
+                                            <a>{t("privac")}</a>
                                         </Link>
                                     </li>
                                 </ul>
@@ -117,7 +115,7 @@ const Footer = ({ t }) => {
                                             }
                                         >
                                             <span className={scss.subscreve}>
-                                                SUBSCREVA
+                                                {t("subscreve")}
                                             </span>
                                         </button>
                                     </p>
@@ -128,7 +126,7 @@ const Footer = ({ t }) => {
                 </div>
                 <Hr height="1" opacidade="0.7" cor="#979ca8" />
                 <p className={"has-text-centered " + scss.footer2}>
-                    ZEBRA GROUP - &copy; 2020. TODOS OS DIREITOS RESERVADOS.
+                    ZEBRA GROUP - &copy; 2020. {t("direitos")}.
                 </p>
             </section>
         </>

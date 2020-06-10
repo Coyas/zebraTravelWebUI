@@ -9,6 +9,10 @@ import Like from "../components/Like";
 import { i18n, Link, withTranslation } from "../i18n";
 
 const Home = ({ t }) => {
+    const islang = i18n.isInitialized;
+    console.log(`isLang: ${islang}`);
+    const lang = i18n.language;
+    console.log(`lang: ${lang}`);
     return (
         <Layout>
             <div className="container">
@@ -29,7 +33,7 @@ const Home = ({ t }) => {
                                 <span>
                                     <img src="/img/flexa.svg" />
                                 </span>
-                                SOBRE NÓS
+                                {t("nos")}
                             </a>
                         </p>
                         <figure className={indexcss.fig}>
@@ -45,10 +49,10 @@ const Home = ({ t }) => {
                 </div>
             </div>
             <Divisor
-                title="Experiências Turísticas"
+                title={t("exptur")}
                 cores="#000000"
                 voltar="false"
-                sobre="SOBRE NÓS"
+                sobre={t("nos")}
             />
             <div className="container">
                 <div className="columns">
@@ -276,11 +280,11 @@ const Home = ({ t }) => {
             </div>
 
             <Divisor
-                title="Alojamento"
-                sutitle="Zebra Hotels"
+                title={t("alojamento")}
+                sutitle={t("zhot")}
                 cores="#000000"
                 voltar="false"
-                sobre="SOBRE NÓS"
+                sobre={t("nos")}
             />
 
             <section className={"content marginbot " + indexcss.verde}>
@@ -298,10 +302,17 @@ const Home = ({ t }) => {
     );
 };
 
-Home.getInitialProps = async () => {
-    const obj = { namespacesRequired: ["common", "footer"] };
-
+Home.getInitialProps = async ({ req }) => {
+    const obj = { namespacesRequired: ["common", "footer", "navbar"] };
+    // console.log("obj");
+    // console.log(obj);
+    // const currentLanguage = req ? req.language : i18n.language;
+    // console.log(currentLanguage);
     return obj;
 };
+
+// MyPage.getInitialProps = async ({ req }) => {
+//     const currentLanguage = req ? req.language : i18n.language;
+// };
 
 export default withTranslation("common")(Home);

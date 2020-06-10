@@ -4,7 +4,7 @@ import { useState } from "react";
 import Hr from "../Hr";
 import { i18n, Link, withTranslation } from "../../i18n";
 
-const NavBar = () => {
+const NavBar = ({ t }) => {
     const [open, Isopen] = useState(false);
     // const [scale, setScale] = useState(0.6);
 
@@ -39,13 +39,13 @@ const NavBar = () => {
                 <div className={scss.item} style={{ marginLeft: "6%" }}>
                     <Link href="/experiencias">
                         <a style={{ width: "128%" }}>
-                            Experiencias <i className="fas fa-chevron-down"></i>
+                            {t("exp")} <i className="fas fa-chevron-down"></i>
                         </a>
                     </Link>
                 </div>
                 <div className={scss.item} style={{ marginLeft: "6%" }}>
                     <Link href="/servicos">
-                        <a>Servicos</a>
+                        <a>{t("serv")}</a>
                     </Link>
                 </div>
                 <div className={scss.item} style={{ marginLeft: "6%" }}>
@@ -55,7 +55,7 @@ const NavBar = () => {
                 </div>
                 <div className={scss.item} style={{ marginLeft: "15%" }}>
                     <Link href="/contacto">
-                        <a>Contatos</a>
+                        <a>{t("cont")}</a>
                     </Link>
                 </div>
                 {/* <div className={scss.item}></div> */}
@@ -73,13 +73,37 @@ const NavBar = () => {
                 >
                     <div className={scss.boxcontainer}>
                         <div className={scss.box1}>
-                            <span onClick={() => i18n.changeLanguage("pt")}>
+                            <span
+                                onClick={() => i18n.changeLanguage("pt")}
+                                style={{
+                                    cursor:
+                                        i18n.language == "pt" ? "unset" : " ",
+                                    fontWeight:
+                                        i18n.language == "pt" ? "unset" : " "
+                                }}
+                            >
                                 PT
                             </span>
-                            <span onClick={() => i18n.changeLanguage("en")}>
+                            <span
+                                onClick={() => i18n.changeLanguage("en")}
+                                style={{
+                                    cursor:
+                                        i18n.language == "en" ? "unset" : " ",
+                                    fontWeight:
+                                        i18n.language == "en" ? "unset" : " "
+                                }}
+                            >
                                 EN
                             </span>
-                            <span onClick={() => i18n.changeLanguage("fr")}>
+                            <span
+                                onClick={() => i18n.changeLanguage("fr")}
+                                style={{
+                                    cursor:
+                                        i18n.language == "fr" ? "unset" : " ",
+                                    fontWeight:
+                                        i18n.language == "fr" ? "unset" : " "
+                                }}
+                            >
                                 FR
                             </span>
                         </div>
@@ -102,22 +126,22 @@ const NavBar = () => {
                             </li>
                             <li>
                                 <Link href="">
-                                    <a>Sobre Nós</a>
+                                    <a>{t("nos")}</a>
                                 </Link>
                             </li>
                             <li>
                                 <Link href="">
-                                    <a>Termos</a>
+                                    <a>{t("term")}</a>
                                 </Link>
                             </li>
                             <li>
                                 <Link href="">
-                                    <a>Privacidade</a>
+                                    <a>{t("privac")}</a>
                                 </Link>
                             </li>
                             <li>
                                 <Link href="">
-                                    <a>Minha Conta</a>
+                                    <a>{t("mconta")}</a>
                                 </Link>
                             </li>
                         </ul>
@@ -141,4 +165,4 @@ const NavBar = () => {
     );
 };
 
-export default withTranslation("common")(NavBar);
+export default withTranslation("navbar")(NavBar);
