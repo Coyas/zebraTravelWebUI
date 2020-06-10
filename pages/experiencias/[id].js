@@ -3,7 +3,7 @@ import Layout from "../../components/layout";
 import Zebralistras from "../../components/Zebralistras";
 import Headlogo from "../../components/Headlogo";
 import Divisor from "../../components/Divisor";
-import Link from "next/link";
+// import Link from "next/link";
 import Like from "../../components/Like";
 import Hr from "../../components/Hr";
 import Comments from "../../components/Comments";
@@ -11,6 +11,7 @@ import BooknowList from "../../components/BooknowList";
 import Modal from "react-modal";
 import { useState } from "react";
 import Galeria from "../../components/Galeria";
+import { Link, withTranslation } from "../../i18n";
 
 const customStyles = {
     content: {
@@ -27,7 +28,7 @@ const customStyles = {
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement("#__next");
 
-const Expid = () => {
+const Expid = ({ t }) => {
     const [ModalIsOpen, setIsOpen] = useState(false);
 
     function openModal() {
@@ -51,11 +52,7 @@ const Expid = () => {
 
             <Headlogo marginHead="2%" />
 
-            <Divisor
-                title="Experiências Turísticas"
-                voltar="true"
-                sobre="EXPLORAR"
-            />
+            <Divisor title={t("expTu")} voltar="true" sobre={t("exp")} />
 
             <section className={"container " + expid.expid}>
                 <h1>Nature, History of SANTO ANTÃO</h1>
@@ -147,19 +144,19 @@ const Expid = () => {
                             <div className="columns">
                                 <div className="column">
                                     <p>
-                                        <h1>Select Date and Travelers</h1>
+                                        <h1>{t("selet")}</h1>
                                     </p>
                                 </div>
                                 <div className="column is-one-third">
                                     <div className={expid.boxbo}>
-                                        <p className={expid.from}>from</p>
+                                        <p className={expid.from}>
+                                            {t("from")}
+                                        </p>
                                         <p className={expid.preco}>
                                             CVE 11,027
                                         </p>
                                         <p>
-                                            <span>
-                                                (Price varies by group size)
-                                            </span>
+                                            <span>({t("advise")})</span>
                                         </p>
                                     </div>
                                 </div>
@@ -184,7 +181,7 @@ const Expid = () => {
                                             className="input is-success"
                                             type="number"
                                             min="0"
-                                            placeholder="How many travelers"
+                                            placeholder={t("htrav")}
                                         />
                                         <span className="icon is-small is-left Dzindex">
                                             <i className="fas fa-user"></i>
@@ -194,7 +191,7 @@ const Expid = () => {
                             </div>
                             <div className="control">
                                 <button className={"button " + expid.btn}>
-                                    Check Availability
+                                    {t("check")}
                                 </button>
                             </div>
                             {/* ************************ */}
@@ -207,7 +204,7 @@ const Expid = () => {
                                             </span>
                                         </div>
                                         <div className={expid.itemb}>
-                                            Distance
+                                            {t("distance")}
                                         </div>
                                         <div className={expid.itemc}>32 km</div>
                                     </div>
@@ -220,7 +217,7 @@ const Expid = () => {
                                             </span>
                                         </div>
                                         <div className={expid.itemb}>
-                                            Elevation
+                                            {t("elev")}
                                         </div>
                                         <div className={expid.itemc}>
                                             2371 m
@@ -235,7 +232,7 @@ const Expid = () => {
                                             </span>
                                         </div>
                                         <div className={expid.itemb}>
-                                            Duration
+                                            {t("dura")}
                                         </div>
                                         <div className={expid.itemc}>24 h</div>
                                     </div>
@@ -248,7 +245,7 @@ const Expid = () => {
                                             </span>
                                         </div>
                                         <div className={expid.itemb}>
-                                            Languages
+                                            {t("lingua")}
                                         </div>
                                         <div className={expid.itemc}>
                                             PT EN FR IT
@@ -265,7 +262,7 @@ const Expid = () => {
                     </dic>
                     <dic className="column">
                         <div className={expid.Descri}>
-                            <h1 className="">What to Expect</h1>
+                            <h1 className="">{t("wtexp")}</h1>
                             <Hr height="1" opacidade="1" cor="#000000" />
                             <article>
                                 Itinerary
@@ -321,4 +318,4 @@ const Expid = () => {
     );
 };
 
-export default Expid;
+export default withTranslation("experiencia")(Expid);

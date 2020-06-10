@@ -1,6 +1,8 @@
 import vcss from "./index.module.scss";
-import Link from "next/link";
-const Voltar = () => {
+// import Link from "next/link";
+import { Link, withTranslation } from "../../i18n";
+
+const Voltar = ({ t }) => {
     return (
         <>
             <p className={vcss.voltar}>
@@ -9,7 +11,7 @@ const Voltar = () => {
                         <span className="icon">
                             <img src="/img/voltar.png" />
                         </span>
-                        Voltar
+                        {t("voltar")}
                     </a>
                 </Link>
             </p>
@@ -17,4 +19,4 @@ const Voltar = () => {
     );
 };
 
-export default Voltar;
+export default withTranslation("experiencia")(Voltar);

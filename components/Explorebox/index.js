@@ -1,50 +1,51 @@
 import excss from "./index.module.scss";
-import Link from "next/link";
+// import Link from "next/link";
+import { Link, withTranslation } from "../../i18n";
 
-const Explorebox = () => {
+const Explorebox = ({ t }) => {
     return (
         <>
             <aside className={"menu " + excss.box}>
-                <p className="menu-label">Experiências</p>
+                <p className="menu-label">{t("expe")}</p>
                 <p className={excss.bord}></p>
                 <ul className="menu-list">
                     <li>
                         <Link href="">
-                            <a>Featured Tours and Tickets (5)</a>
+                            <a>{t("exp1")} (5)</a>
                         </Link>
                     </li>
                     <li>
                         <Link href="">
-                            <a>Cruises, Sailing & Water Tours (1)</a>
+                            <a>{t("exp2")} (1)</a>
                         </Link>
                     </li>
                     <li>
                         <Link href="">
-                            <a>Cultural & Theme Tours (2)</a>
+                            <a>{t("exp3")} (2)</a>
                         </Link>
                     </li>
                     <li>
                         <Link href="">
-                            <a>Day Trips & Excursions (1)</a>
+                            <a>{t("exp4")} (1)</a>
                         </Link>
                     </li>
                     <li>
                         <Link href="">
-                            <a>Outdoor Activities (3)</a>
+                            <a>{t("exp5")} (3)</a>
                         </Link>
                     </li>
                     <li>
                         <Link href="">
-                            <a>Tours & Sightseeing (4)</a>
+                            <a>{t("exp6")} (4)</a>
                         </Link>
                     </li>
                     <li>
                         <Link href="">
-                            <a>Walking & Biking Tours (2)</a>
+                            <a>{t("exp7")} (2)</a>
                         </Link>
                     </li>
                 </ul>
-                <p className="menu-label">Duration</p>
+                <p className="menu-label">{t("time")}</p>
                 <p className={excss.bord}></p>
                 <ul className="menu-list">
                     <li>
@@ -73,4 +74,4 @@ const Explorebox = () => {
     );
 };
 
-export default Explorebox;
+export default withTranslation("experiencia")(Explorebox);

@@ -5,8 +5,9 @@ import Link from "next/link";
 import Zebralistras from "../../components/Zebralistras";
 import Divisor from "../../components/Divisor";
 import Postlist from "../../components/Post";
+import { withTranslation } from "../../i18n";
 
-const Post = () => {
+const Post = ({ t }) => {
     return (
         <>
             <Layout>
@@ -18,7 +19,7 @@ const Post = () => {
                     cores="#ffffff"
                     title="Blog"
                     voltar="false"
-                    sobre="EXPLORAR"
+                    sobre={t("exp")}
                 />
 
                 <section className={"container " + poscss.intro}>
@@ -81,4 +82,10 @@ const Post = () => {
     );
 };
 
-export default Post;
+Post.getInitialProps = async () => {
+    const obj = { namespacesRequired: ["post", "footer", "navbar"] };
+
+    return obj;
+};
+
+export default withTranslation("post")(Post);

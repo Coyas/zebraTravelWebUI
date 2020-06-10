@@ -6,8 +6,9 @@ import Divisor from "../../components/Divisor";
 import Explorebox from "../../components/Explorebox";
 import Experencia from "../../components/Experencia";
 import Showmore from "../../components/Showmore";
+import { withTranslation } from "../../i18n";
 
-const Experiencia = () => {
+const Experiencia = ({ t }) => {
     return (
         <>
             <Layout>
@@ -15,11 +16,7 @@ const Experiencia = () => {
 
                 <Headlogo marginHead="15%" />
 
-                <Divisor
-                    title="Experiências Turísticas"
-                    voltar="false"
-                    sobre="EXPLORAR"
-                />
+                <Divisor title={t("expTu")} voltar="false" sobre={t("exp")} />
 
                 <section className="container">
                     <div className="columns is-desktop">
@@ -39,4 +36,10 @@ const Experiencia = () => {
     );
 };
 
-export default Experiencia;
+Experiencia.getInitialProps = async () => {
+    const obj = { namespacesRequired: ["experiencia", "footer", "navbar"] };
+
+    return obj;
+};
+
+export default withTranslation("experiencia")(Experiencia);
