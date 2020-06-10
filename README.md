@@ -9,7 +9,7 @@
 -   Compilador css [sass](https://sass-lang.com/)
 -   Framework css [bulma](https://bulma.io/)
 -   Modulo react-hook para formulario [react-hook-form](https://react-hook-form.com/)
--   Framework de internacionalizacao [i18next](https://www.i18next.com/)
+-   Framework de internacionalizacao [next-i18next](https://github.com/isaachinman/next-i18next)
 
 ## Scripts de inicializacao
 
