@@ -22,7 +22,7 @@ const Post = () => {
                 />
 
                 <section className={"container " + poscss.intro}>
-                    <div className="columns">
+                    <div className="columns is-desktop">
                         <div
                             className={
                                 "column is-three-fifths is-offset-one-fifth " +
@@ -67,7 +67,7 @@ const Post = () => {
                 </section>
 
                 <section className={"container " + poscss.blogs}>
-                    <div className="columns">
+                    <div className="columns  is-desktop">
                         <div
                             className="column is-full"
                             style={{ padding: "0" }}

@@ -1,4 +1,6 @@
 @import "../../components/color";
+@import "../../components/media";
+
 .intro {
     article {
         text-align: center;
@@ -35,4 +37,22 @@
 .blogs {
     margin-top: 5%;
     margin-bottom: 10%;
+}
+
+@media screen and (max-width: $movel) {
+    .intro {
+        .news {
+            padding: 5%;
+            column-count: 1;
+            // column-gap: 40px;
+        }
+        article {
+            // text-align: center;
+            height: unset;
+            // a {
+            //     display: flex;
+            //     justify-content: center;
+            // }
+        }
+    }
 }

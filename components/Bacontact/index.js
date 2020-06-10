@@ -9,7 +9,7 @@ const Bacontact = () => {
     if (
         router.pathname == "/experiencias" ||
         router.pathname == "/experiencias/[id]" ||
-        router.pathname == "/post/" ||
+        router.pathname == "/post" ||
         router.pathname == "/post/[id]"
     ) {
         it2 = bcss.it2;
