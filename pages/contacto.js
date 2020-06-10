@@ -1,10 +1,11 @@
 import css from "./styles/contacto.module.scss";
 import Layout from "../components/layout";
 import ContactForm from "../components/Contact";
-import Link from "next/link";
+// import Link from "next/link";
 import Zebralistras from "../components/Zebralistras";
+import { i18n, Link, withTranslation } from "../i18n";
 
-const Contacto = () => {
+const Contacto = ({ t }) => {
     return (
         <>
             <Layout>
@@ -23,7 +24,7 @@ const Contacto = () => {
                 <Zebralistras />
 
                 <section className={"container " + css.contTitle}>
-                    <h1 className="title">Contatos</h1>
+                    <h1 className="title">{t("contact")}</h1>
                     <h2 className="subtitle">
                         <p>
                             <a href="tel:002382813373">+|238| 281 33 73</a>
@@ -50,4 +51,10 @@ const Contacto = () => {
     );
 };
 
-export default Contacto;
+Contacto.getInitialProps = async () => {
+    const obj = { namespacesRequired: ["contacto", "footer", "navbar"] };
+
+    return obj;
+};
+
+export default withTranslation("contacto")(Contacto);

@@ -1,8 +1,9 @@
 import css from "./index.module.scss";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { i18n, Link, withTranslation } from "../../i18n";
 
-const ContactForm = () => {
+const ContactForm = ({ t }) => {
     const [valor, setValor] = useState();
     const { register, handleSubmit, reset } = useForm();
 
@@ -22,7 +23,7 @@ const ContactForm = () => {
         <>
             <form className={css.form} onSubmit={handleSubmit(submeter)}>
                 <div className="field">
-                    <label className="label">Name</label>
+                    <label className="label">{t("nome")}</label>
                     <div className="control">
                         <input
                             className={"input " + css.bordas}
@@ -46,7 +47,7 @@ const ContactForm = () => {
                 </div>
 
                 <div className="field">
-                    <label className="label">Message</label>
+                    <label className="label">{t("msg")}</label>
                     <div className="control">
                         <textarea
                             className={"textarea " + css.bordas}
@@ -64,7 +65,7 @@ const ContactForm = () => {
                             type="submit"
                             className={"button is-rounded " + css.amarelo}
                         >
-                            Send
+                            {t("send")}
                         </button>
                     </div>
                 </div>
@@ -73,4 +74,4 @@ const ContactForm = () => {
     );
 };
 
-export default ContactForm;
+export default withTranslation("contacto")(ContactForm);
