@@ -2,12 +2,21 @@ import logincss from "../styles/auth.module.scss";
 import Loginlayout from "../../components/loginlayout";
 import Link from "next/link";
 import { useState } from "react";
+import fetch from "isomorphic-unfetch";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
     const [odju, Abriodju] = useState(false);
+    const { register, handleSubmit } = useForm();
 
     const Changepw = () => {
         Abriodju(!odju);
+    };
+    const signin = (data, event) => {
+        alert(`
+        user: ${data.username}
+        passwd: ${data.password}
+        `);
     };
 
     return (
@@ -18,7 +27,7 @@ const Login = () => {
                         <img src="/img/logoCinza.svg" />
                     </a>
                 </Link>
-                <div className={logincss.box2} style={{ width: "23%" }}>
+                <div className={logincss.box2}>
                     <div className="level">
                         <div className="level-left">
                             <div className="level-item">
@@ -45,13 +54,15 @@ const Login = () => {
                         </article>
                     </div>
                     <div className="">
-                        <form>
+                        <form onSubmit={handleSubmit(signin)}>
                             <div className="field">
                                 <div className="control has-icons-left">
                                     <input
                                         className="input is-rounded"
                                         type="email"
                                         placeholder="E-mail"
+                                        name="username"
+                                        ref={register({ required: true })}
                                     />
                                     <span
                                         className={
@@ -69,6 +80,8 @@ const Login = () => {
                                         className="input is-rounded"
                                         type={odju ? "text" : "password"}
                                         placeholder="Password"
+                                        name="password"
+                                        ref={register({ required: true })}
                                     />
                                     <span
                                         className={

@@ -12,7 +12,7 @@
 .fig {
     position: absolute;
     top: 35%;
-    left: 27%;
+    left: 31%;
     img {
         width: 69%;
     }
@@ -22,7 +22,7 @@
     top: -1.5%;
     left: -18%;
     img {
-        width: 55%;
+        width: 58%;
     }
 }
 .sobre {
@@ -166,6 +166,7 @@
     color: $preto;
     line-height: 1.2;
     margin: 11% 0 7% 0;
+    width: 91%;
 }
 
 @media screen and (max-width: $movel) {
