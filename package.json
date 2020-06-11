@@ -26,8 +26,11 @@
     "homepage": "https://github.com/Coyas/zebraTravelWebUI#readme",
     "dependencies": {
         "bulma": "^0.8.1",
+        "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "isomorphic-unfetch": "^3.0.0",
+        "js-cookie": "^2.2.1",
+        "jwt-decode": "^2.2.0",
         "next": "^9.3.2",
         "next-i18next": "^4.4.2",
         "react": "^16.13.1",

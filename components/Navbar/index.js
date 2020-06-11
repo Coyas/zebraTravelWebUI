@@ -3,6 +3,7 @@ import scss from "./navbar.module.scss";
 import { useState } from "react";
 import Hr from "../Hr";
 import { i18n, Link, withTranslation } from "../../i18n";
+import { unsetToken } from "../../lib/auth";
 
 const NavBar = ({ t }) => {
     const [open, Isopen] = useState(false);
@@ -27,6 +28,11 @@ const NavBar = ({ t }) => {
     const handleClick = () => {
         Isopen(!open);
         // setScale(scale > 0.6 ? 0.6 : 0.999);
+    };
+
+    const logout = () => {
+        unsetToken();
+        // alert("logout");
     };
 
     // transition: all 5s ease-in;
@@ -143,6 +149,9 @@ const NavBar = ({ t }) => {
                                 <Link href="">
                                     <a>{t("mconta")}</a>
                                 </Link>
+                            </li>
+                            <li>
+                                <a onClick={logout}>Logout</a>
                             </li>
                         </ul>
                     </div>

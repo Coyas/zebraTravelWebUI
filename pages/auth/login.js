@@ -4,19 +4,41 @@ import Link from "next/link";
 import { useState } from "react";
 import fetch from "isomorphic-unfetch";
 import { useForm } from "react-hook-form";
+import { setToken } from "../../lib/auth";
 
 const Login = () => {
     const [odju, Abriodju] = useState(false);
     const { register, handleSubmit } = useForm();
+    const [data, setData] = useState({
+        identifier: "",
+        password: ""
+    });
 
     const Changepw = () => {
         Abriodju(!odju);
     };
-    const signin = (data, event) => {
-        alert(`
-        user: ${data.username}
+
+    const signin = async (data, event) => {
+        console.log(`
+        user: ${data.identifier}
         passwd: ${data.password}
         `);
+        event.preventDefault();
+        console.log(`URL: ${process.env.API_BASE_URL}`);
+
+        const response = await fetch(`${process.env.API_BASE_URL}/auth/local`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                identifier: data.identifier,
+                password: data.password
+            })
+        });
+        const responseData = await response.json();
+        console.log(responseData);
+        setToken(responseData);
     };
 
     return (
@@ -59,9 +81,9 @@ const Login = () => {
                                 <div className="control has-icons-left">
                                     <input
                                         className="input is-rounded"
-                                        type="email"
-                                        placeholder="E-mail"
-                                        name="username"
+                                        type="text"
+                                        placeholder="Username"
+                                        name="identifier"
                                         ref={register({ required: true })}
                                     />
                                     <span

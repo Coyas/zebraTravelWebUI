@@ -3,3 +3,7 @@ node_modules
 
 # lixo de nextjs
 .next
+pages/teste.js
+
+# variaveis de ambiente
+.env
