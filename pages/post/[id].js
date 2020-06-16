@@ -1,14 +1,22 @@
 import Layout from "../../components/layout";
 import pidcss from "../styles/postid.module.scss";
 import Headlogo from "../../components/Headlogo";
-import Link from "next/link";
+// import Link from "next/link";
 import Zebralistras from "../../components/Zebralistras";
 import Like from "../../components/Like";
 import Comments from "../../components/Comments";
+import { Link, withTranslation } from "../../i18n";
+import { useFetchUser } from "../../lib/user";
+import Head from "next/head";
 
 const Postid = () => {
+    const { user, loading } = useFetchUser();
     return (
-        <Layout>
+        <Layout user={user}>
+            <Head>
+                <title>post - Zebra Travel Agency</title>
+            </Head>
+
             <Zebralistras />
             <Headlogo marginHead="2%" />
 

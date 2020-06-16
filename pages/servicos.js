@@ -1,12 +1,19 @@
 import sescss from "./styles/servicos.module.scss";
 import Layout from "../components/layout";
 import Headlogo from "../components/Headlogo";
-import { i18n, Link, withTranslation } from "../i18n";
+import { withTranslation } from "../i18n";
+import { useFetchUser } from "../lib/user";
+import Head from "next/head";
 
 const Servicos = ({ t }) => {
+    const { user, loading } = useFetchUser();
     return (
         <>
-            <Layout>
+            <Layout user={user}>
+                <Head>
+                    <title>Serviços - Zebra Travel Agency</title>
+                </Head>
+
                 <Headlogo
                     height="13rem"
                     position="absolute"

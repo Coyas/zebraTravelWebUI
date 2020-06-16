@@ -2,11 +2,11 @@ import Head from "next/head";
 import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Meta from "../components/Meta";
+import { UserProvider } from "../lib/user";
 
-export default ({ children, title = "Zebra Travel Agency" }) => (
-    <>
+export default ({ children, user, loading = false }) => (
+    <UserProvider value={{ user, loading }}>
         <Head>
-            <title>{title}</title>
             <Meta />
         </Head>
 
@@ -17,5 +17,5 @@ export default ({ children, title = "Zebra Travel Agency" }) => (
         {children}
 
         <Footer />
-    </>
+    </UserProvider>
 );

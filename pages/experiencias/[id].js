@@ -12,6 +12,8 @@ import Modal from "react-modal";
 import { useState } from "react";
 import Galeria from "../../components/Galeria";
 import { Link, withTranslation } from "../../i18n";
+import { useFetchUser } from "../../lib/user";
+import Head from "next/head";
 
 const customStyles = {
     content: {
@@ -29,6 +31,7 @@ const customStyles = {
 Modal.setAppElement("#__next");
 
 const Expid = ({ t }) => {
+    const { user, loading } = useFetchUser();
     const [ModalIsOpen, setIsOpen] = useState(false);
 
     function openModal() {
@@ -47,7 +50,11 @@ const Expid = ({ t }) => {
     }
 
     return (
-        <Layout>
+        <Layout user={user}>
+            <Head>
+                <title>Contatos - Zebra Travel Agency</title>
+            </Head>
+
             <Zebralistras />
 
             <Headlogo marginHead="2%" />

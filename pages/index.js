@@ -7,14 +7,23 @@ import Banner from "../components/Banner";
 import Bacontact from "../components/Bacontact";
 import Like from "../components/Like";
 import { i18n, Link, withTranslation } from "../i18n";
+import Head from "next/head";
+import { useFetchUser } from "../lib/user";
 
 const Home = ({ t }) => {
     const islang = i18n.isInitialized;
     console.log(`isLang: ${islang}`);
+    // lingua atual
     const lang = i18n.language;
     console.log(`lang: ${lang}`);
+    // verificar se ha um user logado
+    const { user, loading } = useFetchUser();
     return (
-        <Layout>
+        <Layout user={user}>
+            <Head>
+                <title>Zebra Travel Agency</title>
+            </Head>
+
             <div className="container">
                 <div className="columns">
                     <div className="column">

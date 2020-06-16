@@ -9,6 +9,7 @@ import { setToken } from "../../lib/auth";
 const Login = () => {
     const [odju, Abriodju] = useState(false);
     const { register, handleSubmit } = useForm();
+
     const [data, setData] = useState({
         identifier: "",
         password: ""
@@ -18,12 +19,14 @@ const Login = () => {
         Abriodju(!odju);
     };
 
-    const signin = async (data, event) => {
+    const signin = async (e) => {
+        // e.preventDefault();
+
         console.log(`
         user: ${data.identifier}
         passwd: ${data.password}
         `);
-        event.preventDefault();
+
         console.log(`URL: ${process.env.API_BASE_URL}`);
 
         const response = await fetch(`${process.env.API_BASE_URL}/auth/local`, {
@@ -39,6 +42,10 @@ const Login = () => {
         const responseData = await response.json();
         console.log(responseData);
         setToken(responseData);
+    };
+
+    const handleChange = (e) => {
+        setData({ ...data, [e.target.name]: e.target.value });
     };
 
     return (
@@ -85,6 +92,7 @@ const Login = () => {
                                         placeholder="Username"
                                         name="identifier"
                                         ref={register({ required: true })}
+                                        onChange={handleChange}
                                     />
                                     <span
                                         className={
@@ -104,6 +112,7 @@ const Login = () => {
                                         placeholder="Password"
                                         name="password"
                                         ref={register({ required: true })}
+                                        onChange={handleChange}
                                     />
                                     <span
                                         className={

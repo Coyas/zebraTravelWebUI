@@ -3,11 +3,18 @@ import Layout from "../components/layout";
 import notcss from "./styles/a404.module.scss";
 import Headlogo from "../components/Headlogo";
 import Zebralistras from "../components/Zebralistras";
+import { useFetchUser } from "../lib/user";
+import Head from "next/head";
 
 const NotFound404 = () => {
+    const { user, loading } = useFetchUser();
     return (
         <>
-            <Layout>
+            <Layout user={user}>
+                <Head>
+                    <title>404 - Zebra Travel Agency</title>
+                </Head>
+
                 <Zebralistras />
 
                 <Headlogo marginHead="2%" />

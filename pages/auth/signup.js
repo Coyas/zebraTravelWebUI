@@ -1,8 +1,46 @@
 import signcss from "../styles/auth.module.scss";
 import Loginlayout from "../../components/loginlayout";
 import Link from "next/link";
+import fetch from "isomorphic-unfetch";
+import { useForm } from "react-hook-form";
+import { setToken } from "../../lib/auth";
 
 const Signup = () => {
+    const { register, errors, handleSubmit } = useForm();
+
+    const signup = async (data, e) => {
+        // e.preventDefault();
+        alert(`
+        firstName: ${data.firstName}
+        lastName: ${data.lastName}
+        email: ${data.email}
+        password: ${data.password}
+        username: ${data.firstName}_${data.lastName}
+        `);
+
+        console.log(`URL: ${process.env.API_BASE_URL}`);
+
+        const response = await fetch(
+            `${process.env.API_BASE_URL}/auth/local/register`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    firstName: data.firstName,
+                    lastName: data.lastName,
+                    email: data.email,
+                    password: data.password,
+                    username: data.firstName + "_" + data.lastName
+                })
+            }
+        );
+        const responseData = await response.json();
+        console.log(responseData);
+        setToken(responseData);
+    };
+
     return (
         <Loginlayout>
             <div className={signcss.container2} style={{ height: "121vh" }}>
@@ -38,14 +76,26 @@ const Signup = () => {
                     </div>
                     <div className="">
                         {/* is-rounded */}
-                        <form>
+                        <form onSubmit={handleSubmit(signup)}>
                             <div className="field">
                                 <div className="control">
                                     <input
                                         className="input is-rounded"
                                         type="text"
                                         placeholder="First Name"
+                                        name="firstName"
+                                        ref={register({
+                                            required: "This field is required",
+                                            minLength: {
+                                                value: 4,
+                                                message: "Min length is 4"
+                                            }
+                                        })}
                                     />
+                                    <span style={{ color: "red" }}>
+                                        {errors.firstName &&
+                                            errors.firstName.message}
+                                    </span>
                                 </div>
                             </div>
                             <div className="field">
@@ -54,7 +104,19 @@ const Signup = () => {
                                         className="input is-rounded"
                                         type="text"
                                         placeholder="Last Name"
+                                        name="lastName"
+                                        ref={register({
+                                            required: "This field is required",
+                                            minLength: {
+                                                value: 4,
+                                                message: "Min length is 4"
+                                            }
+                                        })}
                                     />
+                                    <span style={{ color: "red" }}>
+                                        {errors.lastName &&
+                                            errors.lastName.message}
+                                    </span>
                                 </div>
                             </div>
                             <div className="field">
@@ -63,7 +125,18 @@ const Signup = () => {
                                         className="input is-rounded"
                                         type="email"
                                         placeholder="Email"
+                                        name="email"
+                                        ref={register({
+                                            required: "this is required",
+                                            pattern: {
+                                                value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                                                message: "Invalid email address"
+                                            }
+                                        })}
                                     />
+                                    <span style={{ color: "red" }}>
+                                        {errors.email && errors.email.message}
+                                    </span>
                                 </div>
                             </div>
                             <div className="field">
@@ -72,7 +145,24 @@ const Signup = () => {
                                         className="input is-rounded"
                                         type="password"
                                         placeholder="Password"
+                                        name="password"
+                                        ref={register({
+                                            required: "this field is riquered",
+                                            maxLength: {
+                                                value: 30,
+                                                message: "max length is 30" // <p>error message</p>
+                                            },
+                                            minLength: {
+                                                value: 6,
+                                                message: "min length is 6" // <p>error message</p>
+                                            }
+                                        })}
                                     />
+
+                                    <span style={{ color: "red" }}>
+                                        {errors.password &&
+                                            errors.password.message}
+                                    </span>
                                 </div>
                             </div>
 
@@ -92,15 +182,26 @@ const Signup = () => {
                                     />
                                     I agree with{" "}
                                     <Link href="">
-                                        <a style={{ color: "blue !important" }}>
-                                            {" "}
-                                            Terms of Service{" "}
+                                        <a>
+                                            <span
+                                                style={{
+                                                    color: "blue !important"
+                                                }}
+                                            >
+                                                Terms of Service{"  "}
+                                            </span>
                                         </a>
-                                    </Link>{" "}
-                                    and{" "}
+                                    </Link>
+                                    and{"  "}
                                     <Link href="">
-                                        <a style={{ color: "blue !important" }}>
-                                            Privacy Policy
+                                        <a>
+                                            <span
+                                                style={{
+                                                    color: "blue !important"
+                                                }}
+                                            >
+                                                Privacy Policy
+                                            </span>
                                         </a>
                                     </Link>
                                 </p>
@@ -109,6 +210,7 @@ const Signup = () => {
                             <div className="field">
                                 <div className="control">
                                     <button
+                                        type="submit"
                                         style={{ marginBottom: "3%" }}
                                         className="input button is-rounded "
                                     >

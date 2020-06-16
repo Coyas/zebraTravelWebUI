@@ -4,10 +4,12 @@ import { useState } from "react";
 import Hr from "../Hr";
 import { i18n, Link, withTranslation } from "../../i18n";
 import { unsetToken } from "../../lib/auth";
+import { useUser } from "../../lib/user";
 
 const NavBar = ({ t }) => {
     const [open, Isopen] = useState(false);
     // const [scale, setScale] = useState(0.6);
+    const { user, loading } = useUser();
 
     let siclass;
     let show;
@@ -114,14 +116,19 @@ const NavBar = ({ t }) => {
                             </span>
                         </div>
                         <div className={scss.box2}>
-                            <Link href="/auth/login">
-                                <a>
-                                    Log in
-                                    <span className="icon">
-                                        <i className="far fa-user"></i>
-                                    </span>
-                                </a>
-                            </Link>
+                            {!loading &&
+                                (user ? (
+                                    <p>Ola estas logado</p>
+                                ) : (
+                                    <Link href="/auth/login">
+                                        <a>
+                                            Log in
+                                            <span className="icon">
+                                                <i className="far fa-user"></i>
+                                            </span>
+                                        </a>
+                                    </Link>
+                                ))}
                         </div>
                     </div>
                     <Hr height="1" opacidade="1" cor="#000000" width="79" />
@@ -145,14 +152,22 @@ const NavBar = ({ t }) => {
                                     <a>{t("privac")}</a>
                                 </Link>
                             </li>
-                            <li>
-                                <Link href="">
-                                    <a>{t("mconta")}</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <a onClick={logout}>Logout</a>
-                            </li>
+
+                            {!loading &&
+                                (user ? (
+                                    <>
+                                        <li>
+                                            <Link href="">
+                                                <a>{t("mconta")}</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <a onClick={logout}>Logout</a>
+                                        </li>
+                                    </>
+                                ) : (
+                                    " "
+                                ))}
                         </ul>
                     </div>
                     <div className={scss.social}>
