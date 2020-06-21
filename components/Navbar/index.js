@@ -17,6 +17,7 @@ const NavBar = ({ t }) => {
     const styles = {
         transition: "all 1s ease-out"
     };
+
     if (open) {
         siclass = scss.noactive;
         show = "";
@@ -118,7 +119,7 @@ const NavBar = ({ t }) => {
                         <div className={scss.box2}>
                             {!loading &&
                                 (user ? (
-                                    <p>Ola estas logado</p>
+                                    <p>{user}</p>
                                 ) : (
                                     <Link href="/auth/login">
                                         <a>

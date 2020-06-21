@@ -4,21 +4,24 @@ import Link from "next/link";
 import fetch from "isomorphic-unfetch";
 import { useForm } from "react-hook-form";
 import { setToken } from "../../lib/auth";
+import {useState} from "react"
 
 const Signup = () => {
+
     const { register, errors, handleSubmit } = useForm();
+    const [error, setError] = useState('')
 
     const signup = async (data, e) => {
         // e.preventDefault();
-        alert(`
-        firstName: ${data.firstName}
-        lastName: ${data.lastName}
-        email: ${data.email}
-        password: ${data.password}
-        username: ${data.firstName}_${data.lastName}
-        `);
+        // alert(`
+        //     firstName: ${data.firstName}
+        //     lastName: ${data.lastName}
+        //     email: ${data.email}
+        //     password: ${data.password}
+        //     username: ${data.firstName}_${data.lastName}
+        // `);
 
-        console.log(`URL: ${process.env.API_BASE_URL}`);
+        // console.log(`URL: ${process.env.API_BASE_URL}`);
 
         const response = await fetch(
             `${process.env.API_BASE_URL}/auth/local/register`,
@@ -32,14 +35,58 @@ const Signup = () => {
                     lastName: data.lastName,
                     email: data.email,
                     password: data.password,
-                    username: data.firstName + "_" + data.lastName
+                    username: data.firstName + "_" + data.lastName,
+                    confirmed: 0
                 })
             }
         );
         const responseData = await response.json();
-        console.log(responseData);
-        setToken(responseData);
+        
+        
+        console.log("response:")
+        console.log(response)
+        console.log("response.statusCode")
+        console.log(response.status)
+        // console.log(response.status == 200)
+        // console.log(response.status == "200")
+
+        if(response.status == 200){
+            // console.log('response 200')
+            // alert('ola mundo')
+            // make email confirmation request http://localhost:1337/auth/send-email-confirmation
+            const email = await fetch(`${process.env.API_BASE_URL}/auth/send-email-confirmation`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email: data.email,
+                    })
+                }
+            );
+            console.log("email:")
+            console.log(email)
+            if(email){
+                console.log('email de confirmason enviado')
+            }else{
+                console.log('email de confirmason enviado com error')
+            }
+            // setToken(responseData);
+            console.log("responseDataIn:");
+            console.log(responseData);
+        }else{
+            console.log("responseDataOut");
+            console.log(responseData);
+            // console.log(responseData?.message[0].messages[0].message);
+            // if(responseData){
+            //     setError(responseData?.message[0].messages[0].message)
+            // }
+        }
+
+        
     };
+    
 
     return (
         <Loginlayout>
@@ -58,7 +105,7 @@ const Signup = () => {
                         </div>
                         <div className="level-right">
                             <div className="level-item">
-                                <Link href="/">
+                                <Link href="/auth/login">
                                     <a>
                                         <span className="icon">
                                             <i className="fas fa-times"></i>
@@ -71,7 +118,7 @@ const Signup = () => {
                     <div className="">
                         <h1>Create an account and discover the benefits</h1>
                         <article>
-                            Add yours data below to create a zetraTravel account
+                            {error || 'Add yours data below to create a zetraTravel account'}                      
                         </article>
                     </div>
                     <div className="">

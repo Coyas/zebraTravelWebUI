@@ -1,8 +1,37 @@
 import forgcss from "../styles/auth.module.scss";
 import Loginlayout from "../../components/loginlayout";
 import Link from "next/link";
+import fetch from "isomorphic-unfetch";
+import { useForm } from "react-hook-form";
 
 const Forgotpw = () => {
+    const { register, errors, handleSubmit } = useForm();
+
+    const resetpw = (data) => {
+        
+        fetch(
+            `${process.env.API_BASE_URL}/auth/forgot-password`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "*"
+                },
+                body: JSON.stringify({
+                    email: data.email
+                })
+            }
+        ).then( res => {
+            console.log('Your user received an email');
+            console.log(res);              
+        }).catch( er => {
+            console.log(er)
+            console.log(er.response);
+        })
+
+    };
+
+
     return (
         <Loginlayout>
             <div className={forgcss.container2}>
@@ -20,7 +49,7 @@ const Forgotpw = () => {
                         </div>
                         <div className="level-right">
                             <div className="level-item">
-                                <Link href="/">
+                                <Link href="/auth/login">
                                     <a>
                                         <span className="icon">
                                             <i className="fas fa-times"></i>
@@ -39,14 +68,25 @@ const Forgotpw = () => {
                     </div>
                     <div className="">
                         {/* is-rounded */}
-                        <form>
+                        <form onSubmit={handleSubmit(resetpw)}>
                             <div className="field">
                                 <div className="control">
                                     <input
                                         className="input is-rounded"
                                         type="email"
                                         placeholder="Email"
+                                        name="email"
+                                        ref={register({
+                                            required: "this is required",
+                                            pattern: {
+                                                value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                                                message: "Invalid email address"
+                                            }
+                                        })}
                                     />
+                                    <span style={{ color: "red" }}>
+                                        {errors.email && errors.email.message}
+                                    </span>
                                 </div>
                             </div>
                             <div className="field">
@@ -62,6 +102,7 @@ const Forgotpw = () => {
                                         type="number"
                                         placeholder="Phone Number"
                                         min="0"
+                                        name="phone"
                                     />
                                     <span
                                         class={
@@ -79,6 +120,7 @@ const Forgotpw = () => {
                                     <button
                                         style={{ marginBottom: "8%" }}
                                         className="input button is-rounded "
+                                        type="submit"
                                     >
                                         Reset password
                                     </button>

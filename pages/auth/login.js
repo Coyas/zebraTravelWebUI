@@ -5,6 +5,7 @@ import { useState } from "react";
 import fetch from "isomorphic-unfetch";
 import { useForm } from "react-hook-form";
 import { setToken } from "../../lib/auth";
+import Router from "next/router";
 
 const Login = () => {
     const [odju, Abriodju] = useState(false);
@@ -89,7 +90,7 @@ const Login = () => {
                                     <input
                                         className="input is-rounded"
                                         type="text"
-                                        placeholder="Username"
+                                        placeholder="E-mail or Username"
                                         name="identifier"
                                         ref={register({ required: true })}
                                         onChange={handleChange}
