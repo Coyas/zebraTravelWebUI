@@ -1,17 +1,44 @@
 import scss from "./footer.module.scss";
 import Hr from "../Hr";
+import fetch from "isomorphic-unfetch";
 // import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { i18n, Link, withTranslation } from "../../i18n";
+import React, { useState } from "react";
 
 const Footer = ({ t }) => {
     const { register, handleSubmit } = useForm();
+    // const [Ok, setOk] = useState(1);
 
-    const subscreve = (data, e) => {
+    const subscreve = async (data, e) => {
         // e.preventDefault();
         e.target.reset();
-        alert(`Email: ${data.emailSub}`);
+        // alert(`Email: ${data.emailSub}`);
+        const response = await fetch(
+            `${process.env.API_BASE_URL}/newsletters`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: data.emailSub
+                })
+            }
+        );
+        const responseData = await response.json();
+        // console.log(responseData);
+        // console.log(response);
+
+        // if (response.ok) {
+        //     setOk(1);
+        //     // createNotification("success");
+        // } else {
+        //     setOk(2);
+        //     // createNotification("error");
+        // }
     };
+
     return (
         <>
             <section className={"footer"}>
