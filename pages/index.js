@@ -317,7 +317,7 @@ Home.getInitialProps = async ({ req }) => {
     // console.log(obj);
     // const currentLanguage = req ? req.language : i18n.language;
     // console.log(currentLanguage);
-    return obj;
+    return { obj };
 };
 
 // MyPage.getInitialProps = async ({ req }) => {
