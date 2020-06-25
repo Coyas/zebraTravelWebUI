@@ -1,7 +1,7 @@
 import api from "../lib/api";
 
 const Teste = () => {
-    const { response, error, isLoading } = api("/api/testes");
+    const { response, error, isLoading } = api("/api/testimunhos");
 
     // console.log("isLoading=>");
     // console.log(isLoading);
@@ -10,10 +10,10 @@ const Teste = () => {
     // console.log("response=>");
     // console.log(response);
 
-    // if (!isLoading)
-    //     response.map((teste, i) => {
-    //         console.log(`${teste.nome} : ${i} ==> ${teste.image[0].url}`);
-    //     });
+    //if (!isLoading)
+    //  response.map((teste, i) => {
+    //  console.log(`${teste.nome} : ${i} ==> ${teste.image[0].url}`);
+    //});
 
     return (
         <div>
@@ -22,7 +22,9 @@ const Teste = () => {
                 {!isLoading &&
                     response.map((teste) => (
                         <li key={teste.id}>
-                            <p>{teste.email}</p>
+                            <p>{teste.nome}</p>
+                            <p>{teste.message}</p>
+                            <img src={teste.url} alt={teste.nome} />
                         </li>
                     ))}
             </ul>
