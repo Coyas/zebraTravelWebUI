@@ -2,7 +2,7 @@ import fetch from "isomorphic-unfetch";
 
 export default async function testimunhos(req, res) {
     try {
-        const url = `${process.env.API_BASE_URL}/testimunhos?_limit=2&_sort=id:DESC`;
+        const url = `${process.env.API_BASE_URL}/testimunhos?_limit=2&_sort=created_at:DESC`;
         const response = await fetch(url, {
             method: "GET",
             headers: {
