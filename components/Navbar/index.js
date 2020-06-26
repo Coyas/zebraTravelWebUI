@@ -5,11 +5,13 @@ import Hr from "../Hr";
 import { i18n, Link, withTranslation } from "../../i18n";
 import { unsetToken } from "../../lib/auth";
 import { useUser } from "../../lib/user";
+import api from "../../lib/api";
 
 const NavBar = ({ t }) => {
     const [open, Isopen] = useState(false);
     // const [scale, setScale] = useState(0.6);
     const { user, loading } = useUser();
+    const { response, error, isLoading } = api("/api/links");
 
     let siclass;
     let show;
@@ -173,13 +175,13 @@ const NavBar = ({ t }) => {
                     </div>
                     <div className={scss.social}>
                         <div className={scss.caxa}>
-                            <a href="">
+                            <a href={response?.facebook} target="_blank">
                                 <i className="fab fa-facebook-f"></i>
                             </a>
-                            <a href="">
+                            <a href={response?.instagram} target="_blank">
                                 <i className="fab fa-instagram"></i>
                             </a>
-                            <a href="">
+                            <a href={response?.youtube} target="_blank">
                                 <i className="fab fa-youtube"></i>
                             </a>
                         </div>

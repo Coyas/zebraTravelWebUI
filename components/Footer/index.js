@@ -5,10 +5,22 @@ import fetch from "isomorphic-unfetch";
 import { useForm } from "react-hook-form";
 import { i18n, Link, withTranslation } from "../../i18n";
 import React, { useState } from "react";
+import api from "../../lib/api";
 
 const Footer = ({ t }) => {
     const { register, handleSubmit } = useForm();
-    // const [Ok, setOk] = useState(1);
+    // const [Ok, setOk] = useState(1);..
+    const { response, error, isLoading } = api("/api/links");
+
+    // console.log("response links api fora");
+    // console.log(`response => ${response}`);
+
+    // if (!isLoading && response) {
+    //     response.map((link) => {
+    //         console.log("link.facebook");
+    //         console.log(link);
+    //     });
+    // }
 
     const subscreve = async (data, e) => {
         // e.preventDefault();
@@ -54,28 +66,40 @@ const Footer = ({ t }) => {
                             <div className="level">
                                 <div className="level-right">
                                     <p className={"level-item " + scss.mrg}>
-                                        <a href="dqdq">
+                                        <a
+                                            href={response?.facebook}
+                                            target="_blank"
+                                        >
                                             <span className="icon">
                                                 <i className="fab fa-facebook-f"></i>
                                             </span>
                                         </a>
                                     </p>
                                     <p className={"level-item " + scss.mrg}>
-                                        <a href="dqdq">
+                                        <a
+                                            href={response?.instagram}
+                                            target="_blank"
+                                        >
                                             <span className="icon">
                                                 <i className="fab fa-instagram"></i>
                                             </span>
                                         </a>
                                     </p>
                                     <p className={"level-item " + scss.mrg}>
-                                        <a href="dqdq">
+                                        <a
+                                            href={response?.youtube}
+                                            target="_blank"
+                                        >
                                             <span className="icon">
                                                 <i className="fab fa-youtube"></i>
                                             </span>
                                         </a>
                                     </p>
                                     <p className={"level-item " + scss.mrg}>
-                                        <a href="dqdq">
+                                        <a
+                                            href={response?.tripadvisor}
+                                            target="_blank"
+                                        >
                                             <span className="icon">
                                                 <i className="fab fa-tripadvisor"></i>
                                             </span>
@@ -83,7 +107,11 @@ const Footer = ({ t }) => {
                                         </a>
                                     </p>
                                     <p className={"level-item " + scss.mrg}>
-                                        <a className={scss.book} href="dqdq">
+                                        <a
+                                            className={scss.book}
+                                            href=""
+                                            target="_blank"
+                                        >
                                             Booking
                                             <span>.com</span>
                                         </a>
@@ -159,5 +187,23 @@ const Footer = ({ t }) => {
         </>
     );
 };
+
+// export async function getStaticProps(context) {
+//     const url = `${process.env.API_BASE_URL}/links`;
+//     const response = await fetch(url, {
+//         method: "GET",
+//         headers: {
+//             "Content-Type": "application/json"
+//         }
+//     });
+
+//     const links = await response.json();
+
+//     return {
+//         props: {
+//             links
+//         }
+//     };
+// }
 
 export default withTranslation("footer")(Footer);

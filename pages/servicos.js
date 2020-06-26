@@ -8,8 +8,8 @@ import showdown from "showdown";
 
 const Servicos = ({ t, dados }) => {
     const { user, loading } = useFetchUser();
-    console.log("dados");
-    console.log(dados);
+    // console.log("dados");
+    // console.log(dados);
     // const res = dados.content.replace(/\n/g, "<br/>");
 
     const createMarkup = () => {

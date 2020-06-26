@@ -4,8 +4,8 @@ import api from "../../lib/api";
 const Testemunho = () => {
     const { response, error, isLoading } = api("/api/testimunhos");
 
-    console.log("response");
-    console.log(response);
+    // console.log("response");
+    // console.log(response);
 
     // {
     //     !isLoading &&
