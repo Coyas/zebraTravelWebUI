@@ -76,7 +76,7 @@ const Servicos = ({ t, dados }) => {
                                 style={{ width: "105.7%" }}
                             >
                                 <img
-                                    src={`${process.env.API_BASE_URL}${dados.imagem.url}`}
+                                    src={`${process.env.API_BASE_URL}${dados.imagem?.url}`}
                                 />
                             </figure>
                         </div>

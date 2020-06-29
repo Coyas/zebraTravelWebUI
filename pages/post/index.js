@@ -1,16 +1,32 @@
 import poscss from "../styles/post.module.scss";
 import Layout from "../../components/layout";
 import Headlogo from "../../components/Headlogo";
-// import Link from "next/link";
+import Link from "next/link";
 import Zebralistras from "../../components/Zebralistras";
 import Divisor from "../../components/Divisor";
 import Postlist from "../../components/Post";
-import { Link, withTranslation } from "../../i18n";
+import { withTranslation } from "../../i18n";
 import { useFetchUser } from "../../lib/user";
 import Head from "next/head";
+import api from "../../lib/api";
 
 const Post = ({ t }) => {
     const { user, loading } = useFetchUser();
+    const { response, error, isLoading } = api("/api/posts");
+
+    let dad = {};
+    if (!isLoading) {
+        // console.log("posts response");
+        // console.log(response[0].title);
+        dad = {
+            id: response[0].id,
+            title: response[0].title,
+            slug: response[0].slug,
+            conteudo: response[0].conteudo.substring(0, 661),
+            created_at: response[0].created_at
+        };
+    }
+
     return (
         <Layout user={user}>
             <Head>
@@ -37,32 +53,14 @@ const Post = ({ t }) => {
                         }
                     >
                         <article>
-                            <p>June 2, 2017</p>
-                            <Link href="/post/[id]" as={`/post/test-de-title`}>
+                            {/* June 2, 2017 */}
+                            <p>{dad.created_at}</p>
+                            <Link href="/post/[id]" as={`/post/${dad.slug}`}>
                                 <a>
-                                    <h1 className="subtitle">
-                                        Excepteur sint occaecat cupidatat non
-                                        proident, sunt in culpa qui officia
-                                    </h1>
+                                    <h1 className="subtitle">{dad.title}</h1>
                                 </a>
                             </Link>
-                            <div className={poscss.news}>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisifwcing elit, sed do eiusmod Culpa qui
-                                officia deserunt mollit anim id est laborum. Sed
-                                ut perspiciatis unde tempor incididunt ut labore
-                                et dolore roipi magna aliqua. Ut enim ad minim
-                                omnis iste natus error sit voluptartem
-                                accusantium doloremque laudantium, veeniam, quis
-                                nostruklad exercitation ullamco laboris nisi ut
-                                aliquip ex ea totam rem aperiam, eaque ipsa quae
-                                ab illo inventore veritatis et quasi ropeior
-                                commodo consequat. Duis aute irure dolor in
-                                reprehenderit in tufpoy voluptate architecto
-                                beatae vitae dicta sunt explicabo. velit esse
-                                cillum dolore eu fugiat nulla parieratur.
-                                Excepteur sint. LOREM IP...
-                            </div>
+                            <div className={poscss.news}>{dad.conteudo}...</div>
                         </article>
                     </div>
                 </div>

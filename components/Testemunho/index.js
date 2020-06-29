@@ -23,7 +23,7 @@ const Testemunho = () => {
             <div className="columns">
                 {!isLoading &&
                     response.map((dados) => (
-                        <div className={"column " + css.center}>
+                        <div className={"column " + css.center} key={dados.id}>
                             <article className={css.article}>
                                 <figure
                                     className={
@@ -32,7 +32,7 @@ const Testemunho = () => {
                                 >
                                     <img
                                         className="is-rounded"
-                                        src={`${process.env.API_BASE_URL}${dados.image.url}`}
+                                        src={`${process.env.API_BASE_URL}${dados.image?.url}`}
                                     />
                                 </figure>
                                 <p>
