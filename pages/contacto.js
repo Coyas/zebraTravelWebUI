@@ -6,9 +6,18 @@ import Head from "next/head";
 // import Link from "next/link";
 import Zebralistras from "../components/Zebralistras";
 import { i18n, Link, withTranslation } from "../i18n";
+// import api from "../lib/api";
 
-const Contacto = ({ t }) => {
+const Contacto = ({ t, dados }) => {
     const { user, loading } = useFetchUser();
+    // const { response } = api("/api/contato");
+
+    // console.log("dados");
+    // console.log(dados);
+
+    // remove todos os espaços contidos no numero
+    const phone = dados?.phone.replace(/ /g, "");
+
     return (
         <Layout user={user}>
             <Head>
@@ -33,19 +42,17 @@ const Contacto = ({ t }) => {
                 <h1 className="title">{t("contact")}</h1>
                 <h2 className="subtitle">
                     <p>
-                        <a href="tel:002382813373">+|238| 281 33 73</a>
+                        <a href={"tel:00238" + phone}>+|238| {dados?.phone}</a>
                     </p>
                     <p>
-                        <a href="mailto:info@zebratravel.net">
-                            info@zebratravel.net
-                        </a>
+                        <a href={"mailto:" + dados?.email}>{dados?.email}</a>
                     </p>
                 </h2>
             </section>
             <section className={"container " + css.map}>
                 <div className="columns is-desktop">
                     <div className="column">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15422.962103562264!2d-24.4987502!3d14.8957806!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x35a681b0dafcbcba!2sZebra%20Travel%20Viagens%20%26%20Turismo!5e0!3m2!1spt-PT!2scv!4v1588503306490!5m2!1spt-PT!2scv"></iframe>
+                        <iframe src={dados?.MapPosition}></iframe>
                     </div>
                     <div className="column">
                         <ContactForm />
@@ -56,10 +63,31 @@ const Contacto = ({ t }) => {
     );
 };
 
-Contacto.getInitialProps = async () => {
-    const obj = { namespacesRequired: ["contacto", "footer", "navbar"] };
+// Contacto.getInitialProps = async () => {
+//     const obj = { namespacesRequired: ["contacto", "footer", "navbar"] };
 
-    return obj;
-};
+//     return obj;
+// };
+export async function getServerSideProps(context) {
+    const url = `${process.env.API_BASE_URL}/contactos`;
+    const response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    // console.log("api response");
+    // console.log(response);
+    const dados = await response.json();
+
+    const obj = {
+        namespacesRequired: ["servico", "footer", "navbar"]
+    };
+
+    return {
+        props: { dados, obj }
+    };
+}
 
 export default withTranslation("contacto")(Contacto);
