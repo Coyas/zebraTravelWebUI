@@ -1,10 +1,15 @@
 import bcss from "./index.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import api from "../../lib/api";
 
 const Bacontact = () => {
+    const { response } = api("/api/contato");
+
+    const phone = response?.phone.replace(/ /g, "");
+
     const router = useRouter();
-    console.log(router.pathname);
+    // console.log(router.pathname);
     let it2 = "";
     if (
         router.pathname == "/experiencias" ||
@@ -20,11 +25,9 @@ const Bacontact = () => {
         <>
             <div className={bcss.it + " " + it2}>
                 <div className={bcss.boxAdd}>
-                    <a href="tel:002382813373">+|238| 281 33 73</a>
+                    <a href={"tel:00238" + phone}>+|238| {response?.phone}</a>
                     <br />
-                    <a href="mailto:info@zebratravel.net">
-                        info@zebratravel.net
-                    </a>
+                    <a href={"mailto:" + response?.email}>{response?.email}</a>
                 </div>
             </div>
         </>
