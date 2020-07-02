@@ -9,7 +9,8 @@ const Postlist = ({ t }) => {
 
     // if (!isLoading) {
     //     console.log("response post list");
-    //     console.log(response[0].imagem);
+    //     console.log(response);
+    //     alert("ver console");
     // }
 
     const item = (

@@ -16,8 +16,8 @@ const Post = ({ t }) => {
 
     let dad = {};
     if (!isLoading) {
-        // console.log("posts response");
-        // console.log(response[0].title);
+        console.log("posts response");
+        console.log(response);
         dad = {
             id: response[0].id,
             title: response[0].title,
@@ -54,13 +54,15 @@ const Post = ({ t }) => {
                     >
                         <article>
                             {/* June 2, 2017 */}
-                            <p>{dad.created_at}</p>
-                            <Link href="/post/[id]" as={`/post/${dad.slug}`}>
+                            <p>{dad?.created_at}</p>
+                            <Link href="/post/[id]" as={`/post/${dad?.slug}`}>
                                 <a>
-                                    <h1 className="subtitle">{dad.title}</h1>
+                                    <h1 className="subtitle">{dad?.title}</h1>
                                 </a>
                             </Link>
-                            <div className={poscss.news}>{dad.conteudo}...</div>
+                            <div className={poscss.news}>
+                                {dad?.conteudo}...
+                            </div>
                         </article>
                     </div>
                 </div>

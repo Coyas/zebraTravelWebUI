@@ -1,6 +1,6 @@
 import fetch from "isomorphic-unfetch";
 
-export default async function links(req, res) {
+export default async function contato(req, res) {
     try {
         const url = `${process.env.API_BASE_URL}/contactos`;
         const response = await fetch(url, {
