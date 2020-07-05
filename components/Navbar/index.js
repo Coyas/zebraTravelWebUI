@@ -1,8 +1,8 @@
 import scss from "./navbar.module.scss";
-// import Link from "next/link";
+import Link from "next/link";
 import { useState } from "react";
 import Hr from "../Hr";
-import { i18n, Link, withTranslation } from "../../i18n";
+import { i18n, withTranslation } from "../../i18n";
 import { unsetToken } from "../../lib/auth";
 import { useUser } from "../../lib/user";
 import api from "../../lib/api";

@@ -1,7 +1,7 @@
 import css from "./index.module.scss";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { i18n, Link, withTranslation } from "../../i18n";
+import { i18n, withTranslation } from "../../i18n";
 
 const ContactForm = ({ t }) => {
     const [valor, setValor] = useState();

@@ -1,6 +1,6 @@
 import fetch from "isomorphic-unfetch";
 
-export default async function posts(req, res) {
+export default async function postis(req, res) {
     try {
         // console.log("req:");
         // console.log(req);

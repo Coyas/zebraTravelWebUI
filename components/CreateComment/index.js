@@ -13,7 +13,7 @@ const CreateComment = () => {
                 </figure>
                 <div className="media-content">
                     <div className="field">
-                        <p className="control">
+                        <div className="control">
                             {/* <textarea
                                 className="textarea"
                                 placeholder="Add a comment..."
@@ -25,7 +25,7 @@ const CreateComment = () => {
                                     placeholder="Join the discussion..."
                                 />
                             </form>
-                        </p>
+                        </div>
                     </div>
                     {/* <nav className="level">
                         <div className="level-left">

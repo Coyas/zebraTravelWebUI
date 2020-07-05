@@ -3,9 +3,9 @@ import Layout from "../components/layout";
 import ContactForm from "../components/Contact";
 import { useFetchUser } from "../lib/user";
 import Head from "next/head";
-// import Link from "next/link";
+import Link from "next/link";
 import Zebralistras from "../components/Zebralistras";
-import { i18n, Link, withTranslation } from "../i18n";
+import { i18n, withTranslation } from "../i18n";
 // import api from "../lib/api";
 
 const Contacto = ({ t, dados }) => {

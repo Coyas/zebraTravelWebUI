@@ -4,7 +4,7 @@ import { i18n, withTranslation } from "../../i18n";
 import api from "../../lib/api";
 // import { useState } from "react";
 const Postlist = ({ t }) => {
-    const { response, error, isLoading } = api("/api/posts");
+    const { response, error, isLoading } = api("/api/postis");
     // const [count, setCount] = useState(1);
 
     // if (!isLoading) {

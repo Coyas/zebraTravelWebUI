@@ -1,12 +1,12 @@
 import Layout from "../components/layout";
 import indexcss from "./styles/index.module.scss";
 import Divisor from "../components/Divisor";
-// import Link from "next/link";
+import Link from "next/link";
 import Testemunhas from "../components/Testemunho";
 import Banner from "../components/Banner";
 import Bacontact from "../components/Bacontact";
 import Like from "../components/Like";
-import { i18n, Link, withTranslation } from "../i18n";
+import { i18n, withTranslation } from "../i18n";
 import Head from "next/head";
 import { useFetchUser } from "../lib/user";
 

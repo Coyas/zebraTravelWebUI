@@ -1,20 +1,45 @@
 import sescss from "./styles/servicos.module.scss";
 import Layout from "../components/layout";
 import Headlogo from "../components/Headlogo";
-import { withTranslation } from "../i18n";
+import { i18n, withTranslation } from "../i18n";
 import { useFetchUser } from "../lib/user";
 import Head from "next/head";
 import showdown from "showdown";
+import { useEffect } from "react";
+import api from "../lib/api";
 
-const Servicos = ({ t, dados }) => {
+const Servicos = ({ t }) => {
     const { user, loading } = useFetchUser();
+    const { response, isLoading } = api("/api/service");
     // console.log("dados");
     // console.log(dados);
     // const res = dados.content.replace(/\n/g, "<br/>");
+    console.log(i18n.language);
+    let lang = i18n.language;
+    const contentLang = `content_${lang}`;
+    console.log(contentLang);
+    console.log("response");
+    console.log(response?.content_pt);
+
+    let data;
+    switch (i18n.language) {
+        case "pt": {
+            data = response?.content_pt;
+            break;
+        }
+        case "en": {
+            data = response?.content_en;
+            break;
+        }
+        case "fr": {
+            data = response?.content_fr;
+            break;
+        }
+    }
 
     const createMarkup = () => {
         const converter = new showdown.Converter();
-        const html = converter.makeHtml(dados?.content);
+        const html = converter.makeHtml(data);
         // console.log(html);
         return { __html: html };
     };
@@ -76,7 +101,7 @@ const Servicos = ({ t, dados }) => {
                                 style={{ width: "105.7%" }}
                             >
                                 <img
-                                    src={`${process.env.API_BASE_URL}${dados.imagem?.url}`}
+                                    src={`${process.env.API_BASE_URL}${response?.imagem?.url}`}
                                 />
                             </figure>
                         </div>
@@ -95,26 +120,27 @@ const Servicos = ({ t, dados }) => {
 //     return obj;
 // };
 
-export async function getServerSideProps(context) {
-    const url = `${process.env.API_BASE_URL}/service-text`;
-    const response = await fetch(url, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    });
+// export async function getServerSideProps(context) {
+//     const url = `${process.env.API_BASE_URL}/servicetext`;
 
-    // console.log("api response");
-    // console.log(response);
-    const dados = await response.json();
+//     const response = await fetch(url, {
+//         method: "GET",
+//         headers: {
+//             "Content-Type": "application/json"
+//         }
+//     });
 
-    const obj = {
-        namespacesRequired: ["servico", "footer", "navbar"]
-    };
+//     // console.log("api response");
+//     // console.log(response);
+//     const dados = await response.json();
 
-    return {
-        props: { dados, obj }
-    };
-}
+//     const obj = {
+//         namespacesRequired: ["servico", "footer", "navbar"]
+//     };
+
+//     return {
+//         props: { dados, obj }
+//     };
+// }
 
 export default withTranslation("servico")(Servicos);

@@ -1,9 +1,9 @@
 import scss from "./footer.module.scss";
 import Hr from "../Hr";
 import fetch from "isomorphic-unfetch";
-// import Link from "next/link";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { i18n, Link, withTranslation } from "../../i18n";
+import { withTranslation } from "../../i18n";
 import React, { useState } from "react";
 import api from "../../lib/api";
 

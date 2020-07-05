@@ -1,20 +1,38 @@
 import Layout from "../../components/layout";
 import pidcss from "../styles/postid.module.scss";
 import Headlogo from "../../components/Headlogo";
-// import Link from "next/link";
+import Link from "next/link";
 import Zebralistras from "../../components/Zebralistras";
 import Like from "../../components/Like";
 import Comments from "../../components/Comments";
-import { Link, withTranslation } from "../../i18n";
+// import { Link, withTranslation } from "../../i18n";
 import { useFetchUser } from "../../lib/user";
 import Head from "next/head";
+import { getPost, getPosts } from "../api/posts";
+import showdown from "showdown";
+// import { useRouter } from "next/router";
 
-const Postid = () => {
+const Postid = ({ post }) => {
     const { user, loading } = useFetchUser();
+    // const router = useRouter();
+    console.log("post id");
+    console.log(post.comentarios);
+
+    const createMarkup = () => {
+        const converter = new showdown.Converter();
+        const html = converter.makeHtml(post?.conteudo);
+        return { __html: html };
+    };
+
+    const comment = post?.comentarios;
+
+    // console.log("query");
+    // console.log(router.query);
+
     return (
         <Layout user={user}>
             <Head>
-                <title>post - Zebra Travel Agency</title>
+                <title>{post?.title} - Zebra Travel Agency</title>
             </Head>
 
             <Zebralistras />
@@ -24,75 +42,25 @@ const Postid = () => {
                 <div className="columns is-variable is-desktop">
                     <div className="column">
                         <article>
-                            <h1 className="subtitle">
-                                Excepteur sint occaeuiecat cupidatat.
-                            </h1>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit, sed do eiusmod tempor
-                                incididunt ut ero labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco poriti laboris nisi ut
-                                aliquip ex ea commodo consequat. Duis aute irure
-                                dolor in reprehenderit in uienply voluptate
-                                velit esse cillum dolore eu fugiat nulla
-                                pariatur. Excepteur sint occaecat cupidatat
-                                norin proident, sunt in culpa qui officia
-                                deserunt mollit anim id est laborum.
-                                <br />
-                                <br />
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit, sed do eiusmod tempor
-                                incididunt ut ero labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco poriti laboris nisi ut
-                                aliquip ex ea commodo consequat. Duis aute irure
-                                dolor in reprehenderit in uienply voluptate
-                                velit esse cillum dolore eu fugiat nulla
-                                pariatur. Excepteur sint occaecat cupidatat
-                                norin proident, sunt in culpa qui officia
-                                deserunt mollit anim id est laborum.
-                                <br />
-                                <br />
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit, sed do eiusmod tempor
-                                incididunt ut ero labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco poriti laboris nisi ut
-                                aliquip ex ea commodo consequat. Duis aute irure
-                                dolor in reprehenderit in uienply voluptate
-                                velit esse cillum dolore eu fugiat nulla
-                                pariatur. Excepteur sint occaecat cupidatat
-                                norin proident, sunt in culpa qui officia
-                                deserunt mollit anim id est laborum.
-                                <br />
-                                <br />
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit, sed do eiusmod tempor
-                                incididunt ut ero labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco poriti laboris nisi ut
-                                aliquip ex ea commodo consequat. Duis aute irure
-                                dolor in reprehenderit in uienply voluptate
-                                velit esse cillum dolore eu fugiat nulla
-                                pariatur. Excepteur sint occaecat cupidatat
-                                norin proident, sunt in culpa qui officia
-                                deserunt mollit anim id est laborum.
-                            </p>
+                            <h1 className="subtitle">{post?.title}</h1>
+
+                            <span dangerouslySetInnerHTML={createMarkup()} />
                         </article>
                     </div>
                     <div className={"column " + pidcss.blogImage}>
                         <div className={pidcss.container2}>
-                            <img src="/img/esplanada.png" />
+                            <img
+                                src={`${process.env.API_BASE_URL}${post?.imagem.url}`}
+                            />
                             <div className={pidcss.topRight}>
-                                <Link href="https://www.addtoany.com/share">
-                                    <a
-                                        class="a2a_dd"
-                                        href="https://www.addtoany.com/share"
-                                    >
-                                        <i className="fas fa-share-alt"></i>
-                                    </a>
-                                </Link>
+                                {/* <Link href="https://www.addtoany.com/share"> */}
+                                <a
+                                    class="a2a_dd"
+                                    href="https://www.addtoany.com/share"
+                                >
+                                    <i className="fas fa-share-alt"></i>
+                                </a>
+                                {/* </Link> */}
                                 <script>
                                     var a2a_config = a2a_config || {};
                                     a2a_config.onclick = 1;
@@ -110,15 +78,15 @@ const Postid = () => {
                                         <div
                                             className={"column " + pidcss.preco}
                                         >
-                                            Casa Colonial
+                                            {post?.imageName}
                                         </div>
-                                        <div
+                                        {/* <div
                                             className={
                                                 "column control " +
                                                 pidcss.precolocal
                                             }
-                                        >
-                                            <div className="field is-grouped is-grouped-multiline">
+                                        > */}
+                                        {/* <div className="field is-grouped is-grouped-multiline">
                                                 <div className="control">
                                                     <div className="tags has-addons">
                                                         <Link href="ss">
@@ -142,8 +110,8 @@ const Postid = () => {
                                                         <Like />
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
+                                            </div> */}
+                                        {/* </div> */}
                                     </div>
                                     <div className={pidcss.liinha}></div>
                                 </div>
@@ -155,12 +123,43 @@ const Postid = () => {
             <section className="container">
                 <div className="columns">
                     <div className="column is-half">
-                        <Comments />
+                        <Comments comment={comment} />
                     </div>
                 </div>
             </section>
         </Layout>
     );
 };
+
+export async function getStaticPaths() {
+    // Call an external API endpoint to get posts
+    const res = await getPosts();
+    const posts = await res.json();
+
+    console.log("posts staticpaths");
+    console.log(posts);
+
+    // Get the paths we want to pre-render based on posts
+    const paths = posts.map((post) => ({
+        params: { id: `${post.id}` }
+    }));
+
+    // We'll pre-render only these paths at build time.
+    // { fallback: false } means other routes should 404.
+    return {
+        paths /*: [{ params: { id: "1" } }, { params: { id: "2" } }],*/,
+        fallback: false
+    };
+}
+
+export async function getStaticProps({ params }) {
+    console.log("params");
+    console.log(params);
+    const res = await getPost(params.id);
+    const json = await res.json();
+    return {
+        props: { post: json } // will be passed to the page component as props
+    };
+}
 
 export default Postid;

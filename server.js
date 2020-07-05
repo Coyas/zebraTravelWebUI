@@ -12,6 +12,7 @@ const handle = app.getRequestHandler();
     await app.prepare();
     const server = express();
 
+    // middleware for i18n
     await nextI18next.initPromise;
     server.use(nextI18NextMiddleware(nextI18next));
 

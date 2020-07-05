@@ -1,6 +1,6 @@
 import vcss from "./index.module.scss";
-// import Link from "next/link";
-import { Link, withTranslation } from "../../i18n";
+import Link from "next/link";
+import { withTranslation } from "../../i18n";
 
 const Voltar = ({ t }) => {
     return (

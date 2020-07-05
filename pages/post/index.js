@@ -12,12 +12,12 @@ import api from "../../lib/api";
 
 const Post = ({ t }) => {
     const { user, loading } = useFetchUser();
-    const { response, error, isLoading } = api("/api/posts");
+    const { response, error, isLoading } = api("/api/postis");
 
     let dad = {};
     if (!isLoading) {
-        console.log("posts response");
-        console.log(response);
+        // console.log("posts response");
+        // console.log(response);
         dad = {
             id: response[0].id,
             title: response[0].title,
@@ -55,7 +55,7 @@ const Post = ({ t }) => {
                         <article>
                             {/* June 2, 2017 */}
                             <p>{dad?.created_at}</p>
-                            <Link href="/post/[id]" as={`/post/${dad?.slug}`}>
+                            <Link href="/post/[id]" as={`/post/${dad?.id}`}>
                                 <a>
                                     <h1 className="subtitle">{dad?.title}</h1>
                                 </a>
