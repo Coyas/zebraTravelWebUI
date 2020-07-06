@@ -188,22 +188,4 @@ const Footer = ({ t }) => {
     );
 };
 
-// export async function getStaticProps(context) {
-//     const url = `${process.env.API_BASE_URL}/links`;
-//     const response = await fetch(url, {
-//         method: "GET",
-//         headers: {
-//             "Content-Type": "application/json"
-//         }
-//     });
-
-//     const links = await response.json();
-
-//     return {
-//         props: {
-//             links
-//         }
-//     };
-// }
-
 export default withTranslation("footer")(Footer);

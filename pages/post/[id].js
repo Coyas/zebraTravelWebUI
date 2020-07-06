@@ -15,8 +15,8 @@ import showdown from "showdown";
 const Postid = ({ post }) => {
     const { user, loading } = useFetchUser();
     // const router = useRouter();
-    console.log("post id");
-    console.log(post.comentarios);
+    // console.log("post id");
+    // console.log(post.comentarios);
 
     const createMarkup = () => {
         const converter = new showdown.Converter();
@@ -24,7 +24,7 @@ const Postid = ({ post }) => {
         return { __html: html };
     };
 
-    const comment = post?.comentarios;
+    const postid = post?.id;
 
     // console.log("query");
     // console.log(router.query);
@@ -123,7 +123,7 @@ const Postid = ({ post }) => {
             <section className="container">
                 <div className="columns">
                     <div className="column is-half">
-                        <Comments comment={comment} />
+                        <Comments post={postid} />
                     </div>
                 </div>
             </section>
@@ -136,8 +136,8 @@ export async function getStaticPaths() {
     const res = await getPosts();
     const posts = await res.json();
 
-    console.log("posts staticpaths");
-    console.log(posts);
+    // console.log("posts staticpaths");
+    // console.log(posts);
 
     // Get the paths we want to pre-render based on posts
     const paths = posts.map((post) => ({
