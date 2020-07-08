@@ -3,25 +3,16 @@ import Loginlayout from "../../components/loginlayout";
 import Link from "next/link";
 import fetch from "isomorphic-unfetch";
 import { useForm } from "react-hook-form";
-import { setToken } from "../../lib/auth";
+import Router from "next/router";
 import { useState } from "react";
+import Head from "next/head";
 
 const Signup = () => {
     const { register, errors, handleSubmit } = useForm();
     const [error, setError] = useState("");
+    const [err, setErr] = useState(true);
 
     const signup = async (data, e) => {
-        // e.preventDefault();
-        // alert(`
-        //     firstName: ${data.firstName}
-        //     lastName: ${data.lastName}
-        //     email: ${data.email}
-        //     password: ${data.password}
-        //     username: ${data.firstName}_${data.lastName}
-        // `);
-
-        // console.log(`URL: ${process.env.API_BASE_URL}`);
-
         const response = await fetch(
             `${process.env.API_BASE_URL}/auth/local/register`,
             {
@@ -30,64 +21,38 @@ const Signup = () => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    firstName: data.firstName,
-                    lastName: data.lastName,
+                    username: `${data.firstName}_${data.lastName}`,
                     email: data.email,
                     password: data.password,
-                    username: data.firstName + "_" + data.lastName,
-                    confirmed: 0
+                    // confirmed: false,
+                    firstName: data.firstName,
+                    lastName: data.lastName
                 })
             }
         );
+
         const responseData = await response.json();
 
-        console.log("response:");
-        console.log(response);
-        console.log("responseData");
-        console.log(responseData);
-
-        if (response.status == 200) {
-            // make email confirmation request http://localhost:1337/auth/send-email-confirmation
-            const email = await fetch(
-                `${process.env.API_BASE_URL}/auth/send-email-confirmation`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        email: data.email
-                    })
-                }
-            );
-            console.log("send-email-confirmation:");
-            console.log(email);
-            if (email.ok) {
-                alert("email de confirmason enviado");
-            } else {
-                alert("erro ao email de confirmason");
-            }
-            setToken(responseData);
-            // console.log("responseDataIn:");
-            // console.log(responseData);
+        if (response.status == 200 && response.ok) {
+            Router.push("/");
         } else {
-            // console.log("responseDataOut");
-            // console.log(responseData);
-            // console.log(responseData?.message[0].messages[0].message);
-            if (responseData) {
-                setError(responseData?.message[0].messages[0].message);
-            }
+            setError("There is an error on signup proccess");
+            setErr(false);
         }
     };
 
     return (
         <Loginlayout>
+            <Head>
+                <title>Sign up - Zebra Travel Agency</title>
+            </Head>
             <div className={signcss.container2} style={{ height: "121vh" }}>
                 <Link href="/">
                     <a>
                         <img src="/img/logoCinza.svg" />
                     </a>
                 </Link>
+                {/* {registro ? "sim": "nao"} */}
                 <div className={signcss.box2} style={{ width: "23%" }}>
                     <div className="level">
                         <div className="level-left">
@@ -109,7 +74,7 @@ const Signup = () => {
                     </div>
                     <div className="">
                         <h1>Create an account and discover the benefits</h1>
-                        <article>
+                        <article style={{ color: err ? "" : "red" }}>
                             {error ||
                                 "Add yours data below to create a zetraTravel account"}
                         </article>

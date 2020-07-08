@@ -1,35 +1,30 @@
-import api from "../lib/api";
-
 const Teste = () => {
-    const { response, error, isLoading } = api("/api/testimunhos");
+    const clik = async () => {
+        alert("ola mundo");
+        const response = await fetch(
+            `${process.env.API_BASE_URL}/auth/email-confirmation?confirmation=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODUsImlhdCI6MTU5NDIyNTIxMywiZXhwIjoxNTk0MzExNjEzfQ.w3uFI_Ude6nJR28Sn8KaNKaqhVRJ9ye3n9keFUt6Z0U`,
+            {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }
+        );
 
-    // console.log("isLoading=>");
-    // console.log(isLoading);
-    // console.log("error=>");
-    // console.log(error);
-    // console.log("response=>");
-    // console.log(response);
-
-    //if (!isLoading)
-    //  response.map((teste, i) => {
-    //  console.log(`${teste.nome} : ${i} ==> ${teste.image[0].url}`);
-    //});
+        console.log("response:");
+        console.log(response);
+    };
 
     return (
         <div>
-            <h1>Lista de dados testes requesitados via rest api</h1>
-            <ul>
-                {!isLoading &&
-                    response.map((teste) => (
-                        <li key={teste.id}>
-                            <p>{teste.nome}</p>
-                            <p>{teste.message}</p>
-                            <img src={teste.url} alt={teste.nome} />
-                        </li>
-                    ))}
-            </ul>
+            <h1>Confirmacao de email</h1>
+            <button onClick={clik}>confirmar email</button>
         </div>
     );
 };
 
 export default Teste;
+
+{
+    /* <Link href={{ pathname: 'about', query: { name: 'leangchhean' }}}><a>here</a></Link> */
+}

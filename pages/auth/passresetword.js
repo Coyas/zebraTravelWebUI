@@ -3,22 +3,33 @@ import Loginlayout from "../../components/loginlayout";
 import Link from "next/link";
 import fetch from "isomorphic-unfetch";
 import { useForm } from "react-hook-form";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import Head from "next/head";
 
-const Forgotpw = () => {
+const Passresetword = () => {
     const { register, errors, handleSubmit } = useForm();
+    const router = useRouter();
+    const { code } = router.query;
+    // console.log(code);
+
+    if (!code && typeof window !== "undefined") {
+        router.push("/");
+    }
 
     const resetpw = async (data) => {
+        // alert(data.password);
+        // alert(data.confirmpass);
         const response = await fetch(
-            `${process.env.API_BASE_URL}/auth/forgot-password`,
+            `${process.env.API_BASE_URL}/auth/reset-password`,
             {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    email: data.email
+                    code: code,
+                    password: data.password,
+                    passwordConfirmation: data.confirmpass
                 })
             }
         );
@@ -26,14 +37,14 @@ const Forgotpw = () => {
         console.log("response");
         console.log(response);
         if (response.status == 200 && response.ok) {
-            Router.push("/auth/login");
+            router.push("/auth/login");
         }
     };
 
     return (
         <Loginlayout>
             <Head>
-                <title>Forgot Password? - Zebra Travel Agency</title>
+                <title>Reset Password - Zebra Travel Agency</title>
             </Head>
             <div className={forgcss.container2}>
                 <Link href="/">
@@ -61,10 +72,10 @@ const Forgotpw = () => {
                         </div>
                     </div>
                     <div className="">
-                        <h1>Forgot your password?</h1>
+                        <h1>Reset password</h1>
                         <article>
-                            Enter your email or phone number
-                            <br /> and recover your account
+                            Enter your data to reset
+                            <br /> the password
                         </article>
                     </div>
                     <div className="">
@@ -74,14 +85,18 @@ const Forgotpw = () => {
                                 <div className="control">
                                     <input
                                         className="input is-rounded"
-                                        type="email"
-                                        placeholder="Email"
-                                        name="email"
+                                        type="password"
+                                        placeholder="New Password"
+                                        name="password"
                                         ref={register({
-                                            required: "this is required",
-                                            pattern: {
-                                                value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                                                message: "Invalid email address"
+                                            required: "this field is riquered",
+                                            maxLength: {
+                                                value: 30,
+                                                message: "max length is 30" // <p>error message</p>
+                                            },
+                                            minLength: {
+                                                value: 6,
+                                                message: "min length is 6" // <p>error message</p>
                                             }
                                         })}
                                     />
@@ -90,20 +105,30 @@ const Forgotpw = () => {
                                     </span>
                                 </div>
                             </div>
-                            <div className="field">
+                            {/* <div className="field">
                                 <div className="control">
                                     <hr />
                                 </div>
-                            </div>
+                            </div> */}
                             {/* <span className="tag">Tag label</span> */}
                             <div className="field">
-                                <div className="control has-icons-left">
+                                <div className="control">
                                     <input
                                         className="input is-rounded"
-                                        type="number"
-                                        placeholder="Phone Number"
-                                        min="0"
-                                        name="phone"
+                                        type="password"
+                                        placeholder="Repeat Password"
+                                        name="confirmpass"
+                                        ref={register({
+                                            required: "this field is riquered",
+                                            maxLength: {
+                                                value: 30,
+                                                message: "max length is 30" // <p>error message</p>
+                                            },
+                                            minLength: {
+                                                value: 6,
+                                                message: "min length is 6" // <p>error message</p>
+                                            }
+                                        })}
                                     />
                                     <span
                                         className={
@@ -123,7 +148,7 @@ const Forgotpw = () => {
                                         className="input button is-rounded "
                                         type="submit"
                                     >
-                                        Send Request
+                                        Reset Password
                                     </button>
                                 </div>
                             </div>
@@ -135,4 +160,4 @@ const Forgotpw = () => {
     );
 };
 
-export default Forgotpw;
+export default Passresetword;

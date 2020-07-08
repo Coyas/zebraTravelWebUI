@@ -5,7 +5,7 @@ import { useState } from "react";
 import fetch from "isomorphic-unfetch";
 import { useForm } from "react-hook-form";
 import { setToken } from "../../lib/auth";
-import Router from "next/router";
+import Head from "next/head";
 
 const Login = () => {
     const [odju, Abriodju] = useState(false);
@@ -51,6 +51,9 @@ const Login = () => {
 
     return (
         <Loginlayout>
+            <Head>
+                <title>Log in - Zebra Travel Agency</title>
+            </Head>
             <div className={logincss.container2}>
                 <Link href="/">
                     <a>

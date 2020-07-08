@@ -1,6 +1,7 @@
+
 function Error({ statusCode }) {
     return (
-        <p>
+        <p style={{textAlign: "center", marginTop: "20rem", fontSize: "2.5rem"}}>
             {statusCode
                 ? `O Erro ${statusCode} foi detatado.`
                 : "Foi detetado um erro no cliente"}
