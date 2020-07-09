@@ -2,5 +2,7 @@
     "contact": "Contacts",
     "nome": "Name",
     "msg": "Message",
-    "send": "send"
+    "send": "send",
+    "to": "to",
+    "sended": "was sent"
 }

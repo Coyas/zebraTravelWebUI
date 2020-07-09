@@ -5,13 +5,6 @@ import api from "../../lib/api";
 // import { useState } from "react";
 const Postlist = ({ t }) => {
     const { response, error, isLoading } = api("/api/postis");
-    // const [count, setCount] = useState(1);
-
-    // if (!isLoading) {
-    //     console.log("response post list");
-    //     console.log(response);
-    //     alert("ver console");
-    // }
 
     const item = (
         <div className={polcss.itembox}>
@@ -37,15 +30,9 @@ const Postlist = ({ t }) => {
         polcss.item6
     ];
 
-    // console.log("itemBox[2]");
-    // console.log(itemBox[2]);
-    // console.log("itemBox[0]");
-    // console.log();
-
     return (
         <>
             <div className={polcss.boxfoto}>
-                {/* {item} */}
                 {!isLoading &&
                     response.map((post, index) => (
                         <>
@@ -53,6 +40,7 @@ const Postlist = ({ t }) => {
                                 <Link
                                     href="/post/[id]"
                                     as={`/post/${post.slug}`}
+                                    key={index}
                                 >
                                     <a>
                                         <img

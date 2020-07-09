@@ -2,5 +2,7 @@
     "contact": "Contatos",
     "nome": "Nome",
     "msg": "Mensagem",
-    "send": "enviar"
+    "send": "enviar",
+    "to": "para",
+    "sended": "foi enviado"
 }

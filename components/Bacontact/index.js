@@ -9,7 +9,7 @@ const Bacontact = () => {
     const phone = response?.phone.replace(/ /g, "");
 
     const router = useRouter();
-    // console.log(router.pathname);
+
     let it2 = "";
     if (
         router.pathname == "/experiencias" ||

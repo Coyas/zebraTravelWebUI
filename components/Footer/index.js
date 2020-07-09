@@ -184,6 +184,24 @@ const Footer = ({ t }) => {
                     ZEBRA GROUP - &copy; 2020. {t("direitos")}.
                 </p>
             </section>
+
+            {/* <script
+                src={`https://www.google.com/recaptcha/api.js?render=${process.env.SiteKey}`}
+            ></script> */}
+            {/* <script>
+                grecaptcha.ready(function(){" "}
+                {grecaptcha
+                    .execute(process.env.SiteKey, {
+                        action: "homepage"
+                    })
+                    .then(function (token) {
+                        //  console.log(token)
+                        document.getElementById(
+                            "g-recaptcha-response"
+                        ).value = token;
+                    })}
+                )
+            </script> */}
         </>
     );
 };
