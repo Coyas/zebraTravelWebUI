@@ -1,6 +1,8 @@
 import BooknowItem from "../BooknowItem";
 
-const BooknowList = () => {
+const BooknowList = ({ dados }) => {
+    // console.log("props dados");
+    // console.log(dados[0].imagens[0].url);
     const cores = [
         {
             cor: "#ffcb10",
@@ -12,24 +14,23 @@ const BooknowList = () => {
         }
     ];
     // console.log(cores[0].cor);
+    // fazer uma funcao de aleatoriedade
 
     return (
         <>
             <div className="">
-                <BooknowItem
-                    title="Casa Colonial Koening"
-                    image="/img/a.png"
-                    cor={cores[0].cor}
-                    cortxt={cores[0].cortxt}
-                />
-                <BooknowItem
-                    title="Casa Colonial Koening"
-                    image="/img/b.png"
-                    cor={cores[0].cor}
-                    cortxt={cores[0].cortxt}
-                />
+                {dados &&
+                    dados.map((value, index) => (
+                        <BooknowItem
+                            title={value.title}
+                            image={`${process.env.API_BASE_URL}${value.imagens[0].url}`}
+                            cor={cores[index].cor}
+                            cortxt={cores[index].cortxt}
+                        />
+                    ))}
             </div>
         </>
     );
 };
+
 export default BooknowList;
