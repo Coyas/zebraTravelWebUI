@@ -52,7 +52,7 @@ const Expid = ({ t }) => {
     return (
         <Layout user={user}>
             <Head>
-                <title>Contatos - Zebra Travel Agency</title>
+                <title>expiID - Zebra Travel Agency</title>
             </Head>
 
             <Zebralistras />
@@ -264,10 +264,8 @@ const Expid = ({ t }) => {
                     </div>
                 </div>
                 <div className={"columns is-desktop " + expid.sec2}>
-                    <dic className="column">
-                        <Comments />
-                    </dic>
-                    <dic className="column">
+                    <div className="column">{/* <Comments /> */}</div>
+                    <div className="column">
                         <div className={expid.Descri}>
                             <h1 className="">{t("wtexp")}</h1>
                             <Hr height="1" opacidade="1" cor="#000000" />
@@ -318,7 +316,7 @@ const Expid = ({ t }) => {
                             <Hr height="1" opacidade="1" cor="#000000" />
                             <BooknowList />
                         </div>
-                    </dic>
+                    </div>
                 </div>
             </section>
         </Layout>

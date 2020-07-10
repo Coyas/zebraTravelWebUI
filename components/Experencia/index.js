@@ -1,32 +1,29 @@
 import expicss from "./index.module.scss";
 import Link from "next/link";
 
-const Experencia = () => {
+const Experencia = (props) => {
+    console.log("props dados");
+    console.log(props.dados.title);
     return (
         <>
             <div className={"box " + expicss.expiri}>
                 <div className="columns is-desktop">
                     <div className={"column is-one-third " + expicss.sola}>
                         <figure className={"image " + expicss.img}>
-                            <img src="/img/esplanada.png" />
+                            <img
+                                src={`${process.env.API_BASE_URL}${props.dados.imagens[0].url}`}
+                            />
                         </figure>
                     </div>
                     <div className="column">
                         <article className="content">
-                            <h1>
-                                Nature, History of FOGO and relaxation natural
-                                pool
-                            </h1>
+                            <h1>{props.dados?.title}</h1>
                             <p>
-                                Here you get a stupendous view from the highest
-                                point from Cape Verde and get the opportunity to
-                                trek to the 2014 crater (Optional). You can find
-                                places with extreme hot spots from the Sulfur. A
-                                multi-colored...{" "}
+                                {props.dados?.descricao.substring(0, 208)}
                                 <span>
                                     <Link
                                         href="/experiencias/[pid]"
-                                        as={`/experiencias/test-de-title`}
+                                        as={`/experiencias/${props.dados.id}`}
                                     >
                                         <a>read more</a>
                                     </Link>
@@ -36,7 +33,9 @@ const Experencia = () => {
                         <div className={expicss.book}>
                             <div className={expicss.Mbook}>
                                 <p>from</p>{" "}
-                                <p className={expicss.preco}>CVE 11,027</p>{" "}
+                                <p className={expicss.preco}>
+                                    CVE {props.dados.preco_uni}{" "}
+                                </p>{" "}
                                 <Link
                                     href="/experiencias/[pid]"
                                     as={`/experiencias/test-de-title`}
@@ -49,7 +48,7 @@ const Experencia = () => {
                             <span className="icon">
                                 <i class="fas fa-map-marker-alt"></i>
                             </span>
-                            Fogo Island, Chã das Caldeiras
+                            {props.dados?.local}
                         </p>
                     </div>
                 </div>

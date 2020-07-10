@@ -14,12 +14,12 @@ const Servicos = ({ t }) => {
     // console.log("dados");
     // console.log(dados);
     // const res = dados.content.replace(/\n/g, "<br/>");
-    console.log(i18n.language);
-    let lang = i18n.language;
-    const contentLang = `content_${lang}`;
-    console.log(contentLang);
-    console.log("response");
-    console.log(response?.content_pt);
+    // console.log(i18n.language);
+    // let lang = i18n.language;
+    const contentLang = `content_${i18n.language}`;
+    // console.log(contentLang);
+    // console.log("response");
+    // console.log(response?.content_pt);
 
     let data;
     switch (i18n.language) {

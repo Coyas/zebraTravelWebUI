@@ -12,10 +12,10 @@ import { useFetchUser } from "../lib/user";
 
 const Home = ({ t }) => {
     const islang = i18n.isInitialized;
-    console.log(`isLang: ${islang}`);
+    // console.log(`isLang: ${islang}`);
     // lingua atual
     const lang = i18n.language;
-    console.log(`lang: ${lang}`);
+    // console.log(`lang: ${lang}`);
     // verificar se ha um user logado
     const { user, loading } = useFetchUser();
     return (
