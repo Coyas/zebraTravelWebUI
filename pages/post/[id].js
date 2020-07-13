@@ -123,7 +123,7 @@ const Postid = ({ post }) => {
             <section className="container">
                 <div className="columns">
                     <div className="column is-half">
-                        <Comments post={postid} />
+                        <Comments post={postid} id="post" />
                     </div>
                 </div>
             </section>

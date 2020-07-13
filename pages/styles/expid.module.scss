@@ -1,6 +1,12 @@
 @import "../../components/color";
 @import "../../components/media";
 
+.sec2 {
+    article > * {
+        color: $preto !important;
+    }
+}
+
 .expid {
     margin-top: 5%;
     p {

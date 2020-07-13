@@ -9,11 +9,14 @@ import Hr from "../../components/Hr";
 import Comments from "../../components/Comments";
 import BooknowList from "../../components/BooknowList";
 import Modal from "react-modal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Galeria from "../../components/Galeria";
 import { Link, withTranslation } from "../../i18n";
 import { useFetchUser } from "../../lib/user";
 import Head from "next/head";
+import { getExperiencia, getExperiencias } from "../api/expe";
+import showdown from "showdown";
+import { useRouter } from "next/router";
 
 const customStyles = {
     content: {
@@ -30,7 +33,28 @@ const customStyles = {
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement("#__next");
 
-const Expid = ({ t }) => {
+const Expid = ({ t, expi, expis }) => {
+    // const router = useRouter();
+    // console.log("éexpi");
+    // console.log(expi);
+    // useEffect(() => {
+
+    // router.push("/404");
+
+    // });
+    console.log("expi.imagens");
+    console.log(expi.imagens);
+
+    const imagem = expi?.imagens[0]?.url || " ";
+
+    const linguas = expi?.linguas?.split(",");
+
+    const createMarkup = () => {
+        const converter = new showdown.Converter();
+        const html = converter.makeHtml(expi?.descricao);
+        return { __html: html };
+    };
+
     const { user, loading } = useFetchUser();
     const [ModalIsOpen, setIsOpen] = useState(false);
 
@@ -52,7 +76,7 @@ const Expid = ({ t }) => {
     return (
         <Layout user={user}>
             <Head>
-                <title>expiID - Zebra Travel Agency</title>
+                <title>{expi?.title} - Zebra Travel Agency</title>
             </Head>
 
             <Zebralistras />
@@ -62,19 +86,19 @@ const Expid = ({ t }) => {
             <Divisor title={t("expTu")} voltar="true" sobre={t("exp")} />
 
             <section className={"container " + expid.expid}>
-                <h1>Nature, History of SANTO ANTÃO</h1>
+                <h1>{expi?.title}</h1>
                 <p>
                     <span className="icon">
                         <i className="fas fa-map-marker-alt"></i>
                     </span>
-                    Santo Antão, Porto Novo
+                    {expi?.local}
                 </p>
                 <div className="columns is-desktop">
                     <div className={"column " + expid.imgbox}>
                         <div className={expid.container2}>
                             <figure className="image">
                                 <img
-                                    src="/img/esplanada.png"
+                                    src={`${process.env.API_BASE_URL}${imagem}`}
                                     className={expid.imgs}
                                 />
                             </figure>
@@ -136,7 +160,7 @@ const Expid = ({ t }) => {
                                     </div>
                                     <div className="columns">
                                         <div className="column is-mobile">
-                                            <Galeria />
+                                            <Galeria images={expi} />
                                         </div>
                                     </div>
                                 </div>
@@ -145,14 +169,14 @@ const Expid = ({ t }) => {
                     </div>
                     <div className="column">
                         <div className={"box " + expid.boxcheck}>
-                            <p className={expid.hr}>
+                            <div className={expid.hr}>
                                 <Hr height="2" opacity="1" cor="#6bc1fd" />
-                            </p>
+                            </div>
                             <div className="columns">
                                 <div className="column">
-                                    <p>
+                                    <div>
                                         <h1>{t("selet")}</h1>
-                                    </p>
+                                    </div>
                                 </div>
                                 <div className="column is-one-third">
                                     <div className={expid.boxbo}>
@@ -160,7 +184,7 @@ const Expid = ({ t }) => {
                                             {t("from")}
                                         </p>
                                         <p className={expid.preco}>
-                                            CVE 11,027
+                                            CVE {expi?.preco_uni}
                                         </p>
                                         <p>
                                             <span>({t("advise")})</span>
@@ -213,7 +237,9 @@ const Expid = ({ t }) => {
                                         <div className={expid.itemb}>
                                             {t("distance")}
                                         </div>
-                                        <div className={expid.itemc}>32 km</div>
+                                        <div className={expid.itemc}>
+                                            {expi?.distancia} km
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="column">
@@ -227,7 +253,7 @@ const Expid = ({ t }) => {
                                             {t("elev")}
                                         </div>
                                         <div className={expid.itemc}>
-                                            2371 m
+                                            {expi?.elevacao} m
                                         </div>
                                     </div>
                                 </div>
@@ -241,7 +267,9 @@ const Expid = ({ t }) => {
                                         <div className={expid.itemb}>
                                             {t("dura")}
                                         </div>
-                                        <div className={expid.itemc}>24 h</div>
+                                        <div className={expid.itemc}>
+                                            {expi?.duracao} h
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="column">
@@ -255,7 +283,7 @@ const Expid = ({ t }) => {
                                             {t("lingua")}
                                         </div>
                                         <div className={expid.itemc}>
-                                            PT EN FR IT
+                                            {linguas}
                                         </div>
                                     </div>
                                 </div>
@@ -264,57 +292,19 @@ const Expid = ({ t }) => {
                     </div>
                 </div>
                 <div className={"columns is-desktop " + expid.sec2}>
-                    <div className="column">{/* <Comments /> */}</div>
+                    <div className="column">
+                        <Comments post={expi?.id} id="experiencia" />
+                    </div>
                     <div className="column">
                         <div className={expid.Descri}>
                             <h1 className="">{t("wtexp")}</h1>
                             <Hr height="1" opacidade="1" cor="#000000" />
-                            <article>
-                                Itinerary
-                                <br />
-                                This is a typical itinerary for this product
-                                <br />
-                                <br />
-                                Stop At: Parque Natural do Fogo, Fogo Island,
-                                Fogo Cape Verde
-                                <br />
-                                <br />
-                                Departure from São Filipe then stopping at
-                                Forno, where we visit one of the areas where the
-                                drop-by-drop
-                                <br />
-                                irrigation method is used (a technique adopted
-                                by farms on the island in order to minimize the
-                                effect of
-                                <br />
-                                drought). We then continue to Achada Furna, a
-                                chance to see the communities where new houses
-                                were
-                                <br />
-                                built after the eruption of 1995 and 2014 for
-                                the population of Chã das Caldeiras. Many of the
-                                locals have
-                                <br />
-                                now returned to the Caldeira. Continuing on, we
-                                stop in Cabeça Fundão where we can see the old
-                                craters
-                                <br />
-                                and the wonderful mixed colors in the landscape.
-                                Finally, we arrive at the entrance of the
-                                National Park of
-                                <br />
-                                Chã das Caldeiras.
-                                <br />
-                                <br />
-                                Here you get a stupendous view from the highest
-                                point from Cape Verde and get the opportunity to
-                                trek
-                            </article>
+                            <article dangerouslySetInnerHTML={createMarkup()} />
                         </div>
 
                         <div className={expid.exlist}>
                             <Hr height="1" opacidade="1" cor="#000000" />
-                            <BooknowList />
+                            <BooknowList dados={expis} />
                         </div>
                     </div>
                 </div>
@@ -322,5 +312,16 @@ const Expid = ({ t }) => {
         </Layout>
     );
 };
+export async function getServerSideProps({ params }) {
+    // console.log("params");
+    // console.log(params);
+    const res = await getExperiencia(params.id);
+    const json = await res.json();
+    const res2 = await getExperiencias(2);
+    const json2 = await res2.json();
+    return {
+        props: { expi: json, expis: json2 } // will be passed to the page component as props
+    };
+}
 
 export default withTranslation("experiencia")(Expid);

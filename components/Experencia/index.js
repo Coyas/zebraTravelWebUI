@@ -19,11 +19,11 @@ const Experencia = (props) => {
                         <article className="content">
                             <h1>{props.dados?.title}</h1>
                             <p>
-                                {props.dados?.descricao.substring(0, 208)}
+                                {props.dados?.descricao.substring(0, 208)}...
                                 <span>
                                     <Link
                                         href="/experiencias/[pid]"
-                                        as={`/experiencias/${props.dados.id}`}
+                                        as={`/experiencias/${props.dados?.slug}`}
                                     >
                                         <a>read more</a>
                                     </Link>
@@ -38,7 +38,7 @@ const Experencia = (props) => {
                                 </p>{" "}
                                 <Link
                                     href="/experiencias/[pid]"
-                                    as={`/experiencias/test-de-title`}
+                                    as={`/experiencias/${props.dados?.slug}`}
                                 >
                                     <a className="button">BOOK NOW</a>
                                 </Link>

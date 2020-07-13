@@ -2,7 +2,7 @@ import moment from "moment";
 
 const ComentData = (props) => {
     // console.log(props.hora);
-    const time = moment(props.hora, "YYYYMMDD").fromNow(); // há 8 anos
+    const time = moment(props.hora, "YYYYMMDD").fromNow();
     // console.log(time);
     return (
         <>

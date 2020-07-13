@@ -1,15 +1,15 @@
 import gimgcss from "./index.module.scss";
 
 const GaleriaImage = ({ property }) => {
-    const { imagem, title, subtitle, index } = property;
+    const { index, title, subtitle, imagem } = property;
 
     return (
         <>
             <div id={"card" + `_${index}`} className={gimgcss.card}>
-                <figure class="image">
+                <figure className="image">
                     <img
                         className=""
-                        src={imagem}
+                        src={`${process.env.API_BASE_URL}${imagem}`}
                         style={{
                             height: "77vh",
                             borderRadius: "25px"

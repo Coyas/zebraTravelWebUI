@@ -6,8 +6,10 @@ import { withTranslation } from "../../i18n";
 import api from "../../lib/api";
 
 //post = postID
-const Comments = ({ t, post }) => {
-    const { response, isLoading } = api(`/api/comentario?post=${post}`);
+const Comments = ({ t, post, id }) => {
+    const { response, isLoading } = api(
+        `/api/comentario?post=${post}&id=${id}`
+    );
 
     return (
         <>
