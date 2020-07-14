@@ -16,7 +16,7 @@ const Comments = ({ t, post, id }) => {
             <div className={cocss.boxs}>
                 <h1>{t("coment")}</h1>
                 <Hr height="1" opacidade="1" cor="#000000" />
-                <CreateComment />
+                <CreateComment post={post} id={id} />
                 {!isLoading &&
                     response.map((value) => (
                         <ComentItem
