@@ -1,9 +1,6 @@
 import fetch from "isomorphic-unfetch";
 
 export default async function comentario(req, res) {
-    console.log("req");
-    console.log(req.query.post);
-    console.log(req.query.id);
     try {
         const url = `${process.env.API_BASE_URL}/comentarios?${req.query.id}=${req.query.post}`;
         const response = await fetch(url, {

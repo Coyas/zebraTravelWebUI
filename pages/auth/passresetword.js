@@ -34,8 +34,6 @@ const Passresetword = () => {
             }
         );
 
-        console.log("response");
-        console.log(response);
         if (response.status == 200 && response.ok) {
             router.push("/auth/login");
         }

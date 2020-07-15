@@ -34,7 +34,7 @@ const Login = () => {
         //get options to redirect
         const { redirect, url } = router.query;
 
-        console.log(`URL: ${process.env.API_BASE_URL}`);
+        // console.log(`URL: ${process.env.API_BASE_URL}`);
 
         const response = await fetch(`${process.env.API_BASE_URL}/auth/local`, {
             method: "POST",
@@ -47,7 +47,7 @@ const Login = () => {
             })
         });
         const responseData = await response.json();
-        console.log(responseData);
+        // console.log(responseData);
         setToken(responseData, redirect, url);
     };
 

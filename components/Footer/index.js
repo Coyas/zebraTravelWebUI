@@ -25,7 +25,7 @@ const Footer = ({ t }) => {
     const subscreve = async (data, e) => {
         // e.preventDefault();
         e.target.reset();
-        // alert(`Email: ${data.emailSub}`);
+
         const response = await fetch(
             `${process.env.API_BASE_URL}/newsletters`,
             {

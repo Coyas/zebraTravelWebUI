@@ -5,14 +5,12 @@ import Voltar from "../Voltar";
 
 const Divisor = (props) => {
     let Qual;
-    console.log("props: " + props.voltar);
+    // console.log("props: " + props.voltar);
 
     if (props.voltar === "true") {
         Qual = <Voltar />;
-        console.log("true");
     } else {
         Qual = <Hr height="2" opacidade="1" cor={props.cores} />;
-        console.log("false");
     }
     return (
         <>

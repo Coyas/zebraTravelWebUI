@@ -2,8 +2,6 @@ import expicss from "./index.module.scss";
 import Link from "next/link";
 
 const Experencia = (props) => {
-    console.log("props dados");
-    console.log(props.dados.title);
     return (
         <>
             <div className={"box " + expicss.expiri}>

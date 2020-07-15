@@ -12,10 +12,6 @@ const Comments = ({ t, post, id }) => {
         `/api/comentario?post=${post}&id=${id}`
     );
 
-    useEffect(() => {
-        console.log("ola mundo");
-    });
-
     return (
         <>
             <div className={cocss.boxs}>

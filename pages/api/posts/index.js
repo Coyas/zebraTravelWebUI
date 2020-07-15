@@ -14,8 +14,8 @@ export function getPosts() {
 }
 
 export function getPost(slug) {
-    console.log("slug | params.id");
-    console.log(slug);
+    // console.log("slug | params.id");
+    // console.log(slug);
     // try {
     // console.log("req:");
     // console.log(req);

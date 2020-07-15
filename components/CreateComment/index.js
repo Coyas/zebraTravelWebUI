@@ -86,15 +86,9 @@ const CreateComment = ({ post, id }) => {
         // console.log(dados.statusCode);
 
         if (dados.statusCode == 401) {
-            console.log(router.query);
             const url = router.pathname;
             const { id } = router.query;
             const uri = url.replace("[id]", id);
-            // console.log("url");
-            // console.log(url);
-            console.log(uri);
-            // console.log("url id");
-            // console.log(id);
             router.push(`/auth/login?redirect=1&url=${uri}`);
         }
 

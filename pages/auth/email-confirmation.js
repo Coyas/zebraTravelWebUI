@@ -8,8 +8,7 @@ import Head from "next/head";
 const ConfirmEmail = () => {
     // get confirmation code
     const router = useRouter();
-    console.log("router.query");
-    console.log(router.query);
+
     const { confirmation } = router.query;
 
     // muito importante pois condiciona o ssr

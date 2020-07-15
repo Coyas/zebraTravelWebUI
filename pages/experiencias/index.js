@@ -13,8 +13,7 @@ import { getExperiencias } from "../api/expe";
 
 const Experiencia = ({ t, post }) => {
     const { user, loading } = useFetchUser();
-    console.log("post:");
-    console.log(post);
+
     return (
         <Layout user={user}>
             <Head>
