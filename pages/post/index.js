@@ -55,7 +55,7 @@ const Post = ({ t }) => {
                         <article>
                             {/* June 2, 2017 */}
                             <p>{dad?.created_at}</p>
-                            <Link href="/post/[id]" as={`/post/${dad?.id}`}>
+                            <Link href="/post/[id]" as={`/post/${dad?.slug}`}>
                                 <a>
                                     <h1 className="subtitle">{dad?.title}</h1>
                                 </a>

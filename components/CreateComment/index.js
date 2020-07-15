@@ -1,104 +1,52 @@
-// import ccocss from "./index.module.scss";
-// const CreateComment = () => {
-//     return (
-//         <>
-//             <article className="media">
-//                 <figure className="media-left">
-//                     <p className="image is-64x64">
-//                         <img
-//                             className="is-rounded"
-//                             src="https://bulma.io/images/placeholders/128x128.png"
-//                         />
-//                     </p>
-//                 </figure>
-//                 <div className="media-content">
-//                     <div className="field">
-//                         <div className="control">
-//                             {/* <textarea
-//                                 className="textarea"
-//                                 placeholder="Add a comment..."
-//                             /> */}
-//                             <form>
-//                                 <input
-//                                     className={ccocss.inp}
-//                                     type="text"
-//                                     placeholder="Join the discussion..."
-//                                 />
-//                             </form>
-//                         </div>
-//                     </div>
-//                     {/* <nav className="level">
-//                         <div className="level-left">
-//                             <div className="level-item">
-//                                 <a className="button is-info">Submit</a>
-//                             </div>
-//                         </div>
-//                         <div className="level-right">
-//                             <div className="level-item">
-//                                 <label className="checkbox">
-//                                     <input type="checkbox" /> Press enter to
-//                                     submit
-//                                 </label>
-//                             </div>
-//                         </div>
-//                     </nav> */}
-//                 </div>
-//                 {/* <div className="media-right">
-//                     <button type="submit" className="button">
-//                         Comment
-//                     </button>
-//                 </div> */}
-//             </article>
-//         </>
-//     );
-// };
-
-// export default CreateComment;
-
 import ccocss from "./index.module.scss";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import Cookies from "js-cookie";
-// import { Router } from "express";
 
 const CreateComment = ({ post, id }) => {
-    // const router = useRouter();
-    const { register, handleSubmit, reset } = useForm();
+    const router = useRouter();
+    const { register, handleSubmit } = useForm();
     // Cookies.get("username");
     const userId = Cookies.get("userId");
-    console.log(`cookie userId: ${Cookies.get("username")}: ${Cookies}`);
+    const jwt = Cookies.get("jwt");
+    // console.log(`cookie userId: ${Cookies.get("username")}`);
 
-    console.log(`
-        Post:${post}
-        ID:${id}
-        userId:${userId}
-        `);
+    // console.log(`
+    //     Post:${post}
+    //     ID:${id}
+    //     userId:${userId}
+    //     Json Web Token: ${jwt}
+    //     `);
 
-    if (id == "post") {
-        console.log(id);
-    } else {
-        console.log("else");
-        console.log(id);
-    }
+    // if (id == "post") {
+    //     console.log("if id");
+    //     console.log(id);
+    // } else {
+    //     console.log("else id");
+    //     console.log(id);
+    // }
 
     const submeter = async (data, e) => {
-        if (!userId) {
-            // Router.push("/auth/login");
-        }
-
-        alert(`
-        comment:${data.comment}
-        slug:${data.slug}
-        `);
+        // alert(`
+        // comment:${data.comment}
+        // Json Web Token: ${jwt}
+        // `);
 
         const url = `${process.env.API_BASE_URL}/comentarios`;
         let response;
         if (id == "post") {
-            alert(id);
+            // alert(`
+            // ID: ${id}
+            // comment: ${data.comment},
+            // user: ${userId},
+            // experiencia: ${post},
+            // Json Web Token: ${jwt}
+            // `);
             response = await fetch(url, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${jwt}`
                 },
                 body: JSON.stringify({
                     comment: data.comment,
@@ -107,11 +55,18 @@ const CreateComment = ({ post, id }) => {
                 })
             });
         } else {
-            alert(id);
+            // alert(`
+            // ID: ${id}
+            // comment: ${data.comment},
+            // user: ${userId},
+            // experiencia: ${post},
+            // Json Web Token: ${jwt}
+            // `);
             response = await fetch(url, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${jwt}`
                 },
                 body: JSON.stringify({
                     comment: data.comment,
@@ -121,9 +76,32 @@ const CreateComment = ({ post, id }) => {
             });
         }
 
+        // console.log("response");
+        // console.log(response);
         const dados = await response.json();
+        // console.log("dados:");
+        // console.log(dados);
 
-        e.target.reset();
+        // console.log("dados.statusCode");
+        // console.log(dados.statusCode);
+
+        if (dados.statusCode == 401) {
+            console.log(router.query);
+            const url = router.pathname;
+            const { id } = router.query;
+            const uri = url.replace("[id]", id);
+            // console.log("url");
+            // console.log(url);
+            console.log(uri);
+            // console.log("url id");
+            // console.log(id);
+            router.push(`/auth/login?redirect=1&url=${uri}`);
+        }
+
+        if (response.status == 200 && response.ok) {
+            e.target.reset();
+            // router.reload();
+        }
     };
 
     return (
@@ -150,13 +128,8 @@ const CreateComment = ({ post, id }) => {
                                     ref={register({
                                         requied: true,
                                         minLength: 6,
-                                        maxLength: 50
+                                        maxLength: 300
                                     })}
-                                />
-                                <input
-                                    type="hidden"
-                                    name="slug"
-                                    value="sqd-dqs"
                                 />
                             </form>
                         </div>

@@ -6,12 +6,46 @@ import { i18n, withTranslation } from "../../i18n";
 import { unsetToken } from "../../lib/auth";
 import { useUser } from "../../lib/user";
 import api from "../../lib/api";
+import { useRouter } from "next/router";
+
+let isEmpty = (val) => {
+    let typeOfVal = typeof val;
+    switch (typeOfVal) {
+        case "object":
+            return val.length == 0 || !Object.keys(val).length;
+            break;
+        case "string":
+            let str = val.trim();
+            return str == "" || str == undefined;
+            break;
+        case "number":
+            return val == "";
+            break;
+        default:
+            return val == "" || val == undefined;
+    }
+};
 
 const NavBar = ({ t }) => {
+    const router = useRouter();
     const [open, Isopen] = useState(false);
     // const [scale, setScale] = useState(0.6);
     const { user, loading } = useUser();
     const { response, error, isLoading } = api("/api/links");
+
+    // console.log("router.query:");
+    // console.log(isEmpty(router.query));
+    let url;
+    let uri;
+    let redi = null;
+    if (isEmpty(router.query)) {
+        url = router.pathname;
+    } else {
+        uri = router.pathname;
+        const { id } = router.query;
+        url = uri.replace("[id]", id);
+        redi = 1;
+    }
 
     let siclass;
     let show;
@@ -123,7 +157,9 @@ const NavBar = ({ t }) => {
                                 (user ? (
                                     <p>{user}</p>
                                 ) : (
-                                    <Link href="/auth/login">
+                                    <Link
+                                        href={`/auth/login?redirect=${redi}&url=${url}`}
+                                    >
                                         <a>
                                             Log in
                                             <span className="icon">

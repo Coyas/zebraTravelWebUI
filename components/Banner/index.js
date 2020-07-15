@@ -41,13 +41,17 @@ const Banner = (props) => {
                         </button>
                         <nav className="level is-mobile">
                             <div className="level-left">
-                                <Link href="qss">
+                                <Link href="https://www.addtoany.com/share">
                                     <a className="level-item">
                                         <span className="icon is-small">
                                             <i className="fas fa-share-alt"></i>
                                         </span>
                                     </a>
                                 </Link>
+                                <script>
+                                    var a2a_config = a2a_config || {};
+                                    a2a_config.onclick = 1;
+                                </script>
                             </div>
                             <div className="level-right">
                                 <Link href="ss">

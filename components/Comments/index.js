@@ -4,12 +4,17 @@ import ComentItem from "../ComentItem";
 import CreateComment from "../CreateComment";
 import { withTranslation } from "../../i18n";
 import api from "../../lib/api";
+import { useEffect } from "react";
 
 //post = postID
 const Comments = ({ t, post, id }) => {
     const { response, isLoading } = api(
         `/api/comentario?post=${post}&id=${id}`
     );
+
+    useEffect(() => {
+        console.log("ola mundo");
+    });
 
     return (
         <>
@@ -21,7 +26,7 @@ const Comments = ({ t, post, id }) => {
                     response.map((value) => (
                         <ComentItem
                             avatar={
-                                value.user.avatar
+                                value?.user?.avatar
                                     ? `${process.env.API_BASE_URL}${value?.user?.avatar?.url}`
                                     : `/user.png`
                             }

@@ -6,10 +6,12 @@ import fetch from "isomorphic-unfetch";
 import { useForm } from "react-hook-form";
 import { setToken } from "../../lib/auth";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 const Login = () => {
     const [odju, Abriodju] = useState(false);
     const { register, handleSubmit } = useForm();
+    const router = useRouter();
 
     const [data, setData] = useState({
         identifier: "",
@@ -23,10 +25,14 @@ const Login = () => {
     const signin = async (e) => {
         // e.preventDefault();
 
-        console.log(`
-        user: ${data.identifier}
-        passwd: ${data.password}
-        `);
+        // console.log(`
+        // user: ${data.identifier}
+        // passwd: ${data.password}
+        // `);
+
+        // console.log(router.query);
+        //get options to redirect
+        const { redirect, url } = router.query;
 
         console.log(`URL: ${process.env.API_BASE_URL}`);
 
@@ -42,7 +48,7 @@ const Login = () => {
         });
         const responseData = await response.json();
         console.log(responseData);
-        setToken(responseData);
+        setToken(responseData, redirect, url);
     };
 
     const handleChange = (e) => {

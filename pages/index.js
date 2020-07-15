@@ -9,13 +9,10 @@ import Like from "../components/Like";
 import { i18n, withTranslation } from "../i18n";
 import Head from "next/head";
 import { useFetchUser } from "../lib/user";
+import { getExperiencias } from "../pages/api/expe";
 
-const Home = ({ t }) => {
+const Home = ({ t, expe }) => {
     const islang = i18n.isInitialized;
-    // console.log(`isLang: ${islang}`);
-    // lingua atual
-    const lang = i18n.language;
-    // console.log(`lang: ${lang}`);
     // verificar se ha um user logado
     const { user, loading } = useFetchUser();
     return (
@@ -65,215 +62,153 @@ const Home = ({ t }) => {
             />
             <div className="container">
                 <div className="columns">
-                    <div className="column">
-                        <div className={indexcss.container2}>
-                            <img src="/img/esplanada.png" />
-                            <div className={indexcss.topRight}>
-                                <Link href="https://www.addtoany.com/share">
-                                    <a
-                                        className="a2a_dd"
-                                        href="https://www.addtoany.com/share"
+                    {expe &&
+                        expe.map((value, index) => (
+                            <>
+                                <div className="column">
+                                    <div
+                                        className={
+                                            index == 0
+                                                ? indexcss.container2
+                                                : indexcss.container2 +
+                                                  " " +
+                                                  indexcss.baipadir
+                                        }
                                     >
-                                        <i className="fas fa-share-alt"></i>
-                                    </a>
-                                </Link>
-                                <script>
-                                    var a2a_config = a2a_config || {};
-                                    a2a_config.onclick = 1;
-                                </script>
-                            </div>
-                            <div className={indexcss.topLeft}>
-                                <div className={indexcss.a1}>01</div>
-                                <div className={indexcss.traco}></div>
-                                <div className={indexcss.a2}>02</div>
-                                <div className={"container " + indexcss.padd}>
-                                    <div className={indexcss.expTxt}>
-                                        Nature, History of
+                                        <img
+                                            src={`${process.env.API_BASE_URL}${value?.imagens[0].url}`}
+                                        />
+                                        <div className={indexcss.topRight}>
+                                            <Link href="https://www.addtoany.com/share">
+                                                <a
+                                                    className="a2a_dd"
+                                                    href="https://www.addtoany.com/share"
+                                                >
+                                                    <i className="fas fa-share-alt"></i>
+                                                </a>
+                                            </Link>
+                                            <script>
+                                                var a2a_config = a2a_config ||{" "}
+                                                {}; a2a_config.onclick = 1;
+                                            </script>
+                                        </div>
+                                        <div className={indexcss.topLeft}>
+                                            <div className={indexcss.a1}>
+                                                01
+                                            </div>
+                                            <div
+                                                className={indexcss.traco}
+                                            ></div>
+                                            <div className={indexcss.a2}>
+                                                02
+                                            </div>
+                                            <div
+                                                className={
+                                                    "container " + indexcss.padd
+                                                }
+                                            >
+                                                <div
+                                                    className={indexcss.expTxt}
+                                                >
+                                                    {value?.title}
+                                                    {/* Nature, History of
                                         <br />
                                         <span>FOGO</span> and relaxation
                                         <br />
-                                        natural pool
-                                    </div>
-                                    <Link href="ssq">
-                                        <a
-                                            className={
-                                                "button is-warning bold " +
-                                                indexcss.fixbutton
-                                            }
-                                        >
-                                            BOOK NOW
-                                        </a>
-                                    </Link>
-                                </div>
-                            </div>
-                            <div className={indexcss.content2}>
-                                <div className="sectags">
-                                    <div className="level-right">
-                                        <div
-                                            className={
-                                                "field is-grouped is-grouped-multiline " +
-                                                indexcss.space
-                                            }
-                                        >
-                                            <div className="control">
-                                                <div className="tags has-addons">
-                                                    <Link href="ss">
-                                                        <a
-                                                            className={
-                                                                indexcss.expa
-                                                            }
-                                                        >
-                                                            <span className="margi">
-                                                                89
-                                                            </span>
-                                                            <span className="icon">
-                                                                <i className="far fa-comment"></i>
-                                                            </span>
-                                                        </a>
-                                                    </Link>
+                                        natural pool */}
                                                 </div>
-                                            </div>
-                                            <div className="control">
-                                                <div className="tags has-addons">
-                                                    <Like />
-                                                </div>
+                                                <Link
+                                                    href={`/experiencias/${value?.slug}`}
+                                                >
+                                                    <a
+                                                        className={
+                                                            "button is-warning bold " +
+                                                            indexcss.fixbutton
+                                                        }
+                                                    >
+                                                        BOOK NOW
+                                                    </a>
+                                                </Link>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <p>from</p>
-                                <div className="content">
-                                    <div className="columns">
-                                        <div
-                                            className={
-                                                "column " + indexcss.preco
-                                            }
-                                        >
-                                            CVE 11,027
-                                        </div>
-                                        <div
-                                            className={
-                                                "column control " +
-                                                indexcss.precolocal
-                                            }
-                                        >
-                                            <span className="icon">
-                                                <i className="fas fa-map-marker-alt"></i>
-                                            </span>
-                                            Fogo Island, Chã das Caldeiras
-                                        </div>
-                                    </div>
-                                    <div className={indexcss.liinha}></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={indexcss.coluna2}></div>
-                    <div className="column">
-                        <div
-                            className={
-                                indexcss.container2 + " " + indexcss.baipadir
-                            }
-                        >
-                            <img src="/img/praia.png" />
-                            <div className={indexcss.topRight}>
-                                <Link href="https://www.addtoany.com/share">
-                                    <a
-                                        className="a2a_dd"
-                                        href="https://www.addtoany.com/share"
-                                    >
-                                        <i className="fas fa-share-alt"></i>
-                                    </a>
-                                </Link>
-                                <script>
-                                    var a2a_config = a2a_config || {};
-                                    a2a_config.onclick = 1;
-                                </script>
-                            </div>
-                            <div className={indexcss.topLeft}>
-                                <div className={indexcss.a1}>03</div>
-                                <div className={indexcss.traco}></div>
-                                <div className={indexcss.a2}>04</div>
-                                <div className={"container " + indexcss.padd}>
-                                    <div className={indexcss.expTxt}>
-                                        Ilha da semana
-                                        <br /> navegando
-                                        <br /> cabo Verde
-                                    </div>
-                                    <Link href="ssq">
-                                        <a
-                                            className={
-                                                "button is-warning bold " +
-                                                indexcss.fixbutton
-                                            }
-                                        >
-                                            BOOK NOW
-                                        </a>
-                                    </Link>
-                                </div>
-                            </div>
-                            <div className={indexcss.content2}>
-                                <div className="sectags">
-                                    <div className="level-right">
-                                        <div
-                                            className={
-                                                "field is-grouped is-grouped-multiline " +
-                                                indexcss.space
-                                            }
-                                        >
-                                            <div className="control">
-                                                <div className="tags has-addons">
-                                                    <Link href="ss">
-                                                        <a
-                                                            className={
-                                                                indexcss.expa
-                                                            }
-                                                        >
-                                                            <span className="margi">
-                                                                256
-                                                            </span>
-                                                            <span className="icon">
-                                                                <i className="far fa-comment"></i>
-                                                            </span>
-                                                        </a>
-                                                    </Link>
+                                        <div className={indexcss.content2}>
+                                            <div className="sectags">
+                                                <div className="level-right">
+                                                    <div
+                                                        className={
+                                                            "field is-grouped is-grouped-multiline " +
+                                                            indexcss.space
+                                                        }
+                                                    >
+                                                        <div className="control">
+                                                            <div className="tags has-addons">
+                                                                <Link
+                                                                    href={`/experiencias/${value?.slug}`}
+                                                                >
+                                                                    <a
+                                                                        className={
+                                                                            indexcss.expa
+                                                                        }
+                                                                    >
+                                                                        <span className="margi">
+                                                                            {
+                                                                                value
+                                                                                    ?.comentarios
+                                                                                    ?.length
+                                                                            }
+                                                                        </span>
+                                                                        <span className="icon">
+                                                                            <i className="far fa-comment"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                </Link>
+                                                            </div>
+                                                        </div>
+                                                        <div className="control">
+                                                            <div className="tags has-addons">
+                                                                <Like />
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div className="control">
-                                                <div className="tags has-addons">
-                                                    <Like />
+                                            <p>from</p>
+                                            <div className="content">
+                                                <div className="columns">
+                                                    <div
+                                                        className={
+                                                            "column " +
+                                                            indexcss.preco
+                                                        }
+                                                    >
+                                                        CVE {value?.preco_uni}
+                                                    </div>
+                                                    <div
+                                                        className={
+                                                            "column control " +
+                                                            indexcss.precolocal
+                                                        }
+                                                    >
+                                                        <span className="icon">
+                                                            <i className="fas fa-map-marker-alt"></i>
+                                                        </span>
+                                                        {value?.local}
+                                                    </div>
                                                 </div>
+                                                <div
+                                                    className={indexcss.liinha}
+                                                ></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <p>from</p>
-                                <div className="content">
-                                    <div className="columns">
-                                        <div
-                                            className={
-                                                "column " + indexcss.preco
-                                            }
-                                        >
-                                            CVE 10,027
-                                        </div>
-                                        <div
-                                            className={
-                                                "column control " +
-                                                indexcss.precolocal
-                                            }
-                                        >
-                                            <span className="icon">
-                                                <i className="fas fa-map-marker-alt"></i>
-                                            </span>
-                                            São Vicente Island, Mindelo
-                                        </div>
-                                    </div>
-                                    <div className={indexcss.liinha}></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                {index == 0 ? (
+                                    <div className={indexcss.coluna2}></div>
+                                ) : (
+                                    ""
+                                )}
+                            </>
+                        ))}
                 </div>
                 <div className={indexcss.coluna3}></div>
             </div>
@@ -311,17 +246,14 @@ const Home = ({ t }) => {
     );
 };
 
-Home.getInitialProps = async ({ req }) => {
+export async function getStaticProps() {
     const obj = { namespacesRequired: ["common", "footer", "navbar"] };
-    // console.log("obj");
-    // console.log(obj);
-    // const currentLanguage = req ? req.language : i18n.language;
-    // console.log(currentLanguage);
-    return { obj };
-};
+    const res = await getExperiencias(2);
+    const exp = await res.json();
 
-// MyPage.getInitialProps = async ({ req }) => {
-//     const currentLanguage = req ? req.language : i18n.language;
-// };
+    return {
+        props: { obj, expe: exp } // will be passed to the page component as props
+    };
+}
 
 export default withTranslation("common")(Home);
