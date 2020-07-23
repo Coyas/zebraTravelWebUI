@@ -1,7 +1,8 @@
 import moment from "moment";
 
 const ComentData = (props) => {
-    // console.log(props.hora);
+    // console.log("props dados");
+    // console.log(props);
     const time = moment(props.hora, "YYYYMMDD").fromNow();
     // console.log(time);
     return (
@@ -14,7 +15,7 @@ const ComentData = (props) => {
                 </figure>
                 <div className="media-content">
                     <div className="content">
-                        <p>
+                        <p style={{ color: "black" }}>
                             <strong>{props.user}</strong>{" "}
                             {/* <small>@johnsmith</small> <small>31m</small> */}
                             <small>{time}</small>
