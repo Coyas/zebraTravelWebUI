@@ -9,13 +9,14 @@ import Hr from "../../components/Hr";
 import Comments from "../../components/Comments";
 import BooknowList from "../../components/BooknowList";
 import Modal from "react-modal";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Galeria from "../../components/Galeria";
 import { Link, withTranslation } from "../../i18n";
 import { useFetchUser } from "../../lib/user";
 import Head from "next/head";
 import { getExperiencia, getExperiencias } from "../api/expe";
 import showdown from "showdown";
+import { useForm } from "react-hook-form";
 
 const customStyles = {
     content: {
@@ -33,7 +34,17 @@ const customStyles = {
 Modal.setAppElement("#__next");
 
 const Expid = ({ t, expi, expis }) => {
+    const [calc, setCalc] = useState(false); // foi calculado o valor total
+    const [desponivel, setDesponivel] = useState(false); // ha alguma reserva que se encontra desponivel
+    const [valor, setValor] = useState(0); // calculo do valor
+    const [what, setWhat] = useState("check"); // qual operacao check ou checkout
+    const [cor, setCor] = useState("#ffcb10"); // para operacao check cor é amarelo e para checkout cor é azul
+    const [classi, setClassi] = useState("none"); // se calc é false style display:node caso nao display: " "
+    const { register, handleSubmit } = useForm(); // formulario handler
+
     const imagem = expi?.imagens[0]?.url;
+    // console.log(expi?.likes);
+    // console.log(expi?.likes.length);
 
     const linguas = expi?.linguas?.split(",");
 
@@ -53,13 +64,45 @@ const Expid = ({ t, expi, expis }) => {
 
         setIsOpen(true);
     }
+
     function closeModal() {
         let navbar = document.querySelector(".navbar_nav__dIn_x");
+
         if (navbar.classList.contains("hide")) {
             navbar.classList.remove("hide");
         }
+
         setIsOpen(false);
     }
+
+    // let res;
+    const onSubmit = async (data, e) => {
+        //fazer o check
+        if (!calc) {
+            setValor(expi?.preco_uni * data.number);
+            setClassi(" ");
+            setCor("#34e0a1");
+            setWhat("checkout");
+            setCalc(!calc);
+            const ok = true;
+            setDesponivel(ok);
+        } else {
+            if (desponivel) {
+                // fazer o checkout
+                alert("disponivel, checkout feito com sucesso");
+            } else {
+                // fazer o checkout
+                alert("Nao Disponivel");
+            }
+        }
+    };
+    const resetValues = () => {
+        setValor(0);
+        setClassi("none");
+        setCor("#ffcb10");
+        setWhat("check");
+        setCalc(false);
+    };
 
     return (
         <Layout user={user}>
@@ -92,7 +135,11 @@ const Expid = ({ t, expi, expis }) => {
                             </figure>
                             <div className={expid.bottomLeft}>
                                 <p>
-                                    <Like />
+                                    <Like
+                                        title={expi?.title}
+                                        id={expi?.id}
+                                        likes={expi?.likes.length}
+                                    />
                                 </p>
                             </div>
                             <div className={expid.topRight}>
@@ -142,7 +189,7 @@ const Expid = ({ t, expi, expis }) => {
                                                 <span className="icon">
                                                     <img src="/img/voltar.png" />
                                                 </span>
-                                                Voltar
+                                                {t("voltar")}
                                             </a>
                                         </div>
                                     </div>
@@ -181,38 +228,79 @@ const Expid = ({ t, expi, expis }) => {
                                 </div>
                             </div>
                             {/* posivel components */}
-                            <div className={"columns " + expid.secun}>
-                                <div className="column">
-                                    <div className="control has-icons-left has-icons-right">
-                                        <input
-                                            className="input is-success"
-                                            type="date"
-                                            placeholder="Choose a date"
-                                        />
-                                        <span className="icon is-small is-left Dzindex">
-                                            <i className="far fa-calendar-alt"></i>
-                                        </span>
+                            <form onSubmit={handleSubmit(onSubmit)}>
+                                <div className={"columns " + expid.secun}>
+                                    <div className="column">
+                                        <div className="control has-icons-left has-icons-right">
+                                            <input
+                                                className="input is-success"
+                                                type="date"
+                                                placeholder="Choose a date"
+                                                name="date"
+                                                ref={register({
+                                                    required: true
+                                                })}
+                                            />
+                                            <span className="icon is-small is-left Dzindex">
+                                                <i className="far fa-calendar-alt"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="column">
+                                        <div className="control has-icons-left has-icons-right">
+                                            <input
+                                                onChange={resetValues}
+                                                className="input is-success"
+                                                type="number"
+                                                min="0"
+                                                placeholder={t("htrav")}
+                                                name="number"
+                                                ref={register({
+                                                    required: true
+                                                })}
+                                            />
+                                            <span className="icon is-small is-left Dzindex">
+                                                <i className="fas fa-user"></i>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="column">
-                                    <div className="control has-icons-left has-icons-right">
-                                        <input
-                                            className="input is-success"
-                                            type="number"
-                                            min="0"
-                                            placeholder={t("htrav")}
-                                        />
-                                        <span className="icon is-small is-left Dzindex">
-                                            <i className="fas fa-user"></i>
-                                        </span>
-                                    </div>
+                                <div style={{ display: classi }}>
+                                    <span className={expid.calcvalor}>
+                                        {t("calcval")}
+                                    </span>
+                                    <span className={expid.valorcalc}>
+                                        CVE {valor}
+                                    </span>
+                                    <a
+                                        onClick={resetValues}
+                                        class="delete is-medium"
+                                        style={{
+                                            marginTop: "2%",
+                                            float: "right"
+                                        }}
+                                    ></a>
+                                    <h1
+                                        style={{
+                                            color: cor
+                                        }}
+                                    >
+                                        {desponivel
+                                            ? "Disponível"
+                                            : "Não disponível"}
+                                    </h1>
                                 </div>
-                            </div>
-                            <div className="control">
-                                <button className={"button " + expid.btn}>
-                                    {t("check")}
-                                </button>
-                            </div>
+                                <div className="control">
+                                    <button
+                                        disabled={!desponivel}
+                                        type="submit"
+                                        className={"button " + expid.btn}
+                                        style={{ backgroundColor: cor }}
+                                    >
+                                        {t(what)}
+                                    </button>
+                                </div>
+                            </form>
                             {/* ************************ */}
                             <div className={"columns " + expid.icons}>
                                 <div className="column">

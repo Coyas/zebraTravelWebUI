@@ -10,6 +10,7 @@
     "advise": "Price varies by group size",
     "htrav": "How many travelers",
     "check": "Check Availability",
+    "checkout": "Book Now",
     "distance": "Distance",
     "elev": "Elevation",
     "dura": "Duration",
@@ -22,5 +23,6 @@
     "exp4": "Day Trips & Excursions",
     "exp5": "Outdoor Activities",
     "exp6": "Tours & Sightseeing",
-    "exp7": "Walking & Biking Tours"
+    "exp7": "Walking & Biking Tours",
+    "calcval": "Calculated Value: "
 }

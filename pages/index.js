@@ -166,7 +166,19 @@ const Home = ({ t, expe }) => {
                                                         </div>
                                                         <div className="control">
                                                             <div className="tags has-addons">
-                                                                <Like />
+                                                                <Like
+                                                                    title={
+                                                                        value?.title
+                                                                    }
+                                                                    id={
+                                                                        value?.id
+                                                                    }
+                                                                    likes={
+                                                                        value
+                                                                            ?.likes
+                                                                            .length
+                                                                    }
+                                                                />
                                                             </div>
                                                         </div>
                                                     </div>

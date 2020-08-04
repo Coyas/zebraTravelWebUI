@@ -88,17 +88,25 @@
 }
 .btn {
     width: 100%;
-    background-color: $amarelo;
+    // background-color: $amarelo;
 }
 .icons {
-    margin-top: 18%;
+    margin-top: 2%;
     span:last-child {
         font-size: 1.2rem;
         color: red;
     }
 }
 .secun {
-    margin-top: 10%;
+    // margin-top: 10%;
+}
+.calcvalor {
+    font-size: 1.8rem;
+}
+.valorcalc {
+    font-size: 1.8rem;
+    color: $azulClaro;
+    margin-left: 2%;
 }
 
 .grid {

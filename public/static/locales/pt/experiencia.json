@@ -10,6 +10,7 @@
     "advise": "O preço varia de acordo com o tamanho do grupo",
     "htrav": "Quantos viajantes",
     "check": "Verificar disponibilidade",
+    "checkout": "Agendar agora",
     "distance": "Distância",
     "elev": "Elevação",
     "dura": "Duração",
@@ -22,5 +23,6 @@
     "exp4": "Viagens de um dia & excursões.",
     "exp5": "Atividades ao ar livre",
     "exp6": "Passeios & pontos turísticos",
-    "exp7": "Passeios a pé & de bicicleta."
+    "exp7": "Passeios a pé & de bicicleta.",
+    "calcval": "Valor Calculado: "
 }

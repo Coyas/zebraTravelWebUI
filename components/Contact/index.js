@@ -13,7 +13,7 @@ const ContactForm = ({ t }) => {
 
     const submeter = async (data, e) => {
         // const ok = googleRecaptcha(data);
-        if (!ok) console.log("nao deve enviar email");
+        // if (!ok) console.log("nao deve enviar email");
         const url = `${process.env.API_BASE_URL}/contactos`;
         const response = await fetch(url, {
             method: "POST",
