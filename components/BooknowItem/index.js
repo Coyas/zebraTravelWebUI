@@ -11,7 +11,7 @@ const BooknowItem = (props) => {
                 <figure className="image">
                     <img className={bookncss.booknowimg} src={props.image} />
                 </figure>
-                <Link href="">
+                <Link href={"/experiencias/" + props.slug}>
                     <a
                         style={{
                             backgroundColor: cor,

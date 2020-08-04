@@ -43,7 +43,7 @@ const Expid = ({ t, expi, expis }) => {
     const { register, handleSubmit } = useForm(); // formulario handler
 
     const imagem = expi?.imagens[0]?.url;
-    // console.log(expi?.likes);
+    console.log(expis);
     // console.log(expi?.likes.length);
 
     const linguas = expi?.linguas?.split(",");
@@ -292,7 +292,7 @@ const Expid = ({ t, expi, expis }) => {
                                 </div>
                                 <div className="control">
                                     <button
-                                        disabled={!desponivel}
+                                        // disabled={!desponivel}
                                         type="submit"
                                         className={"button " + expid.btn}
                                         style={{ backgroundColor: cor }}

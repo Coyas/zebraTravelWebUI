@@ -26,6 +26,7 @@ const BooknowList = ({ dados }) => {
                             image={`${process.env.API_BASE_URL}${value.imagens[0].url}`}
                             cor={cores[index].cor}
                             cortxt={cores[index].cortxt}
+                            slug={value.slug}
                         />
                     ))}
             </div>
