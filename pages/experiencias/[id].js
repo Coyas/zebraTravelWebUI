@@ -156,16 +156,16 @@ const Expid = ({ t, expi, expis }) => {
                                     a2a_config.onclick = 1;
                                 </script>
                             </div>
+                            <button
+                                onClick={openModal}
+                                className={"button " + expid.plus}
+                            >
+                                <span className="icon">
+                                    <i className="fas fa-plus"></i>
+                                </span>
+                            </button>
                         </div>
 
-                        <button
-                            onClick={openModal}
-                            className={"button " + expid.plus}
-                        >
-                            <span className="icon">
-                                <i className="fas fa-plus"></i>
-                            </span>
-                        </button>
                         <Modal
                             isOpen={ModalIsOpen}
                             style={customStyles}
