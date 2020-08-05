@@ -185,6 +185,7 @@ const Expid = ({ t, expi, expis }) => {
                             <button
                                 onClick={openModal}
                                 className={"button " + expid.plus}
+                                data-tooltip="Tooltip Text"
                             >
                                 <span className="icon">
                                     <i className="fas fa-plus"></i>

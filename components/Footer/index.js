@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { withTranslation } from "../../i18n";
 import React, { useState } from "react";
 import api from "../../lib/api";
+import Swal from "sweetalert2";
 
 const Footer = ({ t }) => {
     const { register, handleSubmit } = useForm();
@@ -39,16 +40,30 @@ const Footer = ({ t }) => {
             }
         );
         const responseData = await response.json();
-        // console.log(responseData);
-        // console.log(response);
+        console.log(responseData);
+        console.log(response);
 
-        // if (response.ok) {
-        //     setOk(1);
-        //     // createNotification("success");
-        // } else {
-        //     setOk(2);
-        //     // createNotification("error");
-        // }
+        if (response.ok && response.status == 200) {
+            // setOk(1);
+            // createNotification("success");
+            Swal.fire({
+                position: "bottom-end",
+                icon: "success",
+                title: "registrado com sucesso",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        } else {
+            // setOk(2);
+            // createNotification("error");
+            Swal.fire({
+                position: "bottom-end",
+                icon: "error",
+                title: "Erro, o email pode ja exitir",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
     };
 
     return (
