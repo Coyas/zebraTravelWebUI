@@ -17,6 +17,7 @@ import Head from "next/head";
 import { getExperiencia, getExperiencias } from "../api/expe";
 import showdown from "showdown";
 import { useForm } from "react-hook-form";
+import Emoji from "a11y-react-emoji";
 
 const customStyles = {
     content: {
@@ -34,16 +35,19 @@ const customStyles = {
 Modal.setAppElement("#__next");
 
 const Expid = ({ t, expi, expis }) => {
-    const [calc, setCalc] = useState(false); // foi calculado o valor total
-    const [desponivel, setDesponivel] = useState(false); // ha alguma reserva que se encontra desponivel
-    const [valor, setValor] = useState(0); // calculo do valor
-    const [what, setWhat] = useState("check"); // qual operacao check ou checkout
-    const [cor, setCor] = useState("#ffcb10"); // para operacao check cor é amarelo e para checkout cor é azul
-    const [classi, setClassi] = useState("none"); // se calc é false style display:node caso nao display: " "
     const { register, handleSubmit } = useForm(); // formulario handler
+    const [obj, setDados] = useState({
+        calc: false, // foi calculado o valor total?
+        desponivel: false, // ha alguma reserva que se encontra desponivel
+        valor: 0, // calculo do valor
+        what: "check", // qual operacao check ou checkout
+        cor: "#ffcb10", // para operacao check cor é amarelo(#ffcb10) e para checkout cor é azul(#34e0a1)
+        classi: "none", // se calc é false style display:node caso nao display: " "
+        btn: false // abilitar ou desabilitar o botao
+    });
 
     const imagem = expi?.imagens[0]?.url;
-    console.log(expis);
+    // console.log(expis);
     // console.log(expi?.likes.length);
 
     const linguas = expi?.linguas?.split(",");
@@ -75,33 +79,43 @@ const Expid = ({ t, expi, expis }) => {
         setIsOpen(false);
     }
 
+    // pegar a disponibilidade das experiencias
+    const ok = false;
     // let res;
     const onSubmit = async (data, e) => {
         //fazer o check
-        if (!calc) {
-            setValor(expi?.preco_uni * data.number);
-            setClassi(" ");
-            setCor("#34e0a1");
-            setWhat("checkout");
-            setCalc(!calc);
-            const ok = true;
-            setDesponivel(ok);
+        if (!obj.calc) {
+            setDados({
+                ...obj,
+                valor: expi?.preco_uni * data.number,
+                classi: " ",
+                what: "checkout",
+                calc: !obj.calc,
+                cor: obj.desponivel || ok ? "#34e0a1" : "#ffcb10",
+                desponivel: ok,
+                btn: ok ? false : true
+            });
         } else {
-            if (desponivel) {
+            if (obj.desponivel) {
                 // fazer o checkout
                 alert("disponivel, checkout feito com sucesso");
             } else {
                 // fazer o checkout
-                alert("Nao Disponivel");
+                alert("Checkout Nao Disponivel");
             }
         }
     };
     const resetValues = () => {
-        setValor(0);
-        setClassi("none");
-        setCor("#ffcb10");
-        setWhat("check");
-        setCalc(false);
+        setDados({
+            ...obj,
+            calc: false,
+            desponivel: false,
+            valor: 0,
+            what: "check",
+            cor: "#ffcb10",
+            classi: "none",
+            btn: false
+        });
     };
 
     return (
@@ -265,12 +279,12 @@ const Expid = ({ t, expi, expis }) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div style={{ display: classi }}>
+                                <div style={{ display: obj.classi }}>
                                     <span className={expid.calcvalor}>
                                         {t("calcval")}
                                     </span>
                                     <span className={expid.valorcalc}>
-                                        CVE {valor}
+                                        CVE {obj.valor}
                                     </span>
                                     <a
                                         onClick={resetValues}
@@ -282,22 +296,34 @@ const Expid = ({ t, expi, expis }) => {
                                     ></a>
                                     <h1
                                         style={{
-                                            color: cor
+                                            color: obj.cor
                                         }}
                                     >
-                                        {desponivel
-                                            ? "Disponível"
-                                            : "Não disponível"}
+                                        {obj.desponivel ? (
+                                            <Emoji
+                                                symbol="😁"
+                                                label="beaming face with smiling eyes"
+                                            />
+                                        ) : (
+                                            <Emoji
+                                                symbol="😵"
+                                                label="knocked-out face"
+                                            />
+                                        )}
+
+                                        {obj.desponivel
+                                            ? t("despo")
+                                            : t("ndespo")}
                                     </h1>
                                 </div>
                                 <div className="control">
                                     <button
-                                        // disabled={!desponivel}
+                                        disabled={obj.btn}
                                         type="submit"
                                         className={"button " + expid.btn}
-                                        style={{ backgroundColor: cor }}
+                                        style={{ backgroundColor: obj.cor }}
                                     >
-                                        {t(what)}
+                                        {t(obj.what)}
                                     </button>
                                 </div>
                             </form>
@@ -422,8 +448,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    console.log("params");
-    console.log(params);
+    // console.log("params");
+    // console.log(params);
     const res = await getExperiencia(params.id);
     const json = await res.json();
     const res2 = await getExperiencias(2);

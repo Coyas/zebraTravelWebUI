@@ -24,5 +24,7 @@
     "exp5": "Outdoor Activities",
     "exp6": "Tours & Sightseeing",
     "exp7": "Walking & Biking Tours",
-    "calcval": "Calculated Value: "
+    "calcval": "Calculated Value: ",
+    "despo": "Available",
+    "ndespo": "Not available"
 }

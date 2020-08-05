@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Meta from "../components/Meta";
 import { UserProvider } from "../lib/user";
 
-export default ({ children, user, loading = false }) => (
+const Layout = ({ children, user, loading = false }) => (
     <UserProvider value={{ user, loading }}>
         <Head>
             <Meta />
@@ -19,3 +19,5 @@ export default ({ children, user, loading = false }) => (
         <Footer />
     </UserProvider>
 );
+
+export default Layout;

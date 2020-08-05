@@ -24,5 +24,7 @@
     "exp5": "Activités extérieures",
     "exp6": "Tours & visites",
     "exp7": "Randonnées pédestres & à vélo",
-    "calcval": "Valeur calculée: "
+    "calcval": "Valeur calculée: ",
+    "despo": "Disponible",
+    "ndespo": "Indisponible"
 }
