@@ -26,5 +26,7 @@
     "exp7": "Walking & Biking Tours",
     "calcval": "Calculated Value: ",
     "despo": "Available",
-    "ndespo": "Not available"
+    "ndespo": "Not available",
+    "yes?": "Not allowed",
+    "tenta": "Try again later"
 }

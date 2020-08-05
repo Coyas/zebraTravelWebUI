@@ -18,6 +18,7 @@ import { getExperiencia, getExperiencias } from "../api/expe";
 import showdown from "showdown";
 import { useForm } from "react-hook-form";
 import Emoji from "a11y-react-emoji";
+import Swal from "sweetalert2";
 
 const customStyles = {
     content: {
@@ -98,10 +99,21 @@ const Expid = ({ t, expi, expis }) => {
         } else {
             if (obj.desponivel) {
                 // fazer o checkout
-                alert("disponivel, checkout feito com sucesso");
+                // alert("disponivel, checkout feito com sucesso");
+                Swal.fire({
+                    title: "disponivel!",
+                    text: "checkout feito com sucesso",
+                    icon: "success",
+                    confirmButtonText: "ok"
+                });
             } else {
                 // fazer o checkout
-                alert("Checkout Nao Disponivel");
+                Swal.fire({
+                    title: t("yes?"),
+                    text: t("tenta"),
+                    icon: "error",
+                    confirmButtonText: "OK"
+                });
             }
         }
     };
