@@ -3,7 +3,7 @@ import Head from "next/head";
 // import Footer from "../components/Footer";
 import Meta from "../components/Meta";
 
-export default ({ children, title = "Zebra Travel" }) => (
+const Loginlayout = ({ children, title = "Zebra Travel" }) => (
     <>
         <Head>
             <title>{title}</title>
@@ -19,3 +19,5 @@ export default ({ children, title = "Zebra Travel" }) => (
         {/* <Footer /> */}
     </>
 );
+
+export default Loginlayout;

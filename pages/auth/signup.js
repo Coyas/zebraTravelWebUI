@@ -32,6 +32,8 @@ const Signup = () => {
         );
 
         const responseData = await response.json();
+        console.log(response);
+        console.log(responseData);
 
         if (response.status == 200 && response.ok) {
             Router.push("/");
