@@ -64,7 +64,7 @@ const Home = ({ t, expe }) => {
                 <div className="columns">
                     {expe &&
                         expe.map((value, index) => (
-                            <>
+                            <React.Fragment key={index}>
                                 <div className="column">
                                     <div
                                         className={
@@ -79,14 +79,12 @@ const Home = ({ t, expe }) => {
                                             src={`${process.env.API_BASE_URL}${value?.imagens[0].url}`}
                                         />
                                         <div className={indexcss.topRight}>
-                                            <Link href="https://www.addtoany.com/share">
-                                                <a
-                                                    className="a2a_dd"
-                                                    href="https://www.addtoany.com/share"
-                                                >
-                                                    <i className="fas fa-share-alt"></i>
-                                                </a>
-                                            </Link>
+                                            <a
+                                                className="a2a_dd"
+                                                href="https://www.addtoany.com/share"
+                                            >
+                                                <i className="fas fa-share-alt"></i>
+                                            </a>
                                             <script>
                                                 var a2a_config = a2a_config ||{" "}
                                                 {}; a2a_config.onclick = 1;
@@ -219,7 +217,7 @@ const Home = ({ t, expe }) => {
                                 ) : (
                                     ""
                                 )}
-                            </>
+                            </React.Fragment>
                         ))}
                 </div>
                 <div className={indexcss.coluna3}></div>

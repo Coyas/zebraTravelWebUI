@@ -53,14 +53,12 @@ const Postid = ({ post }) => {
                                 src={`${process.env.API_BASE_URL}${post?.imagem.url}`}
                             />
                             <div className={pidcss.topRight}>
-                                {/* <Link href="https://www.addtoany.com/share"> */}
                                 <a
                                     className="a2a_dd"
                                     href="https://www.addtoany.com/share"
                                 >
                                     <i className="fas fa-share-alt"></i>
                                 </a>
-                                {/* </Link> */}
                                 <script>
                                     var a2a_config = a2a_config || {};
                                     a2a_config.onclick = 1;

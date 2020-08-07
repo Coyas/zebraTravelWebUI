@@ -42,10 +42,10 @@ const ContactForm = ({ t }) => {
         <>
             {mail ? (
                 <div
-                    class="notification is-success is-light"
+                    className="notification is-success is-light"
                     style={{ textAlign: "center" }}
                 >
-                    {/* <button class="delete"></button> */}
+                    {/* <button className="delete"></button> */}
                     Email {t("to")} {email} {t("sended")}
                 </div>
             ) : (

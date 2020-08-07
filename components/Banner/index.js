@@ -11,7 +11,7 @@ const Banner = (props) => {
         // console.log("nao é bb é bc");
         vars = css.bc;
     }
-    console.log(vars);
+    // console.log(vars);
 
     return (
         <>
@@ -41,13 +41,14 @@ const Banner = (props) => {
                         </button>
                         <nav className="level is-mobile">
                             <div className="level-left">
-                                <Link href="https://www.addtoany.com/share">
-                                    <a className="level-item">
-                                        <span className="icon is-small">
-                                            <i className="fas fa-share-alt"></i>
-                                        </span>
-                                    </a>
-                                </Link>
+                                <a
+                                    className="level-item"
+                                    href="https://www.addtoany.com/share"
+                                >
+                                    <span className="icon is-small">
+                                        <i className="fas fa-share-alt"></i>
+                                    </span>
+                                </a>
                                 <script>
                                     var a2a_config = a2a_config || {};
                                     a2a_config.onclick = 1;

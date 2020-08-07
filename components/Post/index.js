@@ -35,12 +35,11 @@ const Postlist = ({ t }) => {
             <div className={polcss.boxfoto}>
                 {!isLoading &&
                     response.map((post, index) => (
-                        <>
+                        <React.Fragment key={index}>
                             <div className={polcss.item + " " + listcss[index]}>
                                 <Link
                                     href="/post/[id]"
                                     as={`/post/${post.slug}`}
-                                    key={index}
                                 >
                                     <a>
                                         <img
@@ -50,7 +49,7 @@ const Postlist = ({ t }) => {
                                 </Link>
                             </div>
                             {itemBox[index]}
-                        </>
+                        </React.Fragment>
                     ))}
             </div>
         </>

@@ -4,14 +4,14 @@ import { useState } from "react";
 import Cookies from "js-cookie";
 
 const Like = (props) => {
-    console.log(props);
+    // console.log(props);
     const [like, setLikes] = useState(false);
 
     const userId = Cookies.get("username");
 
     const op = props.likes;
-    console.log("op");
-    console.log(op);
+    // console.log("op");
+    // console.log(op);
     let likes;
     switch (true) {
         case op < 1000: {
@@ -27,7 +27,7 @@ const Like = (props) => {
 
     const submitLike = async () => {
         if (!like) {
-            alert("terrasystem");
+            // alert("terrasystem");
             const url = `${process.env.API_BASE_URL}/likes`;
             const response = await fetch(url, {
                 method: "POST",
@@ -40,7 +40,7 @@ const Like = (props) => {
                 })
             });
 
-            console.log(response);
+            // console.log(response);
 
             setLikes(true);
         }
@@ -51,8 +51,7 @@ const Like = (props) => {
             <a className={lcss.expa} onClick={submitLike}>
                 <span className="margi">{likes}</span>
                 <span className="icon">
-                    {/* <i class="fas fa-heart"></i> */}
-                    <i class="far fa-heart"></i>
+                    <i className="far fa-heart"></i>
                 </span>
             </a>
         </>

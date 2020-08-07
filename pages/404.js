@@ -5,7 +5,7 @@ import Headlogo from "../components/Headlogo";
 import Zebralistras from "../components/Zebralistras";
 import { useFetchUser } from "../lib/user";
 import Head from "next/head";
-// import { withTranslation } from "../i18n";
+import { withTranslation } from "../i18n";
 
 const NotFound404 = () => {
     const { user, loading } = useFetchUser();
@@ -31,4 +31,4 @@ const NotFound404 = () => {
     );
 };
 
-export default NotFound404;
+export default withTranslation("common")(NotFound404);

@@ -17,7 +17,7 @@ const Experiencia = ({ t, post }) => {
     return (
         <Layout user={user}>
             <Head>
-                <title>Experiencias - Zebra Travel Agency</title>
+                <title>{t("expe")} - Zebra Travel Agency</title>
             </Head>
             <Zebralistras />
 
@@ -32,7 +32,9 @@ const Experiencia = ({ t, post }) => {
                     </div>
                     <div className="column">
                         {post &&
-                            post.map((value) => <Experencia dados={value} />)}
+                            post.map((value, index) => (
+                                <Experencia key={index} dados={value} />
+                            ))}
                         <Showmore />
                     </div>
                 </div>

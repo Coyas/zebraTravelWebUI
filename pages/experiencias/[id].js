@@ -169,14 +169,12 @@ const Expid = ({ t, expi, expis }) => {
                                 </p>
                             </div>
                             <div className={expid.topRight}>
-                                <Link href="https://www.addtoany.com/share">
-                                    <a
-                                        className="a2a_dd"
-                                        href="https://www.addtoany.com/share"
-                                    >
-                                        <i className="fas fa-share-alt"></i>
-                                    </a>
-                                </Link>
+                                <a
+                                    className="a2a_dd"
+                                    href="https://www.addtoany.com/share"
+                                >
+                                    <i className="fas fa-share-alt"></i>
+                                </a>
                                 <script>
                                     var a2a_config = a2a_config || {};
                                     a2a_config.onclick = 1;
@@ -301,7 +299,7 @@ const Expid = ({ t, expi, expis }) => {
                                     </span>
                                     <a
                                         onClick={resetValues}
-                                        class="delete is-medium"
+                                        className="delete is-medium"
                                         style={{
                                             marginTop: "2%",
                                             float: "right"

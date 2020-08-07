@@ -40,8 +40,8 @@ const Footer = ({ t }) => {
             }
         );
         const responseData = await response.json();
-        console.log(responseData);
-        console.log(response);
+        // console.log(responseData);
+        // console.log(response);
 
         if (response.ok && response.status == 200) {
             // setOk(1);

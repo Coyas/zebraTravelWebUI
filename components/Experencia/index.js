@@ -44,7 +44,7 @@ const Experencia = (props) => {
                         </div>
                         <p className={expicss.local}>
                             <span className="icon">
-                                <i class="fas fa-map-marker-alt"></i>
+                                <i className="fas fa-map-marker-alt"></i>
                             </span>
                             {props.dados?.local}
                         </p>
