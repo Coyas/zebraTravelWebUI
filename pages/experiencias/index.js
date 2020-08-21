@@ -5,14 +5,33 @@ import Zebralistras from "../../components/Zebralistras";
 import Divisor from "../../components/Divisor";
 import Explorebox from "../../components/Explorebox";
 import Experencia from "../../components/Experencia";
-import Showmore from "../../components/Showmore";
 import { withTranslation } from "../../i18n";
 import { useFetchUser } from "../../lib/user";
 import Head from "next/head";
 import { getExperiencias } from "../api/expe";
+import { useState } from "react";
 
 const Experiencia = ({ t, post }) => {
     const { user, loading } = useFetchUser();
+    const [display, setDisplay] = useState("none");
+    const [next, setNext] = useState(3);
+
+    let expi = [];
+    post.map(
+        (value, index) =>
+            (expi[index] = (
+                <Experencia
+                    key={index}
+                    dados={value}
+                    type={index > 5 ? display : " "}
+                />
+            ))
+    );
+
+    const showmore = () => {
+        alert(display);
+        setDisplay(" ");
+    };
 
     return (
         <Layout user={user}>
@@ -30,14 +49,16 @@ const Experiencia = ({ t, post }) => {
                     <div className={"column " + excss.col}>
                         <Explorebox />
                     </div>
-                    <div className="column">
-                        {post &&
-                            post.map((value, index) => (
-                                <Experencia key={index} dados={value} />
-                            ))}
-                        <Showmore />
-                    </div>
+                    <div className="column">{expi}</div>
                 </div>
+                <p className={excss.btnShowmore}>
+                    <a
+                        onClick={showmore}
+                        className={"button " + excss.showmore}
+                    >
+                        {t("show")}
+                    </a>
+                </p>
             </section>
         </Layout>
     );
@@ -52,7 +73,7 @@ const Experiencia = ({ t, post }) => {
 // This function gets called at build time
 export async function getStaticPaths() {
     // Call an external API endpoint to get posts
-    const res = await getExperiencias();
+    const res = await getExperiencias(-1); // -1 = todos as experiencias
     const posts = await res.json();
 
     // console.log("expe staticpaths");
@@ -76,7 +97,7 @@ export async function getStaticProps({ params }) {
     const obj = { namespacesRequired: ["experiencia", "footer", "navbar"] };
     // params contains the post `id`.
     // If the route is like /posts/1, then params.id is 1
-    const res = await getExperiencias();
+    const res = await getExperiencias(-1); // -1 = todos as experiencias
     const exp = await res.json();
     // console.log(res);
     // console.log(exp);

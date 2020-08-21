@@ -2,9 +2,13 @@ import expicss from "./index.module.scss";
 import Link from "next/link";
 
 const Experencia = (props) => {
+    alert(props.type);
     return (
         <>
-            <div className={"box " + expicss.expiri}>
+            <div
+                className={"box " + expicss.expiri}
+                style={{ display: props.type }}
+            >
                 <div className="columns is-desktop">
                     <div className={"column is-one-third " + expicss.sola}>
                         <figure className={"image " + expicss.img}>

@@ -10,6 +10,19 @@
     width: 26.333%;
 }
 
+.showmore {
+    color: $cinza;
+    font-size: 0.7rem;
+    height: 2.3rem;
+    border-radius: 5px !important;
+    border-color: $cinza;
+}
+.btnShowmore {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
 @media screen and (max-width: $movel) {
     .col {
         width: 100%;
