@@ -187,7 +187,10 @@ const Login = () => {
                             >
                                 <p className="control is-expanded">
                                     <a
-                                        href="https://dsfsfsdf.sqd"
+                                        href={
+                                            process.env.API_BASE_URL +
+                                            "/connect/facebook"
+                                        }
                                         className={
                                             "button is-rounded " + logincss.face
                                         }
@@ -200,7 +203,10 @@ const Login = () => {
                                 </p>
                                 <p className="control is-expanded">
                                     <a
-                                        href="https://dsfsfsdf.sqd"
+                                        href={
+                                            process.env.API_BASE_URL +
+                                            "/connect/google"
+                                        }
                                         className={
                                             "button is-rounded " +
                                             logincss.gmail
