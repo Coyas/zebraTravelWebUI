@@ -19,11 +19,11 @@ const Post = ({ t }) => {
         // console.log("posts response");
         // console.log(response);
         dad = {
-            id: response[0].id,
-            title: response[0].title,
-            slug: response[0].slug,
-            conteudo: response[0].conteudo.substring(0, 661),
-            created_at: response[0].created_at
+            id: response[0]?.id,
+            title: response[0]?.title,
+            slug: response[0]?.slug,
+            conteudo: response[0]?.conteudo.substring(0, 661),
+            created_at: response[0]?.created_at
         };
     }
 
