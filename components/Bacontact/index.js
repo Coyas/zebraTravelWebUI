@@ -11,6 +11,7 @@ const Bacontact = () => {
     const router = useRouter();
 
     let it2 = "";
+
     if (
         router.pathname == "/experiencias" ||
         router.pathname == "/experiencias/[id]" ||
@@ -25,7 +26,7 @@ const Bacontact = () => {
         <>
             <div className={bcss.it + " " + it2}>
                 <div className={bcss.boxAdd}>
-                    <a href={"tel:00238" + phone}>+|238| {response?.phone}</a>
+                    <a href={"tel:00238" + phone}> +|238| {response?.phone}</a>
                     <br />
                     <a href={"mailto:" + response?.email}>{response?.email}</a>
                 </div>

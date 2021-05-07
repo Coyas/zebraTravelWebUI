@@ -15,8 +15,8 @@ const googleLogin = async (access_token) => {
 
     // console.log(response);
     const responseData = await response.json();
-    setToken(responseData);
     // console.log(responseData);
+    setToken(responseData);
 };
 
 const Callback = () => {
