@@ -196,7 +196,7 @@ const Footer = ({ t }) => {
                 </div>
                 <Hr height="1" opacidade="0.7" cor="#979ca8" />
                 <p className={"has-text-centered " + scss.footer2}>
-                    ZEBRA GROUP - &copy; 2020. {t("direitos")}.
+                    ZEBRA GROUP - &copy; 2021. {t("direitos")}.
                 </p>
             </section>
 
