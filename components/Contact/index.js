@@ -31,7 +31,7 @@ const ContactForm = ({ t }) => {
 
         console.log("dados:");
         console.log(dados);
-        console.log(dados?.accepted[0]);
+        // console.log(dados?.accepted[0]);
 
         e.target.reset();
         // limpar o textArea
