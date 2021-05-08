@@ -2,7 +2,7 @@ import expicss from "./index.module.scss";
 import Link from "next/link";
 
 const Experencia = (props) => {
-    alert(props.type);
+    // alert(props.type);
     return (
         <>
             <div
