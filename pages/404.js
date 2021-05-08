@@ -7,7 +7,7 @@ import { useFetchUser } from "../lib/user";
 import Head from "next/head";
 import { withTranslation } from "../i18n";
 
-const NotFound404 = () => {
+const NotFound404 = ({ t }) => {
     const { user, loading } = useFetchUser();
     return (
         <>
