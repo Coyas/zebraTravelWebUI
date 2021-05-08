@@ -39,7 +39,7 @@ const ContactForm = ({ t }) => {
         // registrar o email como enviado
         setMail(true);
         // setar email enviado
-        setEmail(dados?.accepted[0]);
+        setEmail(dados.accepted[0]);
     };
 
     return (
