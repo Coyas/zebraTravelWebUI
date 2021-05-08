@@ -22,7 +22,7 @@ const NotFound404 = ({ t }) => {
                 <div className={"container " + notcss.fornfor}>
                     <div className="columns">
                         <div className="column is-half is-offset-one-quarter">
-                            <h1 className={notcss.tite}>{t("404")}</h1>
+                            <h1 className={notcss.tite}>terra</h1>
                         </div>
                     </div>
                 </div>
