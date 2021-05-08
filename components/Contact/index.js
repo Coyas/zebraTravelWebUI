@@ -39,7 +39,15 @@ const ContactForm = ({ t }) => {
         // registrar o email como enviado
         setMail(true);
         // setar email enviado
-        setEmail(dados.accepted[0]);
+        switch (dados.statusCode) {
+            case 200: {
+                setEmail(true);
+                break;
+            }
+            case 500: {
+                console.log("erro no emvio de email");
+            }
+        }
     };
 
     return (
