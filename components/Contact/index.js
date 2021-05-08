@@ -29,13 +29,17 @@ const ContactForm = ({ t }) => {
 
         const dados = await response.json();
 
+        console.log("dados:");
+        console.log(dados);
+        console.log(dados?.accepted[0]);
+
         e.target.reset();
         // limpar o textArea
         setValor("");
         // registrar o email como enviado
         setMail(true);
         // setar email enviado
-        setEmail(dados.accepted[0]);
+        setEmail(dados?.accepted[0]);
     };
 
     return (
