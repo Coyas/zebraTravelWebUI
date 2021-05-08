@@ -31,4 +31,12 @@ const NotFound404 = ({ t }) => {
     );
 };
 
+export async function getStaticProps() {
+    const obj = { namespacesRequired: ["common"] };
+
+    return {
+        props: { obj } // will be passed to the page component as props
+    };
+}
+
 export default withTranslation("common")(NotFound404);
