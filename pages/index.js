@@ -256,14 +256,17 @@ const Home = ({ t, expe }) => {
     );
 };
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
     const obj = { namespacesRequired: ["common", "footer", "navbar"] };
-    const res = await getExperiencias(2);
+    const res = await getExperiencias(2); //limite = 2
     const exp = await res.json();
 
     return {
-        props: { obj, expe: exp } // will be passed to the page component as props
+        props: {
+            obj,
+            expe: exp
+        } // will be passed to the page component as props
     };
-}
+};
 
 export default withTranslation("common")(Home);
