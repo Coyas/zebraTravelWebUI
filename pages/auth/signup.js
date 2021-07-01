@@ -13,6 +13,9 @@ const Signup = () => {
     const [err, setErr] = useState(true);
 
     const signup = async (data, e) => {
+        console.log("process.env.API_BASE_URL: ");
+        console.log(process.env.API_BASE_URL);
+
         const response = await fetch(
             `${process.env.API_BASE_URL}/auth/local/register`,
             {
