@@ -52,7 +52,7 @@ const Servicos = ({ t }) => {
                 </Head>
 
                 <Headlogo
-                    height="13rem"
+                    height="14rem"
                     position="absolute"
                     width="27%"
                     top="34%"
