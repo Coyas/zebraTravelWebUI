@@ -40,7 +40,7 @@ const Experiencia = ({ t, post }) => {
             </Head>
             <Zebralistras />
 
-            <Headlogo marginHead="15%" />
+            <Headlogo marginHead=" " />
 
             <Divisor title={t("expTu")} voltar="false" sobre={t("exp")} />
 
