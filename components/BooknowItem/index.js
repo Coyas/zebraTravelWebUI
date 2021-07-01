@@ -6,7 +6,7 @@ const BooknowItem = (props) => {
     const cortxt = props.cortxt;
     return (
         <>
-            <div className={bookncss.booknowbox}>
+            <div key={props.key} className={bookncss.booknowbox}>
                 <h1>{props.title}</h1>
                 <figure className="image">
                     <img className={bookncss.booknowimg} src={props.image} />
