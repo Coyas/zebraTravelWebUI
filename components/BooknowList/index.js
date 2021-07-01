@@ -25,6 +25,7 @@ const BooknowList = ({ dados }) => {
                 {dados &&
                     dados.map((value, index) => (
                         <BooknowItem
+                            key={index}
                             title={value.title}
                             image={`${process.env.API_BASE_URL}${value.imagens[0].url}`}
                             cor={cores[index].cor}
