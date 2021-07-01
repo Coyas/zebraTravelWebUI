@@ -21,7 +21,12 @@ const NotFound404 = ({ t }) => {
                 <Headlogo marginHead="2%" />
                 <div className={"container " + notcss.fornfor}>
                     <div className="columns">
-                        <div className="column is-half is-offset-one-quarter">
+                        <div
+                            className={
+                                "column is-half is-offset-one-quarter " +
+                                notcss.center
+                            }
+                        >
                             <h1 className={notcss.zero}>404</h1>
                             <h1 className={notcss.tite}>{t("p404")}</h1>
                         </div>
