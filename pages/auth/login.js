@@ -51,9 +51,8 @@ const Login = () => {
         console.log(response.status);
         console.log("response.ok: ");
         console.log(response.ok);
-        if (responseData.statusCode == 200) {
+        if (response.status == 200 && response.ok)
             setToken(responseData, redirect, url);
-        }
     };
 
     const handleChange = (e) => {
