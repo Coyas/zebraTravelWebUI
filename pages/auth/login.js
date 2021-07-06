@@ -47,11 +47,11 @@ const Login = () => {
             })
         });
         const responseData = await response.json();
+        console.log(response);
+        console.log(responseData);
         console.log("responseData.statusCode: ");
         console.log(responseData.statusCode);
         if (responseData.statusCode == 200) {
-            console.log(response);
-            console.log(responseData);
             setToken(responseData, redirect, url);
         }
     };
