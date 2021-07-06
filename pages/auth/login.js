@@ -47,7 +47,8 @@ const Login = () => {
             })
         });
         const responseData = await response.json();
-        // console.log(responseData);
+        console.log(response);
+        console.log(responseData);
         setToken(responseData, redirect, url);
     };
 
