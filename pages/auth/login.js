@@ -49,8 +49,10 @@ const Login = () => {
         const responseData = await response.json();
         console.log(response);
         console.log(responseData);
-        if (responseData.statusCode == 200)
+        if (responseData.statusCode == 200) {
+            alert("token");
             setToken(responseData, redirect, url);
+        }
     };
 
     const handleChange = (e) => {
