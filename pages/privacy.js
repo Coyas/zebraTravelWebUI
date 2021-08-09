@@ -3,6 +3,8 @@ import { i18n, withTranslation } from "../i18n";
 import Head from "next/head";
 
 const Privacy = ({ t }) => {
+    const { user, loading } = useFetchUser();
+
     return (
         <Layout user={user}>
             <Head>
