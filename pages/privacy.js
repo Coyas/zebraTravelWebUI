@@ -25,4 +25,4 @@ export const getStaticProps = async () => {
     };
 };
 
-export default withTranslation("common")(Home);
+export default withTranslation("common")(Privacy);
