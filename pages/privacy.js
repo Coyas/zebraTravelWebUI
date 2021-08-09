@@ -1,6 +1,7 @@
 import Layout from "../components/layout";
 import { i18n, withTranslation } from "../i18n";
 import Head from "next/head";
+import { useFetchUser } from "../lib/user";
 
 const Privacy = ({ t }) => {
     const { user, loading } = useFetchUser();
