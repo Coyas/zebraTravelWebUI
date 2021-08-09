@@ -1,4 +1,6 @@
 import Layout from "../components/layout";
+import { i18n, withTranslation } from "../i18n";
+import Head from "next/head";
 
 const Privacy = ({ t }) => {
     return (
