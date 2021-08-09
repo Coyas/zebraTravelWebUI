@@ -146,17 +146,17 @@ const Footer = ({ t }) => {
                                 <h1 className={scss.h1}>{t("RS")}</h1>
                                 <ul>
                                     <li>
-                                        <Link href="/legal">
+                                        <Link href="/privacy">
                                             <a>{t("leg")}</a>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/termos">
+                                        <Link href="/privacy">
                                             <a>{t("term")}</a>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/privacidade">
+                                        <Link href="/privacy">
                                             <a>{t("privac")}</a>
                                         </Link>
                                     </li>
