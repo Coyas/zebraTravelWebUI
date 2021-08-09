@@ -243,13 +243,49 @@ const Home = ({ t, expe }) => {
 
             <section className={"content marginbot " + indexcss.verde}>
                 <div className="container">
-                    <Banner bb="B1" />
+                    <Banner
+                        bb="B1"
+                        title="The Colonial Guest House"
+                        subtitle="Um lugar de descanso e .."
+                        body="You can’t fall if you don’t climb. But there’s no
+                        joy in living your whole life on the ground. You
+                        can’t fall if you don’t climb. But there’s no joy in
+                        living your whole life on the ground. You can’t fall
+                        if you don’t climb. But there’s no joy in living
+                        your whole life on the ground. You can’t fall if you
+                        don’t climb. But there’s no joy in living your whole
+                        life on the ground. You can’t fall if you don’t
+                        climb. But there’s no joy in living your whole life
+                        on the ground. You can’t fall if you don’t climb.
+                        But there’s no joy in living your whole life on the
+                        ground."
+                        comment="80k"
+                        image="img/b.png"
+                    />
                 </div>
             </section>
 
             <section className={"content " + indexcss.castanho2}>
                 <div className="container">
-                    <Banner bb="B2" />
+                    <Banner
+                        bb="B2"
+                        title="Casa Colonial Koenig"
+                        subtitle="Um lugar de descanso e .."
+                        body="You can’t fall if you don’t climb. But there’s no
+                            joy in living your whole life on the ground. You
+                            can’t fall if you don’t climb. But there’s no joy in
+                            living your whole life on the ground. You can’t fall
+                            if you don’t climb. But there’s no joy in living
+                            your whole life on the ground. You can’t fall if you
+                            don’t climb. But there’s no joy in living your whole
+                            life on the ground. You can’t fall if you don’t
+                            climb. But there’s no joy in living your whole life
+                            on the ground. You can’t fall if you don’t climb.
+                            But there’s no joy in living your whole life on the
+                            ground."
+                        comment="20k"
+                        image="img/b.png"
+                    />
                 </div>
             </section>
         </Layout>

@@ -17,25 +17,10 @@ const Banner = (props) => {
         <>
             <div className={"columns " + vars}>
                 <div className={"column " + css.b}>
-                    <h1 className="title">Casa Colonial Koening</h1>
-                    <h6 className="subtitle is-6">
-                        You can’t fall if you don’t climb. But
-                    </h6>
+                    <h1 className="title">{props.title}</h1>
+                    <h6 className="subtitle is-6">{props.subtitle}</h6>
                     <article className={css.artD}>
-                        <div className={css.txt}>
-                            You can’t fall if you don’t climb. But there’s no
-                            joy in living your whole life on the ground. You
-                            can’t fall if you don’t climb. But there’s no joy in
-                            living your whole life on the ground. You can’t fall
-                            if you don’t climb. But there’s no joy in living
-                            your whole life on the ground. You can’t fall if you
-                            don’t climb. But there’s no joy in living your whole
-                            life on the ground. You can’t fall if you don’t
-                            climb. But there’s no joy in living your whole life
-                            on the ground. You can’t fall if you don’t climb.
-                            But there’s no joy in living your whole life on the
-                            ground.
-                        </div>
+                        <div className={css.txt}>{props.body}</div>
                         <button className={"button " + css.amarelo}>
                             BOOK NOW
                         </button>
@@ -57,7 +42,9 @@ const Banner = (props) => {
                             <div className="level-right">
                                 <Link href="ss">
                                     <a className={"level-item"}>
-                                        <span className="margi">89k</span>
+                                        <span className="margi">
+                                            {props.comment}
+                                        </span>
                                         <span className="icon">
                                             <i className="far fa-comment"></i>
                                         </span>
@@ -69,7 +56,7 @@ const Banner = (props) => {
                 </div>
                 <div className={"column " + css.b}>
                     <figure className="image">
-                        <img src="img/b.png" />
+                        <img src={props.image} />
                     </figure>
                 </div>
             </div>
