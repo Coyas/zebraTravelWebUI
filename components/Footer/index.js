@@ -124,7 +124,7 @@ const Footer = ({ t }) => {
                                     <p className={"level-item " + scss.mrg}>
                                         <a
                                             className={scss.book}
-                                            href=""
+                                            href={response?.Booking}
                                             target="_blank"
                                         >
                                             Booking
