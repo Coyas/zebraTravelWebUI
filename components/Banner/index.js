@@ -55,9 +55,52 @@ const Banner = (props) => {
                     </article>
                 </div>
                 <div className={"column " + css.b}>
-                    <figure className="image">
-                        <img src={props.image} />
-                    </figure>
+                    <div class="container">
+                        <div class="card">
+                            <div class="image image1"></div>
+                            <div class="info">
+                                <figure className="image">
+                                    <img src={props.image} />
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <svg>
+                        <filter id="wavy1">
+                            <feturbulence
+                                x="0"
+                                y="0"
+                                baseFrequency="0.2"
+                                numOctaves="5"
+                                seed="1"
+                            ></feturbulence>
+                            <feDisplacementMap in="SourceGraphic" scale="20" />
+                        </filter>
+                    </svg>
+                    <svg>
+                        <filter id="wavy2">
+                            <feturbulence
+                                x="0"
+                                y="0"
+                                baseFrequency="0.02"
+                                numOctaves="5"
+                                seed="1"
+                            ></feturbulence>
+                            <feDisplacementMap in="SourceGraphic" scale="20" />
+                        </filter>
+                    </svg>
+                    <svg>
+                        <filter id="wavy3">
+                            <feturbulence
+                                x="0"
+                                y="0"
+                                baseFrequency="0.1"
+                                numOctaves="5"
+                                seed="1"
+                            ></feturbulence>
+                            <feDisplacementMap in="SourceGraphic" scale="20" />
+                        </filter>
+                    </svg>
                 </div>
             </div>
         </>
