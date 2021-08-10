@@ -251,7 +251,7 @@ const Home = ({ t, expe }) => {
                         Ocupando uma casa construída em 1883 por um dos personagens mais importantes da história da Ilha do Fogo, The Colonial Guest House B & B representa um dos exemplos mais notáveis do ponto de vista arquitetónico dos sobrados, e hoje é uma das estruturas mais famosas do arquipélago.
                         Cuidadosamente restaurado à sua glória original, The Colonial Guest House B & B oferece dez acomodações bem decorados com antiguidades recolhidas ao longo dos anos. Cada quarto mantém a sua forma e tamanho original."
                         comment="80k"
-                        image="img/b.png"
+                        image="img/colonial.jpg"
                     />
                 </div>
             </section>
@@ -265,7 +265,7 @@ const Home = ({ t, expe }) => {
                         body="A Casa Colonial Koenig, tem no total de 12 quartos, o edifício (sobrado) tem dois pisos, rés-do-chão onde há 4 quartos, bar/receção e piscina que antigamente era uma área comercial, e primeiro andar, onde temos os restantes 8 quartos antigo área residencial, ocupa duas ruas sendo com vista a Ilha Brava e com vista a Cidade São Filipe. Está localizado no núcleo histórico de São Filipe, a escassos metros dos edifícios dos Paços do Concelho e da Igreja Matriz e da Praia de Fonte Bila. 
                         Foi construído na primeira metade do século XIX pelo avô paterno de Abílio Macedo, (antigo propetário da Colonial Guest House) transitando depois para vários donos até chegar à família de Alberto Koenig (parentes do pintor Alemão). "
                         comment="20k"
-                        image="img/b.png"
+                        image="img/koening.jpg"
                     />
                 </div>
             </section>
