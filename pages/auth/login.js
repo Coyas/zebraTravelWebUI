@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 const Login = () => {
     const [odju, Abriodju] = useState(false);
     const [loading, setLoading] = useState(false);
-    const { register, handleSubmit } = useForm();
+    const { register, errors, handleSubmit } = useForm();
     const router = useRouter();
 
     const [data, setData] = useState({
@@ -49,15 +49,13 @@ const Login = () => {
             })
         });
         const responseData = await response.json();
-        /* console.log(response);
-        console.log(response.status);
-        console.log("response.ok: ");
-        console.log(response.ok);*/
+        console.log(response);
+        console.log(responseData);
 
         if (response.status == 200 && response.ok) {
             setToken(responseData, redirect, url);
         } else {
-            setLoading(true);
+            setLoading(false);
         }
     };
 
@@ -101,6 +99,7 @@ const Login = () => {
                             Enter yours credentials to sign in
                             <br /> or use social media account
                         </article>
+                        <p>{/** add errors message here */}</p>
                     </div>
                     <div className="">
                         <form onSubmit={handleSubmit(signin)}>
