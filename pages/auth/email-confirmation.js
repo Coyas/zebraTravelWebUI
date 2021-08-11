@@ -3,6 +3,7 @@ import Loginlayout from "../../components/loginlayout";
 import Link from "next/link";
 import fetch from "isomorphic-unfetch";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import Head from "next/head";
 
 const ConfirmEmail = () => {
