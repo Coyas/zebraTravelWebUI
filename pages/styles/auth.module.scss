@@ -100,10 +100,8 @@
             }
         }
     }
-    .is-loading {
-        &::after {
-            border-color: transparent transparent black black !important;
-        }
+    .is-loading::after {
+        border-color: transparent transparent black black !important;
     }
 }
 
