@@ -242,7 +242,7 @@ const Login = () => {
                                         className={
                                             loading
                                                 ? "input button is-rounded is-loading"
-                                                : "input button is-rounded is-loading"
+                                                : "input button is-rounded"
                                         }
                                     >
                                         Sign in

@@ -12,6 +12,7 @@ const Footer = ({ t }) => {
     const { register, handleSubmit } = useForm();
     // const [Ok, setOk] = useState(1);..
     const { response, error, isLoading } = api("/api/links");
+    const [loading, setLoading] = useState(false);
 
     // console.log("response links api fora");
     // console.log(`response => ${response}`);
@@ -26,6 +27,7 @@ const Footer = ({ t }) => {
     const subscreve = async (data, e) => {
         // e.preventDefault();
         e.target.reset();
+        setLoading(true);
 
         const response = await fetch(
             `${process.env.API_BASE_URL}/newsletters`,
@@ -44,6 +46,7 @@ const Footer = ({ t }) => {
         // console.log(response);
 
         if (response.ok && response.status == 200) {
+            setLoading(false);
             // setOk(1);
             // createNotification("success");
             Swal.fire({
@@ -54,6 +57,7 @@ const Footer = ({ t }) => {
                 timer: 1500
             });
         } else {
+            setLoading(false);
             // setOk(2);
             // createNotification("error");
             Swal.fire({
@@ -180,8 +184,11 @@ const Footer = ({ t }) => {
                                         <button
                                             type="submit"
                                             className={
-                                                "button is-rounded " +
-                                                scss.amarelo
+                                                loading
+                                                    ? "button is-rounded is-loading " +
+                                                      scss.amarelo
+                                                    : "button is-rounded " +
+                                                      scss.amarelo
                                             }
                                         >
                                             <span className={scss.subscreve}>

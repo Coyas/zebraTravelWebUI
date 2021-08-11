@@ -8,8 +8,11 @@ import Head from "next/head";
 
 const Forgotpw = () => {
     const { register, errors, handleSubmit } = useForm();
+    const [loading, setLoading] = useState(false);
 
     const resetpw = async (data) => {
+        setLoading(true);
+
         const response = await fetch(
             `${process.env.API_BASE_URL}/auth/forgot-password`,
             {
@@ -25,6 +28,8 @@ const Forgotpw = () => {
 
         if (response.status == 200 && response.ok) {
             Router.push("/auth/login");
+        } else {
+            setLoading(false);
         }
     };
 
@@ -118,7 +123,11 @@ const Forgotpw = () => {
                                 <div className="control">
                                     <button
                                         style={{ marginBottom: "8%" }}
-                                        className="input button is-rounded "
+                                        className={
+                                            loading
+                                                ? "input button is-rounded is-loading"
+                                                : "input button is-rounded"
+                                        }
                                         type="submit"
                                     >
                                         Send Request

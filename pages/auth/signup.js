@@ -11,8 +11,10 @@ const Signup = () => {
     const { register, errors, handleSubmit } = useForm();
     const [error, setError] = useState("");
     const [err, setErr] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const signup = async (data, e) => {
+        setLoading(true);
         console.log("process.env.API_BASE_URL: ");
         console.log(process.env.API_BASE_URL);
 
@@ -43,6 +45,7 @@ const Signup = () => {
         } else {
             setError("There is an error on signup proccess");
             setErr(false);
+            setLoading(false);
         }
     };
 
@@ -222,7 +225,11 @@ const Signup = () => {
                                     <button
                                         type="submit"
                                         style={{ marginBottom: "3%" }}
-                                        className="input button is-rounded "
+                                        className={
+                                            loading
+                                                ? "input button is-rounded is-loading"
+                                                : "input button is-rounded"
+                                        }
                                     >
                                         Sign up
                                     </button>

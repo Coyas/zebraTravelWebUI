@@ -10,6 +10,7 @@ const Passresetword = () => {
     const { register, errors, handleSubmit } = useForm();
     const router = useRouter();
     const { code } = router.query;
+    const [loading, setLoading] = useState(false);
     // console.log(code);
 
     if (!code && typeof window !== "undefined") {
@@ -17,6 +18,7 @@ const Passresetword = () => {
     }
 
     const resetpw = async (data) => {
+        setLoading(true);
         // alert(data.password);
         // alert(data.confirmpass);
         const response = await fetch(
@@ -36,6 +38,8 @@ const Passresetword = () => {
 
         if (response.status == 200 && response.ok) {
             router.push("/auth/login");
+        } else {
+            setLoading(false);
         }
     };
 
@@ -143,7 +147,11 @@ const Passresetword = () => {
                                 <div className="control">
                                     <button
                                         style={{ marginBottom: "8%" }}
-                                        className="input button is-rounded "
+                                        className={
+                                            loading
+                                                ? "input button is-rounded is-loading"
+                                                : "input button is-rounded"
+                                        }
                                         type="submit"
                                     >
                                         Reset Password
