@@ -27,7 +27,7 @@ const Signup = () => {
                     username: `${data.firstName}_${data.lastName}`,
                     email: data.email,
                     password: data.password,
-                    confirmed: true,
+                    confirmed: false,
                     firstName: data.firstName,
                     lastName: data.lastName
                 })

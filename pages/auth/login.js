@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 
 const Login = () => {
     const [odju, Abriodju] = useState(false);
+    const [loading, setLoading] = useState(false);
     const { register, handleSubmit } = useForm();
     const router = useRouter();
 
@@ -24,6 +25,7 @@ const Login = () => {
 
     const signin = async (e) => {
         // e.preventDefault();
+        setLoading(true);
 
         // console.log(`
         // user: ${data.identifier}
@@ -47,12 +49,16 @@ const Login = () => {
             })
         });
         const responseData = await response.json();
-        console.log(response);
+        /* console.log(response);
         console.log(response.status);
         console.log("response.ok: ");
-        console.log(response.ok);
-        if (response.status == 200 && response.ok)
+        console.log(response.ok);*/
+
+        if (response.status == 200 && response.ok) {
             setToken(responseData, redirect, url);
+        } else {
+            setLoading(true);
+        }
     };
 
     const handleChange = (e) => {
@@ -234,7 +240,11 @@ const Login = () => {
                                 <div className="control">
                                     <button
                                         type="submit"
-                                        className="input button is-rounded "
+                                        className={
+                                            loading
+                                                ? "input button is-rounded is-loading"
+                                                : "input button is-rounded"
+                                        }
                                     >
                                         Sign in
                                     </button>
