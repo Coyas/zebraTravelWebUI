@@ -38,7 +38,6 @@
         height: 3rem;
         margin-bottom: 3%;
     }
-
     // hr
     hr {
         text-align: center;
@@ -99,6 +98,11 @@
                 font-weight: bold;
                 height: 3rem;
             }
+        }
+    }
+    .is-loading {
+        &::after {
+            border-color: transparent transparent black black !important;
         }
     }
 }
