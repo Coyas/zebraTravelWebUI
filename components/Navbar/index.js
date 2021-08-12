@@ -178,11 +178,6 @@ const NavBar = ({ t }) => {
                             </li>
                             <li>
                                 <Link href="">
-                                    <a>{t("nos")}</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="">
                                     <a>{t("term")}</a>
                                 </Link>
                             </li>
@@ -191,7 +186,11 @@ const NavBar = ({ t }) => {
                                     <a>{t("privac")}</a>
                                 </Link>
                             </li>
-
+                            <li>
+                                <Link href="">
+                                    <a>{t("nos")}</a>
+                                </Link>
+                            </li>
                             {!loading &&
                                 (user ? (
                                     <>
