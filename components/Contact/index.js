@@ -112,7 +112,12 @@ const ContactForm = ({ t }) => {
                         <div className="control">
                             <button
                                 type="submit"
-                                className={"button is-rounded " + css.amarelo}
+                                className={
+                                    loading
+                                        ? "button is-rounded is-loading " +
+                                          css.amarelo
+                                        : "button is-rounded " + css.amarelo
+                                }
                             >
                                 {t("send")}
                             </button>
