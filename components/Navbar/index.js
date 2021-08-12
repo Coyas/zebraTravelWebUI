@@ -196,7 +196,7 @@ const NavBar = ({ t }) => {
                                 (user ? (
                                     <>
                                         <li>
-                                            <Link href="">
+                                            <Link href="/myaccount/">
                                                 <a>{t("mconta")}</a>
                                             </Link>
                                         </li>
