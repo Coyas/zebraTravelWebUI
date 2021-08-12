@@ -10,6 +10,7 @@ import { i18n, withTranslation } from "../i18n";
 
 const Contacto = ({ t, dados }) => {
     const { user, loading } = useFetchUser();
+
     // const { response } = api("/api/contato");
 
     // console.log("dados");

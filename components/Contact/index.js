@@ -9,9 +9,11 @@ const ContactForm = ({ t }) => {
     const [valor, setValor] = useState();
     const [mail, setMail] = useState(false);
     const [email, setEmail] = useState("");
+    const [loading, setLoading] = useState(false);
     const { register, handleSubmit, reset } = useForm();
 
     const submeter = async (data, e) => {
+        setLoading(true);
         // const ok = googleRecaptcha(data);
         // if (!ok) console.log("nao deve enviar email");
         const url = `${process.env.API_BASE_URL}/contactos`;
@@ -47,6 +49,8 @@ const ContactForm = ({ t }) => {
             case 500: {
                 console.log("erro no emvio de email");
             }
+            default:
+                setLoading(false);
         }
     };
 
