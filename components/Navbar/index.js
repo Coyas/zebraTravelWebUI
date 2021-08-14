@@ -82,12 +82,50 @@ const NavBar = ({ t }) => {
             <nav className={scss.nav}>
                 {/* <div className={scss.item}></div> */}
                 <div className={scss.item} style={{ marginLeft: "6%" }}>
-                    <Link href="/experiencias">
-                        <a style={{ width: "128%" }}>
-                            {t("exp")} <i className="fas fa-chevron-down"></i>
-                        </a>
-                    </Link>
+                    <div class="dropdown is-active">
+                        <div class="dropdown-trigger">
+                            <button
+                                class="button"
+                                aria-haspopup="true"
+                                aria-controls="dropdown-menu"
+                            >
+                                <span> {t("prod")} </span>
+                                <span class="icon is-small">
+                                    <i
+                                        class="fas fa-angle-down"
+                                        aria-hidden="true"
+                                    ></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div
+                            class="dropdown-menu"
+                            id="dropdown-menu"
+                            role="menu"
+                        >
+                            <div class="dropdown-content">
+                                <Link href="/experiencias">
+                                    <a style={{ width: "128%" }}>
+                                        {t("exp")}{" "}
+                                        {/*<i className="fas fa-chevron-down"></i>*/}
+                                    </a>
+                                </Link>
+                                <a class="dropdown-item">Other dropdown item</a>
+                                <a href="#" class="dropdown-item is-active">
+                                    Casa Colonial
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    Casa Koening
+                                </a>
+                                <hr class="dropdown-divider" />
+                                <a href="#" class="dropdown-item">
+                                    With a divider
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <div className={scss.item} style={{ marginLeft: "6%" }}>
                     <Link href="/servicos">
                         <a>{t("serv")}</a>

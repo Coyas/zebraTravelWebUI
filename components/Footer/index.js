@@ -77,9 +77,13 @@ const Footer = ({ t }) => {
                 <div className={"container " + scss.foot}>
                     <div className="columns is-centered">
                         <div className="column">
-                            <figure className={scss.image}>
-                                <img src="/img/logoCinza.svg" />
-                            </figure>
+                            <Link href="/">
+                                <a>
+                                    <figure className={scss.image}>
+                                        <img src="/img/logoCinza.svg" />
+                                    </figure>
+                                </a>
+                            </Link>
                             <p className={scss.txt}>{t("sobre")}</p>
                             {/* <p> */}
                             <div className="level">
