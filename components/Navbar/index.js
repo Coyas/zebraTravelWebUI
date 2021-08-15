@@ -99,14 +99,10 @@ const NavBar = ({ t }) => {
                             >
                                 <span> {t("prod")} </span>
                                 <span className="icon is-small">
-                                    {active ? (
-                                        <i
-                                            className="fas fa-angle-down"
-                                            aria-hidden="true"
-                                        ></i>
-                                    ) : (
-                                        <i className="far fa-angle-up"></i>
-                                    )}
+                                    <i
+                                        className="fas fa-angle-down"
+                                        aria-hidden="true"
+                                    ></i>
                                 </span>
                             </button>
                         </div>
@@ -122,6 +118,7 @@ const NavBar = ({ t }) => {
                                         {/*<i className="fas fa-chevron-down"></i>*/}
                                     </a>
                                 </Link>
+                                <hr className="dropdown-divider" />
                                 <Link href="/casaC">
                                     <a className="dropdown-item">
                                         Casa Colonial
