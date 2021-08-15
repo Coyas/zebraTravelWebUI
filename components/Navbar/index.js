@@ -80,6 +80,13 @@ const NavBar = ({ t }) => {
         Isactive(!active);
     };
 
+    let arrowIcon;
+    if (active) {
+        arrowIcon = <i class="fas fa-angle-down" aria-hidden="true"></i>;
+    } else {
+        arrowIcon = <i class="fas fa-angle-down" aria-hidden="true"></i>;
+    }
+
     // transition: all 5s ease-in;
     // transform: scale(1.3);
 
@@ -97,12 +104,7 @@ const NavBar = ({ t }) => {
                                 onClick={dropDown}
                             >
                                 <span> {t("prod")} </span>
-                                <span class="icon is-small">
-                                    <i
-                                        class="fas fa-angle-down"
-                                        aria-hidden="true"
-                                    ></i>
-                                </span>
+                                <span class="icon is-small">{arrowIcon}</span>
                             </button>
                         </div>
                         <div
