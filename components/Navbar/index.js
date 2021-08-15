@@ -29,6 +29,7 @@ let isEmpty = (val) => {
 const NavBar = ({ t }) => {
     const router = useRouter();
     const [open, Isopen] = useState(false);
+    const [active, Isactive] = useState(false);
     // const [scale, setScale] = useState(0.6);
     const { user, loading } = useUser();
     const { response, error, isLoading } = api("/api/links");
@@ -74,6 +75,10 @@ const NavBar = ({ t }) => {
         // alert("logout");
     };
 
+    const dropDown = () => {
+        Isactive(!active);
+    };
+
     // transition: all 5s ease-in;
     // transform: scale(1.3);
 
@@ -82,12 +87,13 @@ const NavBar = ({ t }) => {
             <nav className={scss.nav}>
                 {/* <div className={scss.item}></div> */}
                 <div className={scss.item} style={{ marginLeft: "6%" }}>
-                    <div class="dropdown is-active">
+                    <div class={"dropdown " + active ? "is-active" : " "}>
                         <div class="dropdown-trigger">
                             <button
                                 class="button"
                                 aria-haspopup="true"
                                 aria-controls="dropdown-menu"
+                                onClick={dropDown}
                             >
                                 <span> {t("prod")} </span>
                                 <span class="icon is-small">
