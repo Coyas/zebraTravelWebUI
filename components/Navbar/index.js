@@ -116,21 +116,25 @@ const NavBar = ({ t }) => {
                             role="menu"
                         >
                             <div className="dropdown-content">
-                                <Link
-                                    href="/experiencias"
-                                    className="dropdown-item"
-                                >
-                                    <a style={{ width: "128%" }}>
+                                <Link href="/experiencias">
+                                    <a
+                                        style={{ width: "128%" }}
+                                        className="dropdown-item"
+                                    >
                                         {t("exp")}{" "}
                                         {/*<i className="fas fa-chevron-down"></i>*/}
                                     </a>
                                 </Link>
-                                <Link href="/casaC" className="dropdown-item">
-                                    <a>Casa Colonial</a>
+                                <Link href="/casaC">
+                                    <a className="dropdown-item">
+                                        Casa Colonial
+                                    </a>
                                 </Link>
                                 <hr className="dropdown-divider" />
-                                <Link href="/casak" className="dropdown-item">
-                                    <a>Casa Koening</a>
+                                <Link href="/casak">
+                                    <a className="dropdown-item">
+                                        Casa Koening
+                                    </a>
                                 </Link>
                             </div>
                         </div>
