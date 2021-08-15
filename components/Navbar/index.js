@@ -84,7 +84,7 @@ const NavBar = ({ t }) => {
     if (active) {
         arrowIcon = <i class="fas fa-angle-down" aria-hidden="true"></i>;
     } else {
-        arrowIcon = <i class="fas fa-angle-down" aria-hidden="true"></i>;
+        arrowIcon = <i class="fas fa-angle-up" aria-hidden="true"></i>;
     }
 
     // transition: all 5s ease-in;
