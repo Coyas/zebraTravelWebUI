@@ -76,6 +76,7 @@ const NavBar = ({ t }) => {
     };
 
     const dropDown = () => {
+        alert("clicado");
         Isactive(!active);
     };
 
@@ -87,7 +88,7 @@ const NavBar = ({ t }) => {
             <nav className={scss.nav}>
                 {/* <div className={scss.item}></div> */}
                 <div className={scss.item} style={{ marginLeft: "6%" }}>
-                    <div class={"dropdown " + active ? "is-active" : " "}>
+                    <div class={active ? "dropdown is-active" : "dropdown "}>
                         <div class="dropdown-trigger">
                             <button
                                 class="button"
