@@ -81,9 +81,9 @@ const NavBar = ({ t }) => {
 
     let arrowIcon;
     if (active) {
-        arrowIcon = "A"; //<i class="fas fa-angle-down" aria-hidden="true"></i>;
+        arrowIcon = <i class="fas fa-angle-down" aria-hidden="true"></i>;
     } else {
-        arrowIcon = "B"; //<i class="fas fa-angle-up" aria-hidden="true"></i>;
+        arrowIcon = <i class="far fa-angle-up"></i>;
     }
 
     // transition: all 5s ease-in;
@@ -94,41 +94,48 @@ const NavBar = ({ t }) => {
             <nav className={scss.nav}>
                 {/* <div className={scss.item}></div> */}
                 <div className={scss.item} style={{ marginLeft: "6%" }}>
-                    <div class={active ? "dropdown is-active" : "dropdown "}>
-                        <div class="dropdown-trigger">
+                    <div
+                        className={active ? "dropdown is-active" : "dropdown "}
+                    >
+                        <div className="dropdown-trigger">
                             <button
-                                class="button"
+                                className="button"
                                 aria-haspopup="true"
                                 aria-controls="dropdown-menu"
                                 onClick={dropDown}
                             >
                                 <span> {t("prod")} </span>
-                                <span class="icon is-small">{arrowIcon}</span>
+                                <span className="icon is-small">
+                                    {arrowIcon}
+                                </span>
                             </button>
                         </div>
                         <div
-                            class="dropdown-menu"
+                            className="dropdown-menu"
                             id="dropdown-menu"
                             role="menu"
                         >
-                            <div class="dropdown-content">
-                                <Link href="/experiencias">
+                            <div className="dropdown-content">
+                                <Link
+                                    href="/experiencias"
+                                    className="dropdown-item"
+                                >
                                     <a style={{ width: "128%" }}>
                                         {t("exp")}{" "}
                                         {/*<i className="fas fa-chevron-down"></i>*/}
                                     </a>
                                 </Link>
-                                <a class="dropdown-item">Other dropdown item</a>
-                                <a href="#" class="dropdown-item is-active">
-                                    Casa Colonial
-                                </a>
-                                <a href="#" class="dropdown-item">
-                                    Casa Koening
-                                </a>
-                                <hr class="dropdown-divider" />
-                                <a href="#" class="dropdown-item">
-                                    With a divider
-                                </a>
+                                <Link href="/casaC" className="dropdown-item">
+                                    <a href="#" className="dropdown-item">
+                                        Casa Colonial
+                                    </a>
+                                </Link>
+                                <hr className="dropdown-divider" />
+                                <Link href="/casak" className="dropdown-item">
+                                    <a href="#" className="dropdown-item">
+                                        Casa Koening
+                                    </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
