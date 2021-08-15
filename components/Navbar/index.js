@@ -66,6 +66,7 @@ const NavBar = ({ t }) => {
     }
 
     const handleClick = () => {
+        Isactive(false);
         Isopen(!open);
         // setScale(scale > 0.6 ? 0.6 : 0.999);
     };
