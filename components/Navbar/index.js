@@ -126,15 +126,11 @@ const NavBar = ({ t }) => {
                                     </a>
                                 </Link>
                                 <Link href="/casaC" className="dropdown-item">
-                                    <a href="#" className="dropdown-item">
-                                        Casa Colonial
-                                    </a>
+                                    <a>Casa Colonial</a>
                                 </Link>
                                 <hr className="dropdown-divider" />
                                 <Link href="/casak" className="dropdown-item">
-                                    <a href="#" className="dropdown-item">
-                                        Casa Koening
-                                    </a>
+                                    <a>Casa Koening</a>
                                 </Link>
                             </div>
                         </div>
