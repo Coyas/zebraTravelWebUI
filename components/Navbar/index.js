@@ -79,13 +79,6 @@ const NavBar = ({ t }) => {
         Isactive(!active);
     };
 
-    let arrowIcon;
-    if (active) {
-        arrowIcon = <i className="fas fa-angle-down" aria-hidden="true"></i>;
-    } else {
-        arrowIcon = <i className="far fa-angle-up"></i>;
-    }
-
     // transition: all 5s ease-in;
     // transform: scale(1.3);
 
@@ -106,7 +99,14 @@ const NavBar = ({ t }) => {
                             >
                                 <span> {t("prod")} </span>
                                 <span className="icon is-small">
-                                    {arrowIcon}
+                                    {active ? (
+                                        <i
+                                            className="fas fa-angle-down"
+                                            aria-hidden="true"
+                                        ></i>
+                                    ) : (
+                                        <i className="far fa-angle-up"></i>
+                                    )}
                                 </span>
                             </button>
                         </div>
@@ -117,10 +117,7 @@ const NavBar = ({ t }) => {
                         >
                             <div className="dropdown-content">
                                 <Link href="/experiencias">
-                                    <a
-                                        style={{ width: "128%" }}
-                                        className="dropdown-item"
-                                    >
+                                    <a className="dropdown-item">
                                         {t("exp")}{" "}
                                         {/*<i className="fas fa-chevron-down"></i>*/}
                                     </a>
