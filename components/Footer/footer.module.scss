@@ -22,6 +22,9 @@
 }
 .foot {
     margin-bottom: 6% !important;
+    .alinha {
+        align-items: baseline;
+    }
 }
 .mrg:not(:last-child) {
     margin-right: 1.5rem !important;
@@ -59,7 +62,8 @@
     // width: 72%;
     // float: right;
     h1 {
-        margin-top: 22%;
+        // margin-top: 22%;
+        text-transform: uppercase;
     }
     ul {
         li {

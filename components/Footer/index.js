@@ -14,6 +14,12 @@ const Footer = ({ t }) => {
     const { response, error, isLoading } = api("/api/links");
     const [loading, setLoading] = useState(false);
 
+    // pegar o ano atual
+    var today = new Date();
+    //var dd = String(today.getDate()).padStart(2, "0");
+    //var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    var anoAtual = today.getFullYear();
+
     // console.log("response links api fora");
     // console.log(`response => ${response}`);
 
@@ -73,9 +79,9 @@ const Footer = ({ t }) => {
     return (
         <>
             <section className={"footer"}>
-                <Hr height="2" opacidade="0.7" cor="#979ca8" />
+                <Hr height="1" opacidade="0.7" cor="#979ca8" />
                 <div className={"container " + scss.foot}>
-                    <div className="columns is-centered">
+                    <div className={"columns is-centered " + scss.alinha}>
                         <div className="column">
                             <Link href="/">
                                 <a>
@@ -151,6 +157,51 @@ const Footer = ({ t }) => {
                             }}
                         >
                             <div className={scss.fodi}>
+                                <h1 className={scss.h1}>{t("LU")}</h1>
+                                <ul>
+                                    <li>
+                                        <a
+                                            href="https://planetofhotels.com/en/cape-verde/sao-filipe/colonial-guest-house"
+                                            target="_blank"
+                                        >
+                                            planetofhotels.com
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            target="_blank"
+                                            href="https://www.capeverde.co.uk/colonial-guest-house"
+                                        >
+                                            capeverde.co.uk
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            target="_blank"
+                                            href="https://hoteis.com/ho474253/the-colonial-guest-house-sao-filipe-cabo-verde/?rffrid=sem.hcom.PT.google.003.00.04.s.kwrd%3Dc.434039854451.68405139308.1580733278..aud-887569465082%3Adsa-589523905588.9075481...CjwKCAjwy7CKBhBMEiwA0Eb7an_2eGhDKjiFt-HbpqxUhuszdDru-Dq9XKMVztyZvO_XoEM6T2AV4BoCaVsQAvD_BwE.aw.ds&PSRC=AFF05&gclid=CjwKCAjwy7CKBhBMEiwA0Eb7an_2eGhDKjiFt-HbpqxUhuszdDru-Dq9XKMVztyZvO_XoEM6T2AV4BoCaVsQAvD_BwE"
+                                        >
+                                            hoteis.com
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            target="_blank"
+                                            href="https://www.expedia.com/Sao-Filipe-Hotels-The-Colonial-Guest-House.h9028417.Hotel-Information"
+                                        >
+                                            expedia.com
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div
+                            className="column"
+                            style={{
+                                display: "flex",
+                                justifyContent: "center"
+                            }}
+                        >
+                            <div className={scss.fodi}>
                                 <h1 className={scss.h1}>{t("RS")}</h1>
                                 <ul>
                                     <li>
@@ -205,9 +256,9 @@ const Footer = ({ t }) => {
                         </div>
                     </div>
                 </div>
-                <Hr height="1" opacidade="0.7" cor="#979ca8" />
+                <Hr height="2" opacidade="0.7" cor="#979ca8" />
                 <p className={"has-text-centered " + scss.footer2}>
-                    ZEBRA GROUP - &copy; 2021. {t("direitos")}.
+                    ZEBRA GROUP - &copy; {anoAtual}. {t("direitos")}.
                 </p>
             </section>
 
