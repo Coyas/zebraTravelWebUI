@@ -10,6 +10,7 @@ import { i18n, withTranslation } from "../i18n";
 import Head from "next/head";
 import { useFetchUser } from "../lib/user";
 import { getExperiencias } from "../pages/api/expe";
+import Carousel from "../components/Carousel";
 
 const Home = ({ t, expe }) => {
     const islang = i18n.isInitialized;
@@ -48,9 +49,7 @@ const Home = ({ t, expe }) => {
                     </div>
                     <div className={indexcss.coluna}></div>
                     <div className="column">
-                        <figure className="image">
-                            <img src="/img/a.png" />
-                        </figure>
+                        <Carousel />
                     </div>
                 </div>
             </div>
