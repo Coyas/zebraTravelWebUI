@@ -6,7 +6,10 @@ import api from "../../lib/api";
 const Bacontact = () => {
     const { response } = api("/api/contato");
 
-    const phone = response?.phone.replace(/ /g, "");
+    let phone;
+    if (response) {
+        phone = response?.phone?.replace(/ /g, "");
+    }
 
     const router = useRouter();
 

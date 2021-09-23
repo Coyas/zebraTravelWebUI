@@ -10,7 +10,7 @@ const Divisor = (props) => {
     if (props.voltar === "true") {
         Qual = <Voltar />;
     } else {
-        Qual = <Hr height="2" opacidade="1" cor={props.cores} />;
+        Qual = <Hr height="1" opacidade="1" cor={props.cores} width="100" />;
     }
     return (
         <>

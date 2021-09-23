@@ -1,11 +1,12 @@
 import css from "./index.module.scss";
 import api from "../../lib/api";
 // https://bulma.io/images/placeholders/128x128.png
+
 const Testemunho = () => {
     const { response, error, isLoading } = api("/api/testimunhos");
 
-    // console.log("response");
-    // console.log(response);
+    //console.log("response");
+    //console.log(response);
 
     // {
     //     !isLoading &&
