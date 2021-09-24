@@ -3,12 +3,13 @@ import Hr from "../Hr";
 import fetch from "isomorphic-unfetch";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { withTranslation } from "../../i18n";
+import { useTranslation } from "next-i18next";
 import React, { useState } from "react";
 import api from "../../lib/api";
 import Swal from "sweetalert2";
 
-const Footer = ({ t }) => {
+const Footer = () => {
+    const { t } = useTranslation("footer");
     const { register, handleSubmit } = useForm();
     // const [Ok, setOk] = useState(1);..
     const { response, error, isLoading } = api("/api/links");
@@ -283,4 +284,4 @@ const Footer = ({ t }) => {
     );
 };
 
-export default withTranslation("footer")(Footer);
+export default Footer;
