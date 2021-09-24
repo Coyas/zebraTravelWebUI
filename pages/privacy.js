@@ -1,10 +1,12 @@
 import Layout from "../components/layout";
-import { i18n, withTranslation } from "../i18n.config";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 import Head from "next/head";
 import { useFetchUser } from "../lib/user";
 import indexcss from "./styles/index.module.scss";
 
-const Privacy = ({ t }) => {
+const Privacy = () => {
+    const { t } = useTranslation("common");
     const { user, loading } = useFetchUser();
 
     return (
@@ -55,14 +57,16 @@ const Privacy = ({ t }) => {
     );
 };
 
-export const getStaticProps = async () => {
-    const obj = { namespacesRequired: ["common", "footer", "navbar"] };
-
+export const getStaticProps = async ({ locale }) => {
     return {
         props: {
-            obj
+            ...(await serverSideTranslations(locale, [
+                "common",
+                "footer",
+                "navbar"
+            ]))
         } // will be passed to the page component as props
     };
 };
 
-export default withTranslation("common")(Privacy);
+export default Privacy;
