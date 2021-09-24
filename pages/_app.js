@@ -1,5 +1,5 @@
 // import App from 'next/app'
-import { appWithTranslation } from "../i18n";
+import { appWithTranslation } from "next-i18next";
 import "../node_modules/bulma/css/bulma.min.css";
 import "../pages/style.scss";
 

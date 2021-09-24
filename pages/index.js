@@ -6,14 +6,16 @@ import Testemunhas from "../components/Testemunho";
 import Banner from "../components/Banner";
 import Bacontact from "../components/Bacontact";
 import Like from "../components/Like";
-import { i18n, withTranslation } from "../i18n";
 import Head from "next/head";
 import { useFetchUser } from "../lib/user";
 import { getExperiencias } from "../pages/api/expe";
 import Carousel from "../components/Carousel";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
-const Home = ({ t, expe }) => {
-    const islang = i18n.isInitialized;
+const Home = ({ expe }) => {
+    //const islang = i18n.isInitialized;
+    const { t } = useTranslation("common");
     // verificar se ha um user logado
     const { user, loading } = useFetchUser();
     return (
@@ -272,17 +274,21 @@ const Home = ({ t, expe }) => {
     );
 };
 
-export const getStaticProps = async () => {
-    const obj = { namespacesRequired: ["common", "footer", "navbar"] };
+export const getStaticProps = async ({ locale }) => {
+    //const obj = { namespacesRequired: ["common", "footer", "navbar"] };
     const res = await getExperiencias(2); //limite = 2
     const exp = await res.json();
 
     return {
         props: {
-            obj,
+            ...(await serverSideTranslations(locale, [
+                "common",
+                "footer",
+                "navbar"
+            ])),
             expe: exp
         } // will be passed to the page component as props
     };
 };
 
-export default withTranslation("common")(Home);
+export default Home;

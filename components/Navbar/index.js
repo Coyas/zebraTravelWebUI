@@ -2,7 +2,7 @@ import scss from "./navbar.module.scss";
 import Link from "next/link";
 import { useState } from "react";
 import Hr from "../Hr";
-import { i18n, withTranslation } from "../../i18n";
+import { useTranslation } from "next-i18next";
 import { unsetToken } from "../../lib/auth";
 import { useUser } from "../../lib/user";
 import api from "../../lib/api";
@@ -26,7 +26,8 @@ let isEmpty = (val) => {
     }
 };
 
-const NavBar = ({ t }) => {
+const NavBar = () => {
+    const { t } = useTranslation("navbar");
     const router = useRouter();
     const [open, Isopen] = useState(false);
     const [active, Isactive] = useState(false);
@@ -275,4 +276,4 @@ const NavBar = ({ t }) => {
     );
 };
 
-export default withTranslation("navbar")(NavBar);
+export default NavBar;
