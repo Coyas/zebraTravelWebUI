@@ -14,7 +14,7 @@ module.exports = new NextI18Next({
 */
 module.exports = {
     i18n: {
-        defaultLocale: "pt",
-        locales: ["en", "fr"]
+        locales: ["en", "fr"],
+        defaultLocale: "pt"
     }
 };
