@@ -5,10 +5,12 @@ import Headlogo from "../components/Headlogo";
 import Zebralistras from "../components/Zebralistras";
 import { useFetchUser } from "../lib/user";
 import Head from "next/head";
-import { withTranslation } from "../i18n.config";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 const NotFound404 = ({ t }) => {
     const { user, loading } = useFetchUser();
+    const { t } = useTranslation("common");
     return (
         <>
             <Layout user={user}>
@@ -37,12 +39,16 @@ const NotFound404 = ({ t }) => {
     );
 };
 
-export async function getStaticProps() {
-    const obj = { namespacesRequired: ["common"] };
-
+export async function getStaticProps({ locale }) {
     return {
-        props: { obj } // will be passed to the page component as props
+        props: {
+            ...(await serverSideTranslations(locale, [
+                "common",
+                "footer",
+                "navbar"
+            ]))
+        } // will be passed to the page component as props
     };
 }
 
-export default withTranslation("common")(NotFound404);
+export default NotFound404;
