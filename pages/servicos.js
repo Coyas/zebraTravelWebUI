@@ -1,14 +1,15 @@
 import sescss from "./styles/servicos.module.scss";
 import Layout from "../components/layout";
 import Headlogo from "../components/Headlogo";
-import { i18n, withTranslation } from "../i18n.config";
 import { useFetchUser } from "../lib/user";
 import Head from "next/head";
 import showdown from "showdown";
 import { useEffect } from "react";
 import api from "../lib/api";
+import { useTranslation } from "next-i18next";
 
-const Servicos = ({ t }) => {
+const Servicos = () => {
+    const { t } = useTranslation("servico");
     const { user, loading } = useFetchUser();
     const { response, isLoading } = api("/api/service");
     // console.log("dados");
@@ -16,13 +17,14 @@ const Servicos = ({ t }) => {
     // const res = dados.content.replace(/\n/g, "<br/>");
     // console.log(i18n.language);
     // let lang = i18n.language;
-    const contentLang = `content_${i18n.language}`;
+    //const contentLang = `content_${i18n.language}`;
+    let opt = "pt";
     // console.log(contentLang);
     // console.log("response");
     // console.log(response?.content_pt);
 
     let data;
-    switch (i18n.language) {
+    switch (opt) {
         case "pt": {
             data = response?.content_pt;
             break;
@@ -143,4 +145,4 @@ const Servicos = ({ t }) => {
 //     };
 // }
 
-export default withTranslation("servico")(Servicos);
+export default Servicos;
