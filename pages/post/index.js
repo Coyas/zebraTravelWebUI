@@ -5,14 +5,16 @@ import Link from "next/link";
 import Zebralistras from "../../components/Zebralistras";
 import Divisor from "../../components/Divisor";
 import Postlist from "../../components/Post";
-import { withTranslation } from "../../i18n";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 import { useFetchUser } from "../../lib/user";
 import Head from "next/head";
 import api from "../../lib/api";
 
-const Post = ({ t }) => {
+const Post = () => {
     const { user, loading } = useFetchUser();
     const { response, error, isLoading } = api("/api/postis");
+    const { t } = useTranslation("post");
 
     let dad = {};
     if (!isLoading) {
@@ -79,10 +81,16 @@ const Post = ({ t }) => {
     );
 };
 
-Post.getInitialProps = async () => {
-    const obj = { namespacesRequired: ["post", "footer", "navbar"] };
-
-    return obj;
+export const getStaticProps = async ({ locale }) => {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, [
+                "post",
+                "footer",
+                "navbar"
+            ]))
+        } // will be passed to the page component as props
+    };
 };
 
-export default withTranslation("post")(Post);
+export default Post;
