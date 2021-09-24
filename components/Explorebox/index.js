@@ -1,8 +1,9 @@
 import excss from "./index.module.scss";
 import Link from "next/link";
-import { withTranslation } from "../../i18n";
+import { useTranslation } from "next-i18next";
 
-const Explorebox = ({ t }) => {
+const Explorebox = () => {
+    const { t } = useTranslation("experiencia");
     return (
         <>
             <aside className={"menu " + excss.box}>
@@ -74,4 +75,4 @@ const Explorebox = ({ t }) => {
     );
 };
 
-export default withTranslation("experiencia")(Explorebox);
+export default Explorebox;

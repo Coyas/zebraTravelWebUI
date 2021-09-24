@@ -1,11 +1,12 @@
 import css from "./index.module.scss";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { i18n, withTranslation } from "../../i18n";
 import fetch from "isomorphic-unfetch";
+import { useTranslation } from "next-i18next";
 // import { googleRecaptcha } from "../TerraSystem/utils";
 
-const ContactForm = ({ t }) => {
+const ContactForm = () => {
+    const { t } = useTranslation("contacto");
     const [valor, setValor] = useState();
     const [mail, setMail] = useState(false);
     const [email, setEmail] = useState("");
@@ -129,4 +130,4 @@ const ContactForm = ({ t }) => {
     );
 };
 
-export default withTranslation("contacto")(ContactForm);
+export default ContactForm;

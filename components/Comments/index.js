@@ -2,12 +2,14 @@ import cocss from "./index.module.scss";
 import Hr from "../Hr";
 import ComentItem from "../ComentItem";
 import CreateComment from "../CreateComment";
-import { withTranslation } from "../../i18n";
 import api from "../../lib/api";
 import { useEffect, useState } from "react";
+import { useTranslation } from "next-i18next";
 
 //post = postID
-const Comments = ({ t, post, id }) => {
+const Comments = ({ post, id }) => {
+    const { t } = useTranslation("experiencia");
+
     const { response, isLoading } = api(
         `/api/comentario?post=${post}&id=${id}`
     );
@@ -60,4 +62,4 @@ const Comments = ({ t, post, id }) => {
     );
 };
 
-export default withTranslation("experiencia")(Comments);
+export default Comments;

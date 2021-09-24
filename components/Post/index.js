@@ -1,9 +1,10 @@
 import polcss from "./index.module.scss";
 import Link from "next/link";
-import { i18n, withTranslation } from "../../i18n";
+import { useTranslation } from "next-i18next";
 import api from "../../lib/api";
 // import { useState } from "react";
-const Postlist = ({ t }) => {
+const Postlist = () => {
+    const { t } = useTranslation("post");
     const { response, error, isLoading } = api("/api/postis");
 
     const item = (
@@ -56,4 +57,4 @@ const Postlist = ({ t }) => {
     );
 };
 
-export default withTranslation("post")(Postlist);
+export default Postlist;

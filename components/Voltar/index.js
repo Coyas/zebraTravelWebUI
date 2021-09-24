@@ -1,8 +1,9 @@
 import vcss from "./index.module.scss";
 import Link from "next/link";
-import { withTranslation } from "../../i18n";
+import { useTranslation } from "next-i18next";
 
-const Voltar = ({ t }) => {
+const Voltar = () => {
+    const { t } = useTranslation("experiencia");
     return (
         <>
             <p className={vcss.voltar}>
@@ -19,4 +20,4 @@ const Voltar = ({ t }) => {
     );
 };
 
-export default withTranslation("experiencia")(Voltar);
+export default Voltar;
