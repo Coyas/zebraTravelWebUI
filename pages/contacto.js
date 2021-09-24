@@ -5,12 +5,13 @@ import { useFetchUser } from "../lib/user";
 import Head from "next/head";
 import Link from "next/link";
 import Zebralistras from "../components/Zebralistras";
-import { i18n, withTranslation } from "../i18n.config";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 // import api from "../lib/api";
 
-const Contacto = ({ t, dados }) => {
+const Contacto = ({ dados }) => {
     const { user, loading } = useFetchUser();
-
+    const { t } = useTranslation("contacto");
     // const { response } = api("/api/contato");
 
     // console.log("dados");
@@ -69,7 +70,7 @@ const Contacto = ({ t, dados }) => {
 
 //     return obj;
 // };
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context, { locale }) {
     const url = `${process.env.API_BASE_URL}/contactos`;
     const response = await fetch(url, {
         method: "GET",
@@ -82,12 +83,15 @@ export async function getServerSideProps(context) {
     // console.log(response);
     const dados = await response.json();
 
-    const obj = {
-        namespacesRequired: ["servico", "footer", "navbar"]
-    };
-
     return {
-        props: { dados, obj }
+        props: {
+            ...(await serverSideTranslations(locale, [
+                "contacto",
+                "footer",
+                "navbar"
+            ])),
+            dados
+        }
     };
 }
 
