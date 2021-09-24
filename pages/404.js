@@ -5,7 +5,7 @@ import Headlogo from "../components/Headlogo";
 import Zebralistras from "../components/Zebralistras";
 import { useFetchUser } from "../lib/user";
 import Head from "next/head";
-import { withTranslation } from "../i18n";
+import { withTranslation } from "../i18n.config";
 
 const NotFound404 = ({ t }) => {
     const { user, loading } = useFetchUser();

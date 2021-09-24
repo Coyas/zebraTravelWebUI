@@ -1,5 +1,5 @@
 import Layout from "../components/layout";
-import { i18n, withTranslation } from "../i18n";
+import { i18n, withTranslation } from "../i18n.config";
 import Head from "next/head";
 import { useFetchUser } from "../lib/user";
 import indexcss from "./styles/index.module.scss";

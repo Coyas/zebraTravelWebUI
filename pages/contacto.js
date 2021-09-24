@@ -5,7 +5,7 @@ import { useFetchUser } from "../lib/user";
 import Head from "next/head";
 import Link from "next/link";
 import Zebralistras from "../components/Zebralistras";
-import { i18n, withTranslation } from "../i18n";
+import { i18n, withTranslation } from "../i18n.config";
 // import api from "../lib/api";
 
 const Contacto = ({ t, dados }) => {

@@ -1,7 +1,7 @@
 import sescss from "./styles/servicos.module.scss";
 import Layout from "../components/layout";
 import Headlogo from "../components/Headlogo";
-import { i18n, withTranslation } from "../i18n";
+import { i18n, withTranslation } from "../i18n.config";
 import { useFetchUser } from "../lib/user";
 import Head from "next/head";
 import showdown from "showdown";
