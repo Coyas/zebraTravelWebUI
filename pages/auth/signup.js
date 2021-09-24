@@ -14,11 +14,11 @@ const Signup = () => {
     const [loading, setLoading] = useState(false);
 
     const signup = async (data, e) => {
-        alert("ola dja bai");
+        //alert("ola dja bai");
         // make loading
         setLoading(true);
-        console.log("process.env.API_BASE_URL: ");
-        console.log(process.env.API_BASE_URL);
+        //console.log("process.env.API_BASE_URL: ");
+        // console.log(process.env.API_BASE_URL);
         // send request to strapi
         const response = await fetch(
             `${process.env.API_BASE_URL}/auth/local/register`,
@@ -39,8 +39,8 @@ const Signup = () => {
         );
         // check data response
         const responseData = await response.json();
-        console.log(response);
-        console.log(responseData);
+        //  console.log(response);
+        // console.log(responseData);
         // test status code
         if (response.status == 200 && response.ok) {
             // redirect to home page
