@@ -5,16 +5,18 @@ import Zebralistras from "../../components/Zebralistras";
 import Divisor from "../../components/Divisor";
 import Explorebox from "../../components/Explorebox";
 import Experencia from "../../components/Experencia";
-import { withTranslation } from "../../i18n";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 import { useFetchUser } from "../../lib/user";
 import Head from "next/head";
 import { getExperiencias } from "../api/expe";
 import { useState } from "react";
 
-const Experiencia = ({ t, post }) => {
+const Experiencia = ({ post }) => {
     const { user, loading } = useFetchUser();
     const [display, setDisplay] = useState("none");
     const [next, setNext] = useState(3);
+    const { t } = useTranslation("experiencia");
 
     let expi = [];
     post.map(
@@ -93,8 +95,7 @@ export async function getStaticPaths() {
 }
 
 // This also gets called at build time
-export async function getStaticProps({ params }) {
-    const obj = { namespacesRequired: ["experiencia", "footer", "navbar"] };
+export async function getStaticProps({ params, locale }) {
     // params contains the post `id`.
     // If the route is like /posts/1, then params.id is 1
     const res = await getExperiencias(-1); // -1 = todos as experiencias
@@ -103,7 +104,16 @@ export async function getStaticProps({ params }) {
     // console.log(exp);
 
     // Pass post data to the page via props
-    return { props: { obj, post: exp } };
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, [
+                "experiencia",
+                "footer",
+                "navbar"
+            ])),
+            post: exp
+        }
+    };
 }
 
-export default withTranslation("experiencia")(Experiencia);
+export default Experiencia;
