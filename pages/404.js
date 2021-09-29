@@ -8,7 +8,7 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 
-const NotFound404 = ({ t }) => {
+const NotFound404 = () => {
     const { user, loading } = useFetchUser();
     const { t } = useTranslation("common");
     return (
