@@ -48,7 +48,7 @@ const ContactForm = () => {
                 break;
             }
             case 500: {
-                console.log("erro no emvio de email");
+                console.log("erro no envio de email");
             }
             default:
                 setLoading(false);
@@ -78,8 +78,10 @@ const ContactForm = () => {
                             <input
                                 className={"input " + css.bordas}
                                 type="text"
-                                ref={register({ requied: true, minLength: 4 })}
-                                name="name"
+                                {...register("name", {
+                                    requied: true,
+                                    minLength: 4
+                                })}
                             />
                         </div>
                     </div>
@@ -90,8 +92,7 @@ const ContactForm = () => {
                             <input
                                 className={"input " + css.bordas}
                                 type="email"
-                                ref={register({ requied: true })}
-                                name="email"
+                                {...register("email", { requied: true })}
                             />
                         </div>
                     </div>
@@ -103,8 +104,7 @@ const ContactForm = () => {
                                 className={"textarea " + css.bordas}
                                 value={valor}
                                 onChange={(e) => setValor(e.target.value)}
-                                ref={register({ required: true })}
-                                name="message"
+                                {...register("message", { required: true })}
                             />
                         </div>
                     </div>

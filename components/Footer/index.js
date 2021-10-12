@@ -158,7 +158,7 @@ const Footer = () => {
                             }}
                         >
                             <div className={scss.fodi}>
-                                <h1 className={scss.h1}>{t("LU")}</h1>
+                                <h1 className={scss.h1}>{t("RL")}</h1>
                                 <ul>
                                     <li>
                                         <a
@@ -229,11 +229,12 @@ const Footer = () => {
                                 <div className="field is-grouped">
                                     <p className="control is-expanded">
                                         <input
+                                            {...register("emailSub", {
+                                                required: true
+                                            })}
                                             className="input is-rounded"
                                             type="email"
                                             placeholder="E-mail"
-                                            ref={register({ required: true })}
-                                            name="emailSub"
                                         />
                                     </p>
                                     <p className="control">

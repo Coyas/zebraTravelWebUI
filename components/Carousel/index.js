@@ -2,6 +2,9 @@ import carou from "./index.module.scss";
 import Image from "next/image";
 
 const Carousel = () => {
+    const currentSlide = () => {
+        console.log("teste de carousel");
+    };
     return (
         <>
             <div className={carou.slideshowContainer}>
@@ -10,7 +13,8 @@ const Carousel = () => {
                         className={carou.img}
                         src={"/img/a.png"}
                         alt="Picture of the author"
-                        style={{ width: "100%" }}
+                        width="100"
+                        height="100"
                     />
                 </div>
 
@@ -19,7 +23,8 @@ const Carousel = () => {
                         className={carou.img}
                         src={"/img/praia.png"}
                         alt="Picture of the author"
-                        style={{ width: "100%" }}
+                        width="100"
+                        height="100"
                     />
                 </div>
 
@@ -28,7 +33,8 @@ const Carousel = () => {
                         className={carou.img}
                         src={"/img/a.png"}
                         alt="Picture of the author"
-                        style={{ width: "100%" }}
+                        width="100"
+                        height="100"
                     />
                 </div>
             </div>
