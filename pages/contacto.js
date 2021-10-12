@@ -70,7 +70,7 @@ const Contacto = ({ dados }) => {
 
 //     return obj;
 // };
-export async function getServerSideProps(context, { locale }) {
+export async function getServerSideProps({ locale }) {
     const url = `${process.env.API_BASE_URL}/contactos`;
     const response = await fetch(url, {
         method: "GET",
@@ -95,4 +95,4 @@ export async function getServerSideProps(context, { locale }) {
     };
 }
 
-export default withTranslation("contacto")(Contacto);
+export default Contacto;
