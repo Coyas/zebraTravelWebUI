@@ -2,6 +2,7 @@
 import { appWithTranslation } from "next-i18next";
 import "../node_modules/bulma/css/bulma.min.css";
 import "../pages/style.scss";
+import "../pages/embla.css";
 
 function MyApp({ Component, pageProps }) {
     return <Component {...pageProps} />;
