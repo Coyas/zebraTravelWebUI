@@ -180,10 +180,6 @@ const NavBar = () => {
                                                 fontWeight:
                                                     i18n.language == locale
                                                         ? "bold"
-                                                        : " ",
-                                                color:
-                                                    i18n.language == locale
-                                                        ? "#ffcb10 !important"
                                                         : " "
                                             }}
                                         >
