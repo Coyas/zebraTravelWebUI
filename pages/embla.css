@@ -1,6 +1,6 @@
 .embla {
     position: relative;
-    background-color: red;
+    background-color: #ffcb10;
     padding: 0px;
     max-width: 100%; /*100%*/
     margin-left: -20px; /*-20px*/
@@ -39,7 +39,7 @@
 .embla__slide__inner {
     position: relative;
     overflow: hidden;
-    height: 590px; /*190px*/
+    height: 584px; /*190px*/
 }
 
 .embla__slide__img {
