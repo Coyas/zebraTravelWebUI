@@ -7,6 +7,7 @@ import { unsetToken } from "../../lib/auth";
 import { useUser } from "../../lib/user";
 import api from "../../lib/api";
 import { useRouter } from "next/router";
+//import { i18n } from "../../next-i18next.config";
 
 let isEmpty = (val) => {
     let typeOfVal = typeof val;
@@ -27,8 +28,8 @@ let isEmpty = (val) => {
 };
 
 const NavBar = () => {
-    const { t } = useTranslation("navbar");
-    const router = useRouter();
+    const { t, i18n } = useTranslation("navbar");
+    let router = useRouter();
     const [open, Isopen] = useState(false);
     const [active, Isactive] = useState(false);
     // const [scale, setScale] = useState(0.6);
@@ -167,39 +168,30 @@ const NavBar = () => {
                 >
                     <div className={scss.boxcontainer}>
                         <div className={scss.box1}>
-                            <span
-                                onClick={() => i18n.changeLanguage("pt")}
-                                style={{
-                                    cursor:
-                                        i18n.language == "pt" ? "unset" : " ",
-                                    fontWeight:
-                                        i18n.language == "pt" ? "unset" : " "
-                                }}
-                            >
-                                PT
-                            </span>
-                            <span
-                                onClick={() => i18n.changeLanguage("en")}
-                                style={{
-                                    cursor:
-                                        i18n.language == "en" ? "unset" : " ",
-                                    fontWeight:
-                                        i18n.language == "en" ? "unset" : " "
-                                }}
-                            >
-                                EN
-                            </span>
-                            <span
-                                onClick={() => i18n.changeLanguage("fr")}
-                                style={{
-                                    cursor:
-                                        i18n.language == "fr" ? "unset" : " ",
-                                    fontWeight:
-                                        i18n.language == "fr" ? "unset" : " "
-                                }}
-                            >
-                                FR
-                            </span>
+                            {router.locales.map((locale) => (
+                                <li key={locale}>
+                                    <Link href={router.asPath} locale={locale}>
+                                        <a
+                                            style={{
+                                                cursor:
+                                                    i18n.language == locale
+                                                        ? "unset"
+                                                        : " ",
+                                                fontWeight:
+                                                    i18n.language == locale
+                                                        ? "bold"
+                                                        : " ",
+                                                color:
+                                                    i18n.language == locale
+                                                        ? "#ffcb10 !important"
+                                                        : " "
+                                            }}
+                                        >
+                                            {locale}
+                                        </a>
+                                    </Link>
+                                </li>
+                            ))}
                         </div>
                         <div className={scss.box2}>
                             {!loading &&
