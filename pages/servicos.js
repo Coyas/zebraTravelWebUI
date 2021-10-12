@@ -69,7 +69,7 @@ const Servicos = ({ dados }) => {
                 </Head>
 
                 <Headlogo
-                    height="14rem"
+                    height="18rem"
                     position="absolute"
                     width="27%"
                     top="34%"
