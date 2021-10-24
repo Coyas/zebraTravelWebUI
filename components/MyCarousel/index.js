@@ -31,17 +31,20 @@ const MyCarousel = ({ slides }) => {
         embla.on("select", onSelect);
     }, [embla, setScrollSnaps, onSelect]);
 
+    console.log("slides:");
+    console.log(slides);
+
     return (
         <>
             <div className="embla">
                 <div className="embla__viewport" ref={viewportRef}>
                     <div className="embla__container">
-                        {slides?.map((index) => (
-                            <div className="embla__slide" key={index.id}>
+                        {slides?.map((item) => (
+                            <div className="embla__slide" key={item?.id}>
                                 <div className="embla__slide__inner">
                                     <img
                                         className="embla__slide__img"
-                                        src={`${process.env.API_BASE_URL}${index.url}`}
+                                        src={`${process.env.API_BASE_URL}${item?.url}`}
                                         alt="A cool cat."
                                     />
                                 </div>
