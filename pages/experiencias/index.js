@@ -73,7 +73,7 @@ const Experiencia = ({ post }) => {
 // };
 
 // This function gets called at build time
-export async function getStaticPaths() {
+/*export async function getStaticPaths() {
     // Call an external API endpoint to get posts
     const res = await getExperiencias(-1); // -1 = todos as experiencias
     const posts = await res.json();
@@ -89,10 +89,10 @@ export async function getStaticPaths() {
     // We'll pre-render only these paths at build time.
     // { fallback: false } means other routes should 404.
     return {
-        paths /*: [{ params: { id: "1" } }, { params: { id: "2" } }],*/,
+        paths /*: [{ params: { id: "1" } }, { params: { id: "2" } }],* /,
         fallback: false
     };
-}
+}*/
 
 // This also gets called at build time
 export async function getStaticProps({ params, locale }) {

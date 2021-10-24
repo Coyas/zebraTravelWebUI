@@ -12,6 +12,7 @@ import { getExperiencias } from "../pages/api/expe";
 import Carousel from "../components/Carousel";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import React from "react";
 
 const Home = ({ expe }) => {
     //const islang = i18n.isInitialized;

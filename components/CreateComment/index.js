@@ -118,8 +118,7 @@ const CreateComment = ({ post, id }) => {
                                     className={ccocss.inp}
                                     type="text"
                                     placeholder="Join the discussion..."
-                                    name="comment"
-                                    ref={register({
+                                    {...register("comment", {
                                         requied: true,
                                         minLength: 6,
                                         maxLength: 300

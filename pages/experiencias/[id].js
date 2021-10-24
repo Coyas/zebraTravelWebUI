@@ -11,7 +11,7 @@ import BooknowList from "../../components/BooknowList";
 import Modal from "react-modal";
 import { useState } from "react";
 import Galeria from "../../components/Galeria";
-import { Link, withTranslation } from "../../i18n";
+//import { Link, withTranslation } from "../../i18n";
 import { useFetchUser } from "../../lib/user";
 import Head from "next/head";
 import { getExperiencia, getExperiencias } from "../api/expe";
@@ -19,6 +19,8 @@ import showdown from "showdown";
 import { useForm } from "react-hook-form";
 import Emoji from "a11y-react-emoji";
 import Swal from "sweetalert2";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const customStyles = {
     content: {
@@ -35,7 +37,7 @@ const customStyles = {
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement("#__next");
 
-const Expid = ({ t, expi, expis }) => {
+const Expid = ({ expi, expis }) => {
     const { register, handleSubmit } = useForm(); // formulario handler
     const [obj, setDados] = useState({
         calc: false, // foi calculado o valor total?
@@ -46,6 +48,8 @@ const Expid = ({ t, expi, expis }) => {
         classi: "none", // se calc é false style display:node caso nao display: " "
         btn: false // abilitar ou desabilitar o botao
     });
+
+    const { t } = useTranslation("experiencia");
 
     const imagem = expi?.imagens[0]?.url;
     // console.log(expis);
@@ -142,7 +146,7 @@ const Expid = ({ t, expi, expis }) => {
 
             <Divisor title={t("expTu")} voltar="true" sobre={t("exp")} />
 
-            <section className={"container " + expid.expid}>
+            <section className={"container " + expid?.expid}>
                 <h1>{expi?.title}</h1>
                 <p>
                     <span className="icon">
@@ -151,15 +155,15 @@ const Expid = ({ t, expi, expis }) => {
                     {expi?.local}
                 </p>
                 <div className="columns is-desktop">
-                    <div className={"column " + expid.imgbox}>
-                        <div className={expid.container2}>
+                    <div className={"column " + expid?.imgbox}>
+                        <div className={expid?.container2}>
                             <figure className="image">
                                 <img
                                     src={`${process.env.API_BASE_URL}${imagem}`}
-                                    className={expid.imgs}
+                                    className={expid?.imgs}
                                 />
                             </figure>
-                            <div className={expid.bottomLeft}>
+                            <div className={expid?.bottomLeft}>
                                 <p>
                                     <Like
                                         title={expi?.title}
@@ -261,8 +265,7 @@ const Expid = ({ t, expi, expis }) => {
                                                 className="input is-success"
                                                 type="date"
                                                 placeholder="Choose a date"
-                                                name="date"
-                                                ref={register({
+                                                {...register("date", {
                                                     required: true
                                                 })}
                                             />
@@ -279,8 +282,7 @@ const Expid = ({ t, expi, expis }) => {
                                                 type="number"
                                                 min="0"
                                                 placeholder={t("htrav")}
-                                                name="number"
-                                                ref={register({
+                                                {...register("number", {
                                                     required: true
                                                 })}
                                             />
@@ -443,7 +445,7 @@ export async function getStaticPaths() {
     const json = await res.json();
 
     // console.log("posts staticpaths");
-    // console.log(posts);
+    // console.log(json);
 
     // Get the paths we want to pre-render based on posts
     const paths = json.map((expi) => ({
@@ -458,7 +460,7 @@ export async function getStaticPaths() {
     };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
     // console.log("params");
     // console.log(params);
     const res = await getExperiencia(params.id);
@@ -466,8 +468,16 @@ export async function getStaticProps({ params }) {
     const res2 = await getExperiencias(2);
     const json2 = await res2.json();
     return {
-        props: { expi: json, expis: json2 } // will be passed to the page component as props
+        props: {
+            ...(await serverSideTranslations(locale, [
+                "experiencia",
+                "footer",
+                "navbar"
+            ])),
+            expi: json,
+            expis: json2
+        } // will be passed to the page component as props
     };
 }
 
-export default withTranslation("experiencia")(Expid);
+export default Expid;
