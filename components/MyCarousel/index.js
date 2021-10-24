@@ -37,7 +37,11 @@ const MyCarousel = ({ slides }) => {
     return (
         <>
             <div className="embla">
-                <div className="embla__viewport" ref={viewportRef}>
+                <div
+                    className="embla__viewport"
+                    ref={viewportRef}
+                    style={{ width: "111%" }}
+                >
                     <div className="embla__container">
                         {slides?.map((item) => (
                             <div className="embla__slide" key={item?.id}>
