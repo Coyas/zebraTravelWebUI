@@ -243,7 +243,7 @@ const Home = ({ expe }) => {
                 sobre={t("nos")}
             />
 
-            <section className={"content marginbot " + indexcss.verde}>
+            <section className={"content marginbot " + indexcss.castanho2}>
                 <div className="container">
                     <Banner
                         bb="B1"
@@ -258,7 +258,7 @@ const Home = ({ expe }) => {
                 </div>
             </section>
 
-            <section className={"content " + indexcss.castanho2}>
+            <section className={"content " + indexcss.verde}>
                 <div className="container">
                     <Banner
                         bb="B2"
