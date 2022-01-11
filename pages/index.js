@@ -33,7 +33,7 @@ const Home = ({ expe }) => {
 
             <div className="container">
                 <div className="columns">
-                    <div className="column">
+                    <div className="column is-two-fifths">
                         <figure className={indexcss.fig2}>
                             <img src="/img/ZebraListra.svg" />
                         </figure>
@@ -58,7 +58,7 @@ const Home = ({ expe }) => {
                     </div>
                     <div className={indexcss.coluna}></div>
                     <div className="column">
-                        <MyCarousel slides={imagens} />
+                        {/* <MyCarousel slides={imagens} /> */}
                     </div>
                 </div>
             </div>
