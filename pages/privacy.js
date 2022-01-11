@@ -4,6 +4,7 @@ import { useTranslation } from "next-i18next";
 import Head from "next/head";
 import { useFetchUser } from "../lib/user";
 import indexcss from "./styles/index.module.scss";
+import Bacontact from "../components/Bacontact";
 
 const Privacy = () => {
     const { t } = useTranslation("common");

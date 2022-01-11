@@ -13,10 +13,10 @@ const BooknowList = ({ dados }) => {
             cortxt: "#ffffff !important"
         }
     ];
-    console.log(cores[0].cor);
-    console.log(cores[0].cortxt);
-    console.log(cores[1].cor);
-    console.log(cores[1].cortxt);
+    // console.log(cores[0].cor);
+    // console.log(cores[0].cortxt);
+    // console.log(cores[1].cor);
+    //console.log(cores[1].cortxt);
     // fazer uma funcao de aleatoriedade
 
     return (

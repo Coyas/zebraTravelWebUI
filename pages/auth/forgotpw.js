@@ -14,18 +14,27 @@ const Forgotpw = () => {
     const resetpw = async (data) => {
         setLoading(true);
 
-        const response = await fetch(
-            `${process.env.API_BASE_URL}/auth/forgot-password`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email: data.email
-                })
-            }
-        );
+        let response;
+        if (!data) {
+            setError("Não Pode haver campos vazias");
+            // set error
+            setErr(false);
+            // stop loading
+            setLoading(false);
+        } else {
+            response = await fetch(
+                `${process.env.API_BASE_URL}/auth/forgot-password`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email: data?.email
+                    })
+                }
+            );
+        }
 
         if (response.status == 200 && response.ok) {
             Router.push("/auth/login");
@@ -80,8 +89,7 @@ const Forgotpw = () => {
                                         className="input is-rounded"
                                         type="email"
                                         placeholder="Email"
-                                        name="email"
-                                        ref={register({
+                                        {...register("email", {
                                             required: "this is required",
                                             pattern: {
                                                 value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,

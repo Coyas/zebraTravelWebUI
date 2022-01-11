@@ -32,8 +32,8 @@ const ContactForm = () => {
 
         const dados = await response.json();
 
-        console.log("dados:");
-        console.log(dados);
+        // console.log("dados:");
+        // console.log(dados);
         // console.log(dados?.accepted[0]);
 
         e.target.reset();

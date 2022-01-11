@@ -13,44 +13,56 @@ const Signup = () => {
     const [err, setErr] = useState(true);
     const [loading, setLoading] = useState(false);
 
-    const signup = async (data, e) => {
+    const signup = async (data) => {
         //alert("ola dja bai");
         // make loading
         setLoading(true);
-        //console.log("process.env.API_BASE_URL: ");
-        // console.log(process.env.API_BASE_URL);
+        console.log("process.env.API_BASE_URL: ");
+        console.log(process.env.API_BASE_URL);
+        console.log("data: ");
+        console.log(data);
         // send request to strapi
-        const response = await fetch(
-            `${process.env.API_BASE_URL}/auth/local/register`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    username: `${data.firstName}_${data.lastName}`,
-                    email: data.email,
-                    password: data.password,
-                    confirmed: false,
-                    firstName: data.firstName,
-                    lastName: data.lastName
-                })
-            }
-        );
-        // check data response
-        const responseData = await response.json();
-        //  console.log(response);
-        // console.log(responseData);
-        // test status code
-        if (response.status == 200 && response.ok) {
-            // redirect to home page
-            Router.push("/");
-        } else {
-            setError("There is an error on signup proccess");
+        let response;
+        if (!data) {
+            setError("Não Pode haver campos vazias");
             // set error
             setErr(false);
             // stop loading
             setLoading(false);
+        } else {
+            response = await fetch(
+                `${process.env.API_BASE_URL}/auth/local/register`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        username: `${data?.firstName}_${data?.lastName}`,
+                        email: data?.email,
+                        password: data?.password,
+                        confirmed: false,
+                        firstName: data?.firstName,
+                        lastName: data?.lastName
+                    })
+                }
+            );
+
+            // check data response
+            const responseData = await response.json();
+            console.log(response);
+            console.log(responseData);
+            // test status code
+            if (response.status == 200 && response.ok) {
+                // redirect to home page
+                Router.push("/");
+            } else {
+                setError("There is an error on signup proccess");
+                // set error
+                setErr(false);
+                // stop loading
+                setLoading(false);
+            }
         }
     };
 
@@ -101,8 +113,7 @@ const Signup = () => {
                                         className="input is-rounded"
                                         type="text"
                                         placeholder="First Name"
-                                        name="firstName"
-                                        ref={register({
+                                        {...register("firstName", {
                                             required: "This field is required",
                                             minLength: {
                                                 value: 4,
@@ -111,8 +122,8 @@ const Signup = () => {
                                         })}
                                     />
                                     <span style={{ color: "red" }}>
-                                        {errors.firstName &&
-                                            errors.firstName.message}
+                                        {errors?.firstName &&
+                                            errors?.firstName.message}
                                     </span>
                                 </div>
                             </div>
@@ -122,8 +133,7 @@ const Signup = () => {
                                         className="input is-rounded"
                                         type="text"
                                         placeholder="Last Name"
-                                        name="lastName"
-                                        ref={register({
+                                        {...register("lastName", {
                                             required: "This field is required",
                                             minLength: {
                                                 value: 4,
@@ -132,8 +142,8 @@ const Signup = () => {
                                         })}
                                     />
                                     <span style={{ color: "red" }}>
-                                        {errors.lastName &&
-                                            errors.lastName.message}
+                                        {errors?.lastName &&
+                                            errors?.lastName.message}
                                     </span>
                                 </div>
                             </div>
@@ -143,8 +153,7 @@ const Signup = () => {
                                         className="input is-rounded"
                                         type="email"
                                         placeholder="Email"
-                                        name="email"
-                                        ref={register({
+                                        {...register("email", {
                                             required: "this is required",
                                             pattern: {
                                                 value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
@@ -153,7 +162,7 @@ const Signup = () => {
                                         })}
                                     />
                                     <span style={{ color: "red" }}>
-                                        {errors.email && errors.email.message}
+                                        {errors?.email && errors?.email.message}
                                     </span>
                                 </div>
                             </div>
@@ -163,8 +172,7 @@ const Signup = () => {
                                         className="input is-rounded"
                                         type="password"
                                         placeholder="Password"
-                                        name="password"
-                                        ref={register({
+                                        {...register("password", {
                                             required: "this field is riquered",
                                             maxLength: {
                                                 value: 30,
@@ -178,8 +186,8 @@ const Signup = () => {
                                     />
 
                                     <span style={{ color: "red" }}>
-                                        {errors.password &&
-                                            errors.password.message}
+                                        {errors?.password &&
+                                            errors?.password.message}
                                     </span>
                                 </div>
                             </div>

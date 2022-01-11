@@ -31,8 +31,8 @@ const MyCarousel = ({ slides }) => {
         embla.on("select", onSelect);
     }, [embla, setScrollSnaps, onSelect]);
 
-    console.log("slides:");
-    console.log(slides);
+    //console.log("slides:");
+    //console.log(slides);
 
     return (
         <>

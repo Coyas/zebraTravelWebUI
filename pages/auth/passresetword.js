@@ -22,20 +22,29 @@ const Passresetword = () => {
         setLoading(true);
         // alert(data.password);
         // alert(data.confirmpass);
-        const response = await fetch(
-            `${process.env.API_BASE_URL}/auth/reset-password`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    code: code,
-                    password: data.password,
-                    passwordConfirmation: data.confirmpass
-                })
-            }
-        );
+        let response;
+        if (!data) {
+            setError("Não Pode haver campos vazias");
+            // set error
+            setErr(false);
+            // stop loading
+            setLoading(false);
+        } else {
+            response = await fetch(
+                `${process.env.API_BASE_URL}/auth/reset-password`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        code: code,
+                        password: data?.password,
+                        passwordConfirmation: data?.confirmpass
+                    })
+                }
+            );
+        }
 
         if (response.status == 200 && response.ok) {
             router.push("/auth/login");
@@ -90,8 +99,7 @@ const Passresetword = () => {
                                         className="input is-rounded"
                                         type="password"
                                         placeholder="New Password"
-                                        name="password"
-                                        ref={register({
+                                        {...register("password", {
                                             required: "this field is riquered",
                                             maxLength: {
                                                 value: 30,
@@ -120,8 +128,7 @@ const Passresetword = () => {
                                         className="input is-rounded"
                                         type="password"
                                         placeholder="Repeat Password"
-                                        name="confirmpass"
-                                        ref={register({
+                                        {...register("confirmpass", {
                                             required: "this field is riquered",
                                             maxLength: {
                                                 value: 30,

@@ -48,9 +48,9 @@ const Login = () => {
                 password: data.password
             })
         });
-        const responseData = await response.json();
-        console.log(response);
-        console.log(responseData);
+        //const responseData = await response.json(); // não esta sendo usado
+        // console.log(response);
+        // console.log(responseData);
 
         if (response.status == 200 && response.ok) {
             setToken(responseData, redirect, url);
@@ -109,8 +109,9 @@ const Login = () => {
                                         className="input is-rounded"
                                         type="text"
                                         placeholder="E-mail or Username"
-                                        name="identifier"
-                                        ref={register({ required: true })}
+                                        {...register("identifier", {
+                                            required: true
+                                        })}
                                         onChange={handleChange}
                                     />
                                     <span
@@ -129,8 +130,9 @@ const Login = () => {
                                         className="input is-rounded"
                                         type={odju ? "text" : "password"}
                                         placeholder="Password"
-                                        name="password"
-                                        ref={register({ required: true })}
+                                        {...register("password", {
+                                            required: true
+                                        })}
                                         onChange={handleChange}
                                     />
                                     <span
