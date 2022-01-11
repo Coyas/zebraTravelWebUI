@@ -2,7 +2,7 @@
 @import "../media";
 
 .nav {
-    background-color: $branco;
+    background-color: #ffffffc7;
     // width: 35%;
     position: fixed;
     top: 4%;
@@ -13,9 +13,9 @@
     justify-content: center;
     align-content: center;
     gap: 2px;
-    // /* Add the blur effect */
-    opacity: 0.8;
     z-index: 50;
+    // /* Add the blur effect */
+    backdrop-filter: blur(6px);
 
     .active {
         background-color: $amarelo;
