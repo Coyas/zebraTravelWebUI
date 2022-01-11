@@ -58,8 +58,9 @@ const Home = ({ expe }) => {
                     </div>
                     <div className={indexcss.coluna}></div>
                     <div className="column">
-                        {/* <MyCarousel slides={imagens} /> */}
+                        <MyCarousel slides={imagens} />
                     </div>
+                    <div className={indexcss.coluna}></div>
                 </div>
             </div>
             <Divisor
