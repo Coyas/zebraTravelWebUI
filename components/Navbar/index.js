@@ -99,6 +99,7 @@ const NavBar = () => {
                                 aria-haspopup="true"
                                 aria-controls="dropdown-menu"
                                 onClick={dropDown}
+                                style={{ BackgroudColor: "unset" }}
                             >
                                 <span> {t("prod")} </span>
                                 <span className="icon is-small">
@@ -122,13 +123,13 @@ const NavBar = () => {
                                     </a>
                                 </Link>
                                 <hr className="dropdown-divider" />
-                                <Link href="/casaC">
+                                <Link href="/hotel/casacolonial">
                                     <a className="dropdown-item">
                                         Casa Colonial
                                     </a>
                                 </Link>
                                 <hr className="dropdown-divider" />
-                                <Link href="/casak">
+                                <Link href="/hotel/casakoening">
                                     <a className="dropdown-item">
                                         Casa Koening
                                     </a>
@@ -211,7 +212,11 @@ const NavBar = () => {
                     <div className={scss.listMenu}>
                         <ul className="menu-list">
                             <li>
-                                <img src="/img/logoCinza.svg" />
+                                <Link href="/">
+                                    <a>
+                                        <img src="/img/logoCinza.svg" />
+                                    </a>
+                                </Link>
                             </li>
                             <li>
                                 <Link href="">
