@@ -31,8 +31,9 @@ const MyCarousel = ({ slides }) => {
         embla.on("select", onSelect);
     }, [embla, setScrollSnaps, onSelect]);
 
-    //console.log("slides:");
-    //console.log(slides);
+    console.log("slides:");
+    console.log(slides);
+    console.log(`lnk: ${process.env.API_BASE_URL}`);
 
     return (
         <>
@@ -48,8 +49,9 @@ const MyCarousel = ({ slides }) => {
                                 <div className="embla__slide__inner">
                                     <img
                                         className="embla__slide__img"
-                                        src={`${process.env.API_BASE_URL}${item?.url}`}
-                                        alt="A cool cat."
+                                        /*${process.env.API_BASE_URL}*/
+                                        src={`http://localhost:8332${item?.url}`}
+                                        alt={item?.title}
                                     />
                                 </div>
                             </div>

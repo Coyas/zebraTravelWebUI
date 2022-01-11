@@ -9,16 +9,22 @@ import Like from "../components/Like";
 import Head from "next/head";
 import { useFetchUser } from "../lib/user";
 import { getExperiencias } from "../pages/api/expe";
-import Carousel from "../components/Carousel";
+//import Carousel from "../components/Carousel";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import React from "react";
+import MyCarousel from "../components/MyCarousel";
 
 const Home = ({ expe }) => {
     //const islang = i18n.isInitialized;
     const { t } = useTranslation("common");
     // verificar se ha um user logado
     const { user, loading } = useFetchUser();
+
+    const imagens = [
+        { id: 0, title: "sdddsffsf", url: "/img/a.png" },
+        { id: 1, title: "dqsdqsdqsdqssd", url: "/img/esplanada.png" }
+    ];
     return (
         <Layout user={user}>
             <Head>
@@ -52,7 +58,7 @@ const Home = ({ expe }) => {
                     </div>
                     <div className={indexcss.coluna}></div>
                     <div className="column">
-                        <Carousel />
+                        <MyCarousel slides={imagens} />
                     </div>
                 </div>
             </div>
