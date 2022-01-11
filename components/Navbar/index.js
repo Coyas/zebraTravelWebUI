@@ -99,7 +99,10 @@ const NavBar = () => {
                                 aria-haspopup="true"
                                 aria-controls="dropdown-menu"
                                 onClick={dropDown}
-                                style={{ BackgroudColor: "unset" }}
+                                style={{
+                                    backgroundColor: "unset !important",
+                                    borderColor: "unset !important"
+                                }}
                             >
                                 <span> {t("prod")} </span>
                                 <span className="icon is-small">
