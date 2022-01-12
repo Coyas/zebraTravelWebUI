@@ -14,6 +14,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import React from "react";
 import MyCarousel from "../components/MyCarousel";
+import LinhaV from "../components/LinhaV";
 
 const Home = ({ expe }) => {
     //const islang = i18n.isInitialized;
@@ -60,7 +61,7 @@ const Home = ({ expe }) => {
                     <div className="column">
                         <MyCarousel slides={imagens} />
                     </div>
-                    <div className={indexcss.coluna}></div>
+                    <LinhaV />
                 </div>
             </div>
             <Divisor

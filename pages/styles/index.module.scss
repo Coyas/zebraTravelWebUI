@@ -3,6 +3,25 @@
 
 // primero section
 
+.colunaIcon {
+    .linha1 {
+        margin-left: 7px;
+        height: 321px;
+        border-left: 1px solid $preto;
+    }
+    .linha2 {
+        margin-left: 8px;
+        border-left: 1px solid $preto;
+        height: 321px;
+    }
+    .Ticons {
+        height: 100px;
+        display: grid;
+        align-content: space-around;
+        justify-content: center;
+    }
+}
+
 .coluna {
     border-right: 1px solid $preto;
     height: 634px;
