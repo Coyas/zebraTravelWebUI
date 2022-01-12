@@ -38,7 +38,7 @@
         display: grid;
         justify-content: center;
         align-content: center;
-        padding: 15px;
+        padding: 22px;
         cursor: pointer;
         color: $preto;
     }
@@ -78,8 +78,9 @@
                 }
             }
         }
-        // .box2 {
-        // }
+        .box2 {
+            margin-top: 11px;
+        }
     }
     .listMenu {
         img {

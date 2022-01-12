@@ -78,9 +78,9 @@ const NavBar = () => {
         // alert("logout");
     };
 
-    const dropDown = () => {
-        Isactive(!active);
-    };
+    // const dropDown = () => {
+    //     Isactive(!active);
+    // };
 
     // transition: all 5s ease-in;
     // transform: scale(1.3);
@@ -90,56 +90,12 @@ const NavBar = () => {
             <nav className={scss.nav}>
                 {/* <div className={scss.item}></div> */}
                 <div className={scss.item} style={{ marginLeft: "6%" }}>
-                    <div
-                        className={active ? "dropdown is-active" : "dropdown "}
-                    >
-                        <div className="dropdown-trigger">
-                            <button
-                                className="button"
-                                aria-haspopup="true"
-                                aria-controls="dropdown-menu"
-                                onClick={dropDown}
-                                style={{
-                                    backgroundColor: "unset !important",
-                                    borderColor: "unset !important"
-                                }}
-                            >
-                                <span> {t("prod")} </span>
-                                <span className="icon is-small">
-                                    <i
-                                        className="fas fa-angle-down"
-                                        aria-hidden="true"
-                                    ></i>
-                                </span>
-                            </button>
-                        </div>
-                        <div
-                            className="dropdown-menu"
-                            id="dropdown-menu"
-                            role="menu"
-                        >
-                            <div className="dropdown-content">
-                                <Link href="/experiencias">
-                                    <a className="dropdown-item">
-                                        {t("exp")}{" "}
-                                        {/*<i className="fas fa-chevron-down"></i>*/}
-                                    </a>
-                                </Link>
-                                <hr className="dropdown-divider" />
-                                <Link href="/hotel/casacolonial">
-                                    <a className="dropdown-item">
-                                        Casa Colonial
-                                    </a>
-                                </Link>
-                                <hr className="dropdown-divider" />
-                                <Link href="/hotel/casakoening">
-                                    <a className="dropdown-item">
-                                        Casa Koening
-                                    </a>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
+                    <Link href="/experiencias">
+                        <a>
+                            {t("exp")}{" "}
+                            {/*<i className="fas fa-chevron-down"></i>*/}
+                        </a>
+                    </Link>
                 </div>
 
                 <div className={scss.item} style={{ marginLeft: "6%" }}>
@@ -222,13 +178,13 @@ const NavBar = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="">
-                                    <a>{t("term")}</a>
+                                <Link href="/hotel/casacolonial">
+                                    <a>Casa Colonial</a>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="">
-                                    <a>{t("privac")}</a>
+                                <Link href="/hotel/casakoening">
+                                    <a>Casa Koening</a>
                                 </Link>
                             </li>
                             <li>
