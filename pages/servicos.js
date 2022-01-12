@@ -52,8 +52,7 @@ const Servicos = ({ dados }) => {
     }
 
     //console.log("data:");
-    //console.log(title);
-    //console.log(images);
+    // console.log("ulrl");
 
     const createMarkup = () => {
         const converter = new showdown.Converter();
