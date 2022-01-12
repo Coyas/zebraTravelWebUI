@@ -8,6 +8,7 @@ import Bacontact from "../components/Bacontact";
 import Like from "../components/Like";
 import Head from "next/head";
 import { useFetchUser } from "../lib/user";
+import dimages from "./api/dimages";
 import { getExperiencias } from "../pages/api/expe";
 //import Carousel from "../components/Carousel";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -16,16 +17,26 @@ import React from "react";
 import MyCarousel from "../components/MyCarousel";
 import LinhaV from "../components/LinhaV";
 
-const Home = ({ expe }) => {
+const Home = ({ expe, img }) => {
     //const islang = i18n.isInitialized;
     const { t } = useTranslation("common");
     // verificar se ha um user logado
     const { user, loading } = useFetchUser();
 
-    const imagens = [
-        { id: 0, title: "sdddsffsf", url: "/img/a.png" },
-        { id: 1, title: "dqsdqsdqsdqssd", url: "/img/esplanada.png" }
-    ];
+    // console.log("img:");
+    // console.log(img[0].images[0].url);
+
+    let imagens = [];
+    img.map((value, index) => {
+        imagens[index] = {
+            id: index,
+            title: value.titulo,
+            url: value.images[0].url
+        };
+    });
+
+    console.log("imagens");
+    console.log(imagens);
     return (
         <Layout user={user}>
             <Head>
@@ -288,6 +299,9 @@ export const getStaticProps = async ({ locale }) => {
     const res = await getExperiencias(2); //limite = 2
     const exp = await res.json();
 
+    const res2 = await dimages();
+    const img = await res2.json();
+
     return {
         props: {
             ...(await serverSideTranslations(locale, [
@@ -295,7 +309,8 @@ export const getStaticProps = async ({ locale }) => {
                 "footer",
                 "navbar"
             ])),
-            expe: exp
+            expe: exp,
+            img
         } // will be passed to the page component as props
     };
 };
