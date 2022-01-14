@@ -8,13 +8,13 @@ const LinhaV = () => {
             <div className={indexcss.linha1}></div>
             <div className={indexcss.Ticons}>
                 <a href={response?.facebook} target="_blank">
-                    <i class="fab fa-facebook-f"></i>
+                    <i className="fab fa-facebook-f"></i>
                 </a>
                 <a href={response?.instagram} target="_blank">
-                    <i class="fab fa-instagram"></i>
+                    <i className="fab fa-instagram"></i>
                 </a>
                 <a href={response?.youtube} target="_blank">
-                    <i class="fab fa-youtube"></i>
+                    <i className="fab fa-youtube"></i>
                 </a>
             </div>
             <div className={indexcss.linha2}></div>
