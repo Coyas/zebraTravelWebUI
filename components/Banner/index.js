@@ -1,5 +1,6 @@
 import css from "./index.module.scss";
 import Link from "next/link";
+import Router from "next/router";
 
 const Banner = (props) => {
     const pp = props.bb;
@@ -11,7 +12,17 @@ const Banner = (props) => {
         // console.log("nao é bb é bc");
         vars = css.bc;
     }
-    // console.log(vars);
+    // console.log("goto");
+    // console.log(props.goto);
+    const a = props.goto;
+    const baiPa = () => {
+        // console.log("goto");
+        // console.log(a);
+        Router.push(a);
+    };
+    const likeIt = () => {
+        alert("likeIt");
+    };
 
     return (
         <>
@@ -21,7 +32,10 @@ const Banner = (props) => {
                     <h6 className="subtitle is-6">{props.subtitle}</h6>
                     <article className={css.artD}>
                         <div className={css.txt}>{props.body}</div>
-                        <button className={"button " + css.amarelo}>
+                        <button
+                            onClick={() => baiPa(a)}
+                            className={"button " + css.amarelo}
+                        >
                             BOOK NOW
                         </button>
                         <nav className="level is-mobile">
@@ -40,7 +54,10 @@ const Banner = (props) => {
                                 </script>
                             </div>
                             <div className="level-right">
-                                <Link href="ss">
+                                <button
+                                    onClick={likeIt}
+                                    className={css.linkeit}
+                                >
                                     <a className={"level-item"}>
                                         <span className="margi">
                                             {props.comment}
@@ -49,7 +66,7 @@ const Banner = (props) => {
                                             <i className="far fa-comment"></i>
                                         </span>
                                     </a>
-                                </Link>
+                                </button>
                             </div>
                         </nav>
                     </article>

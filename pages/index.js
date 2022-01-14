@@ -273,6 +273,7 @@ const Home = ({ expe, img }) => {
                         Cuidadosamente restaurado à sua glória original, The Colonial Guest House B & B oferece dez acomodações bem decorados com antiguidades recolhidas ao longo dos anos. Cada quarto mantém a sua forma e tamanho original."
                         comment="80k"
                         image="img/colonial.jpg"
+                        goto="/residencia/casacolonial"
                     />
                 </div>
             </section>
@@ -287,6 +288,7 @@ const Home = ({ expe, img }) => {
                         Foi construído na primeira metade do século XIX pelo avô paterno de Abílio Macedo, (antigo propetário da Colonial Guest House) transitando depois para vários donos até chegar à família de Alberto Koenig (parentes do pintor Alemão). "
                         comment="20k"
                         image="img/koening.jpg"
+                        goto="/residencia/casakoenig"
                     />
                 </div>
             </section>
