@@ -12,6 +12,10 @@
         display: inline-block;
         float: right;
         width: 82%;
+        .linkeit {
+            background-color: $castanho2;
+            border: none;
+        }
         .txt {
             text-align: justify;
             font-size: 0.8rem;
@@ -74,6 +78,10 @@
         display: inline-block;
         float: right;
         width: 82%;
+        .linkeit {
+            background-color: #5c7d51;
+            border: none;
+        }
         .txt {
             text-align: justify;
             font-size: 0.8rem;
