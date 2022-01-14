@@ -33,6 +33,11 @@ const Postid = ({ post }) => {
         <Layout user={user}>
             <Head>
                 <title>{post?.title} - Zebra Travel Agency</title>
+                <link
+                    rel="shortcut icon"
+                    type="image/png"
+                    href="/zebraicon.png"
+                ></link>
             </Head>
 
             <Zebralistras />

@@ -57,6 +57,11 @@ const Passresetword = () => {
         <Loginlayout>
             <Head>
                 <title>Reset Password - Zebra Travel Agency</title>
+                <link
+                    rel="shortcut icon"
+                    type="image/png"
+                    href="/zebraicon.png"
+                ></link>
             </Head>
             <div className={forgcss.container2}>
                 <Link href="/">

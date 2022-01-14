@@ -24,6 +24,11 @@ const Contacto = ({ dados }) => {
         <Layout user={user}>
             <Head>
                 <title>Contatos - Zebra Travel Agency</title>
+                <link
+                    rel="shortcut icon"
+                    type="image/png"
+                    href="/zebraicon.png"
+                ></link>
             </Head>
 
             <section className={"container " + css.cont}>

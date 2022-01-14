@@ -16,6 +16,11 @@ const NotFound404 = () => {
             <Layout user={user}>
                 <Head>
                     <title>404 - Zebra Travel Agency</title>
+                    <link
+                    rel="shortcut icon"
+                    type="image/png"
+                    href="/zebraicon.png"
+                ></link>
                 </Head>
 
                 <Zebralistras />

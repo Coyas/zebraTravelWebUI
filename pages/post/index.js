@@ -33,6 +33,11 @@ const Post = () => {
         <Layout user={user}>
             <Head>
                 <title>Blog - Zebra Travel Agency</title>
+                <link
+                    rel="shortcut icon"
+                    type="image/png"
+                    href="/zebraicon.png"
+                ></link>
             </Head>
 
             <Zebralistras />

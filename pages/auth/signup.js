@@ -70,6 +70,11 @@ const Signup = () => {
         <Loginlayout>
             <Head>
                 <title>Sign up - Zebra Travel Agency</title>
+                <link
+                    rel="shortcut icon"
+                    type="image/png"
+                    href="/zebraicon.png"
+                ></link>
             </Head>
             <div className={signcss.container2} style={{ height: "121vh" }}>
                 <Link href="/">

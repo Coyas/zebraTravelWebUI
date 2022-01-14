@@ -67,6 +67,11 @@ const Login = () => {
         <Loginlayout>
             <Head>
                 <title>Log in - Zebra Travel Agency</title>
+                <link
+                    rel="shortcut icon"
+                    type="image/png"
+                    href="/zebraicon.png"
+                ></link>
             </Head>
             <div className={logincss.container2}>
                 <Link href="/">

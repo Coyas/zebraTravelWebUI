@@ -39,6 +39,11 @@ const Experiencia = ({ post }) => {
         <Layout user={user}>
             <Head>
                 <title>{t("expe")} - Zebra Travel Agency</title>
+                <link
+                    rel="shortcut icon"
+                    type="image/png"
+                    href="/zebraicon.png"
+                ></link>
             </Head>
             <Zebralistras />
 

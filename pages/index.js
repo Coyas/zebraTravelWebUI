@@ -36,6 +36,11 @@ const Home = ({ expe, img }) => {
         <Layout user={user}>
             <Head>
                 <title>Zebra Travel Agency</title>
+                <link
+                    rel="shortcut icon"
+                    type="image/png"
+                    href="/zebraicon.png"
+                ></link>
             </Head>
 
             <div className="container">

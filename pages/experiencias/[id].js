@@ -138,6 +138,11 @@ const Expid = ({ expi, expis }) => {
         <Layout user={user}>
             <Head>
                 <title>{expi?.title} - Zebra Travel Agency</title>
+                <link
+                    rel="shortcut icon"
+                    type="image/png"
+                    href="/zebraicon.png"
+                ></link>
             </Head>
 
             <Zebralistras />

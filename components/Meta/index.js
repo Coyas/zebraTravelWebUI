@@ -1,4 +1,4 @@
-const Meta = () => {
+const Meta = (props) => {
     return (
         <>
             <meta charSet="utf-8" />
@@ -16,7 +16,6 @@ const Meta = () => {
                 async
                 src="https://static.addtoany.com/menu/page.js"
             ></script>
-            <link rel="icon" type="image/png" href="/zebrafavicon.png"></link>
         </>
     );
 };
