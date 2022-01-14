@@ -23,9 +23,6 @@ const Home = ({ expe, img }) => {
     // verificar se ha um user logado
     const { user, loading } = useFetchUser();
 
-    // console.log("img:");
-    // console.log(img[0].images[0].url);
-
     let imagens = [];
     img.map((value, index) => {
         imagens[index] = {
@@ -35,8 +32,6 @@ const Home = ({ expe, img }) => {
         };
     });
 
-    console.log("imagens");
-    console.log(imagens);
     return (
         <Layout user={user}>
             <Head>
@@ -267,7 +262,7 @@ const Home = ({ expe, img }) => {
                     <Banner
                         bb="B1"
                         title="The Colonial Guest House"
-                        subtitle=""
+                        subtitle="Alto Sao Pedro"
                         body="No coração de São Filipe, na Ilha do Fogo, com vista para o centro histórico da cidade e do mar, uma vista deslumbrante sobre a vizinha ilha da Brava, encontra-se The Colonial Guest House B & B.
                         Ocupando uma casa construída em 1883 por um dos personagens mais importantes da história da Ilha do Fogo, The Colonial Guest House B & B representa um dos exemplos mais notáveis do ponto de vista arquitetónico dos sobrados, e hoje é uma das estruturas mais famosas do arquipélago.
                         Cuidadosamente restaurado à sua glória original, The Colonial Guest House B & B oferece dez acomodações bem decorados com antiguidades recolhidas ao longo dos anos. Cada quarto mantém a sua forma e tamanho original."
@@ -282,7 +277,7 @@ const Home = ({ expe, img }) => {
                     <Banner
                         bb="B2"
                         title="Casa Colonial Koenig"
-                        subtitle=""
+                        subtitle="Algum lugar no Fogo"
                         body="A Casa Colonial Koenig, tem no total de 12 quartos, o edifício (sobrado) tem dois pisos, rés-do-chão onde há 4 quartos, bar/receção e piscina que antigamente era uma área comercial, e primeiro andar, onde temos os restantes 8 quartos antigo área residencial, ocupa duas ruas sendo com vista a Ilha Brava e com vista a Cidade São Filipe. Está localizado no núcleo histórico de São Filipe, a escassos metros dos edifícios dos Paços do Concelho e da Igreja Matriz e da Praia de Fonte Bila. 
                         Foi construído na primeira metade do século XIX pelo avô paterno de Abílio Macedo, (antigo propetário da Colonial Guest House) transitando depois para vários donos até chegar à família de Alberto Koenig (parentes do pintor Alemão). "
                         comment="20k"
