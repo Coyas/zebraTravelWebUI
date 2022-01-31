@@ -117,7 +117,7 @@ const Passresetword = () => {
                                         })}
                                     />
                                     <span style={{ color: "red" }}>
-                                        {errors.email && errors.email.message}
+                                        {errors?.email && errors?.email.message}
                                     </span>
                                 </div>
                             </div>

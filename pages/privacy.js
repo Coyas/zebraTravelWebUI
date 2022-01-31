@@ -5,6 +5,7 @@ import Head from "next/head";
 import { useFetchUser } from "../lib/user";
 import indexcss from "./styles/index.module.scss";
 import Bacontact from "../components/Bacontact";
+import Divisor from "../components/Divisor";
 
 const Privacy = () => {
     const { t } = useTranslation("common");

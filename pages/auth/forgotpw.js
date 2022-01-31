@@ -11,7 +11,7 @@ const Forgotpw = () => {
     const { register, errors, handleSubmit } = useForm();
     const [loading, setLoading] = useState(false);
 
-    const resetpw = async (data) => {
+    const resetpw = async ({ data: email }) => {
         setLoading(true);
 
         let response;
@@ -30,7 +30,7 @@ const Forgotpw = () => {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        email: data?.email
+                        email: email
                     })
                 }
             );
@@ -103,7 +103,7 @@ const Forgotpw = () => {
                                         })}
                                     />
                                     <span style={{ color: "red" }}>
-                                        {errors.email && errors.email.message}
+                                        {errors?.email && errors?.email.message}
                                     </span>
                                 </div>
                             </div>
