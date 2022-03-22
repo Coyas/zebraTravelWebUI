@@ -17,8 +17,10 @@ const Contacto = ({ dados }) => {
     // console.log("dados");
     // console.log(dados);
 
+    const Newdata = dados?.data.attributes;
+
     // remove todos os espaços contidos no numero
-    const phone = dados?.phone.replace(/ /g, "");
+    const phone = Newdata.phone.replace(/ /g, "");
 
     return (
         <Layout user={user}>
@@ -49,17 +51,21 @@ const Contacto = ({ dados }) => {
                 <h1 className="title">{t("contact")}</h1>
                 <h2 className="subtitle">
                     <p>
-                        <a href={"tel:00238" + phone}>+|238| {dados?.phone}</a>
+                        <a href={"tel:00238" + phone}>
+                            +|238| {Newdata?.phone}
+                        </a>
                     </p>
                     <p>
-                        <a href={"mailto:" + dados?.email}>{dados?.email}</a>
+                        <a href={"mailto:" + Newdata?.email}>
+                            {Newdata?.email}
+                        </a>
                     </p>
                 </h2>
             </section>
             <section className={"container " + css.map}>
                 <div className="columns is-desktop">
                     <div className="column">
-                        <iframe src={dados?.MapPosition}></iframe>
+                        <iframe src={Newdata?.MapPosition}></iframe>
                     </div>
                     <div className="column">
                         <ContactForm />
@@ -76,7 +82,7 @@ const Contacto = ({ dados }) => {
 //     return obj;
 // };
 export async function getServerSideProps({ locale }) {
-    const url = `${process.env.API_BASE_URL}/contactos`;
+    const url = `${process.env.API_BASE_URL}/contacto`;
     const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -87,6 +93,7 @@ export async function getServerSideProps({ locale }) {
     // console.log("api response");
     // console.log(response);
     const dados = await response.json();
+    // console.log(dados);
 
     return {
         props: {
