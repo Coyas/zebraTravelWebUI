@@ -12,10 +12,10 @@ export default async function service(req, res) {
             }
         });
 
-        // console.log("api response");
+        // console.log("api servicetext response");
         // console.log(response);
         const dados = await response.json();
-        // console.log("dados links api");
+        // console.log("api servicetext after await");
         // console.log(dados);
 
         return res.status(200).json(dados);
