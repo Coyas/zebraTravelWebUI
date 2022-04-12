@@ -31,9 +31,9 @@ const MyCarousel = ({ slides }) => {
         embla.on("select", onSelect);
     }, [embla, setScrollSnaps, onSelect]);
 
-    console.log("slides:");
-    console.log(slides);
-    console.log(`lnk: ${process.env.API_BASE_URL}`);
+    // console.log("slides:");
+    // console.log(slides);
+    // console.log(`lnk: ${process.env.API_BASE_URL}`);
 
     return (
         <>

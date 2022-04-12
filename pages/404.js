@@ -8,7 +8,7 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 
-const NotFound404 = () => {
+const NotFound404 = ({ contatoDados }) => {
     const { user, loading } = useFetchUser();
     const { t } = useTranslation("common");
     return (
@@ -17,15 +17,15 @@ const NotFound404 = () => {
                 <Head>
                     <title>404 - Zebra Travel Agency</title>
                     <link
-                    rel="shortcut icon"
-                    type="image/png"
-                    href="/zebraicon.png"
-                ></link>
+                        rel="shortcut icon"
+                        type="image/png"
+                        href="/zebraicon.png"
+                    ></link>
                 </Head>
 
                 <Zebralistras />
 
-                <Headlogo marginHead="2%" />
+                <Headlogo marginHead="2%" contatoDados={contatoDados} />
                 <div className={"container " + notcss.fornfor}>
                     <div className="columns">
                         <div
@@ -45,13 +45,24 @@ const NotFound404 = () => {
 };
 
 export async function getStaticProps({ locale }) {
+    const url3 = `${process.env.API_BASE_URL}/contacto`;
+    const response3 = await fetch(url3, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    const contatoDados = await response3.json();
+
     return {
         props: {
             ...(await serverSideTranslations(locale, [
                 "common",
                 "footer",
                 "navbar"
-            ]))
+            ])),
+            contatoDados
         } // will be passed to the page component as props
     };
 }

@@ -3,13 +3,15 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import api from "../../lib/api";
 
-const Bacontact = () => {
-    const { response } = api("/api/contato");
+const Bacontact = ({ contatoDados }) => {
+    // const { response } = api("/api/contato");
 
+    // return null;
     let phone;
-    if (response) {
-        phone = response?.phone?.replace(/ /g, "");
-    }
+
+    phone = contatoDados.data.attributes.phone?.replace(/ /g, "");
+    console.log("contatoDados respo");
+    console.log(contatoDados);
 
     const router = useRouter();
 
@@ -29,12 +31,18 @@ const Bacontact = () => {
         <>
             <div className={bcss.it + " " + it2}>
                 <div className={bcss.boxAdd}>
-                    <a href={"tel:00238" + phone}> +|238| {response?.phone}</a>
+                    <a href={"tel:00238" + phone}>
+                        {" "}
+                        +|238| {contatoDados.data.attributes.phone}
+                    </a>
                     <br />
-                    <a href={"mailto:" + response?.email}>{response?.email}</a>
+                    <a href={"mailto:" + contatoDados.data.attributes.email}>
+                        {contatoDados.data.attributes.email}
+                    </a>
                 </div>
             </div>
         </>
     );
 };
+
 export default Bacontact;

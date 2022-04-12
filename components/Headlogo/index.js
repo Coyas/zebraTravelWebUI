@@ -10,7 +10,7 @@ const Headlogo = (props) => {
                 style={{ marginTop: props.marginHead }}
             >
                 <div className="column is-half">
-                    <Bacontact />
+                    <Bacontact contatoDados={props.contatoDados} />
                 </div>
                 <div className="columns is-desktop">
                     <div
