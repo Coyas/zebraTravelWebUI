@@ -2,7 +2,7 @@ import fetch from "isomorphic-unfetch";
 
 export default async function links(req, res) {
     try {
-        const url = `${process.env.API_BASE_URL}/links`;
+        const url = `${process.env.API_BASE_URL}/links-social`;
         const response = await fetch(url, {
             method: "GET",
             headers: {
