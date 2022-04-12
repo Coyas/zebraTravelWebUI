@@ -50,7 +50,7 @@ const MyCarousel = ({ slides }) => {
                                     <img
                                         className="embla__slide__img"
                                         /*${process.env.API_BASE_URL}*/
-                                        src={`${process.env.API_BASE_URL}${item?.url}`}
+                                        src={`${item?.url}`}
                                         alt={item?.title}
                                     />
                                 </div>
