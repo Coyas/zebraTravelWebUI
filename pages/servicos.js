@@ -11,7 +11,7 @@ import { useTranslation } from "next-i18next";
 import MyCarousel from "../components/MyCarousel";
 const qs = require("qs");
 
-const Servicos = ({ servico, servicetext }) => {
+const Servicos = ({ servico, servicetext, contatoDados }) => {
     const servicoarray = servico.data; // make the services dada json
     //dados2.data.attributes.imagem.data.attributes.url
     const response = servicetext.data; // make the servicetext data json
@@ -33,9 +33,11 @@ const Servicos = ({ servico, servicetext }) => {
             url: value.attributes.image_pt.data.attributes.url
         };
     });
-    // console.log("images");
-    // console.log(images);
-
+    // console.log("contatoDados");
+    // console.log(contatoDados);
+    // console.log(contatoDados.data.attributes.phone);
+    // console.log("contatoDados fim");
+    // contatoDados.data;
     // return null;
     switch (i18n.language) {
         case "pt": {
@@ -132,6 +134,7 @@ const Servicos = ({ servico, servicetext }) => {
                     left="4%"
                     marginTop="7%"
                     marginHead="-2%"
+                    contatoDados={contatoDados}
                 >
                     <figure
                         // id={sescss.sebanner}
@@ -267,6 +270,18 @@ export const getStaticProps = async ({ locale }) => {
     // console.log("api servicetext response");
     // console.log(dados2.data.attributes.imagem.data.attributes.url);
 
+    const url3 = `${process.env.API_BASE_URL}/contacto`;
+    const response3 = await fetch(url3, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    const contatoDados = await response3.json();
+    // console.log("contadoDados");
+    // console.log(contatoDados);
+
     return {
         props: {
             ...(await serverSideTranslations(locale, [
@@ -275,7 +290,8 @@ export const getStaticProps = async ({ locale }) => {
                 "navbar"
             ])),
             servico,
-            servicetext
+            servicetext,
+            contatoDados
         } // will be passed to the page component as props
     };
 };
