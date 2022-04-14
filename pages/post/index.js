@@ -9,25 +9,34 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useFetchUser } from "../../lib/user";
 import Head from "next/head";
-import api from "../../lib/api";
+// import api from "../../lib/api";
+const qs = require("qs");
 
-const Post = () => {
+const Post = ({ posts, contatoDados }) => {
     const { user, loading } = useFetchUser();
-    const { response, error, isLoading } = api("/api/postis");
+    // const { response, error, isLoading } = api("/api/postis");
     const { t } = useTranslation("post");
 
-    let dad = {};
-    if (!isLoading) {
-        // console.log("posts response");
-        // console.log(response);
-        dad = {
-            id: response[0]?.id,
-            title: response[0]?.title,
-            slug: response[0]?.slug,
-            conteudo: response[0]?.conteudo.substring(0, 661),
-            created_at: response[0]?.created_at
-        };
-    }
+    // let dad = {};
+    // if (!isLoading) {
+    // console.log("posts response");
+    // console.log(posts);
+
+    // return null;
+
+    /**
+     * O primeiro objecto do post
+     *
+     * sera usado como post exibicional
+     */
+    let dad = {
+        id: posts.data[0].id,
+        title: posts.data[0].attributes.title,
+        slug: posts.data[0].attributes.slug,
+        conteudo: posts.data[0].attributes.conteudo.substring(0, 661),
+        created_at: posts.data[0].attributes.created_at
+    };
+    // }
 
     return (
         <Layout user={user}>
@@ -42,7 +51,7 @@ const Post = () => {
 
             <Zebralistras />
 
-            <Headlogo marginHead="2%" />
+            <Headlogo marginHead="2%" contatoDados={contatoDados} />
 
             <Divisor
                 cores="#ffffff"
@@ -78,7 +87,7 @@ const Post = () => {
             <section className={"container " + poscss.blogs}>
                 <div className="columns  is-desktop">
                     <div className="column is-full" style={{ padding: "0" }}>
-                        <Postlist />
+                        <Postlist postlists={posts} />
                     </div>
                 </div>
             </section>
@@ -87,13 +96,51 @@ const Post = () => {
 };
 
 export const getStaticProps = async ({ locale }) => {
+    const query = qs.stringify(
+        {
+            sort: ["createdAt:desc"],
+            populate: "*"
+        },
+        {
+            encodeValuesOnly: true
+        }
+    );
+    const url = `${process.env.API_BASE_URL}/posts?${query}`;
+    const response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    // console.log("api response post");
+    // console.log(response);
+    const posts = await response.json();
+    // console.log("dados links api post");
+    // console.log(posts.data[0].attributes.imagem);
+    // console.log("dados links api post fim");
+
+    const url2 = `${process.env.API_BASE_URL}/contacto`;
+    const response2 = await fetch(url2, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    // console.log("api response post");
+    // console.log(response);
+    const contatoDados = await response2.json();
+
     return {
         props: {
             ...(await serverSideTranslations(locale, [
                 "post",
                 "footer",
                 "navbar"
-            ]))
+            ])),
+            posts,
+            contatoDados
         } // will be passed to the page component as props
     };
 };
