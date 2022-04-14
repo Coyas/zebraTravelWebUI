@@ -4,9 +4,30 @@ import { useTranslation } from "next-i18next";
 import api from "../../lib/api";
 import React from "next";
 // import { useState } from "react";
-const Postlist = () => {
+const Postlist = ({ postlists }) => {
     const { t } = useTranslation("post");
-    const { response, error, isLoading } = api("/api/postis");
+    // const { response, error, isLoading } = api("/api/postis");
+
+    // console.log("response post from posts");
+    // console.log(postlists.data);
+    // postlists.data.map((post, index) => {
+    //     console.log("response post from posts");
+    //     console.log(post.attributes.imagem.data.attributes.url);
+    // });
+    // console.log("response post from posts fim");
+    // return null;
+    // let postarray = [];
+    // if (!postlists) {
+    //     return <p>nenhum dados ca teni</p>;
+    // }
+    // postlists?.data?.map((value, index) => {
+    //     postarray[index] = {
+    //         index: index,
+    //         slug: value.attributes.slug,
+    //         url: value.attributes.imagem.data.attributes.url,
+    //         hash: value.attributes.imagem.data.attributes.hash
+    //     };
+    // });
 
     const item = (
         <div className={polcss.itembox}>
@@ -35,24 +56,24 @@ const Postlist = () => {
     return (
         <>
             <div className={polcss.boxfoto}>
-                {!isLoading &&
-                    response.map((post, index) => (
-                        <React.Fragment key={index}>
-                            <div className={polcss.item + " " + listcss[index]}>
-                                <Link
-                                    href="/post/[id]"
-                                    as={`/post/${post.slug}`}
-                                >
-                                    <a>
-                                        <img
-                                            src={`${process.env.API_BASE_URL}${post.imagem?.url}`}
-                                        />
-                                    </a>
-                                </Link>
-                            </div>
-                            {itemBox[index]}
-                        </React.Fragment>
-                    ))}
+                {postlists?.data?.map((post, index) => (
+                    <div key={index}>
+                        <div className={polcss.item + " " + listcss[index]}>
+                            <Link
+                                href="/posts/[id]"
+                                as={`/posts/${post.attributes.slug}`}
+                            >
+                                <a>
+                                    <img
+                                        src={`${post.attributes.imagem.data.attributes.url}`}
+                                        alt={`${post.attributes.imagem.data.attributes.hash}`}
+                                    />
+                                </a>
+                            </Link>
+                        </div>
+                        {itemBox[index]}
+                    </div>
+                ))}
             </div>
         </>
     );
