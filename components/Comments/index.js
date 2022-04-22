@@ -3,7 +3,7 @@ import Hr from "../Hr";
 import ComentItem from "../ComentItem";
 import CreateComment from "../CreateComment";
 import api from "../../lib/api";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
 
 //post = postID
@@ -13,24 +13,6 @@ const Comments = ({ post, id }) => {
     const { response, isLoading } = api(
         `/api/comentario?post=${post}&id=${id}`
     );
-
-    // console.log("response sima cre");
-    // console.log(response);
-
-    // const [dados, setDados] = useState([]);
-    // const [count, setCount] = useState(7);
-    // // setDados([...response, {}]);
-
-    // let GetDados;
-    // if (!isLoading) {
-    //     GetDados = () => {
-    //         setDados((dados) => [...dados, response]);
-
-    //         console.log("count dados");
-    //         console.log(dados);
-    //         setCount(count + 5);
-    //     };
-    // }
 
     return (
         <>

@@ -10,8 +10,8 @@ const Bacontact = ({ contatoDados }) => {
     let phone;
 
     phone = contatoDados.data.attributes.phone?.replace(/ /g, "");
-    console.log("contatoDados respo");
-    console.log(contatoDados);
+    // console.log("contatoDados respo");
+    // console.log(contatoDados);
 
     const router = useRouter();
 
