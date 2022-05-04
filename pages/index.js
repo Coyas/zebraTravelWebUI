@@ -23,14 +23,25 @@ const Home = ({ expe, img }) => {
     // verificar se ha um user logado
     const { user, loading } = useFetchUser();
 
-    let imagens = [];
-    img.map((value, index) => {
-        imagens[index] = {
-            id: index,
-            title: value.titulo,
-            url: value.images[0].url
-        };
-    });
+    let imagens = [
+        {
+            id: 1,
+            title: "qsdqsdqsd",
+            url: "https://res.cloudinary.com/zebratravel-net/image/upload/v1647952771/medium_Screenshot_2021_06_24_11_08_29_a087e03058.png"
+        },
+        {
+            id: 2,
+            title: "qfqsqsdqsd",
+            url: "https://res.cloudinary.com/zebratravel-net/image/upload/v1647685373/8118827_ab0d4b52e3.jpg"
+        }
+    ];
+    // img.map((value, index) => {
+    //     imagens[index] = {
+    //         id: index,
+    //         title: value.attributes.titulo,
+    //         url: value.attributes.images[0].url
+    //     };
+    // });
 
     return (
         <Layout user={user}>
@@ -300,9 +311,14 @@ export const getStaticProps = async ({ locale }) => {
     //const obj = { namespacesRequired: ["common", "footer", "navbar"] };
     const res = await getExperiencias(2); //limite = 2
     const exp = await res.json();
+    console.log("exp:");
+    console.log(exp);
 
     const res2 = await dimages();
-    const img = await res2.json();
+    const imgr = await res2.json();
+    const img = imgr.data;
+    console.log("images:");
+    console.log(img);
 
     return {
         props: {
