@@ -2,6 +2,8 @@ import expicss from "./index.module.scss";
 import Link from "next/link";
 
 const Experencia = (props) => {
+    // console.log("props");
+    // console.log(props);
     // alert(props.type);
     return (
         <>
@@ -13,7 +15,7 @@ const Experencia = (props) => {
                     <div className={"column is-one-third " + expicss.sola}>
                         <figure className={"image " + expicss.img}>
                             <img
-                                src={`${process.env.API_BASE_URL}${props.dados.imagens[0].url}`}
+                                src={`${props.dados.imagens.data[0].attributes.url}`}
                             />
                         </figure>
                     </div>
@@ -24,8 +26,7 @@ const Experencia = (props) => {
                                 {props.dados?.descricao.substring(0, 208)}...
                                 <span>
                                     <Link
-                                        href="/experiencias/[pid]"
-                                        as={`/experiencias/${props.dados?.slug}`}
+                                        href={`/experiencias/${props.dados?.slug}`}
                                     >
                                         <a>read more</a>
                                     </Link>
@@ -39,8 +40,7 @@ const Experencia = (props) => {
                                     CVE {props.dados.preco_uni}{" "}
                                 </p>{" "}
                                 <Link
-                                    href="/experiencias/[pid]"
-                                    as={`/experiencias/${props.dados?.slug}`}
+                                    href={`/experiencias/${props.dados?.slug}`}
                                 >
                                     <a className="button">BOOK NOW</a>
                                 </Link>

@@ -3,15 +3,22 @@ import cssgal from "./index.module.scss";
 import { useState } from "react";
 
 const Galeria = ({ images }) => {
-    const local = images.local.split(",");
+    // console.log("imagens");
+    // console.log(images);
+    // console.log("expi");
+    // console.log(images.data.attributes.imagens.data[0]);
 
-    let propertiess = images.imagens.map((item, index) => {
+    // return null;
+
+    const local = images.data.attributes.local.split(",");
+
+    let propertiess = images.data.attributes.imagens.data.map((item, index) => {
         return {
             id: item.id,
             index: index,
             title: local[0] || " ",
             subtitle: local[1] || " ",
-            imagem: item.url
+            imagem: item.attributes.url
         };
     });
 

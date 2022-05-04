@@ -14,13 +14,14 @@ import Galeria from "../../components/Galeria";
 //import { Link, withTranslation } from "../../i18n";
 import { useFetchUser } from "../../lib/user";
 import Head from "next/head";
-import { getExperiencia, getExperiencias } from "../api/expe";
+// import { getExperiencia, getExperiencias } from "../api/expe";
 import showdown from "showdown";
 import { useForm } from "react-hook-form";
 import Emoji from "a11y-react-emoji";
 import Swal from "sweetalert2";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+const qs = require("qs");
 
 const customStyles = {
     content: {
@@ -37,7 +38,7 @@ const customStyles = {
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement("#__next");
 
-const Expid = ({ expi, expis }) => {
+const Expid = ({ expi, expis, contatoDados }) => {
     const { register, handleSubmit } = useForm(); // formulario handler
     const [obj, setDados] = useState({
         calc: false, // foi calculado o valor total?
@@ -51,15 +52,23 @@ const Expid = ({ expi, expis }) => {
 
     const { t } = useTranslation("experiencia");
 
-    const imagem = expi?.imagens[0]?.url;
+    // console.log("expi");
+    // console.log(expi.data.attributes.imagens.data[0].attributes.url);
+
+    // console.log("expis");
+    // console.log(expis);
+
+    // return null;
+
+    const imagem = expi?.data.attributes.imagens.data[0].attributes.url;
     // console.log(expis);
     // console.log(expi?.likes.length);
 
-    const linguas = expi?.linguas?.split(",");
+    const linguas = expi?.data.attributes.linguas?.split(",");
 
     const createMarkup = () => {
         const converter = new showdown.Converter();
-        const html = converter.makeHtml(expi?.descricao);
+        const html = converter.makeHtml(expi?.data.attributes.descricao);
         return { __html: html };
     };
 
@@ -137,7 +146,9 @@ const Expid = ({ expi, expis }) => {
     return (
         <Layout user={user}>
             <Head>
-                <title>{expi?.title} - Zebra Travel Agency</title>
+                <title>
+                    {expi?.data.attributes.title} - Zebra Travel Agency
+                </title>
                 <link
                     rel="shortcut icon"
                     type="image/png"
@@ -147,33 +158,35 @@ const Expid = ({ expi, expis }) => {
 
             <Zebralistras />
 
-            <Headlogo marginHead="2%" />
+            <Headlogo marginHead="2%" contatoDados={contatoDados} />
 
             <Divisor title={t("expTu")} voltar="true" sobre={t("exp")} />
 
             <section className={"container " + expid?.expid}>
-                <h1>{expi?.title}</h1>
+                <h1>{expi?.data.attributes.title}</h1>
                 <p>
                     <span className="icon">
                         <i className="fas fa-map-marker-alt"></i>
                     </span>
-                    {expi?.local}
+                    {expi?.data.attributes.local}
                 </p>
                 <div className="columns is-desktop">
                     <div className={"column " + expid?.imgbox}>
                         <div className={expid?.container2}>
                             <figure className="image">
                                 <img
-                                    src={`${process.env.API_BASE_URL}${imagem}`}
+                                    src={`${imagem}`}
                                     className={expid?.imgs}
                                 />
                             </figure>
                             <div className={expid?.bottomLeft}>
                                 <p>
                                     <Like
-                                        title={expi?.title}
-                                        id={expi?.id}
-                                        likes={expi?.likes.length}
+                                        title={expi?.data.attributes.title}
+                                        id={expi?.data.attributes.id}
+                                        likes={
+                                            expi?.data.attributes.likes.length
+                                        }
                                     />
                                 </p>
                             </div>
@@ -253,7 +266,8 @@ const Expid = ({ expi, expis }) => {
                                             {t("from")}
                                         </p>
                                         <p className={expid.preco}>
-                                            CVE {expi?.preco_uni}
+                                            CVE{" "}
+                                            {expi?.data.attributes.preco_uni}
                                         </p>
                                         <p>
                                             <span>({t("advise")})</span>
@@ -358,7 +372,7 @@ const Expid = ({ expi, expis }) => {
                                             {t("distance")}
                                         </div>
                                         <div className={expid.itemc}>
-                                            {expi?.distancia} km
+                                            {expi?.data.attributes.distancia} km
                                         </div>
                                     </div>
                                 </div>
@@ -373,7 +387,7 @@ const Expid = ({ expi, expis }) => {
                                             {t("elev")}
                                         </div>
                                         <div className={expid.itemc}>
-                                            {expi?.elevacao} m
+                                            {expi?.data.attributes.elevacao} m
                                         </div>
                                     </div>
                                 </div>
@@ -388,7 +402,7 @@ const Expid = ({ expi, expis }) => {
                                             {t("dura")}
                                         </div>
                                         <div className={expid.itemc}>
-                                            {expi?.duracao} h
+                                            {expi?.data.attributes.duracao} h
                                         </div>
                                     </div>
                                 </div>
@@ -413,7 +427,7 @@ const Expid = ({ expi, expis }) => {
                 </div>
                 <div className={"columns is-desktop " + expid.sec2}>
                     <div className="column">
-                        <Comments post={expi?.id} id="experiencia" />
+                        <Comments post={expi} id="experiencia" />
                     </div>
                     <div className="column">
                         <div className={expid.Descri}>
@@ -446,15 +460,34 @@ const Expid = ({ expi, expis }) => {
 
 export async function getStaticPaths() {
     // Call an external API endpoint to get posts
-    const res = await getExperiencias(100);
+    // const res = await getExperiencias(100);
+    // const json = await res.json();
+    const query = qs.stringify(
+        {
+            populate: "*"
+        },
+        {
+            encodeValuesOnly: true
+        }
+    );
+
+    const url = `${process.env.API_BASE_URL}/experiencias?${query}`;
+
+    const res = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
     const json = await res.json();
 
     // console.log("posts staticpaths");
     // console.log(json);
 
     // Get the paths we want to pre-render based on posts
-    const paths = json.map((expi) => ({
-        params: { id: `${expi.slug}` }
+    const paths = json.data.map((expi) => ({
+        params: { id: `${expi.attributes.slug}` }
     }));
 
     // We'll pre-render only these paths at build time.
@@ -468,10 +501,62 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params, locale }) {
     // console.log("params");
     // console.log(params);
-    const res = await getExperiencia(params.id);
+    // const res = await getExperiencia(params.id);
+
+    const query = qs.stringify(
+        {
+            populate: "*"
+        },
+        {
+            encodeValuesOnly: true
+        }
+    );
+
+    /**
+     * Get experencias by id (on this case by slug)
+     */
+    const url = `${process.env.API_BASE_URL}/experiencias/${params.id}?${query}`;
+    const res = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
     const json = await res.json();
-    const res2 = await getExperiencias(2);
+    // const res2 = await getExperiencias(2);
+    // const json2 = await res2.json();
+
+    /**
+     * Get all experencias
+     */
+    const url2 = `${process.env.API_BASE_URL}/experiencias?${query}`;
+
+    const res2 = await fetch(url2, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
     const json2 = await res2.json();
+
+    /**
+     * Get contactos data to aply to pages
+     */
+    const url3 = `${process.env.API_BASE_URL}/contacto`;
+
+    const res3 = await fetch(url3, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    // console.log("api response post");
+    // console.log(response);
+    const contatoDados = await res3.json();
+
     return {
         props: {
             ...(await serverSideTranslations(locale, [
@@ -480,7 +565,8 @@ export async function getStaticProps({ params, locale }) {
                 "navbar"
             ])),
             expi: json,
-            expis: json2
+            expis: json2,
+            contatoDados
         } // will be passed to the page component as props
     };
 }

@@ -1,22 +1,26 @@
 import Layout from "../../components/layout";
 import pidcss from "../styles/postid.module.scss";
 import Headlogo from "../../components/Headlogo";
-import Link from "next/link";
+// import Link from "next/link";
 import Zebralistras from "../../components/Zebralistras";
-import Like from "../../components/Like";
+// import Like from "../../components/Like";
 import Comments from "../../components/Comments";
 // import { Link, withTranslation } from "../../i18n";
 import { useFetchUser } from "../../lib/user";
 import Head from "next/head";
-import { getPost, getPosts } from "../api/posts";
+// import { getPost, getPosts } from "../api/posts";
 import showdown from "showdown";
 // import { useRouter } from "next/router";
+const qs = require("qs");
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-const Postid = ({ post }) => {
+const Postid = ({ post, contatoDados, posts }) => {
     const { user, loading } = useFetchUser();
+    const { t } = useTranslation("post");
     // const router = useRouter();
     // console.log("post id");
-    // console.log(post.comentarios);
+    // console.log(post);
 
     const createMarkup = () => {
         const converter = new showdown.Converter();
@@ -24,15 +28,20 @@ const Postid = ({ post }) => {
         return { __html: html };
     };
 
-    const postid = post?.id;
+    const postid = post.data.id;
 
     // console.log("query");
     // console.log(router.query);
+    // console.log(post.data.attributes.imageName);
+    // console.log(post?.data.attributes.title);
+    // console.log(post.data.attributes.imagem.data.attributes.url);
 
     return (
         <Layout user={user}>
             <Head>
-                <title>{post?.title} - Zebra Travel Agency</title>
+                <title>
+                    {post?.data.attributes.title} - Zebra Travel Agency
+                </title>
                 <link
                     rel="shortcut icon"
                     type="image/png"
@@ -41,13 +50,15 @@ const Postid = ({ post }) => {
             </Head>
 
             <Zebralistras />
-            <Headlogo marginHead="2%" />
+            <Headlogo marginHead="2%" contatoDados={contatoDados} />
 
             <section className={"container " + pidcss.postdetail}>
                 <div className="columns is-variable is-desktop">
                     <div className="column">
                         <article>
-                            <h1 className="subtitle">{post?.title}</h1>
+                            <h1 className="subtitle">
+                                {post?.data.attributes.title}
+                            </h1>
 
                             <span dangerouslySetInnerHTML={createMarkup()} />
                         </article>
@@ -55,7 +66,7 @@ const Postid = ({ post }) => {
                     <div className={"column " + pidcss.blogImage}>
                         <div className={pidcss.container2}>
                             <img
-                                src={`${process.env.API_BASE_URL}${post?.imagem.url}`}
+                                src={`${post?.data.attributes.imagem.data.attributes.url}`}
                             />
                             <div className={pidcss.topRight}>
                                 <a
@@ -81,7 +92,7 @@ const Postid = ({ post }) => {
                                         <div
                                             className={"column " + pidcss.preco}
                                         >
-                                            {post?.imageName}
+                                            {post.data.attributes.imageName}
                                         </div>
                                         {/* <div
                                             className={
@@ -126,7 +137,7 @@ const Postid = ({ post }) => {
             <section className="container">
                 <div className="columns">
                     <div className="column is-half">
-                        <Comments post={postid} id="post" />
+                        <Comments post={posts} id="post" />
                     </div>
                 </div>
             </section>
@@ -136,16 +147,35 @@ const Postid = ({ post }) => {
 
 export async function getStaticPaths() {
     // Call an external API endpoint to get posts
-    const res = await getPosts();
-    const posts = await res.json();
+    const url = `${process.env.API_BASE_URL}/posts`;
 
+    const response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    // console.log("paths posts response");
+    // console.log(response);
+
+    const dados = await response.json();
     // console.log("posts staticpaths");
     // console.log(posts);
+    // console.log("paths posts dados");
+    // console.log(dados.attributes.slug);
+
+    // return null;
+    // dados.data.map((post) => {
+    //     console.log(post.attributes.slug);
+    // });
 
     // Get the paths we want to pre-render based on posts
-    const paths = posts.map((post) => ({
-        params: { id: `${post.slug}` }
+    const paths = dados.data.map((post) => ({
+        params: { id: `${post.attributes.slug}` }
     }));
+
+    // console.log("paths response");
+    // console.log(paths);
 
     // We'll pre-render only these paths at build time.
     // { fallback: false } means other routes should 404.
@@ -155,11 +185,76 @@ export async function getStaticPaths() {
     };
 }
 
-export async function getStaticProps({ params }) {
-    const res = await getPost(params.id);
-    const json = await res.json();
+export async function getStaticProps({ params, locale }) {
+    // const res = await getPost(params.id);
+    // const json = await res.json();
+
+    // return {
+    //     props: { post: json } // will be passed to the page component as props
+    // };
+
+    // console.log("params");
+    // console.log(params);
+
+    const query = qs.stringify(
+        {
+            populate: "*"
+        },
+        {
+            encodeValuesOnly: true
+        }
+    );
+
+    // get post by id=slug
+    const url = `${process.env.API_BASE_URL}/posts/${params.id}?${query}`;
+
+    const response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    const dadus = await response.json();
+
+    // get data from contactos
+    const url3 = `${process.env.API_BASE_URL}/contacto`;
+    const response3 = await fetch(url3, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    const contatoDados = await response3.json();
+
+    // get all comentarios from posts
+    const url2 = `${process.env.API_BASE_URL}/posts?${query}`;
+    const response2 = await fetch(url2, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    const posts = await response2.json();
+
+    // console.log("params response");
+    // console.log(response);
+    // console.log("params dados");
+    // console.log(dadus);
+
     return {
-        props: { post: json } // will be passed to the page component as props
+        props: {
+            ...(await serverSideTranslations(locale, [
+                "post",
+                "footer",
+                "navbar"
+            ])),
+            post: dadus,
+            contatoDados,
+            posts
+        }
     };
 }
 

@@ -9,7 +9,7 @@ const GaleriaImage = ({ property }) => {
                 <figure className="image">
                     <img
                         className=""
-                        src={`${process.env.API_BASE_URL}${imagem}`}
+                        src={`${imagem}`}
                         style={{
                             height: "77vh",
                             borderRadius: "25px"

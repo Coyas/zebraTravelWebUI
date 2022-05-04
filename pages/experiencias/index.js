@@ -9,22 +9,27 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useFetchUser } from "../../lib/user";
 import Head from "next/head";
-import { getExperiencias } from "../api/expe";
+// import { getExperiencias } from "../api/expe";
 import { useState } from "react";
+const qs = require("qs");
 
-const Experiencia = ({ post }) => {
+const Experiencia = ({ post, contatoDados }) => {
     const { user, loading } = useFetchUser();
     const [display, setDisplay] = useState("none");
     const [next, setNext] = useState(3);
     const { t } = useTranslation("experiencia");
 
+    // console.log("experiencias");
+    // console.log(post.data);
+    // return null;
+
     let expi = [];
-    post.map(
+    post.data.map(
         (value, index) =>
             (expi[index] = (
                 <Experencia
                     key={index}
-                    dados={value}
+                    dados={value.attributes}
                     type={index > 5 ? display : " "}
                 />
             ))
@@ -47,7 +52,7 @@ const Experiencia = ({ post }) => {
             </Head>
             <Zebralistras />
 
-            <Headlogo marginHead=" " />
+            <Headlogo marginHead=" " contatoDados={contatoDados} />
 
             <Divisor title={t("expTu")} voltar="false" sobre={t("exp")} />
 
@@ -103,10 +108,43 @@ const Experiencia = ({ post }) => {
 export async function getStaticProps({ params, locale }) {
     // params contains the post `id`.
     // If the route is like /posts/1, then params.id is 1
-    const res = await getExperiencias(-1); // -1 = todos as experiencias
-    const exp = await res.json();
+    // const res = await getExperiencias(-1); // -1 = todos as experiencias
+    // const exp = await res.json();
     // console.log(res);
     // console.log(exp);
+
+    const query = qs.stringify(
+        {
+            populate: "*"
+        },
+        {
+            encodeValuesOnly: true
+        }
+    );
+
+    const url = `${process.env.API_BASE_URL}/experiencias?${query}`;
+
+    const res = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    const exp = await res.json();
+
+    const url2 = `${process.env.API_BASE_URL}/contacto`;
+
+    const response2 = await fetch(url2, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    // console.log("api response post");
+    // console.log(response);
+    const contatoDados = await response2.json();
 
     // Pass post data to the page via props
     return {
@@ -116,7 +154,8 @@ export async function getStaticProps({ params, locale }) {
                 "footer",
                 "navbar"
             ])),
-            post: exp
+            post: exp,
+            contatoDados
         }
     };
 }

@@ -10,7 +10,10 @@ const ComentData = (props) => {
             <article className="media">
                 <figure className="media-left">
                     <p className="image is-64x64">
-                        <img className="is-rounded" src={`${props.avatar}`} />
+                        <img
+                            className="is-rounded"
+                            src={`${props.avatar ? props.avatar : "/user.png"}`}
+                        />
                     </p>
                 </figure>
                 <div className="media-content">

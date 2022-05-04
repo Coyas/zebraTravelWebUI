@@ -105,7 +105,9 @@ export const getStaticProps = async ({ locale }) => {
             encodeValuesOnly: true
         }
     );
+
     const url = `${process.env.API_BASE_URL}/posts?${query}`;
+
     const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -121,6 +123,7 @@ export const getStaticProps = async ({ locale }) => {
     // console.log("dados links api post fim");
 
     const url2 = `${process.env.API_BASE_URL}/contacto`;
+
     const response2 = await fetch(url2, {
         method: "GET",
         headers: {
