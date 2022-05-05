@@ -5,29 +5,36 @@ import Cookies from "js-cookie";
 
 const Like = (props) => {
     // console.log(props);
+    let likes;
     const [like, setLikes] = useState(false);
 
     const userId = Cookies.get("username");
 
     const op = props.likes;
-    // console.log("op");
-    // console.log(op);
-    let likes;
+    const mil = 1000 * 1000;
     switch (true) {
         case op < 1000: {
             likes = op;
             break;
         }
-        case op > 1000: {
+        case op > 1000 && op < mil: {
             const res = op / 1000;
-            likes = res + "k";
+            likes = res + "K";
+            break;
+        }
+        case op >= mil: {
+            const res = op / mil;
+            likes = res + "M";
+            console.log("likes = res + M");
             break;
         }
     }
 
+    // console.log("state like");
+    // console.log(like);
     const submitLike = async () => {
         if (!like) {
-            // alert("terrasystem");
+            alert("terrasystem");
             const url = `${process.env.API_BASE_URL}/likes`;
             const response = await fetch(url, {
                 method: "POST",
@@ -40,7 +47,11 @@ const Like = (props) => {
                 })
             });
 
+            const data = await response.json();
+
+            // console.log("response from POST likes");
             // console.log(response);
+            // console.log(data);
 
             setLikes(true);
         }

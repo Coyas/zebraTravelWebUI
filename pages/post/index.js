@@ -20,7 +20,7 @@ const Post = ({ posts, contatoDados }) => {
     // let dad = {};
     // if (!isLoading) {
     // console.log("posts response");
-    // console.log(posts);
+    // console.log(posts.data);
 
     // return null;
 

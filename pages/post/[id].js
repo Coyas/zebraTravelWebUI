@@ -1,9 +1,9 @@
 import Layout from "../../components/layout";
 import pidcss from "../styles/postid.module.scss";
 import Headlogo from "../../components/Headlogo";
-// import Link from "next/link";
+import Link from "next/link";
 import Zebralistras from "../../components/Zebralistras";
-// import Like from "../../components/Like";
+import Like from "../../components/Like";
 import Comments from "../../components/Comments";
 // import { Link, withTranslation } from "../../i18n";
 import { useFetchUser } from "../../lib/user";
@@ -20,11 +20,11 @@ const Postid = ({ post, contatoDados, posts }) => {
     const { t } = useTranslation("post");
     // const router = useRouter();
     // console.log("post id");
-    // console.log(post);
+    // console.log(post.data.attributes.conteudo);
 
     const createMarkup = () => {
         const converter = new showdown.Converter();
-        const html = converter.makeHtml(post?.conteudo);
+        const html = converter.makeHtml(post?.data.attributes.conteudo);
         return { __html: html };
     };
 
@@ -83,9 +83,7 @@ const Postid = ({ post, contatoDados, posts }) => {
 
                             <div className={pidcss.content2}>
                                 {/* <div className="sectags">
-                                    <div className="level-right">
-                                        
-                                    </div>
+                                    <div className="level-right"></div>
                                 </div> */}
                                 <div className="content">
                                     <div className="columns">
@@ -94,13 +92,13 @@ const Postid = ({ post, contatoDados, posts }) => {
                                         >
                                             {post.data.attributes.imageName}
                                         </div>
-                                        {/* <div
+                                        <div
                                             className={
                                                 "column control " +
                                                 pidcss.precolocal
                                             }
-                                        > */}
-                                        {/* <div className="field is-grouped is-grouped-multiline">
+                                        >
+                                            <div className="field is-grouped is-grouped-multiline">
                                                 <div className="control">
                                                     <div className="tags has-addons">
                                                         <Link href="ss">
@@ -121,11 +119,11 @@ const Postid = ({ post, contatoDados, posts }) => {
                                                 </div>
                                                 <div className="control">
                                                     <div className="tags has-addons">
-                                                        <Like />
+                                                        <Like likes="2000000" />
                                                     </div>
                                                 </div>
-                                            </div> */}
-                                        {/* </div> */}
+                                            </div>
+                                        </div>
                                     </div>
                                     <div className={pidcss.liinha}></div>
                                 </div>
@@ -137,7 +135,7 @@ const Postid = ({ post, contatoDados, posts }) => {
             <section className="container">
                 <div className="columns">
                     <div className="column is-half">
-                        <Comments post={posts} id="post" />
+                        <Comments post={post} id="post" />
                     </div>
                 </div>
             </section>
@@ -217,6 +215,9 @@ export async function getStaticProps({ params, locale }) {
 
     const dadus = await response.json();
 
+    // console.log("dadus");
+    // console.log(dadus);
+
     // get data from contactos
     const url3 = `${process.env.API_BASE_URL}/contacto`;
     const response3 = await fetch(url3, {
@@ -251,9 +252,9 @@ export async function getStaticProps({ params, locale }) {
                 "footer",
                 "navbar"
             ])),
-            post: dadus,
-            contatoDados,
-            posts
+            post: dadus, // get post by id=slug
+            contatoDados, // contactos
+            posts //all posts data
         }
     };
 }

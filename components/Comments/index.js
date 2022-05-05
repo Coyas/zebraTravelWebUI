@@ -17,8 +17,10 @@ const Comments = ({ post, id }) => {
     // console.log("comment id ss");
     // console.log(post.data.attributes.comentarios.data[0]);
     // console.log(post.data.attributes);
-    // console.log("comment post");
-    // console.log(post);
+    //console.log("comment <post>");
+    //console.log(post);
+    //console.log("comment <id>");
+    // console.log(id);
 
     // ?.data
 
