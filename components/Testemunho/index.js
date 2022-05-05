@@ -1,12 +1,12 @@
 import css from "./index.module.scss";
-import api from "../../lib/api";
+// import api from "../../lib/api";
 // https://bulma.io/images/placeholders/128x128.png
 
-const Testemunho = () => {
-    const { response, error, isLoading } = api("/api/testimunhos");
+const Testemunho = ({ dados }) => {
+    // const { response, error, isLoading } = api("/api/testimunhos");
 
-    //console.log("response");
-    //console.log(response);
+    // console.log("testimunhos");
+    // console.log(dados.data[0]);
 
     // {
     //     !isLoading &&
@@ -19,35 +19,48 @@ const Testemunho = () => {
     //         ));
     // }
 
+    let sem_image = true;
+    dados.data.map((value, index) => {
+        if (value.attributes.image.data == null) {
+            // alert("nao tem dados nao");
+            sem_image = false;
+        }
+    });
+
     return (
         <>
             <div className="columns">
-                {!isLoading &&
-                    response.map((dados) => (
-                        <div className={"column " + css.center} key={dados.id}>
-                            <article className={css.article}>
-                                <figure
-                                    className={
-                                        "image is-128x128 " + css.display
+                {dados.data.map((value, index) => (
+                    <div className={"column " + css.center} key={index}>
+                        <article className={css.article}>
+                            <figure
+                                className={"image is-128x128 " + css.display}
+                            >
+                                <img
+                                    className="is-rounded"
+                                    src={
+                                        sem_image
+                                            ? value.attributes.image.data[0]
+                                                  .attributes.url
+                                            : "/user.png"
                                     }
-                                >
-                                    <img
-                                        className="is-rounded"
-                                        src={`${process.env.API_BASE_URL}${dados.image?.url}`}
-                                    />
-                                </figure>
-                                <p>
-                                    <span className="icon">
-                                        <i className="fas fa-quote-left"></i>
-                                    </span>
-                                </p>
-                                <p className={css.txt}>"{dados.message}”</p>
-                                <p className={css.autor}>
-                                    {dados.nome} - {dados.pais}
-                                </p>
-                            </article>
-                        </div>
-                    ))}
+                                />
+                            </figure>
+                            <p>
+                                <span className="icon">
+                                    <i className="fas fa-quote-left"></i>
+                                </span>
+                            </p>
+                            <p className={css.txt}>
+                                "{value.attributes.message}”
+                            </p>
+                            <p className={css.autor}>
+                                {value.attributes.nome} -{" "}
+                                {value.attributes.pais}
+                            </p>
+                        </article>
+                    </div>
+                ))}
                 {/* <div className={"column " + css.center}>
                     <article className={css.article}>
                         <figure className={"image is-128x128 " + css.display}>
