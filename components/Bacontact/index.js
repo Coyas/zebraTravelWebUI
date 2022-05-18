@@ -1,7 +1,7 @@
 import bcss from "./index.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import api from "../../lib/api";
+// import api from "../../lib/api";
 
 const Bacontact = ({ contatoDados }) => {
     // const { response } = api("/api/contato");
