@@ -5,7 +5,8 @@ import Hr from "../Hr";
 import { useTranslation } from "next-i18next";
 import { unsetToken } from "../../lib/auth";
 import { useUser } from "../../lib/user";
-import api from "../../lib/api";
+import fetcher from "../../lib/fetcher";
+import useSWR from "swr";
 import { useRouter } from "next/router";
 //import { i18n } from "../../next-i18next.config";
 
@@ -34,7 +35,13 @@ const NavBar = () => {
     const [active, Isactive] = useState(false);
     // const [scale, setScale] = useState(0.6);
     const { user, loading } = useUser();
-    const { response, error, isLoading } = api("/api/links");
+    const { data, error } = useSWR(
+        `${process.env.API_BASE_URL}/links-social`,
+        fetcher
+    );
+
+    if (error) return <div>failed to load</div>;
+    if (!data) return <div>loading...</div>;
 
     // console.log("router.query:");
     // console.log(isEmpty(router.query));
@@ -211,13 +218,22 @@ const NavBar = () => {
                     </div>
                     <div className={scss.social}>
                         <div className={scss.caxa}>
-                            <a href={response?.facebook} target="_blank">
+                            <a
+                                href={data.data.attributes.facebook}
+                                target="_blank"
+                            >
                                 <i className="fab fa-facebook-f"></i>
                             </a>
-                            <a href={response?.instagram} target="_blank">
+                            <a
+                                href={data.data.attributes.instagram}
+                                target="_blank"
+                            >
                                 <i className="fab fa-instagram"></i>
                             </a>
-                            <a href={response?.youtube} target="_blank">
+                            <a
+                                href={data.data.attributes.youtube}
+                                target="_blank"
+                            >
                                 <i className="fab fa-youtube"></i>
                             </a>
                         </div>
