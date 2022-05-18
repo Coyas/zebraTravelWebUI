@@ -5,15 +5,27 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "next-i18next";
 import React, { useState } from "react";
-import api from "../../lib/api";
+import fetcher from "../../lib/fetcher";
+import useSWR from "swr";
 import Swal from "sweetalert2";
 
 const Footer = () => {
     const { t } = useTranslation("footer");
     const { register, handleSubmit } = useForm();
     // const [Ok, setOk] = useState(1);..
-    const { response, error, isLoading } = api("/api/links");
+    // const { response, error, isLoading } = fetcher("/api/links");
     const [loading, setLoading] = useState(false);
+
+    const { data, error } = useSWR(
+        `${process.env.API_BASE_URL}/links-social`,
+        fetcher
+    );
+
+    if (error) return <div>failed to load</div>;
+    if (!data) return <div>loading...</div>;
+
+    // console.log("Footer data");
+    // console.log(data);
 
     // pegar o ano atual
     var today = new Date();
@@ -97,7 +109,7 @@ const Footer = () => {
                                 <div className="level-right">
                                     <p className={"level-item " + scss.mrg}>
                                         <a
-                                            href={response?.facebook}
+                                            href={data.data.attributes.facebook}
                                             target="_blank"
                                         >
                                             <span className="icon">
@@ -107,7 +119,9 @@ const Footer = () => {
                                     </p>
                                     <p className={"level-item " + scss.mrg}>
                                         <a
-                                            href={response?.instagram}
+                                            href={
+                                                data.data.attributes.instagram
+                                            }
                                             target="_blank"
                                         >
                                             <span className="icon">
@@ -117,7 +131,7 @@ const Footer = () => {
                                     </p>
                                     <p className={"level-item " + scss.mrg}>
                                         <a
-                                            href={response?.youtube}
+                                            href={data.data.attributes.youtube}
                                             target="_blank"
                                         >
                                             <span className="icon">
@@ -127,7 +141,9 @@ const Footer = () => {
                                     </p>
                                     <p className={"level-item " + scss.mrg}>
                                         <a
-                                            href={response?.tripadvisor}
+                                            href={
+                                                data.data.attributes.tripadvisor
+                                            }
                                             target="_blank"
                                         >
                                             <span className="icon">
@@ -139,7 +155,7 @@ const Footer = () => {
                                     <p className={"level-item " + scss.mrg}>
                                         <a
                                             className={scss.book}
-                                            href={response?.Booking}
+                                            href={data.data.attributes.Booking}
                                             target="_blank"
                                         >
                                             Booking
