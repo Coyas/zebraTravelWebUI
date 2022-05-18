@@ -1,7 +1,7 @@
 import polcss from "./index.module.scss";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
-import api from "../../lib/api";
+// import api from "../../lib/api";
 import React from "next";
 // import { useState } from "react";
 const Postlist = ({ postlists }) => {
