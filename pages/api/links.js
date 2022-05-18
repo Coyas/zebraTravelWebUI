@@ -10,13 +10,9 @@ export default async function links(req, res) {
             }
         });
 
-        // console.log("api response");
-        // console.log(response);
         const dados = await response.json();
-        // console.log("dados links api");
-        // console.log(dados);
 
-        return res.status(200).json(dados);
+        return dados;
     } catch (error) {
         return res.status(error.status || 500).json({
             code: error.code,
