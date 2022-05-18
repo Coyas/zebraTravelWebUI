@@ -118,7 +118,7 @@ const Home = ({ expe, img, contatoDados, testimunhos }) => {
                                     }
                                 >
                                     <img
-                                        src={`${process.env.API_BASE_URL}${value?.attributes.imagens.data[0].attributes.url}`}
+                                        src={`${value?.attributes.imagens.data[0].attributes.url}`}
                                     />
                                     <div className={indexcss.topRight}>
                                         <a
