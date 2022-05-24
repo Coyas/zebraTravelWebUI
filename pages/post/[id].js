@@ -19,7 +19,7 @@ const Postid = ({ post, contatoDados, posts }) => {
     const { user, loading } = useFetchUser();
     const { t } = useTranslation("post");
     // const router = useRouter();
-    // console.log("post id");
+    // console.log("post idb attributes");
     // console.log(post.data.attributes.conteudo);
 
     const createMarkup = () => {
@@ -28,7 +28,7 @@ const Postid = ({ post, contatoDados, posts }) => {
         return { __html: html };
     };
 
-    const postid = post.data.id;
+    const postid = post?.data.id || null;
 
     // console.log("query");
     // console.log(router.query);
@@ -90,7 +90,7 @@ const Postid = ({ post, contatoDados, posts }) => {
                                         <div
                                             className={"column " + pidcss.preco}
                                         >
-                                            {post.data.attributes.imageName}
+                                            {post?.data.attributes.imageName}
                                         </div>
                                         <div
                                             className={

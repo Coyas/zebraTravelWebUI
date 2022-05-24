@@ -55,8 +55,8 @@ const Expid = ({ expi, expis, contatoDados }) => {
     // console.log("expi");
     // console.log(expi.data.attributes.imagens.data[0].attributes.url);
 
-    // console.log("expis");
-    // console.log(expis);
+    console.log("expis");
+    console.log(expis);
 
     // return null;
 
