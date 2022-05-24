@@ -60,8 +60,10 @@ const Postlist = ({ postlists }) => {
                     <div key={index}>
                         <div className={polcss.item + " " + listcss[index]}>
                             <Link
-                                href="/posts/[id]"
-                                as={`/posts/${post.attributes.slug}`}
+                                href={`/post/${encodeURIComponent(
+                                    post.attributes.slug
+                                )}`}
+                                // as={`/posts/${post.attributes.slug}`}
                             >
                                 <a>
                                     <img
