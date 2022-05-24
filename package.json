@@ -4,9 +4,9 @@
     "description": "website da zebraTravel",
     "main": "index.js",
     "scripts": {
-        "dev": "next -p 8332",
+        "dev": "next",
         "build": "next build",
-        "start": "next start -p 8332"
+        "start": "next start"
     },
     "repository": {
         "type": "git",
