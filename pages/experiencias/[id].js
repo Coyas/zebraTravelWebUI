@@ -430,7 +430,7 @@ const Expid = ({ expi, expis, contatoDados }) => {
                         <Comments post={expi} id="experiencia" />
                     </div>
                     <div className="column">
-                        <div className={expid.Descri}>
+                        <div className={expid?.Descri}>
                             <h1 className="">{t("wtexp")}</h1>
                             <Hr height="1" opacidade="1" cor="#000000" />
                             <article dangerouslySetInnerHTML={createMarkup()} />
@@ -482,8 +482,8 @@ export async function getStaticPaths() {
 
     const json = await res.json();
 
-    // console.log("posts staticpaths");
-    // console.log(json);
+    console.log("posts staticpaths");
+    console.log(json);
 
     // Get the paths we want to pre-render based on posts
     const paths = json.data.map((expi) => ({
