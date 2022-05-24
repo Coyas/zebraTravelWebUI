@@ -7,7 +7,7 @@ import indexcss from "./styles/index.module.scss";
 import Bacontact from "../components/Bacontact";
 import Divisor from "../components/Divisor";
 
-const Privacy = () => {
+const Privacy = ({ contatoDados }) => {
     const { t } = useTranslation("common");
     const { user, loading } = useFetchUser();
 
@@ -27,7 +27,7 @@ const Privacy = () => {
                         <figure className={indexcss.fig2}>
                             <img src="/img/ZebraListra.svg" />
                         </figure>
-                        <Bacontact />
+                        <Bacontact contatoDados={contatoDados} />
                         <div className={indexcss.logo}>
                             <figure>
                                 <img src="" />
@@ -65,13 +65,31 @@ const Privacy = () => {
 };
 
 export const getStaticProps = async ({ locale }) => {
+    /**
+     * Get dados para contactos
+     *
+     */
+    const url3 = `${process.env.API_BASE_URL}/contacto`;
+
+    const response2 = await fetch(url3, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    // console.log("api response post");
+    // console.log(response);
+    const contatoDados = await response2.json();
+
     return {
         props: {
             ...(await serverSideTranslations(locale, [
                 "common",
                 "footer",
                 "navbar"
-            ]))
+            ])),
+            contatoDados
         } // will be passed to the page component as props
     };
 };
