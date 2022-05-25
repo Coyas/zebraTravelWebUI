@@ -33,7 +33,7 @@ const BooknowList = ({ dados }) => {
                         <BooknowItem
                             key={index}
                             title={value.attributes.title}
-                            image={`${value.attributes.imagens.data[index].attributes.url}`}
+                            image={`${value.attributes?.imagens.data[index].attributes.url}`}
                             cor={cores[index].cor}
                             cortxt={cores[index].cortxt}
                             slug={value.attributes.slug}

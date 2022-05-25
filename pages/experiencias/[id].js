@@ -60,15 +60,15 @@ const Expid = ({ expi, expis, contatoDados }) => {
 
     // return null;
 
-    const imagem = expi?.data.attributes.imagens.data[0].attributes.url;
+    const imagem = expi?.data.attributes?.imagens.data[0].attributes.url;
     // console.log(expis);
     // console.log(expi?.likes.length);
 
-    const linguas = expi?.data.attributes.linguas?.split(",");
+    const linguas = expi?.data.attributes?.linguas?.split(",");
 
     const createMarkup = () => {
         const converter = new showdown.Converter();
-        const html = converter.makeHtml(expi?.data.attributes.descricao);
+        const html = converter.makeHtml(expi?.data.attributes?.descricao);
         return { __html: html };
     };
 
@@ -147,7 +147,7 @@ const Expid = ({ expi, expis, contatoDados }) => {
         <Layout user={user}>
             <Head>
                 <title>
-                    {expi?.data.attributes.title} - Zebra Travel Agency
+                    {expi?.data.attributes?.title} - Zebra Travel Agency
                 </title>
                 <link
                     rel="shortcut icon"
@@ -163,12 +163,12 @@ const Expid = ({ expi, expis, contatoDados }) => {
             <Divisor title={t("expTu")} voltar="true" sobre={t("exp")} />
 
             <section className={"container " + expid?.expid}>
-                <h1>{expi?.data.attributes.title}</h1>
+                <h1>{expi?.data.attributes?.title}</h1>
                 <p>
                     <span className="icon">
                         <i className="fas fa-map-marker-alt"></i>
                     </span>
-                    {expi?.data.attributes.local}
+                    {expi?.data.attributes?.local}
                 </p>
                 <div className="columns is-desktop">
                     <div className={"column " + expid?.imgbox}>
@@ -182,10 +182,10 @@ const Expid = ({ expi, expis, contatoDados }) => {
                             <div className={expid?.bottomLeft}>
                                 <p>
                                     <Like
-                                        title={expi?.data.attributes.title}
-                                        id={expi?.data.attributes.id}
+                                        title={expi?.data.attributes?.title}
+                                        id={expi?.data.attributes?.id}
                                         likes={
-                                            expi?.data.attributes.likes.length
+                                            expi?.data.attributes?.likes.length
                                         }
                                     />
                                 </p>
@@ -267,7 +267,7 @@ const Expid = ({ expi, expis, contatoDados }) => {
                                         </p>
                                         <p className={expid.preco}>
                                             CVE{" "}
-                                            {expi?.data.attributes.preco_uni}
+                                            {expi?.data.attributes?.preco_uni}
                                         </p>
                                         <p>
                                             <span>({t("advise")})</span>
@@ -372,7 +372,8 @@ const Expid = ({ expi, expis, contatoDados }) => {
                                             {t("distance")}
                                         </div>
                                         <div className={expid.itemc}>
-                                            {expi?.data.attributes.distancia} km
+                                            {expi?.data.attributes?.distancia}{" "}
+                                            km
                                         </div>
                                     </div>
                                 </div>
@@ -387,7 +388,7 @@ const Expid = ({ expi, expis, contatoDados }) => {
                                             {t("elev")}
                                         </div>
                                         <div className={expid.itemc}>
-                                            {expi?.data.attributes.elevacao} m
+                                            {expi?.data.attributes?.elevacao} m
                                         </div>
                                     </div>
                                 </div>
@@ -402,7 +403,7 @@ const Expid = ({ expi, expis, contatoDados }) => {
                                             {t("dura")}
                                         </div>
                                         <div className={expid.itemc}>
-                                            {expi?.data.attributes.duracao} h
+                                            {expi?.data.attributes?.duracao} h
                                         </div>
                                     </div>
                                 </div>

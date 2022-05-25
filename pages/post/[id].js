@@ -24,11 +24,11 @@ const Postid = ({ post, contatoDados, posts }) => {
 
     const createMarkup = () => {
         const converter = new showdown.Converter();
-        const html = converter.makeHtml(post?.data.attributes.conteudo);
+        const html = converter.makeHtml(post?.data.attributes?.conteudo);
         return { __html: html };
     };
 
-    const postid = post?.data.id || null;
+    const postid = post?.data?.id || null;
 
     // console.log("query");
     // console.log(router.query);
@@ -40,7 +40,7 @@ const Postid = ({ post, contatoDados, posts }) => {
         <Layout user={user}>
             <Head>
                 <title>
-                    {post?.data.attributes.title} - Zebra Travel Agency
+                    {post?.data.attributes?.title} - Zebra Travel Agency
                 </title>
                 <link
                     rel="shortcut icon"
@@ -57,7 +57,7 @@ const Postid = ({ post, contatoDados, posts }) => {
                     <div className="column">
                         <article>
                             <h1 className="subtitle">
-                                {post?.data.attributes.title}
+                                {post?.data.attributes?.title}
                             </h1>
 
                             <span dangerouslySetInnerHTML={createMarkup()} />
@@ -66,7 +66,7 @@ const Postid = ({ post, contatoDados, posts }) => {
                     <div className={"column " + pidcss.blogImage}>
                         <div className={pidcss.container2}>
                             <img
-                                src={`${post?.data.attributes.imagem.data.attributes.url}`}
+                                src={`${post?.data.attributes?.imagem.data.attributes?.url}`}
                             />
                             <div className={pidcss.topRight}>
                                 <a
@@ -90,7 +90,7 @@ const Postid = ({ post, contatoDados, posts }) => {
                                         <div
                                             className={"column " + pidcss.preco}
                                         >
-                                            {post?.data.attributes.imageName}
+                                            {post?.data.attributes?.imageName}
                                         </div>
                                         <div
                                             className={
