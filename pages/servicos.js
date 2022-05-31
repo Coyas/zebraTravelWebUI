@@ -28,9 +28,9 @@ const Servicos = ({ servico, servicetext, contatoDados }) => {
 
     servicoarray.map((value, index) => {
         images[index] = {
-            id: index,
-            title: value.attributes.image_pt.data.attributes.hash,
-            url: value.attributes.image_pt.data.attributes.url
+            id: index || null,
+            title: value.attributes.image_pt.data.attributes.hash || null,
+            url: value.attributes.image_pt.data.attributes.url || null
         };
     });
     // console.log("contatoDados");
@@ -41,7 +41,7 @@ const Servicos = ({ servico, servicetext, contatoDados }) => {
     // return null;
     switch (i18n.language) {
         case "pt": {
-            data = response.attributes?.content_pt;
+            data = response.attributes?.content_pt || null;
             // servicoarray.forEach((item) => {
             //     title.push(item.attributes.servico_pt);
             //     images.push(item.attributes.image_pt?.data?.attributes.url);
@@ -56,9 +56,10 @@ const Servicos = ({ servico, servicetext, contatoDados }) => {
             servicoarray.map((value, index) => {
                 title.push(value.attributes.servico_pt);
                 images[index] = {
-                    id: index,
-                    title: value.attributes.image_pt.data.attributes.hash,
-                    url: value.attributes.image_pt.data.attributes.url
+                    id: index || null,
+                    title:
+                        value.attributes.image_pt.data.attributes.hash || null,
+                    url: value.attributes.image_pt.data.attributes.url || null
                 };
             });
             break;
@@ -75,15 +76,16 @@ const Servicos = ({ servico, servicetext, contatoDados }) => {
             servicoarray.map((value, index) => {
                 title.push(value.attributes.servico_en);
                 images[index] = {
-                    id: index,
-                    title: value.attributes.image_en.data.attributes.hash,
-                    url: value.attributes.image_en.data.attributes.url
+                    id: index || null,
+                    title:
+                        value.attributes.image_en.data.attributes.hash || null,
+                    url: value.attributes.image_en.data.attributes.url || null
                 };
             });
             break;
         }
         case "fr": {
-            data = response.attributes?.content_fr;
+            data = response.attributes?.content_fr || null;
             // servicoarray.attributes.forEach((item) => {
             //     title.push(item.attributes.servico_fr);
             //     images.push(item.attributes.image_fr?.data?.attributes.url);
@@ -94,9 +96,10 @@ const Servicos = ({ servico, servicetext, contatoDados }) => {
             servicoarray.map((value, index) => {
                 title.push(value.attributes.servico_fr);
                 images[index] = {
-                    id: index,
-                    title: value.attributes.image_fr.data.attributes.hash,
-                    url: value.attributes.image_fr.data.attributes.url
+                    id: index || null,
+                    title:
+                        value.attributes.image_fr.data.attributes.hash || null,
+                    url: value.attributes.image_fr.data.attributes.url || null
                 };
             });
             break;

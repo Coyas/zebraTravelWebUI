@@ -43,11 +43,11 @@ const Home = ({ expe, img, contatoDados, testimunhos }) => {
 
     let imagens = [];
 
-    img.data.map((value, index) => {
+    img?.data?.map((value, index) => {
         imagens[index] = {
-            id: index,
-            title: value.attributes.titulo,
-            url: value.attributes.images.data[0].attributes.url
+            id: index || null,
+            title: value?.attributes?.titulo || null,
+            url: value.attributes?.images.data[0].attributes?.url || null
         };
     });
 

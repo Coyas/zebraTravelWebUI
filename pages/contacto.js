@@ -20,7 +20,7 @@ const Contacto = ({ contatoDados }) => {
     const Newdata = contatoDados?.data.attributes || null;
 
     // remove todos os espaços contidos no numero
-    const phone = Newdata.phone.replace(/ /g, "");
+    const phone = Newdata.phone.replace(/ /g, "") || null;
 
     return (
         <Layout user={user}>
