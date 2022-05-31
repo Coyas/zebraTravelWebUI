@@ -9,7 +9,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 // import api from "../lib/api";
 
-const Contacto = ({ dados }) => {
+const Contacto = ({ contatoDados }) => {
     const { user, loading } = useFetchUser();
     const { t } = useTranslation("contacto");
     // const { response } = api("/api/contato");
@@ -17,7 +17,7 @@ const Contacto = ({ dados }) => {
     // console.log("dados");
     // console.log(dados);
 
-    const Newdata = dados?.data.attributes;
+    const Newdata = contatoDados?.data.attributes || null;
 
     // remove todos os espaços contidos no numero
     const phone = Newdata.phone.replace(/ /g, "");
@@ -81,7 +81,7 @@ const Contacto = ({ dados }) => {
 
 //     return obj;
 // };
-export async function getServerSideProps({ locale }) {
+export const getStaticProps = async ({ locale }) => {
     const url = `${process.env.API_BASE_URL}/contacto`;
     const response = await fetch(url, {
         method: "GET",
@@ -92,7 +92,7 @@ export async function getServerSideProps({ locale }) {
 
     // console.log("api response");
     // console.log(response);
-    const dados = await response.json();
+    const contatoDados = await response.json();
     // console.log(dados);
 
     return {
@@ -102,9 +102,9 @@ export async function getServerSideProps({ locale }) {
                 "footer",
                 "navbar"
             ])),
-            dados
+            contatoDados
         }
     };
-}
+};
 
 export default Contacto;
