@@ -29,6 +29,7 @@ const Sobreus = ({ contatoDados }) => {
 };
 
 export const getStaticProps = async ({ locale }) => {
+    // export const getServerSideProps = async ({ locale }) => {
     //const obj = { namespacesRequired: ["common", "footer", "navbar"] };
     /*const res = await getExperiencias(2); //limite = 2
     const exp = await res.json();
