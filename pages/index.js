@@ -28,26 +28,13 @@ const Home = ({ expe, img, contatoDados, testimunhos }) => {
     // verificar se ha um user logado
     const { user, loading } = useFetchUser();
 
-    // let imagens = [
-    //     {
-    //         id: 1,
-    //         title: "qsdqsdqsd",
-    //         url: "https://res.cloudinary.com/zebratravel-net/image/upload/v1647952771/medium_Screenshot_2021_06_24_11_08_29_a087e03058.png"
-    //     },
-    //     {
-    //         id: 2,
-    //         title: "qfqsqsdqsd",
-    //         url: "https://res.cloudinary.com/zebratravel-net/image/upload/v1647685373/8118827_ab0d4b52e3.jpg"
-    //     }
-    // ];
-
     let imagens = [];
 
     img?.data?.map((value, index) => {
         imagens[index] = {
-            id: index || null,
-            title: value?.attributes?.titulo || null,
-            url: value.attributes?.images.data[0].attributes?.url || null
+            id: index || 0,
+            title: value?.attributes?.titulo || "null",
+            url: value.attributes?.images.data[0].attributes?.url || "null"
         };
     });
 
@@ -118,7 +105,10 @@ const Home = ({ expe, img, contatoDados, testimunhos }) => {
                                     }
                                 >
                                     <img
-                                        src={`${value?.attributes.imagens.data[0].attributes.url}`}
+                                        src={`${
+                                            value?.attributes?.imagens?.data[0]
+                                                ?.attributes.url || "nourl"
+                                        }`}
                                     />
                                     <div className={indexcss.topRight}>
                                         <a
@@ -150,7 +140,10 @@ const Home = ({ expe, img, contatoDados, testimunhos }) => {
                                         natural pool */}
                                             </div>
                                             <Link
-                                                href={`/experiencias/${value?.attributes.slug}`}
+                                                href={`/experiencias/${
+                                                    value?.attributes?.slug ||
+                                                    "null"
+                                                }`}
                                             >
                                                 <a
                                                     className={
@@ -175,7 +168,12 @@ const Home = ({ expe, img, contatoDados, testimunhos }) => {
                                                     <div className="control">
                                                         <div className="tags has-addons">
                                                             <Link
-                                                                href={`/experiencias/${value?.attributes.slug}`}
+                                                                href={`/experiencias/${
+                                                                    value
+                                                                        ?.attributes
+                                                                        ?.slug ||
+                                                                    "nourl"
+                                                                }`}
                                                             >
                                                                 <a
                                                                     className={
@@ -204,7 +202,8 @@ const Home = ({ expe, img, contatoDados, testimunhos }) => {
                                                                 title={
                                                                     value
                                                                         ?.attributes
-                                                                        .title
+                                                                        ?.title ||
+                                                                    "nourl"
                                                                 }
                                                                 id={value?.id}
                                                                 likes={
@@ -228,10 +227,8 @@ const Home = ({ expe, img, contatoDados, testimunhos }) => {
                                                     }
                                                 >
                                                     CVE{" "}
-                                                    {
-                                                        value?.attributes
-                                                            .preco_uni
-                                                    }
+                                                    {value?.attributes
+                                                        ?.preco_uni || "null"}
                                                 </div>
                                                 <div
                                                     className={
@@ -242,7 +239,8 @@ const Home = ({ expe, img, contatoDados, testimunhos }) => {
                                                     <span className="icon">
                                                         <i className="fas fa-map-marker-alt"></i>
                                                     </span>
-                                                    {value?.attributes.local}
+                                                    {value?.attributes?.local ||
+                                                        "null"}
                                                 </div>
                                             </div>
                                             <div
