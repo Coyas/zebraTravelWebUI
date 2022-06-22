@@ -44,7 +44,7 @@ const NotFound404 = ({ contatoDados }) => {
     );
 };
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
     const url3 = `${process.env.API_BASE_URL}/contacto`;
     const response3 = await fetch(url3, {
         method: "GET",
