@@ -459,47 +459,48 @@ const Expid = ({ expi, expis, contatoDados }) => {
 // };
 // }
 
-export async function getStaticPaths() {
-    // Call an external API endpoint to get posts
-    // const res = await getExperiencias(100);
-    // const json = await res.json();
-    const query = qs.stringify(
-        {
-            populate: "*"
-        },
-        {
-            encodeValuesOnly: true
-        }
-    );
+// export async function getStaticPaths() {
+//     // Call an external API endpoint to get posts
+//     // const res = await getExperiencias(100);
+//     // const json = await res.json();
+//     const query = qs.stringify(
+//         {
+//             populate: "*"
+//         },
+//         {
+//             encodeValuesOnly: true
+//         }
+//     );
 
-    const url = `${process.env.API_BASE_URL}/experiencias?${query}`;
+//     const url = `${process.env.API_BASE_URL}/experiencias?${query}`;
 
-    const res = await fetch(url, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    });
+//     const res = await fetch(url, {
+//         method: "GET",
+//         headers: {
+//             "Content-Type": "application/json"
+//         }
+//     });
 
-    const json = await res.json();
+//     const json = await res.json();
 
-    console.log("posts staticpaths");
-    console.log(json);
+//     console.log("posts staticpaths");
+//     console.log(json);
 
-    // Get the paths we want to pre-render based on posts
-    const paths = json.data.map((expi) => ({
-        params: { id: `${expi.attributes.slug}` }
-    }));
+//     // Get the paths we want to pre-render based on posts
+//     const paths = json.data.map((expi) => ({
+//         params: { id: `${expi.attributes.slug}` }
+//     }));
 
-    // We'll pre-render only these paths at build time.
-    // { fallback: false } means other routes should 404.
-    return {
-        paths /*: [{ params: { id: "1" } }, { params: { id: "2" } }],*/,
-        fallback: false
-    };
-}
+//     // We'll pre-render only these paths at build time.
+//     // { fallback: false } means other routes should 404.
+//     return {
+//         paths /*: [{ params: { id: "1" } }, { params: { id: "2" } }],*/,
+//         fallback: false
+//     };
+// }
 
-export async function getStaticProps({ params, locale }) {
+// export async function getStaticProps({ params, locale }) {
+export async function getServerSideProps({ params, locale }) {
     // console.log("params");
     // console.log(params);
     // const res = await getExperiencia(params.id);

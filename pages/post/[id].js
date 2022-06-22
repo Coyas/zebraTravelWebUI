@@ -143,47 +143,48 @@ const Postid = ({ post, contatoDados, posts }) => {
     );
 };
 
-export async function getStaticPaths() {
-    // Call an external API endpoint to get posts
-    const url = `${process.env.API_BASE_URL}/posts`;
+// export async function getStaticPaths() {
+//     // Call an external API endpoint to get posts
+//     const url = `${process.env.API_BASE_URL}/posts`;
 
-    const response = await fetch(url, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    });
-    // console.log("paths posts response");
-    // console.log(response);
+//     const response = await fetch(url, {
+//         method: "GET",
+//         headers: {
+//             "Content-Type": "application/json"
+//         }
+//     });
+//     // console.log("paths posts response");
+//     // console.log(response);
 
-    const dados = await response.json();
-    // console.log("posts staticpaths");
-    // console.log(posts);
-    // console.log("paths posts dados");
-    // console.log(dados.attributes.slug);
+//     const dados = await response.json();
+//     // console.log("posts staticpaths");
+//     // console.log(posts);
+//     // console.log("paths posts dados");
+//     // console.log(dados.attributes.slug);
 
-    // return null;
-    // dados.data.map((post) => {
-    //     console.log(post.attributes.slug);
-    // });
+//     // return null;
+//     // dados.data.map((post) => {
+//     //     console.log(post.attributes.slug);
+//     // });
 
-    // Get the paths we want to pre-render based on posts
-    const paths = dados.data.map((post) => ({
-        params: { id: `${post.attributes.slug}` }
-    }));
+//     // Get the paths we want to pre-render based on posts
+//     const paths = dados.data.map((post) => ({
+//         params: { id: `${post.attributes.slug}` }
+//     }));
 
-    // console.log("paths response");
-    // console.log(paths);
+//     // console.log("paths response");
+//     // console.log(paths);
 
-    // We'll pre-render only these paths at build time.
-    // { fallback: false } means other routes should 404.
-    return {
-        paths /*: [{ params: { id: "1" } }, { params: { id: "2" } }],*/,
-        fallback: false
-    };
-}
+//     // We'll pre-render only these paths at build time.
+//     // { fallback: false } means other routes should 404.
+//     return {
+//         paths /*: [{ params: { id: "1" } }, { params: { id: "2" } }],*/,
+//         fallback: false
+//     };
+// }
 
-export async function getStaticProps({ params, locale }) {
+// export async function getStaticProps({ params, locale }) {
+export async function getServerSideProps({ params, locale }) {
     // const res = await getPost(params.id);
     // const json = await res.json();
 
