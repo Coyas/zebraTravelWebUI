@@ -38,8 +38,8 @@ const Home = ({ expe, img, contatoDados, testimunhos }) => {
         };
     });
 
-    // console.log("imagens");
-    // console.log(imagens);
+    console.log("imagens");
+    console.log(imagens);
 
     return (
         <Layout user={user}>
