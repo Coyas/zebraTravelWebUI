@@ -105,7 +105,7 @@ const Experiencia = ({ post, contatoDados }) => {
 }*/
 
 // This also gets called at build time
-export async function getStaticProps({ params, locale }) {
+export async function getServerSideProps({ params, locale }) {
     // params contains the post `id`.
     // If the route is like /posts/1, then params.id is 1
     // const res = await getExperiencias(-1); // -1 = todos as experiencias

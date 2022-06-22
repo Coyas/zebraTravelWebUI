@@ -95,7 +95,7 @@ const Post = ({ posts, contatoDados }) => {
     );
 };
 
-export const getStaticProps = async ({ locale }) => {
+export const getServerSideProps = async ({ locale }) => {
     const query = qs.stringify(
         {
             sort: ["createdAt:desc"],

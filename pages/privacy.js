@@ -64,7 +64,7 @@ const Privacy = ({ contatoDados }) => {
     );
 };
 
-export const getStaticProps = async ({ locale }) => {
+export const getServerSideProps = async ({ locale }) => {
     /**
      * Get dados para contactos
      *

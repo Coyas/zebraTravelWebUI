@@ -81,7 +81,7 @@ const Contacto = ({ contatoDados }) => {
 
 //     return obj;
 // };
-export const getStaticProps = async ({ locale }) => {
+export const getServerSideProps = async ({ locale }) => {
     const url = `${process.env.API_BASE_URL}/contacto`;
     const response = await fetch(url, {
         method: "GET",

@@ -221,7 +221,7 @@ const Servicos = ({ servico, servicetext, contatoDados }) => {
 //     };
 // }
 
-export const getStaticProps = async ({ locale }) => {
+export const getServerSideProps = async ({ locale }) => {
     const query = qs.stringify(
         {
             // sort: ["title:asc"],
