@@ -18,12 +18,12 @@ import MyCarousel from "../components/MyCarousel";
 import LinhaV from "../components/LinhaV";
 const qs = require("qs");
 
-const Home = ({ expe, img, contatoDados, testimunhos }) => {
+const Home = ({ expe, img, contatoDados, testimunhos, linkSocial }) => {
     // console.log("dados from expe");
     // console.log(expe.data[0].attributes.imagens.data[0].attributes.url);
     // console.log("dados from img");
     // console.log(img.data[0].attributes.images.data[0].attributes.url);
-    //const islang = i18n.isInitialized;
+    // const islang = i18n.isInitialized;
     const { t } = useTranslation("common");
     // verificar se ha um user logado
     const { user, loading } = useFetchUser();
@@ -38,11 +38,11 @@ const Home = ({ expe, img, contatoDados, testimunhos }) => {
         };
     });
 
-    console.log("imagens");
-    console.log(imagens);
+    // console.log("imagens");
+    // console.log(imagens);
 
     return (
-        <Layout user={user}>
+        <Layout user={user} navbarData={linkSocial} footerData={linkSocial}>
             <Head>
                 <title>Zebra Travel Agency</title>
                 <link
@@ -81,7 +81,7 @@ const Home = ({ expe, img, contatoDados, testimunhos }) => {
                     <div className="column">
                         <MyCarousel slides={imagens} />
                     </div>
-                    <LinhaV />
+                    <LinhaV dados={linkSocial} />
                 </div>
             </div>
             <Divisor
@@ -332,6 +332,7 @@ export const getServerSideProps = async ({ locale }) => {
             encodeValuesOnly: true
         }
     );
+
     const url = `${process.env.API_BASE_URL}/experiencias?${query}`;
     const exp_res = await fetch(url, {
         method: "GET",
@@ -390,17 +391,32 @@ export const getServerSideProps = async ({ locale }) => {
     // console.log(response);
     const test_data = await test_res.json();
 
+    /**
+     * Get dados para link de redes sociais
+     */
+    const urlRsociais = `${process.env.API_BASE_URL}/links-social?${query}`;
+    const rsocial_res = await fetch(urlRsociais, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    // console.log("api response");
+    // console.log(response);
+    const rsocial_data = await rsocial_res.json();
+
     return {
         props: {
             ...(await serverSideTranslations(locale, [
                 "common",
                 "footer",
                 "navbar"
-            ])),
-            expe: exp_data,
-            img: img_data,
-            contatoDados,
-            testimunhos: test_data
+            ])), // permite usar a tradução no site
+            expe: exp_data, // dados de experiencia
+            img: img_data, // dados de imagens
+            contatoDados, // dados do contato
+            testimunhos: test_data, // dados dos tetimunhos
+            linkSocial: rsocial_data //dados sobre os links das redes sociais
         } // will be passed to the page component as props
     };
 };

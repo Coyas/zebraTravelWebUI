@@ -8,8 +8,9 @@ import Zebralistras from "../components/Zebralistras";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 // import api from "../lib/api";
+const qs = require("qs");
 
-const Contacto = ({ contatoDados }) => {
+const Contacto = ({ contatoDados, linkSocial }) => {
     const { user, loading } = useFetchUser();
     const { t } = useTranslation("contacto");
     // const { response } = api("/api/contato");
@@ -23,7 +24,7 @@ const Contacto = ({ contatoDados }) => {
     const phone = Newdata.phone.replace(/ /g, "") || null;
 
     return (
-        <Layout user={user}>
+        <Layout user={user} navbarData={linkSocial} footerData={linkSocial}>
             <Head>
                 <title>Contatos - Zebra Travel Agency</title>
                 <link
@@ -82,6 +83,15 @@ const Contacto = ({ contatoDados }) => {
 //     return obj;
 // };
 export const getServerSideProps = async ({ locale }) => {
+    const query = qs.stringify(
+        {
+            populate: "*"
+        },
+        {
+            encodeValuesOnly: true
+        }
+    );
+
     const url = `${process.env.API_BASE_URL}/contacto`;
     const response = await fetch(url, {
         method: "GET",
@@ -95,6 +105,20 @@ export const getServerSideProps = async ({ locale }) => {
     const contatoDados = await response.json();
     // console.log(dados);
 
+    /**
+     * Get dados para link de redes sociais
+     */
+    const urlRsociais = `${process.env.API_BASE_URL}/links-social?${query}`;
+    const rsocial_res = await fetch(urlRsociais, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    // console.log("api response");
+    // console.log(response);
+    const rsocial_data = await rsocial_res.json();
+
     return {
         props: {
             ...(await serverSideTranslations(locale, [
@@ -102,7 +126,8 @@ export const getServerSideProps = async ({ locale }) => {
                 "footer",
                 "navbar"
             ])),
-            contatoDados
+            contatoDados,
+            linkSocial: rsocial_data //dados sobre os links das redes sociais
         }
     };
 };

@@ -13,7 +13,7 @@ import Head from "next/head";
 import { useState } from "react";
 const qs = require("qs");
 
-const Experiencia = ({ post, contatoDados }) => {
+const Experiencia = ({ post, contatoDados, linkSocial }) => {
     const { user, loading } = useFetchUser();
     const [display, setDisplay] = useState("none");
     const [next, setNext] = useState(3);
@@ -41,7 +41,7 @@ const Experiencia = ({ post, contatoDados }) => {
     };
 
     return (
-        <Layout user={user}>
+        <Layout user={user} navbarData={linkSocial} footerData={linkSocial}>
             <Head>
                 <title>{t("expe")} - Zebra Travel Agency</title>
                 <link
@@ -146,6 +146,20 @@ export async function getServerSideProps({ params, locale }) {
     // console.log(response);
     const contatoDados = await response2.json();
 
+    /**
+     * Get dados para link de redes sociais
+     */
+    const urlRsociais = `${process.env.API_BASE_URL}/links-social?${query}`;
+    const rsocial_res = await fetch(urlRsociais, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    // console.log("api response");
+    // console.log(response);
+    const rsocial_data = await rsocial_res.json();
+
     // Pass post data to the page via props
     return {
         props: {
@@ -155,7 +169,8 @@ export async function getServerSideProps({ params, locale }) {
                 "navbar"
             ])),
             post: exp,
-            contatoDados
+            contatoDados,
+            linkSocial: rsocial_data //dados sobre os links das redes sociais
         }
     };
 }

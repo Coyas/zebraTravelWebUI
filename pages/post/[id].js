@@ -15,7 +15,7 @@ const qs = require("qs");
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-const Postid = ({ post, contatoDados, posts }) => {
+const Postid = ({ post, contatoDados, posts, linkSocial }) => {
     const { user, loading } = useFetchUser();
     const { t } = useTranslation("post");
     // const router = useRouter();
@@ -37,7 +37,7 @@ const Postid = ({ post, contatoDados, posts }) => {
     // console.log(post.data.attributes.imagem.data.attributes.url);
 
     return (
-        <Layout user={user}>
+        <Layout user={user} navbarData={linkSocial} footerData={linkSocial}>
             <Head>
                 <title>
                     {post?.data.attributes?.title} - Zebra Travel Agency
@@ -246,6 +246,20 @@ export async function getServerSideProps({ params, locale }) {
     // console.log("params dados");
     // console.log(dadus);
 
+    /**
+     * Get dados para link de redes sociais
+     */
+    const urlRsociais = `${process.env.API_BASE_URL}/links-social?${query}`;
+    const rsocial_res = await fetch(urlRsociais, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    // console.log("api response");
+    // console.log(response);
+    const rsocial_data = await rsocial_res.json();
+
     return {
         props: {
             ...(await serverSideTranslations(locale, [
@@ -255,7 +269,8 @@ export async function getServerSideProps({ params, locale }) {
             ])),
             post: dadus, // get post by id=slug
             contatoDados, // contactos
-            posts //all posts data
+            posts, //all posts data
+            linkSocial: rsocial_data //dados sobre os links das redes sociais
         }
     };
 }

@@ -12,7 +12,7 @@ import Head from "next/head";
 // import api from "../../lib/api";
 const qs = require("qs");
 
-const Post = ({ posts, contatoDados }) => {
+const Post = ({ posts, contatoDados, linkSocial }) => {
     const { user, loading } = useFetchUser();
     // const { response, error, isLoading } = api("/api/postis");
     const { t } = useTranslation("post");
@@ -39,7 +39,7 @@ const Post = ({ posts, contatoDados }) => {
     // }
 
     return (
-        <Layout user={user}>
+        <Layout user={user} navbarData={linkSocial} footerData={linkSocial}>
             <Head>
                 <title>Blog - Zebra Travel Agency</title>
                 <link
@@ -135,6 +135,20 @@ export const getServerSideProps = async ({ locale }) => {
     // console.log(response);
     const contatoDados = await response2.json();
 
+    /**
+     * Get dados para link de redes sociais
+     */
+    const urlRsociais = `${process.env.API_BASE_URL}/links-social?${query}`;
+    const rsocial_res = await fetch(urlRsociais, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    // console.log("api response");
+    // console.log(response);
+    const rsocial_data = await rsocial_res.json();
+
     return {
         props: {
             ...(await serverSideTranslations(locale, [
@@ -143,7 +157,8 @@ export const getServerSideProps = async ({ locale }) => {
                 "navbar"
             ])),
             posts,
-            contatoDados
+            contatoDados,
+            linkSocial: rsocial_data //dados sobre os links das redes sociais
         } // will be passed to the page component as props
     };
 };

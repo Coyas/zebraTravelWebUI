@@ -11,7 +11,7 @@ import { useTranslation } from "next-i18next";
 import MyCarousel from "../components/MyCarousel";
 const qs = require("qs");
 
-const Servicos = ({ servico, servicetext, contatoDados }) => {
+const Servicos = ({ servico, servicetext, contatoDados, linkSocial }) => {
     const servicoarray = servico.data; // make the services dada json
     //dados2.data.attributes.imagem.data.attributes.url
     const response = servicetext.data; // make the servicetext data json
@@ -119,7 +119,7 @@ const Servicos = ({ servico, servicetext, contatoDados }) => {
 
     return (
         <>
-            <Layout user={user}>
+            <Layout user={user} navbarData={linkSocial} footerData={linkSocial}>
                 <Head>
                     <title>Serviços - Zebra Travel Agency</title>
                     <link
@@ -285,6 +285,20 @@ export const getServerSideProps = async ({ locale }) => {
     // console.log("contadoDados");
     // console.log(contatoDados);
 
+    /**
+     * Get dados para link de redes sociais
+     */
+    const urlRsociais = `${process.env.API_BASE_URL}/links-social?${query}`;
+    const rsocial_res = await fetch(urlRsociais, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    // console.log("api response");
+    // console.log(response);
+    const rsocial_data = await rsocial_res.json();
+
     return {
         props: {
             ...(await serverSideTranslations(locale, [
@@ -294,7 +308,8 @@ export const getServerSideProps = async ({ locale }) => {
             ])),
             servico,
             servicetext,
-            contatoDados
+            contatoDados,
+            linkSocial: rsocial_data
         } // will be passed to the page component as props
     };
 };

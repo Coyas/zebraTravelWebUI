@@ -38,7 +38,7 @@ const customStyles = {
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement("#__next");
 
-const Expid = ({ expi, expis, contatoDados }) => {
+const Expid = ({ expi, expis, contatoDados, linkSocial }) => {
     const { register, handleSubmit } = useForm(); // formulario handler
     const [obj, setDados] = useState({
         calc: false, // foi calculado o valor total?
@@ -144,7 +144,7 @@ const Expid = ({ expi, expis, contatoDados }) => {
     };
 
     return (
-        <Layout user={user}>
+        <Layout user={user} navbarData={linkSocial} footerData={linkSocial}>
             <Head>
                 <title>
                     {expi?.data.attributes?.title} - Zebra Travel Agency
@@ -559,6 +559,20 @@ export async function getServerSideProps({ params, locale }) {
     // console.log(response);
     const contatoDados = await res3.json();
 
+    /**
+     * Get dados para link de redes sociais
+     */
+    const urlRsociais = `${process.env.API_BASE_URL}/links-social?${query}`;
+    const rsocial_res = await fetch(urlRsociais, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    // console.log("api response");
+    // console.log(response);
+    const rsocial_data = await rsocial_res.json();
+
     return {
         props: {
             ...(await serverSideTranslations(locale, [
@@ -568,7 +582,8 @@ export async function getServerSideProps({ params, locale }) {
             ])),
             expi: json,
             expis: json2,
-            contatoDados
+            contatoDados,
+            linkSocial: rsocial_data //dados sobre os links das redes sociais
         } // will be passed to the page component as props
     };
 }
