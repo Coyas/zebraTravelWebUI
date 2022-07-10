@@ -372,7 +372,8 @@ const Expid = ({ expi, expis, contatoDados, linkSocial }) => {
                                             {t("distance")}
                                         </div>
                                         <div className={expid.itemc}>
-                                            {expi?.data.attributes?.distancia}{" "}
+                                            {expi?.data?.attributes
+                                                ?.distancia || " "}{" "}
                                             km
                                         </div>
                                     </div>
