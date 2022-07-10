@@ -4,19 +4,25 @@ import Footer from "../components/Footer";
 import Meta from "../components/Meta";
 import { UserProvider } from "../lib/user";
 
-const Layout = ({ children, user, loading = false }) => (
+const Layout = ({
+    children,
+    user,
+    loading = false,
+    navbarData,
+    footerData
+}) => (
     <UserProvider value={{ user, loading }}>
         <Head>
             <Meta />
         </Head>
 
         <header>
-            <NavBar />
+            <NavBar dados={navbarData} />
         </header>
 
         {children}
 
-        <Footer />
+        <Footer dados={footerData} />
     </UserProvider>
 );
 
