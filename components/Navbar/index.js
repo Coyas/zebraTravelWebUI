@@ -5,8 +5,8 @@ import Hr from "../Hr";
 import { useTranslation } from "next-i18next";
 import { unsetToken } from "../../lib/auth";
 import { useUser } from "../../lib/user";
-import fetcher from "../../lib/fetcher";
-import useSWR from "swr";
+//import fetcher from "../../lib/fetcher";
+//import useSWR from "swr";
 import { useRouter } from "next/router";
 //import { i18n } from "../../next-i18next.config";
 
@@ -28,23 +28,17 @@ let isEmpty = (val) => {
     }
 };
 
-const NavBar = () => {
+const NavBar = ({ dados }) => {
     const { t, i18n } = useTranslation("navbar");
     let router = useRouter();
     const [open, Isopen] = useState(false);
     const [active, Isactive] = useState(false);
     // const [scale, setScale] = useState(0.6);
     const { user, loading } = useUser();
-    const { data, error } = useSWR(
-        `${process.env.API_BASE_URL}/links-social`,
-        fetcher
-    );
-
-    if (error) return <div>failed to load</div>;
-    if (!data) return <div>loading...</div>;
 
     // console.log("router.query:");
     // console.log(isEmpty(router.query));
+
     let url;
     let uri;
     let redi = null;
@@ -219,19 +213,19 @@ const NavBar = () => {
                     <div className={scss.social}>
                         <div className={scss.caxa}>
                             <a
-                                href={data.data.attributes.facebook}
+                                href={dados.data?.attributes.facebook}
                                 target="_blank"
                             >
                                 <i className="fab fa-facebook-f"></i>
                             </a>
                             <a
-                                href={data.data.attributes.instagram}
+                                href={dados.data?.attributes.instagram}
                                 target="_blank"
                             >
                                 <i className="fab fa-instagram"></i>
                             </a>
                             <a
-                                href={data.data.attributes.youtube}
+                                href={dados.data?.attributes.youtube}
                                 target="_blank"
                             >
                                 <i className="fab fa-youtube"></i>
