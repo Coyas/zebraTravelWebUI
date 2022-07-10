@@ -21,7 +21,7 @@ const Testemunho = ({ dados }) => {
 
     let sem_image = true;
     dados.data.map((value, index) => {
-        if (value.attributes.image.data == null) {
+        if (value.attributes?.image.data == null) {
             // alert("nao tem dados nao");
             sem_image = false;
         }
@@ -40,8 +40,8 @@ const Testemunho = ({ dados }) => {
                                     className="is-rounded"
                                     src={
                                         sem_image
-                                            ? value.attributes.image.data[0]
-                                                  .attributes.url
+                                            ? value.attributes?.image.data[0]
+                                                  .attributes?.url
                                             : "/user.png"
                                     }
                                 />
@@ -52,11 +52,11 @@ const Testemunho = ({ dados }) => {
                                 </span>
                             </p>
                             <p className={css.txt}>
-                                "{value.attributes.message}”
+                                "{value?.attributes?.message}”
                             </p>
                             <p className={css.autor}>
-                                {value.attributes.nome} -{" "}
-                                {value.attributes.pais}
+                                {value?.attributes?.nome} -{" "}
+                                {value?.attributes?.pais}
                             </p>
                         </article>
                     </div>
