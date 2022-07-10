@@ -265,7 +265,7 @@ const Home = ({ expe, img, contatoDados, testimunhos, linkSocial }) => {
                 <div className="columns">
                     <div className="column">
                         <div className={"box " + indexcss.boxMargin}>
-                            <Testemunhas dados={testimunhos} />
+                            {/* <Testemunhas dados={testimunhos} /> */}
                         </div>
                     </div>
                 </div>
