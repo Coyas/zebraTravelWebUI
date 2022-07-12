@@ -3,7 +3,6 @@ import Layout from "../../components/layout";
 import Zebralistras from "../../components/Zebralistras";
 import Headlogo from "../../components/Headlogo";
 import Divisor from "../../components/Divisor";
-// import Link from "next/link";
 import Like from "../../components/Like";
 import Hr from "../../components/Hr";
 import Comments from "../../components/Comments";
@@ -11,10 +10,8 @@ import BooknowList from "../../components/BooknowList";
 import Modal from "react-modal";
 import { useState } from "react";
 import Galeria from "../../components/Galeria";
-//import { Link, withTranslation } from "../../i18n";
 import { useFetchUser } from "../../lib/user";
 import Head from "next/head";
-// import { getExperiencia, getExperiencias } from "../api/expe";
 import showdown from "showdown";
 import { useForm } from "react-hook-form";
 import Emoji from "a11y-react-emoji";
@@ -52,15 +49,17 @@ const Expid = ({ expi, expis, contatoDados, linkSocial }) => {
 
     const { t } = useTranslation("experiencia");
 
-    // console.log("expi");
+    console.log("expi");
     // console.log(expi.data.attributes.imagens.data[0].attributes.url);
 
+    console.log(expi);
     console.log("expis");
     console.log(expis);
+    console.log(expis.data[0].attributes);
 
     // return null;
 
-    const imagem = expi?.data.attributes?.imagens.data[0].attributes.url;
+    const imagem = expi?.data?.attributes?.imagens.data[0].attributes.url;
     // console.log(expis);
     // console.log(expi?.likes.length);
 
@@ -448,59 +447,7 @@ const Expid = ({ expi, expis, contatoDados, linkSocial }) => {
         </Layout>
     );
 };
-// export async function getServerSideProps({ params }) {
-//     // console.log("params");
-//     // console.log(params);
-// const res = await getExperiencia(params.id);
-// const json = await res.json();
-// const res2 = await getExperiencias(2);
-// const json2 = await res2.json();
-// return {
-//     props: { expi: json, expis: json2 } // will be passed to the page component as props
-// };
-// }
 
-// export async function getStaticPaths() {
-//     // Call an external API endpoint to get posts
-//     // const res = await getExperiencias(100);
-//     // const json = await res.json();
-//     const query = qs.stringify(
-//         {
-//             populate: "*"
-//         },
-//         {
-//             encodeValuesOnly: true
-//         }
-//     );
-
-//     const url = `${process.env.API_BASE_URL}/experiencias?${query}`;
-
-//     const res = await fetch(url, {
-//         method: "GET",
-//         headers: {
-//             "Content-Type": "application/json"
-//         }
-//     });
-
-//     const json = await res.json();
-
-//     console.log("posts staticpaths");
-//     console.log(json);
-
-//     // Get the paths we want to pre-render based on posts
-//     const paths = json.data.map((expi) => ({
-//         params: { id: `${expi.attributes.slug}` }
-//     }));
-
-//     // We'll pre-render only these paths at build time.
-//     // { fallback: false } means other routes should 404.
-//     return {
-//         paths /*: [{ params: { id: "1" } }, { params: { id: "2" } }],*/,
-//         fallback: false
-//     };
-// }
-
-// export async function getStaticProps({ params, locale }) {
 export async function getServerSideProps({ params, locale }) {
     // console.log("params");
     // console.log(params);
@@ -527,8 +474,6 @@ export async function getServerSideProps({ params, locale }) {
     });
 
     const json = await res.json();
-    // const res2 = await getExperiencias(2);
-    // const json2 = await res2.json();
 
     /**
      * Get all experencias
